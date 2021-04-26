@@ -1,5 +1,5 @@
 import Icon from './';
-import { css } from '@emotion/css';
+import { css } from '@emotion/react';
 
 export default {
   component: Icon,
@@ -28,11 +28,12 @@ const iconTypes = [
   'arrowUp',
   'arrowDown',
   'circleArrowUp',
+  'lock',
 ];
 
 export const listOfIcons = () => {
   return (
-    <ul className={iconListStyle}>
+    <ul css={iconListStyle}>
       {iconTypes.map(icon => (
         <li key={icon}>
           <Icon name={icon} size={20} />

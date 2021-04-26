@@ -3,6 +3,7 @@ import { BiSearch, BiHomeAlt, BiMenu } from 'react-icons/bi';
 import { VscTrash, VscClose } from 'react-icons/vsc';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BsPencil } from 'react-icons/bs';
+import { AiOutlineLock } from 'react-icons/ai';
 import {
   IoChatbubblesOutline,
   IoBasketOutline,
@@ -36,6 +37,7 @@ const icon: Icon = {
   arrowUp: IoIosArrowUp,
   arrowDown: IoIosArrowDown,
   circleArrowUp: IoArrowUpCircleSharp,
+  lock: AiOutlineLock,
 };
 
 export default icon;

@@ -1,5 +1,5 @@
 import IconButton from './';
-import { css } from '@emotion/css';
+import { css } from '@emotion/react';
 
 export default {
   component: IconButton,
@@ -34,11 +34,12 @@ const iconButtonTypes = [
   'arrowUp',
   'arrowDown',
   'circleArrowUp',
+  'lock',
 ];
 
 export const listOfIconButtons = () => {
   return (
-    <ul className={iconButtonListStyle}>
+    <ul css={iconButtonListStyle}>
       {iconButtonTypes.map(icon => (
         <li key={icon}>
           <IconButton name={icon} size={20} fgColor="red" />

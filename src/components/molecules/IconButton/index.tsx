@@ -23,7 +23,11 @@ const IconButton = ({
 };
 
 const buttonStyle = (fgColor: string, bgColor: string) => css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
+  border-radius: 5px;
   background: ${bgColor};
   color: ${fgColor};
   padding: 0;
