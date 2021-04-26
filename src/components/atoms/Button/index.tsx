@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { colors } from 'theme';
+import { colors } from '../../../theme/index';
 
 export type ButtonProps = {
   children: React.ReactNode;
