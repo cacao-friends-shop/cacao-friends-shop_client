@@ -42,7 +42,6 @@ export const listOfIconButtons = () => {
       {iconButtonTypes.map(icon => (
         <li key={icon}>
           <IconButton name={icon} size={20} fgColor="red" />
-
           {icon}
         </li>
       ))}
