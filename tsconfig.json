@@ -21,6 +21,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
+    "downlevelIteration": true
   },
   "include": [
     "src"
