@@ -1,14 +1,15 @@
-import React from 'react';
-import { Global } from '@emotion/react';
-import GlobalStyles from 'styles/GlobalStyles';
-import IconButton from 'components/molecules/IconButton';
+import React from "react";
+import { Global } from "@emotion/react";
+import GlobalStyles from "styles/GlobalStyles";
+import Input from "components/atoms/Input";
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <IconButton name="search" />
-      <div className="App"></div>
+      <div className="App">
+        <Input type="text" title="fname" label="First Name" />
+      </div>
     </>
   );
 }
