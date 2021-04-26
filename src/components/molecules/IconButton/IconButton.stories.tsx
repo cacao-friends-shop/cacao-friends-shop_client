@@ -34,6 +34,7 @@ const iconButtonTypes = [
   'arrowUp',
   'arrowDown',
   'circleArrowUp',
+  'kakaoTalk',
 ];
 
 export const listOfIconButtons = () => {

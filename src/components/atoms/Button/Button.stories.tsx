@@ -1,31 +1,42 @@
-// import React from 'react';
 import Button from './index';
-import { css } from '@emotion/css';
+import { css } from '@emotion/react';
+import { colors } from 'theme';
 
 export default {
   component: Button,
   title: 'components/Button',
 };
 
-export const buyNow = () => <Button>바로구매</Button>;
+// 바로가기 버튼
+export const buyNow = () => <Button css={styleBuyNow}>바로구매</Button>;
 
-export const login = () => <Button>로그인</Button>;
+const styleBuyNow = css`
+  color: ${colors.white};
+  font-weight: bold;
+  font-size: 1.8rem;
+`;
 
+// 로그인 버튼
+export const login = () => (
+  <Button css={styledLogin} bgColor={colors.yellow}>
+    로그인
+  </Button>
+);
+
+const styledLogin = css`
+  width: 30%;
+  font-size: 1.5rem;
+  border-radius: 4px;
+`;
+
+// 버튼 그룹
 export const listOfButton = () => {
   return (
-    <ul className={buttonListStyle}>
-      <li>
-        <Button>바로구매</Button>
-      </li>
-      <li>
-        <Button>로그인</Button>
-      </li>
+    <ul css={buttonListStyle}>
+      <li>{buyNow()}</li>
+      <li>{login()}</li>
     </ul>
   );
 };
 
-const buttonListStyle = css`
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-`;
+const buttonListStyle = css``;

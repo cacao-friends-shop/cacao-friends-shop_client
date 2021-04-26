@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <Button bgcolor={colors.yellow}>바로가기</Button>
+      <Button bgColor={colors.yellow}>바로가기</Button>
       <div className="App"></div>
 
       <div className="App"></div>
