@@ -7,8 +7,9 @@ function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
+
       <div className="App">
-        <Input type="text" title="fname" label="First Name" />
+
       </div>
     </>
   );
