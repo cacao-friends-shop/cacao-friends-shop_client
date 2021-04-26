@@ -4,12 +4,12 @@ export interface InputProps {
   type: string;
   title: string;
   label: string;
+  className: string;
 }
 
-const Input = ({ type, title, label, ...restProps }: InputProps) => {
-  console.log(type, title, label)
+const Input = ({ type, title, label, className, ...restProps }: InputProps) => {
   return (
-    <div css={subtitleStyle}>
+    <div css={subtitleStyle} className={className}>
       <label htmlFor={title}>{label}</label>
       <input type={type} id={title} name={title} {...restProps} />
     </div>

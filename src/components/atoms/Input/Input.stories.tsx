@@ -1,12 +1,12 @@
 import Input, { InputProps } from "./index";
 import { Story, Meta } from "@storybook/react";
+import { css } from "@emotion/react";
 
 export default {
   title: "Input",
   component: Input,
   //👇 Creates specific argTypes
-  argTypes: {
-  },
+  argTypes: {},
   args: {},
 } as Meta;
 
@@ -17,4 +17,5 @@ TextInput.args = {
   type: "text",
   title: "fname",
   label: "fname",
+  className: "hello",
 };

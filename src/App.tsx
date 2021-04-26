@@ -1,16 +1,12 @@
 import React from "react";
 import { Global } from "@emotion/react";
 import GlobalStyles from "styles/GlobalStyles";
-import Input from "components/atoms/Input";
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-
-      <div className="App">
-
-      </div>
+      <div className="App"></div>
     </>
   );
 }
