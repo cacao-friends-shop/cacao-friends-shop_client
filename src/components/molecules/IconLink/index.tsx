@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 
 type IconLinkProps = {
+  /** 아이콘 이름 */
   iconName: string;
+  /** 아이콘 크기 */
   iconSize: number;
+  /** 경로 */
   to: string;
   children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;

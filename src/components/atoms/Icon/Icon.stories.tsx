@@ -31,6 +31,7 @@ const iconTypes = [
   'lock',
 ];
 
+// 아이콘 그룹
 export const listOfIcons = () => {
   return (
     <ul css={iconListStyle}>
@@ -46,7 +47,6 @@ export const listOfIcons = () => {
 };
 
 const iconListStyle = css`
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
   li {

@@ -37,6 +37,7 @@ const iconButtonTypes = [
   'lock',
 ];
 
+// 아이콘버튼 그룹
 export const listOfIconButtons = () => {
   return (
     <ul css={iconButtonListStyle}>
@@ -51,7 +52,6 @@ export const listOfIconButtons = () => {
 };
 
 const iconButtonListStyle = css`
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
 
