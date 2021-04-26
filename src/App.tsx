@@ -10,12 +10,10 @@ function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <IconButton name="search" />
       <Button bgcolor={colors.yellow}>바로가기</Button>
       <div className="App"></div>
-      <div className="App">
-        <Input type="text" title="fname" label="First Name" />
-      </div>
+
+      <div className="App"></div>
     </>
   );
 }

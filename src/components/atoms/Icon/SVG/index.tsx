@@ -1,5 +1,20 @@
 import { IconType } from 'react-icons/lib';
-import { BiSearch } from 'react-icons/bi';
+import { BiSearch, BiHomeAlt, BiMenu } from 'react-icons/bi';
+import { VscTrash, VscClose } from 'react-icons/vsc';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { BsPencil } from 'react-icons/bs';
+import {
+  IoChatbubblesOutline,
+  IoBasketOutline,
+  IoArrowUpCircleSharp,
+} from 'react-icons/io5';
+
+import {
+  IoIosArrowBack,
+  IoIosArrowDown,
+  IoIosArrowForward,
+  IoIosArrowUp,
+} from 'react-icons/io';
 
 type Icon = {
   [key: string]: IconType;
@@ -7,6 +22,20 @@ type Icon = {
 
 const icon: Icon = {
   search: BiSearch,
+  trash: VscTrash,
+  close: VscClose,
+  fillHeart: AiFillHeart,
+  outlineHeart: AiOutlineHeart,
+  bubble: IoChatbubblesOutline,
+  home: BiHomeAlt,
+  basket: IoBasketOutline,
+  pencil: BsPencil,
+  menu: BiMenu,
+  arrowLeft: IoIosArrowBack,
+  arrowRight: IoIosArrowForward,
+  arrowUp: IoIosArrowUp,
+  arrowDown: IoIosArrowDown,
+  circleArrowUp: IoArrowUpCircleSharp,
 };
 
 export default icon;
