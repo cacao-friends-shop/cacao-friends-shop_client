@@ -23,6 +23,7 @@ const IconButton = ({
 };
 
 const buttonStyle = (fgColor: string, bgColor: string) => css`
+  border: none;
   background: ${bgColor};
   color: ${fgColor};
   padding: 0;
