@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import { colors } from 'theme';
+import { css } from "@emotion/react";
+import { colors } from "theme";
 
 const GlobalStyles = css`
   html {
@@ -17,7 +17,7 @@ const GlobalStyles = css`
   }
 
   body {
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    font-family: "Spoqa Han Sans Neo", "sans-serif";
     font-size: 1.6rem;
     font-weight: 400;
     background-color: #fff;
@@ -34,8 +34,15 @@ const GlobalStyles = css`
     padding: 0;
   }
 
+  // TODO: 수정하기
+  &:focus-visible {
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 0 0 4px #4ec5f1;
+  }
+
   button {
-    cursor: pointer;
+    cursor: pointer; 
     border: none;
   }
 

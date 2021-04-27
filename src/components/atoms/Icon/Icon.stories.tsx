@@ -28,7 +28,10 @@ const iconTypes = [
   'arrowUp',
   'arrowDown',
   'circleArrowUp',
+
   'lock',
+
+  'kakaoTalk',
 ];
 
 // 아이콘 그룹

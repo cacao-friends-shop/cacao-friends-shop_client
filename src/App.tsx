@@ -1,14 +1,13 @@
 import React from 'react';
 import { Global } from '@emotion/react';
 import GlobalStyles from 'styles/GlobalStyles';
-import Title from 'components/atoms/Title';
+import Profile from 'components/molecules/Profile';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <Title headingNumber={2}>안녕하세요</Title>
-      <Title headingNumber={1}>안녕하세요</Title>
+      <Profile time="" imagePath="" alt="" title="" desc="" />
       <div className="App"></div>
     </>
   );
