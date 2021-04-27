@@ -34,11 +34,8 @@ const iconButtonTypes = [
   'arrowUp',
   'arrowDown',
   'circleArrowUp',
-
   'lock',
-
   'kakaoTalk',
-
 ];
 
 // 아이콘버튼 그룹

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-export interface InputProps {
+export type InputProps = {
   /** Input 타입 */
   type: string
   /** Input id, name */
