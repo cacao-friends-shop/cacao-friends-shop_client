@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import Avatar from 'components/atoms/Avatar';
-import TimeStemp from 'components/TimeStemp';
+import TimeStemp from 'components/atoms/TimeStemp';
 import React from 'react';
 
 type ProfileProps = {
