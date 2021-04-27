@@ -1,13 +1,15 @@
 import React from 'react';
 import { Global } from '@emotion/react';
 import GlobalStyles from 'styles/GlobalStyles';
-import PostCard from 'components/organisms/PostCard';
+import SideBar from 'components/organisms/SideBar';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <PostCard />
+      <div className="App">
+        <SideBar />
+      </div>
     </>
   );
 }
