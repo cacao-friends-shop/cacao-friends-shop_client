@@ -9,7 +9,7 @@ const styles = css`
 export default {
   title: 'components/Input',
   component: Input,
-} as Meta;
+};
 
 const Template: Story<InputProps> = args => <Input {...args} />;
 

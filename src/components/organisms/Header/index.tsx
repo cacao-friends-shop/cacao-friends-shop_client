@@ -8,7 +8,7 @@ export type HeaderProps = {};
 const Header = (props: HeaderProps) => {
   return (
     <header css={headerStyle}>
-      <section>
+      <section css={headerContainerStyle}>
         <IconButton name="menu" size={32} />
         <div css={headerLogoStyle}>
           <Link to="/"></Link>
@@ -32,13 +32,12 @@ const headerStyle = css`
   position: sticky;
   top: 0;
   margin: 0 auto;
-  section {
-    display: flex;
-    justify-content: space-between;
-    margin: 0.8rem 1.3rem 0.7rem;
-  }
 `;
-
+const headerContainerStyle = css`
+  display: flex;
+  justify-content: space-between;
+  margin: 0.8rem 1.3rem 0.7rem;
+`;
 const headerLogoStyle = css`
   width: 147px;
   height: 24px;

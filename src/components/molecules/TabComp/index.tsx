@@ -3,9 +3,13 @@ import { css } from '@emotion/react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
 export type TabProps = {
+  /** 오늘 탭 내용 */
   todayTab: any;
+  /** 신규 탭 내용 */
   newTab: any;
+  /** 인기 탭 내용 */
   popularTab: any;
+  /** 마이 탭 내용 */
   myTab: any;
 };
 
@@ -13,38 +17,12 @@ const TabComp = ({ todayTab, newTab, popularTab, myTab }: TabProps) => {
   return (
     <Tabs css={tabStyle} variant="line">
       <TabList>
-        <Tab
-          _selected={{
-            borderBottom: '4px solid black !important',
-            fontWeight: 700,
-          }}
-        >
-          오늘
-        </Tab>
-        <Tab
-          _selected={{
-            borderBottom: '4px solid black !important',
-            fontWeight: 700,
-          }}
-        >
+        <Tab _selected={activeTabStyle}>오늘</Tab>
+        <Tab _selected={activeTabStyle} className="newTab">
           신규
         </Tab>
-        <Tab
-          _selected={{
-            borderBottom: '4px solid black !important',
-            fontWeight: 700,
-          }}
-        >
-          인기
-        </Tab>
-        <Tab
-          _selected={{
-            borderBottom: '4px solid black !important',
-            fontWeight: 700,
-          }}
-        >
-          마이
-        </Tab>
+        <Tab _selected={activeTabStyle}>인기</Tab>
+        <Tab _selected={activeTabStyle}>마이</Tab>
       </TabList>
 
       <TabPanels>
@@ -56,7 +34,10 @@ const TabComp = ({ todayTab, newTab, popularTab, myTab }: TabProps) => {
     </Tabs>
   );
 };
-
+const activeTabStyle = {
+  borderBottom: '4px solid black !important',
+  fontWeight: 700,
+};
 const tabStyle = css`
   width: 100%;
 
@@ -75,7 +56,7 @@ const tabStyle = css`
       line-height: 150%;
     }
   }
-  & [role='tablist'] > button:nth-child(2)::after {
+  & [role='tablist'] > .newTab::after {
     content: '';
 
     width: 0.5rem;
@@ -86,7 +67,7 @@ const tabStyle = css`
     top: 20%;
     right: 35%;
   }
-  & [role='tablist'] > button:nth-child(2):focus::after {
+  & [role='tablist'] > .newTab:focus::after {
     top: 25%;
   }
 `;

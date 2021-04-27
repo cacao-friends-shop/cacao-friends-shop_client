@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 export default {
   title: 'components/TabComp',
   component: TabComp,
-} as Meta;
+};
 
 const Template: Story<TabProps> = args => <TabComp {...args} />;
 
