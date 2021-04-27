@@ -1,12 +1,7 @@
-import { css } from "@emotion/react";
-import { colors } from "theme";
+import { css } from '@emotion/react';
+import { colors } from 'theme';
 
 const GlobalStyles = css`
-  html {
-    font-size: 10px;
-    overflow-y: visible;
-  }
-
   body,
   body *,
   body::before,
@@ -14,45 +9,6 @@ const GlobalStyles = css`
   body *::before,
   body *::after {
     box-sizing: border-box;
-  }
-
-  body {
-    font-family: "Spoqa Han Sans Neo", "sans-serif";
-    font-size: 1.6rem;
-    font-weight: 400;
-    background-color: #fff;
-    color: ${colors.black};
-  }
-
-  a img {
-    vertical-align: middle;
-  }
-
-  fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  // TODO: 수정하기
-  &:focus-visible {
-    outline: none;
-    border-radius: 2px;
-    box-shadow: 0 0 0 4px #4ec5f1;
-  }
-
-  button {
-    cursor: pointer; 
-    border: none;
-  }
-
-  button[disabled] {
-    cursor: not-allowed;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
   }
 
   html,
@@ -139,8 +95,52 @@ const GlobalStyles = css`
     margin: 0;
     padding: 0;
     border: 0;
-    font: inherit;
+    /* font: inherit; */
     vertical-align: baseline;
+  }
+
+  html {
+    font-size: 10px;
+    overflow-y: visible;
+  }
+
+  body {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    background-color: #fff;
+    color: ${colors.black};
+  }
+
+  a img {
+    vertical-align: middle;
+  }
+
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  // TODO: 수정하기
+  &:focus-visible {
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 0 0 4px #4ec5f1;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+  }
+
+  button[disabled] {
+    cursor: not-allowed;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 
   article,
@@ -162,6 +162,14 @@ const GlobalStyles = css`
   ol,
   ul {
     list-style: none;
+  }
+
+  button:focus-visible {
+    outline: auto blue;
+  }
+
+  img {
+    -webkit-user-drag: none;
   }
 `;
 
