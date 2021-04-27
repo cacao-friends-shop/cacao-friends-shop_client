@@ -14,7 +14,7 @@ export default {
   args: {},
 } as Meta
 
-const Template: Story<InputProps> = (args) => <Input {...args} />
+const Template: Story<InputProps> = args => <Input {...args} />
 export const TextInput = Template.bind({})
 
 TextInput.args = {
