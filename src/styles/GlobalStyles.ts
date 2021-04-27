@@ -34,8 +34,15 @@ const GlobalStyles = css`
     padding: 0;
   }
 
+  // TODO: 수정하기
+  &:focus-visible {
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 0 0 4px #4ec5f1;
+  }
+
   button {
-    cursor: pointer;
+    cursor: pointer; 
     border: none;
   }
 

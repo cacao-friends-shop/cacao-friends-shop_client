@@ -1,5 +1,5 @@
 import IconButton from './';
-import { css } from '@emotion/css';
+import { css } from '@emotion/react';
 
 export default {
   component: IconButton,
@@ -34,11 +34,17 @@ const iconButtonTypes = [
   'arrowUp',
   'arrowDown',
   'circleArrowUp',
+
+  'lock',
+
+  'kakaoTalk',
+
 ];
 
+// 아이콘버튼 그룹
 export const listOfIconButtons = () => {
   return (
-    <ul className={iconButtonListStyle}>
+    <ul css={iconButtonListStyle}>
       {iconButtonTypes.map(icon => (
         <li key={icon}>
           <IconButton name={icon} size={20} fgColor="red" />
@@ -50,7 +56,6 @@ export const listOfIconButtons = () => {
 };
 
 const iconButtonListStyle = css`
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
 
@@ -60,7 +65,7 @@ const iconButtonListStyle = css`
     padding: 1rem;
     display: flex;
     align-items: center;
-    svg {
+    button {
       margin-right: 1rem;
     }
   }

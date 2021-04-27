@@ -1,5 +1,5 @@
 import Icon from './';
-import { css } from '@emotion/css';
+import { css } from '@emotion/react';
 
 export default {
   component: Icon,
@@ -28,11 +28,16 @@ const iconTypes = [
   'arrowUp',
   'arrowDown',
   'circleArrowUp',
+
+  'lock',
+
+  'kakaoTalk',
 ];
 
+// 아이콘 그룹
 export const listOfIcons = () => {
   return (
-    <ul className={iconListStyle}>
+    <ul css={iconListStyle}>
       {iconTypes.map(icon => (
         <li key={icon}>
           <Icon name={icon} size={20} />
@@ -45,7 +50,6 @@ export const listOfIcons = () => {
 };
 
 const iconListStyle = css`
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
   li {

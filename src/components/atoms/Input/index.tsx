@@ -7,7 +7,7 @@ export interface InputProps {
   title: string
   /** Input 레이블 */
   label?: string
-  /** Input 클라스네임 */
+  /** Input 클래스네임 */
   className?: string
 }
 

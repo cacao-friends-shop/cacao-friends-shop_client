@@ -1,6 +1,6 @@
-import React from "react";
-import { Global } from "@emotion/react";
-import GlobalStyles from "styles/GlobalStyles";
+import React from 'react'
+import { Global } from '@emotion/react'
+import GlobalStyles from 'styles/GlobalStyles'
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Global styles={GlobalStyles} />
       <div className="App"></div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
