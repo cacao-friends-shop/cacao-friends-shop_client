@@ -3,7 +3,14 @@ import IconButton from 'components/molecules/IconButton';
 import Indicator from 'components/atoms/Indicator';
 import { css } from '@emotion/react';
 
-const Actionbar = () => {
+type ActionbarProps = {
+  /** 이미지의 갯수 */
+  imgLength: number;
+  /** 현재 보이는 이미지의 인덱스 */
+  currentIdx: number;
+};
+
+const Actionbar = ({ imgLength, currentIdx }: ActionbarProps) => {
   return (
     <div css={container}>
       <div css={buttonGroup}>
@@ -11,7 +18,7 @@ const Actionbar = () => {
         <IconButton name="bubble" size={30} />
       </div>
       <div css={indicatorContainer}>
-        <Indicator imgLength={6} currentIdx={2} />
+        <Indicator imgLength={imgLength} currentIdx={currentIdx} />
       </div>
     </div>
   );

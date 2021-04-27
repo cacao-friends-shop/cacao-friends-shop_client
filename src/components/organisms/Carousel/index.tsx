@@ -1,28 +1,27 @@
 import { css } from '@emotion/react';
 import IconButton from 'components/molecules/IconButton';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
 
 type CarouselProps = {
   /** 이미지 리스트 */
   imgList: string[];
+  /** 현재 보이는 이미지의 인덱스 */
+  currentIdx: number;
+  /** 이전 이미지 이동 함수 */
+  handlePrev: () => void;
+  /** 다음 이미지 이동 함수 */
+  handleNext: () => void;
 };
 
-const Carousel = ({ imgList }: CarouselProps) => {
-  const [currentIdx, setCurrentIdx] = useState(0);
-
-  const handlePrev = () => {
-    if (currentIdx <= 0) return;
-    setCurrentIdx(currentIdx - 1);
-  };
-
-  const handleNext = () => {
-    if (currentIdx >= imgList.length - 1) return;
-    setCurrentIdx(currentIdx + 1);
-  };
+const Carousel = ({
+  imgList,
+  currentIdx,
+  handleNext,
+  handlePrev,
+}: CarouselProps) => {
   return (
     <div css={container}>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         <motion.img
           key={imgList[currentIdx]}
           src={imgList[currentIdx]}
@@ -63,8 +62,6 @@ const Carousel = ({ imgList }: CarouselProps) => {
 };
 
 const container = css`
-  max-width: 500px;
-  margin: 0 auto;
   position: relative;
 
   img {

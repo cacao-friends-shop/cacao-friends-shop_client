@@ -9,9 +9,9 @@ import { AiOutlineLock } from 'react-icons/ai';
 import { RiKakaoTalkFill } from 'react-icons/ri';
 
 import {
-  IoChatbubblesOutline,
   IoBasketOutline,
   IoArrowUpCircleSharp,
+  IoChatbubbleOutline,
 } from 'react-icons/io5';
 
 import {
@@ -31,7 +31,7 @@ const icon: Icon = {
   close: VscClose,
   fillHeart: AiFillHeart,
   outlineHeart: AiOutlineHeart,
-  bubble: IoChatbubblesOutline,
+  bubble: IoChatbubbleOutline,
   home: BiHomeAlt,
   basket: IoBasketOutline,
   pencil: BsPencil,
@@ -45,7 +45,6 @@ const icon: Icon = {
   lock: AiOutlineLock,
 
   kakaoTalk: RiKakaoTalkFill,
-
 };
 
 export default icon;
