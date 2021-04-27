@@ -2,9 +2,8 @@ import Actionbar from '.';
 
 export default {
   component: Actionbar,
-  title: 'components/Actionbar',
+  title: 'molecules/Actionbar',
 };
 
-export const DefaultActionbar = () => (
-  <Actionbar currentIdx={3} imgLength={5} />
-);
+// 기본 액션 바
+export const HomeActionbar = () => <Actionbar currentIdx={3} imgLength={5} />;

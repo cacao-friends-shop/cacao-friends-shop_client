@@ -61,7 +61,7 @@ const PostCard = () => {
       <Link to="/" css={commentCountStyle}>
         댓글 543개
         <Comment name="김지원" comment="나 좀 알려줘~~~" />
-        <CommentTextArea />
+        <CommentTextArea placeholder="댓글을 달아주세요." />
       </Link>
     </article>
   );
@@ -70,9 +70,10 @@ const PostCard = () => {
 const articleStyle = css`
   max-width: 600px;
   margin: 0 auto;
+  padding: 1rem;
 
-  div + div {
-    margin-top: 1.2rem;
+  & > div + div {
+    margin-top: 1rem;
   }
 `;
 

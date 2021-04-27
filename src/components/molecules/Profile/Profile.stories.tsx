@@ -2,9 +2,10 @@ import Profile from './';
 
 export default {
   component: Profile,
-  title: 'components/Profile',
+  title: 'molecules/Profile',
 };
 
+// 콘 프로필
 export const ConProfile = () => (
   <Profile
     imagePath="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144557.png"
@@ -15,6 +16,7 @@ export const ConProfile = () => (
   />
 );
 
+// 라이언 프로필
 export const RyanProfile = () => (
   <Profile
     imagePath="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144424.png"
@@ -57,11 +59,12 @@ const profileList = [
   },
 ];
 
+// 프로필 그룹
 export const ProfileList = () => {
   return (
     <ul>
       {profileList.map(profile => (
-        <li css={{ marginBottom: '10px' }}>
+        <li key={profile.alt} css={{ marginBottom: '10px' }}>
           <Profile
             imagePath={profile.imagePath}
             alt={profile.alt}

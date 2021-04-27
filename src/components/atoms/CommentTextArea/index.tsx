@@ -1,10 +1,18 @@
 import { css } from '@emotion/react';
 import React from 'react';
 
-const CommentTextArea = () => {
+type CommentTextAreaProps = {
+  placeholder: string;
+};
+
+const CommentTextArea = ({ placeholder }: CommentTextAreaProps) => {
   return (
     <div css={container}>
-      <textarea name="comment" placeholder="댓글을 달아주세요."></textarea>
+      <textarea
+        name="comment"
+        title={placeholder}
+        placeholder={placeholder}
+      ></textarea>
     </div>
   );
 };
@@ -18,6 +26,7 @@ const container = css`
   border-top-left-radius: 0;
 
   textarea {
+    width: 100%;
     position: relative;
     padding-top: 1rem;
     padding-left: 0.5rem;
@@ -28,10 +37,6 @@ const container = css`
     z-index: -1000;
     &::placeholder {
       color: #aaa;
-    }
-
-    &:focus-visible {
-      outline: initial;
     }
   }
 `;

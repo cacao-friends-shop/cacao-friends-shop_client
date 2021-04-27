@@ -3,7 +3,7 @@ import Carousel from './';
 
 export default {
   component: Carousel,
-  title: 'container/Carousel',
+  title: 'organisms/Carousel',
 };
 
 const imageList = [

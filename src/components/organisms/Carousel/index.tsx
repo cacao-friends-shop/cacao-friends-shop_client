@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import IconButton from 'components/molecules/IconButton';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 
 type CarouselProps = {
   /** 이미지 리스트 */
@@ -19,33 +20,46 @@ const Carousel = ({
   handleNext,
   handlePrev,
 }: CarouselProps) => {
+  const [isAnimationEnd, setIsAnimationEnd] = useState(true);
+
+  const handleSetIsAnimationEnd = () => {
+    setIsAnimationEnd(true);
+  };
+
   return (
     <div css={container}>
-      <AnimatePresence exitBeforeEnter>
-        <motion.img
-          key={imgList[currentIdx]}
-          src={imgList[currentIdx]}
-          initial={{ x: 300, opacity: 0 }}
-          animate={{
-            x: 0,
-            opacity: 1,
-            transition: { type: 'tween', duration: 0.2 },
-          }}
-          exit={{
-            x: -300,
-            opacity: 0,
-            transition: { type: 'tween', duration: 0.2 },
-          }}
-          alt="Img"
-        />
-      </AnimatePresence>
+      <div css={imgContainer}>
+        <AnimatePresence initial={false}>
+          <motion.img
+            key={imgList[currentIdx]}
+            src={imgList[currentIdx]}
+            onAnimationComplete={handleSetIsAnimationEnd}
+            initial={{ x: 600 }}
+            animate={{
+              x: 0,
+              transition: {
+                type: 'tween',
+                duration: 0.3,
+              },
+            }}
+            exit={{
+              x: -600,
+              transition: { type: 'tween', duration: 0.4 },
+            }}
+            alt="Img"
+          />
+        </AnimatePresence>
+      </div>
       {currentIdx !== 0 && (
         <IconButton
           className="prevBtn"
           css={buttonStyle}
           name="arrowLeft"
           size={30}
-          onClick={handlePrev}
+          onClick={() => {
+            if (isAnimationEnd) handlePrev();
+            setIsAnimationEnd(false);
+          }}
         />
       )}
       {currentIdx !== imgList.length - 1 && (
@@ -54,7 +68,10 @@ const Carousel = ({
           css={buttonStyle}
           name="arrowRight"
           size={30}
-          onClick={handleNext}
+          onClick={() => {
+            if (isAnimationEnd) handleNext();
+            setIsAnimationEnd(false);
+          }}
         />
       )}
     </div>
@@ -62,21 +79,36 @@ const Carousel = ({
 };
 
 const container = css`
+  width: 100%;
   position: relative;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
 
   button {
     position: absolute;
     top: 50%;
     transform: translate3d(0, -50%, 0);
   }
-
+  .prevBtn {
+    left: 1rem;
+  }
   .nextBtn {
-    right: 0;
+    right: 1rem;
+  }
+`;
+
+const imgContainer = css`
+  position: relative;
+  background-color: black;
+  height: 500px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    width: 100%;
+    max-height: 100%;
   }
 `;
 

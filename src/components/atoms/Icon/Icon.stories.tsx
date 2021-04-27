@@ -3,13 +3,16 @@ import { css } from '@emotion/react';
 
 export default {
   component: Icon,
-  title: 'components/Icon',
+  title: 'atoms/Icon',
 };
 
+// 홈 아이콘
 export const homeIcon = () => <Icon name="home" size={40} />;
 
+// 꽉찬 하트
 export const fillHeart = () => <Icon name="fillHeart" size={40} />;
 
+// 빈 하트
 export const outlineHeart = () => <Icon name="outlineHeart" size={40} />;
 
 const iconTypes = [
@@ -28,7 +31,7 @@ const iconTypes = [
   'arrowUp',
   'arrowDown',
   'circleArrowUp',
-
+  'share',
   'lock',
 
   'kakaoTalk',

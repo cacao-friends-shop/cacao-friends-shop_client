@@ -6,7 +6,7 @@ import { BsPencil } from 'react-icons/bs';
 
 import { AiOutlineLock } from 'react-icons/ai';
 
-import { RiKakaoTalkFill } from 'react-icons/ri';
+import { RiKakaoTalkFill, RiShareForwardLine } from 'react-icons/ri';
 
 import {
   IoBasketOutline,
@@ -41,9 +41,8 @@ const icon: Icon = {
   arrowUp: IoIosArrowUp,
   arrowDown: IoIosArrowDown,
   circleArrowUp: IoArrowUpCircleSharp,
-
+  share: RiShareForwardLine,
   lock: AiOutlineLock,
-
   kakaoTalk: RiKakaoTalkFill,
 };
 

@@ -4,9 +4,10 @@ import Avatar from './';
 
 export default {
   component: Avatar,
-  title: 'components/Avatar',
+  title: 'atoms/Avatar',
 };
 
+// 콘 아바타
 export const ConAvatar = () => (
   <Avatar
     imagePath="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144557.png"
@@ -14,18 +15,23 @@ export const ConAvatar = () => (
   />
 );
 
+// 라이언 아바타
 export const RyanAvatar = () => (
   <Avatar
     imagePath="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144424.png"
     alt="라이언"
   />
 );
+
+// 어피치 아바타
 export const ApeachAvatar = () => (
   <Avatar
     imagePath="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144431.png"
     alt="어피치"
   />
 );
+
+// 무지 아바타
 export const MujiAvatar = () => (
   <Avatar
     imagePath="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144437.png"
@@ -56,6 +62,7 @@ const avatarList = [
   },
 ];
 
+// 아바타 리스트
 export const AvatarList = () => {
   return (
     <ul>

@@ -31,12 +31,12 @@ const indicatorStyle = css`
 
 const dotStyle = css`
   background: rgba(0, 0, 0, 0.3);
-  width: 7px;
-  height: 7px;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
 
   &.active {
-    width: 14px;
+    width: 0.9rem;
     background: #2d2d2d;
     border-radius: 5px;
   }

@@ -1,5 +1,5 @@
-import { css } from "@emotion/react";
-import { colors } from "theme";
+import { css } from '@emotion/react';
+import { colors } from 'theme';
 
 const GlobalStyles = css`
   html {
@@ -17,7 +17,7 @@ const GlobalStyles = css`
   }
 
   body {
-    font-family: "Spoqa Han Sans Neo", "sans-serif";
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     font-size: 1.6rem;
     font-weight: 400;
     background-color: #fff;
@@ -42,7 +42,7 @@ const GlobalStyles = css`
   }
 
   button {
-    cursor: pointer; 
+    cursor: pointer;
     border: none;
   }
 
@@ -166,6 +166,10 @@ const GlobalStyles = css`
 
   button:focus-visible {
     outline: auto blue;
+  }
+
+  img {
+    -webkit-user-drag: none;
   }
 `;
 
