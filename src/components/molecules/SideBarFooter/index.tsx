@@ -17,10 +17,15 @@ const SideBarFooter = () => {
 };
 
 const style = css`
-  margin-top: 2rem;
+  padding: 2rem 0;
   color: ${colors.gray};
 
+  a {
+    display: block;
+  }
+
   span {
+    font-weight: bold;
     margin-left: 1rem;
     font-size: 1.4rem;
   }

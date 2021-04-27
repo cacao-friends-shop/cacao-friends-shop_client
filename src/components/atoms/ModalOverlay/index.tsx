@@ -2,11 +2,11 @@ import { css } from '@emotion/react';
 import { colors } from 'theme';
 
 type ModalOverlayProps = {
-  isShow: boolean;
-  onClick: (e: React.MouseEvent) => void;
+  isShow?: boolean;
+  onClick?: (e: React.MouseEvent) => void;
 };
 
-const ModalOverlay = ({ isShow, onClick }: ModalOverlayProps) => {
+const ModalOverlay = ({ isShow = true, onClick }: ModalOverlayProps) => {
   return <div css={style(isShow)} onClick={onClick}></div>;
 };
 

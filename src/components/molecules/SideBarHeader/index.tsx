@@ -1,26 +1,22 @@
-import React from 'react';
 import { css } from '@emotion/react';
 import NeedLogin from 'components/molecules/NeedLogin';
 import LinkIcon from 'components/molecules/LinkIcon';
-import Divider from 'components/atoms/Divider';
+import { colors } from 'theme';
 
 const SideBarHeader = () => {
   return (
-    <>
-      <div css={style}>
-        <NeedLogin />
-        <LinkIcon
-          type="rightIcon"
-          iconName="arrowRight"
-          iconSize={15}
-          bgColor="transparent"
-          css={style_button}
-        >
-          비회원 주문조회
-        </LinkIcon>
-      </div>
-      <Divider />
-    </>
+    <div css={style}>
+      <NeedLogin />
+      <LinkIcon
+        type="rightIcon"
+        iconName="arrowRight"
+        iconSize={15}
+        bgColor="transparent"
+        css={style_button}
+      >
+        비회원 주문조회
+      </LinkIcon>
+    </div>
   );
 };
 
@@ -28,7 +24,8 @@ const style = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 2.5rem;
+  border-bottom: 1px solid ${colors.gray};
+  padding: 0 2.4rem 2.5rem;
 `;
 
 const style_button = css`

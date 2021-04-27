@@ -27,7 +27,7 @@ const style = (isShow: boolean) => css`
   background-color: ${colors.white};
   max-width: 40rem;
   height: 100vh;
-  padding: 3.5rem 2.4rem;
+  padding: 3.5rem 0;
 `;
 
 export default SideBar;
