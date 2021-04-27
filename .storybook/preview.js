@@ -1,8 +1,7 @@
-import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import { Global } from '@emotion/react'
-import GlobalStyles from 'styles/GlobalStyles'
-import { Global } from '@emotion/react'
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Global } from '@emotion/react';
+import GlobalStyles from 'styles/GlobalStyles';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -12,7 +11,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};
 export const decorators = [
   Story => {
     return (
@@ -22,6 +21,6 @@ export const decorators = [
           <Story />
         </Router>
       </>
-    )
+    );
   },
-]
+];

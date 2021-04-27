@@ -4,7 +4,7 @@ import { colors } from 'theme';
 
 export default {
   component: Button,
-  title: 'components/Button',
+  title: 'atoms/Button',
 };
 
 // 바로가기 버튼

@@ -45,7 +45,6 @@ const icon: Icon = {
   lock: AiOutlineLock,
 
   kakaoTalk: RiKakaoTalkFill,
-
 };
 
 export default icon;
