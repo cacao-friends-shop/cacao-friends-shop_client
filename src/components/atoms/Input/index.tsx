@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 
 export interface InputProps {
   type: string;
@@ -7,7 +7,6 @@ export interface InputProps {
 }
 
 const Input = ({ type, title, label, ...restProps }: InputProps) => {
-  console.log(type, title, label)
   return (
     <div css={subtitleStyle}>
       <label htmlFor={title}>{label}</label>
