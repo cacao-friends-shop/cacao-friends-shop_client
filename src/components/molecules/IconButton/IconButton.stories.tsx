@@ -61,7 +61,7 @@ const iconButtonListStyle = css`
     padding: 1rem;
     display: flex;
     align-items: center;
-    svg {
+    button {
       margin-right: 1rem;
     }
   }

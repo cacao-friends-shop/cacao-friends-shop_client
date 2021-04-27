@@ -23,7 +23,7 @@ const IconLink = ({
   return (
     <div {...restProps}>
       <Link css={linkStyle} to={to}>
-        {children}
+        <span>{children}</span>
         <Icon name={iconName} size={iconSize} />
       </Link>
     </div>
@@ -35,8 +35,8 @@ const linkStyle = css`
   align-items: center;
   justify-content: center;
 
-  svg {
-    vertical-align: middle;
+  span {
+    padding-top: 0.2rem;
   }
 `;
 
