@@ -35,10 +35,6 @@ const buttonStyle = (fgColor: string, bgColor: string) => css`
   color: ${fgColor};
   padding: 0;
   outline: none;
-
-  &:focus-visible {
-    outline: 1px solid blue;
-  }
 `;
 
 export default IconButton;

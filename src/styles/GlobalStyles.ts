@@ -35,7 +35,7 @@ const GlobalStyles = css`
   }
 
   button {
-    cursor: pointer; 
+    cursor: pointer;
     border: none;
   }
 
@@ -155,6 +155,10 @@ const GlobalStyles = css`
   ol,
   ul {
     list-style: none;
+  }
+
+  button:focus-visible {
+    outline: auto blue;
   }
 `;
 
