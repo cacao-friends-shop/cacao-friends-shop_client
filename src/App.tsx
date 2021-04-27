@@ -11,6 +11,7 @@ function App() {
     <>
       <Global styles={GlobalStyles} />
       <Button bgColor={colors.yellow}>바로가기</Button>
+      <Button bgColor={colors.yellow}>바로가기</Button>
       <div className="App"></div>
 
       <div className="App"></div>

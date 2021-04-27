@@ -30,13 +30,13 @@ const styledLogin = css`
 `;
 
 // 버튼 그룹
-export const listOfButton = () => {
+export const listOfButtons = () => {
   return (
-    <ul css={buttonListStyle}>
+    <ul css={styleButtonList}>
       <li>{buyNow()}</li>
       <li>{login()}</li>
     </ul>
   );
 };
 
-const buttonListStyle = css``;
+const styleButtonList = css``;

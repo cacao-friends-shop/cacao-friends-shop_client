@@ -3,10 +3,15 @@ import { css } from '@emotion/react';
 import { colors } from 'theme/index';
 
 export type ButtonProps = {
+  /** 버튼 내용 */
   children: React.ReactNode;
+  /** 버튼 border-radius */
   borderRadius?: string;
+  /** 버튼 width */
   width?: string;
+  /** 버튼 배경색 */
   bgColor?: string;
+  /** 버튼 글자색 */
   color?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
