@@ -1,14 +1,15 @@
-import React from 'react'
-import { Global } from '@emotion/react'
-import GlobalStyles from 'styles/GlobalStyles'
+import React from 'react';
+import { Global } from '@emotion/react';
+import GlobalStyles from 'styles/GlobalStyles';
+import PostCard from 'components/organisms/PostCard';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <div className="App"></div>
+      <PostCard />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
