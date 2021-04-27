@@ -2,13 +2,15 @@ import { css } from '@emotion/react';
 import React from 'react';
 
 type AvatarProps = {
+  /** 이미지 경로 */
   imagePath: string;
+  /** 이미지 설명 */
   alt: string;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
-const Avatar = ({ imagePath, alt }: AvatarProps) => {
+const Avatar = ({ imagePath, alt, ...restProps }: AvatarProps) => {
   return (
-    <div css={imageContainer}>
+    <div css={imageContainer} {...restProps}>
       <img css={imageStyle} src={imagePath} alt={alt} />
     </div>
   );
