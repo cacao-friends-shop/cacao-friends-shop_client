@@ -1,30 +1,30 @@
 import { css } from '@emotion/react';
+import Avatar from 'components/atoms/Avatar';
 import TimeStemp from 'components/TimeStemp';
 import React from 'react';
 
 type ProfileProps = {
+  /** 이미지 경로 */
   imagePath: string;
+  /** 이미지 설명 */
   alt: string;
+  /** 이름 */
   title: string;
-  desc: string;
+  /** 등록 시간 */
   time: string;
+  /** 설명 */
+  desc?: string;
 };
 
-const Profile = ({ imagePath, alt, title, desc, time }: ProfileProps) => {
+const Profile = ({ imagePath, alt, title, time, desc }: ProfileProps) => {
   return (
     <div css={container}>
-      <div css={imageContainer}>
-        <img
-          css={imageStyle}
-          src="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144557.png"
-          alt=""
-        />
-      </div>
+      <Avatar imagePath={imagePath} alt={alt} />
       <div>
-        <h2 css={titleStyle}>프렌즈 도감</h2>
+        <h2 css={titleStyle}>{title}</h2>
         <div css={textContainer}>
-          <p>Daily Story</p>
-          <TimeStemp time="1분 전" />
+          {desc && <p>{desc}</p>}
+          <TimeStemp time={time} />
         </div>
       </div>
     </div>
@@ -34,16 +34,6 @@ const Profile = ({ imagePath, alt, title, desc, time }: ProfileProps) => {
 const container = css`
   display: flex;
   align-items: center;
-`;
-
-const imageContainer = css`
-  width: 3rem;
-  height: 3rem;
-  margin-right: 0.5rem;
-`;
-
-const imageStyle = css`
-  width: 100%;
 `;
 
 const titleStyle = css`
