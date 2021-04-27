@@ -3,17 +3,20 @@ import { css } from '@emotion/react';
 
 export default {
   component: IconButton,
-  title: 'components/IconButton',
+  title: 'molecules/IconButton',
 };
 
+// 홈 아이콘 버튼
 export const homeIconButton = () => (
   <IconButton name="home" size={40} fgColor="green" />
 );
 
+// 꽉찬 하트 아이콘 버튼
 export const fillHeartIconButton = () => (
   <IconButton name="fillHeart" size={40} fgColor="red" />
 );
 
+// 빈 하트 아이콘 버튼
 export const outlineHeartIconButton = () => (
   <IconButton name="outlineHeart" size={40} fgColor="gray" />
 );
@@ -34,11 +37,11 @@ const iconButtonTypes = [
   'arrowUp',
   'arrowDown',
   'circleArrowUp',
+  'share',
 
   'lock',
 
   'kakaoTalk',
-
 ];
 
 // 아이콘버튼 그룹

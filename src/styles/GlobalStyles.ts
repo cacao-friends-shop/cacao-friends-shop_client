@@ -163,6 +163,14 @@ const GlobalStyles = css`
   ul {
     list-style: none;
   }
+
+  button:focus-visible {
+    outline: auto blue;
+  }
+
+  img {
+    -webkit-user-drag: none;
+  }
 `;
 
 export default GlobalStyles;
