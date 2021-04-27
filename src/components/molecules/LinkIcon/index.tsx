@@ -1,9 +1,9 @@
+import React from 'react';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
-import Button from 'components/atoms/Button';
 import Icon from 'components/atoms/Icon';
 
-type LinkIconButtonProps = {
+type LinkIconProps = {
   /** 아이콘 방향 */
   type: string;
   /** 아이콘 이름 */
@@ -16,39 +16,40 @@ type LinkIconButtonProps = {
   children: React.ReactNode;
 };
 
-const LinkIconButton = ({
+const LinkIcon = ({
   type = 'leftIcon',
   iconName = 'arrowRight',
   iconSize = 20,
   bgColor = 'transparent',
   children,
   ...restProps
-}: LinkIconButtonProps) => {
+}: LinkIconProps) => {
   const LeftIcon = (
-    <Button bgColor={bgColor} css={style}>
+    <>
       <Icon name={iconName} size={iconSize} />
       <span>{children}</span>
-    </Button>
+    </>
   );
 
   const RightIcon = (
-    <Button bgColor={bgColor} css={style}>
+    <>
       <span>{children}</span>
       <Icon name={iconName} size={iconSize} />
-    </Button>
+    </>
   );
 
   return (
-    <Link to="/" {...restProps}>
+    <Link to="/" css={style(bgColor)} {...restProps}>
       {type === 'rightIcon' ? RightIcon : LeftIcon}
     </Link>
   );
 };
 
-const style = css`
+const style = (bgColor: string) => css`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: ${bgColor};
 `;
 
-export default LinkIconButton;
+export default LinkIcon;

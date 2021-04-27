@@ -1,29 +1,28 @@
 import { css } from '@emotion/react';
 import { colors } from 'theme';
-import LinkIconButton from './index';
+import LinkIcon from './index';
 
 export default {
-  component: LinkIconButton,
-  title: 'molecules/LinkButton',
+  component: LinkIcon,
+  title: 'molecules/LinkIcon',
 };
 
 // 로그인 아이콘 버튼 링크
 export const login = () => (
-  <LinkIconButton
+  <LinkIcon
     type="leftIcon"
     iconName="lock"
     iconSize={20}
     bgColor="transparent"
-    css={style__button}
+    css={style_login}
   >
     로그인
-  </LinkIconButton>
+  </LinkIcon>
 );
 
-const style__button = css`
-  button {
-    color: ${colors.gray};
-  }
+const style_login = css`
+  color: ${colors.gray};
+
   span {
     margin-left: 1rem;
     font-size: 1.4rem;
@@ -32,22 +31,39 @@ const style__button = css`
 
 // 비회원 주문조회 아이콘 버튼 링크
 export const nonMemberOrder = () => (
-  <LinkIconButton
+  <LinkIcon
     type="rightIcon"
     iconName="arrowRight"
-    iconSize={20}
+    iconSize={15}
     bgColor="transparent"
+    css={style_nonMember}
   >
     비회원 주문조회
-  </LinkIconButton>
+  </LinkIcon>
 );
 
+const style_nonMember = css`
+  font-size: 1.4rem;
+  span {
+    margin-right: 0.3rem;
+  }
+`;
+
 // 아이콘 버튼 링크 그룹
-export const listOfLinkIconButton = () => {
+export const listOfLinkIcon = () => {
   return (
-    <ul>
+    <ul css={style_listOfLinkIcon}>
       <li>{login()}</li>
       <li>{nonMemberOrder()}</li>
     </ul>
   );
 };
+
+const style_listOfLinkIcon = css`
+  display: flex;
+  flex-flow: row wrap;
+
+  li {
+    width: 25%;
+  }
+`;
