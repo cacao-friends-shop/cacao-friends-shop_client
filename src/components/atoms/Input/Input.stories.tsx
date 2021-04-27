@@ -1,6 +1,10 @@
 import Input, { InputProps } from "./index";
 import { Story, Meta } from "@storybook/react";
-import { css } from "@emotion/react";
+import { css } from "@emotion/css";
+
+const styles = css`
+  // background: black;
+`;
 
 export default {
   title: "Input",
@@ -17,5 +21,5 @@ TextInput.args = {
   type: "text",
   title: "fname",
   label: "fname",
-  className: "hello",
+  className: styles,
 };

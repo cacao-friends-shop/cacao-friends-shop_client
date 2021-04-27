@@ -5,10 +5,10 @@ import GlobalStyles from "../src/styles/GlobalStyles";
 export const decorators = [
   Story => {
     return (
-      <Fragment>
+      <>
         <Global styles={GlobalStyles} />
         <Story />
-      </Fragment>
+      </>
     );
   },
 ];
