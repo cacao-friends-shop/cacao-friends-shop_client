@@ -25,7 +25,7 @@ const ProductCard = ({}: ProductCardProps) => {
         </span>
       </Link>
       <div css={buttonConainer}>
-        <IconButton name="basket" size={25} fgColor="#aaa" />
+        <IconButton name="basket" size={25} fgColor="#aaa" title="담기" />
       </div>
     </li>
   );
@@ -36,7 +36,7 @@ const container = css`
   display: inline-block;
 
   h3 {
-    max-width: 20rem;
+    max-width: 17rem;
     color: #aaa;
     font-weight: 400;
     font-size: 1.6rem;
@@ -50,7 +50,6 @@ const container = css`
 `;
 
 const imgContainer = css`
-  max-width: 27.5rem;
   display: block;
   background-color: rgba(0, 0, 0, 0.02);
   height: 100%;
@@ -73,7 +72,7 @@ const imgContainer = css`
 const buttonConainer = css`
   position: absolute;
   right: 0;
-  top: 28.5rem;
+  top: 27.5rem;
 `;
 
 const priceStyle = css`

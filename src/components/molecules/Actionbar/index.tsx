@@ -2,6 +2,7 @@ import React from 'react';
 import IconButton from 'components/molecules/IconButton';
 import Indicator from 'components/atoms/Indicator';
 import { css } from '@emotion/react';
+import IconLink from '../IconLink';
 
 type ActionbarProps = {
   /** 이미지의 갯수 */
@@ -14,8 +15,13 @@ const Actionbar = ({ imgLength, currentIdx }: ActionbarProps) => {
   return (
     <div css={container}>
       <div css={buttonGroup}>
-        <IconButton name="outlineHeart" size={30} />
-        <IconButton name="bubble" size={30} />
+        <IconButton name="outlineHeart" size={30} title="좋아요 버튼" />
+        <IconLink
+          to="/"
+          iconName="bubble"
+          iconSize={30}
+          title="댓글 이동 링크"
+        />
       </div>
       <div css={indicatorContainer}>
         <Indicator imgLength={imgLength} currentIdx={currentIdx} />
@@ -35,7 +41,7 @@ const container = css`
 const buttonGroup = css`
   display: flex;
 
-  button + button {
+  button + div {
     margin-left: 1rem;
   }
 `;
