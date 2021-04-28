@@ -30,23 +30,19 @@ const LoginForm = (props: Props) => {
               <Input
                 type="email"
                 title="email"
-                // noValidate="novalidate"
                 label="카카오 아이디, 이메일, 전화번호"
                 onChange={handleChange}
                 className="first-input"
                 onBlur={handleBlur}
-                // ref={emailInputRef}
                 value={values.email}
               />
               <Input
                 type="password"
                 title="password"
-                // noValidate="novalidate"
                 label="비밀번호"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className="second-input"
-                // ref={passwordInputRef}
                 value={values.password}
               />
               <Input
@@ -81,6 +77,7 @@ const loginFormStyle = css`
   h1 {
     margin: 0 0 30px 0;
   }
+
   label {
     position: absolute;
     top: 0;

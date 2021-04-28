@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import { css } from '@emotion/react';
 import Input from 'components/atoms/Input';
 import IconButton from 'components/molecules/IconButton';
+import Button from 'components/atoms/Button';
 interface Props {}
 
 const AgreementForm = (props: Props) => {
@@ -121,9 +122,9 @@ const AgreementForm = (props: Props) => {
                 />
                 <IconButton name="arrowRight" size={18} />
               </div>
-              <button className="agree-button" type="submit">
+              <Button className="agree-button" type="submit">
                 로그인
-              </button>
+              </Button>
             </form>
           </>
         )}

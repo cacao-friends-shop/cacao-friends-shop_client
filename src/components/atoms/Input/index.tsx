@@ -38,8 +38,27 @@ const subtitleStyle = css`
   box-sizing: border-box;
   position: relative;
 
-  input {
-    outline: none;
+  input:not([type='checkbox']) {
+    width: 100%;
+    height: 48px;
+    border-width: 0 0 2px 0;
+    border-color: #ebebeb;
+    font-size: 15px;
+    padding: 11px 70px 8px 0;
+    color: #252525;
+    outline: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  input:not([type='checkbox']) + label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 47px;
+    line-height: 47px;
+    color: #ccc;
   }
 `;
 
