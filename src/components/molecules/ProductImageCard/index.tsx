@@ -27,6 +27,11 @@ const ProductImageCard = ({ img }: ProductImageCardProps) => {
 const container = css`
   position: relative;
   display: inline-block;
+
+  a {
+    display: block;
+  }
+
   button {
     padding: 0.3rem;
     position: absolute;
