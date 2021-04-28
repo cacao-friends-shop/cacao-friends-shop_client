@@ -13,7 +13,7 @@ import {
   IoArrowUpCircleSharp,
   IoChatbubbleOutline,
 } from 'react-icons/io5';
-
+import { MdCheckCircle } from 'react-icons/md';
 import {
   IoIosArrowBack,
   IoIosArrowDown,
@@ -44,6 +44,7 @@ const icon: Icon = {
   share: RiShareForwardLine,
   lock: AiOutlineLock,
   kakaoTalk: RiKakaoTalkFill,
+  mdCheckCircle: MdCheckCircle,
 };
 
 export default icon;
