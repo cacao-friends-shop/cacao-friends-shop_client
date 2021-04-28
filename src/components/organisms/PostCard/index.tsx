@@ -7,23 +7,26 @@ import Comment from 'components/atoms/Comment';
 import { Link } from 'react-router-dom';
 import CommentTextArea from 'components/atoms/CommentTextArea';
 
-const imageList = [
-  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210426185905.jpg',
-  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_1_20210426185905.jpg',
-  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_2_20210426185905.jpg',
-];
+type PostCardProps = {
+  /** 캐러셀에 들어갈 이미지 경로 배열 */
+  imgList: string[];
+};
 
-const PostCard = () => {
-  const [currentIdx, setCurrentIdx] = useState(0);
+const PostCard = ({ imgList }: PostCardProps) => {
+  const [[currentIdx, direction], setSlide] = useState([0, 0]);
+
+  const slideMove = (newDirection: number) => {
+    setSlide([currentIdx + newDirection, newDirection]);
+  };
 
   const handlePrev = () => {
     if (currentIdx <= 0) return;
-    setCurrentIdx(currentIdx - 1);
+    slideMove(-1);
   };
 
   const handleNext = () => {
-    if (currentIdx >= imageList.length - 1) return;
-    setCurrentIdx(currentIdx + 1);
+    if (currentIdx >= imgList.length - 1) return;
+    slideMove(1);
   };
   return (
     <article css={articleStyle}>
@@ -38,14 +41,15 @@ const PostCard = () => {
       </div>
       <div>
         <Carousel
-          imgList={imageList}
+          imgList={imgList}
+          direction={direction}
           currentIdx={currentIdx}
           handleNext={handleNext}
           handlePrev={handlePrev}
         />
       </div>
       <div>
-        <Actionbar imgLength={imageList.length} currentIdx={currentIdx} />
+        <Actionbar imgLength={imgList.length} currentIdx={currentIdx} />
       </div>
       <div>
         <span>
