@@ -1,27 +1,53 @@
+import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
 import { Link } from 'react-router-dom';
 import IconButton from 'components/molecules/IconButton';
+import ModalContainer from 'utils/potal';
+import SideBar from 'components/organisms/SideBar';
+import ModalOverlay from 'components/atoms/ModalOverlay';
+import { AnimatePresence } from 'framer-motion';
 
 export type HeaderProps = {};
 
 const Header = (props: HeaderProps) => {
+  const [isShow, setIsShow] = useState(false);
   return (
-    <header css={headerStyle}>
-      <section css={headerContainerStyle}>
-        <IconButton name="menu" size={32} />
-        <div css={headerLogoStyle}>
-          <Link to="/"></Link>
-          <A11yHiddenHeading comp="h1">
-            CACAO Friends 웹사이트
-          </A11yHiddenHeading>
-        </div>
-        <div css={IconButtonContainerStyle}>
-          {/* 추후 아이콘 추가  */}
-          <IconButton name="search" size={32} />
-        </div>
-      </section>
-    </header>
+    <>
+      <header css={headerStyle}>
+        <section css={headerContainerStyle}>
+          <IconButton name="menu" size={32} onClick={() => setIsShow(true)} />
+          <div css={headerLogoStyle}>
+            <Link to="/"></Link>
+            <A11yHiddenHeading comp="h1">
+              CACAO Friends 웹사이트
+            </A11yHiddenHeading>
+          </div>
+          <div css={IconButtonContainerStyle}>
+            {/* 추후 아이콘 추가  */}
+            <IconButton name="search" size={32} />
+          </div>
+        </section>
+      </header>
+      <AnimatePresence>
+        {isShow && (
+          <ModalContainer id="modal-root">
+            <ModalOverlay
+              onClick={() => setIsShow(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.7 }}
+              exit={{ opacity: 0 }}
+            />
+            <SideBar
+              initial={{ x: '-100vw', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ type: 'none' }}
+              exit={{ x: '-100vw', opacity: 0 }}
+            />
+          </ModalContainer>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
