@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
 import { colors } from 'theme';
+import { css } from '@emotion/react';
 import LinkIcon from './index';
 
 export default {

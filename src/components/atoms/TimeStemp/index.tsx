@@ -15,7 +15,7 @@ const TimeStemp = ({ time, ...restProps }: TimeStempProps) => {
 };
 
 const timeStempStyle = css`
-  font-size: 13px;
+  font-size: 1.2rem;
   letter-spacing: -0.2px;
   color: rgb(154, 154, 158);
 `;

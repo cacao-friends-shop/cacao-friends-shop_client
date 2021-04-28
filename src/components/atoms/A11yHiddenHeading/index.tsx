@@ -8,14 +8,8 @@ export type A11yHiddenHeadingProps = {
   children: string;
 };
 
-type headingStype = {
-  [key: string]: any;
-};
-
 const A11yHiddenHeading = ({ comp, children }: A11yHiddenHeadingProps) => {
-  // const Comp = headingStype[comp];
   const Comp = React.createElement(comp, { className: A11yHidden }, children);
-
   return Comp;
 };
 

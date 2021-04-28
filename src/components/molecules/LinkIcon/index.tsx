@@ -16,7 +16,7 @@ type LinkIconProps = {
   bgColor: string;
   /** 버튼 텍스트 */
   children: React.ReactNode;
-};
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const LinkIcon = ({
   type = 'leftIcon',
