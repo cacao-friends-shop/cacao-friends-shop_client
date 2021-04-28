@@ -1,27 +1,27 @@
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
 
 export type InputProps = {
   /** Input 타입 */
-  type: string
+  type: string;
   /** Input id, name */
-  title: string
+  title: string;
   /** Input 레이블 */
-  label?: string
+  label?: string;
   /** Input 클래스네임 */
-  className?: string
-}
+  className?: string;
+};
 
 const Input = ({ type, title, label, className, ...restProps }: InputProps) => {
   return (
     <div css={subtitleStyle} className={className}>
-      <label htmlFor={title}>{label}</label>
       <input type={type} id={title} name={title} {...restProps} />
+      <label htmlFor={title}>{label}</label>
     </div>
-  )
-}
+  );
+};
 
 const subtitleStyle = css`
   box-sizing: border-box;
-`
+`;
 
-export default Input
+export default Input;

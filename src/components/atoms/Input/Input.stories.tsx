@@ -1,5 +1,4 @@
-import Input, { InputProps } from './index';
-import { Story, Meta } from '@storybook/react';
+import Input from './index';
 import { css } from '@emotion/css';
 
 const styles = css`
@@ -7,17 +6,11 @@ const styles = css`
 `;
 
 export default {
-  title: 'components/Input',
+  title: 'atoms/Input',
   component: Input,
 };
 
-const Template: Story<InputProps> = args => <Input {...args} />;
+//Text Input
+export const TextInput = () => <Input type="text" title="fname" />;
 
-export const TextInput = Template.bind({});
-
-TextInput.args = {
-  type: 'text',
-  title: 'fname',
-  label: 'fname',
-  className: styles,
-};
+export const CheckBoxInput = () => <Input type="checkbox" title="fname" />;

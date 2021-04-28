@@ -1,13 +1,8 @@
-import Header, { HeaderProps } from './index';
-import { Story, Meta } from '@storybook/react';
+import Header from './index';
 
 export default {
-  title: 'components/Header',
+  title: 'organisms/Header',
   component: Header,
 };
 
-const Template: Story<HeaderProps> = args => <Header {...args} />;
-
-export const HeaderBlock = Template.bind({});
-
-HeaderBlock.args = {};
+export const HeaderBlock = () => <Header />;
