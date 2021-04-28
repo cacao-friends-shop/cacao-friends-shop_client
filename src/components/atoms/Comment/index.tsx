@@ -22,7 +22,7 @@ const commentStle = css`
 
 const nameStyle = css`
   font-weight: bold;
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   margin-right: 0.5rem;
   color: #2d2d2d;
 `;

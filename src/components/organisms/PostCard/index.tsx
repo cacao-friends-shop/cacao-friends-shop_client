@@ -52,7 +52,7 @@ const PostCard = ({ imgList }: PostCardProps) => {
         <Actionbar imgLength={imgList.length} currentIdx={currentIdx} />
       </div>
       <div>
-        <span>
+        <span css={{ fontSize: '1.3rem' }}>
           좋아요 <span css={likeCountStyle}>908개</span>
         </span>
       </div>
@@ -61,7 +61,9 @@ const PostCard = ({ imgList }: PostCardProps) => {
         <br />
         명탐정 콥
       </h3>
-      <p>스노우타운의 명탐정 콥은 늦잠꾸러기 일까❓</p>
+      <p css={{ fontSize: '1.4rem' }}>
+        스노우타운의 명탐정 콥은 늦잠꾸러기 일까❓
+      </p>
       <Link to="/" css={commentCountStyle}>
         댓글 543개
         <Comment name="김지원" comment="나 좀 알려줘~~~" />
@@ -87,7 +89,7 @@ const likeCountStyle = css`
 
 const titleStyle = css`
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   margin: 1rem 0;
 `;
 
@@ -95,7 +97,7 @@ const commentCountStyle = css`
   display: block;
   color: #aaa;
   margin: 1rem 0;
-
+  font-size: 1.2rem;
   p {
     margin-top: 1rem;
   }

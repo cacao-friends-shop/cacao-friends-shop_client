@@ -38,19 +38,19 @@ const container = css`
 
 const titleStyle = css`
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 `;
 
 const textContainer = css`
   display: flex;
   align-items: center;
-  margin-top: 0.2rem;
+  margin-top: 0.4rem;
 
   p {
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: rgb(47, 126, 230);
-    margin-right: 0.3rem;
+    margin-right: 0.5rem;
   }
 `;
 export default Profile;
