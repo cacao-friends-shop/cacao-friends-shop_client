@@ -14,7 +14,8 @@ type CarouselProps = {
   handlePrev: () => void;
   /** 다음 이미지 이동 함수 */
   handleNext: () => void;
-};
+  children?: React.ReactNode;
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const variants = {
   enter: (direction: number) => {
@@ -38,6 +39,8 @@ const Carousel = ({
   direction,
   handleNext,
   handlePrev,
+  children,
+  ...restProps
 }: CarouselProps) => {
   const [isAnimationEnd, setIsAnimationEnd] = useState(true);
 
@@ -47,7 +50,7 @@ const Carousel = ({
 
   return (
     <div css={container}>
-      <div css={imgContainer}>
+      <div css={imgContainer} {...restProps}>
         <AnimatePresence initial={false} custom={direction}>
           <motion.img
             key={currentIdx}
@@ -64,6 +67,7 @@ const Carousel = ({
             alt="Img"
           />
         </AnimatePresence>
+        {children}
       </div>
       {currentIdx !== 0 && (
         <IconButton
