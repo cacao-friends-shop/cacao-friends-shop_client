@@ -67,7 +67,7 @@ export const AvatarList = () => {
   return (
     <ul>
       {avatarList.map(avatar => (
-        <li css={{ marginBottom: '10px' }}>
+        <li key={avatar.alt} css={{ marginBottom: '10px' }}>
           <Avatar
             css={{ marginBottom: '10px' }}
             imagePath={avatar.imagePath}

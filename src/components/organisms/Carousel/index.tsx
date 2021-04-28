@@ -8,15 +8,34 @@ type CarouselProps = {
   imgList: string[];
   /** 현재 보이는 이미지의 인덱스 */
   currentIdx: number;
+  /** 캐러셀이 이동하는 방향조정 */
+  direction: number;
   /** 이전 이미지 이동 함수 */
   handlePrev: () => void;
   /** 다음 이미지 이동 함수 */
   handleNext: () => void;
 };
 
+const variants = {
+  enter: (direction: number) => {
+    return {
+      x: direction > 0 ? 550 : -550,
+    };
+  },
+  center: {
+    x: 0,
+  },
+  exit: (direction: number) => {
+    return {
+      x: direction < 0 ? 550 : -550,
+    };
+  },
+};
+
 const Carousel = ({
   imgList,
   currentIdx,
+  direction,
   handleNext,
   handlePrev,
 }: CarouselProps) => {
@@ -29,22 +48,18 @@ const Carousel = ({
   return (
     <div css={container}>
       <div css={imgContainer}>
-        <AnimatePresence initial={false}>
+        <AnimatePresence initial={false} custom={direction}>
           <motion.img
-            key={imgList[currentIdx]}
+            key={currentIdx}
             src={imgList[currentIdx]}
+            custom={direction}
             onAnimationComplete={handleSetIsAnimationEnd}
-            initial={{ x: 600 }}
-            animate={{
-              x: 0,
-              transition: {
-                type: 'tween',
-                duration: 0.3,
-              },
-            }}
-            exit={{
-              x: -600,
-              transition: { type: 'tween', duration: 0.4 },
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: 'tween', duration: 0.4 },
             }}
             alt="Img"
           />
