@@ -34,6 +34,10 @@ const container = css`
 
 const buttonGroup = css`
   display: flex;
+
+  button + button {
+    margin-left: 1rem;
+  }
 `;
 
 const indicatorContainer = css`
