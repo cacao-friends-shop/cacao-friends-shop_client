@@ -4,6 +4,7 @@ type Color = {
   pink: string;
   yellow: string;
   gray: string;
+  darkGray: string;
 };
 
 export const colors: Color = {
@@ -12,4 +13,5 @@ export const colors: Color = {
   pink: '#fb3a61',
   yellow: '#fee500',
   gray: '#bdbdbd',
+  darkGray: '#333',
 };
