@@ -8,8 +8,37 @@ import SideBar from 'components/organisms/SideBar';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
 
-export type HeaderProps = {};
+export type HeaderProps = {
+  TabComp?: any;
+};
 
+<<<<<<< HEAD
+const Header = ({ TabComp }: HeaderProps) => {
+  return (
+    <header css={headerStyle}>
+      <section css={headerContainerStyle}>
+        <IconButton name="menu" size={25} />
+        <div css={headerLogoStyle}>
+          <Link to="/"></Link>
+          <A11yHiddenHeading comp="h1">
+            CACAO Friends 웹사이트
+          </A11yHiddenHeading>
+        </div>
+        <div css={IconButtonContainerStyle}>
+          {/* 추후 아이콘 추가  */}
+          <IconButton name="search" size={25} />
+        </div>
+      </section>
+      {TabComp ? (
+        <TabComp
+          todayTab={<div>today</div>}
+          newTab={<div>new</div>}
+          popularTab={<div>popular</div>}
+          myTab={<div>my</div>}
+        />
+      ) : null}
+    </header>
+=======
 const Header = (props: HeaderProps) => {
   const [isShow, setIsShow] = useState(false);
   return (
@@ -48,6 +77,7 @@ const Header = (props: HeaderProps) => {
         )}
       </AnimatePresence>
     </>
+>>>>>>> 17f548641edc3925d037201efdc0bc3c4bbcf214
   );
 };
 
@@ -56,6 +86,7 @@ const headerStyle = css`
   flex-direction: column;
   max-width: 640px;
   position: sticky;
+  z-index: 1000;
   top: 0;
   margin: 0 auto;
 `;
@@ -63,6 +94,10 @@ const headerContainerStyle = css`
   display: flex;
   justify-content: space-between;
   margin: 0.8rem 1.3rem 0.7rem;
+
+  & + div {
+    margin-top: 20px;
+  }
 `;
 const headerLogoStyle = css`
   width: 147px;
@@ -70,7 +105,6 @@ const headerLogoStyle = css`
 
   a {
     display: block;
-    margin-top: 0.3rem;
     width: 100%;
     height: 100%;
     background: url('https://t1.kakaocdn.net/friends/new_store/2.0/mobile/new-logo-mo.png');
