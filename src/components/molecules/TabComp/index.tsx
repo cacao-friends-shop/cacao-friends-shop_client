@@ -4,13 +4,13 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 
 export type TabProps = {
   /** 오늘 탭 내용 */
-  todayTab: any;
+  todayTab: React.ReactNode;
   /** 신규 탭 내용 */
-  newTab: any;
+  newTab: React.ReactNode;
   /** 인기 탭 내용 */
-  popularTab: any;
+  popularTab: React.ReactNode;
   /** 마이 탭 내용 */
-  myTab: any;
+  myTab: React.ReactNode;
 };
 
 const TabComp = ({ todayTab, newTab, popularTab, myTab }: TabProps) => {
@@ -18,7 +18,7 @@ const TabComp = ({ todayTab, newTab, popularTab, myTab }: TabProps) => {
     <Tabs css={tabStyle} variant="line">
       <TabList>
         <Tab _selected={activeTabStyle}>오늘</Tab>
-        <Tab _selected={activeTabStyle} className="newTab">
+        <Tab _selected={activeTabStyle} className="update">
           신규
         </Tab>
         <Tab _selected={activeTabStyle}>인기</Tab>
@@ -56,7 +56,7 @@ const tabStyle = css`
       line-height: 150%;
     }
   }
-  & [role='tablist'] > .newTab::after {
+  & [role='tablist'] > .update::after {
     content: '';
 
     width: 0.5rem;
@@ -67,7 +67,7 @@ const tabStyle = css`
     top: 20%;
     right: 35%;
   }
-  & [role='tablist'] > .newTab:focus::after {
+  & [role='tablist'] > .update:focus::after {
     top: 25%;
   }
 `;

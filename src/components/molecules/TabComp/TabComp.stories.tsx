@@ -1,18 +1,23 @@
-import TabComp, { TabProps } from './index';
-import { Story, Meta } from '@storybook/react';
+import TabComp from './index';
 
 export default {
-  title: 'components/TabComp',
+  title: 'molecules/TabComp',
   component: TabComp,
 };
 
-const Template: Story<TabProps> = args => <TabComp {...args} />;
-
-export const TabBlock = Template.bind({});
-
-TabBlock.args = {
-  todayTab: <h1>today tab</h1>,
-  newTab: <div>new tab</div>,
-  popularTab: <h1>popular tab</h1>,
-  myTab: <h1>my tab</h1>,
-};
+/**
+ *
+ * params
+ * todayTab: React.ReactNode
+ * newTab: React.ReactNode
+ * popularTab: React.ReactNode
+ * myTab: React.ReactNode
+ */
+export const TabBlock = () => (
+  <TabComp
+    todayTab={<div>today</div>}
+    newTab={<div>new</div>}
+    popularTab={<div>popular</div>}
+    myTab={<div>my</div>}
+  ></TabComp>
+);
