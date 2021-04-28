@@ -6,6 +6,8 @@ import Icon from 'components/atoms/Icon';
 type LinkIconProps = {
   /** 아이콘 방향 */
   type: string;
+  /** 링크 to */
+  to: string;
   /** 아이콘 이름 */
   iconName: string;
   /** 아이콘 사이즈 */
@@ -18,6 +20,7 @@ type LinkIconProps = {
 
 const LinkIcon = ({
   type = 'leftIcon',
+  to = '/',
   iconName = 'arrowRight',
   iconSize = 20,
   bgColor = 'transparent',
@@ -39,7 +42,7 @@ const LinkIcon = ({
   );
 
   return (
-    <Link to="/" css={style(bgColor)} {...restProps}>
+    <Link to={to} css={style(bgColor)} {...restProps}>
       {type === 'rightIcon' ? RightIcon : LeftIcon}
     </Link>
   );

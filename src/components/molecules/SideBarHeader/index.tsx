@@ -9,6 +9,7 @@ const SideBarHeader = () => {
       <NeedLogin />
       <LinkIcon
         type="rightIcon"
+        to="/"
         iconName="arrowRight"
         iconSize={15}
         bgColor="transparent"

@@ -6,6 +6,7 @@ const SideBarFooter = () => {
   return (
     <LinkIcon
       type="leftIcon"
+      to="/"
       iconName="lock"
       iconSize={20}
       bgColor="transparent"

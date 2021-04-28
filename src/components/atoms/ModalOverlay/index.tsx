@@ -12,7 +12,7 @@ const ModalOverlay = ({ isShow = true, onClick }: ModalOverlayProps) => {
 
 const style = (isShow: boolean) => css`
   display: ${isShow ? 'block' : 'none'};
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;

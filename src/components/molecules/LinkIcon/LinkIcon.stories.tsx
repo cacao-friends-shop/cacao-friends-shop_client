@@ -11,6 +11,7 @@ export default {
 export const login = () => (
   <LinkIcon
     type="leftIcon"
+    to="/"
     iconName="lock"
     iconSize={20}
     bgColor="transparent"
@@ -33,6 +34,7 @@ const style_login = css`
 export const nonMemberOrder = () => (
   <LinkIcon
     type="rightIcon"
+    to="/"
     iconName="arrowRight"
     iconSize={15}
     bgColor="transparent"
@@ -64,6 +66,6 @@ const style_listOfLinkIcon = css`
   flex-flow: row wrap;
 
   li {
-    width: 25%;
+    flex-basis: 25%;
   }
 `;
