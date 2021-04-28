@@ -1,17 +1,12 @@
 import { css } from '@emotion/react';
+import { motion } from 'framer-motion';
 import { colors } from 'theme';
 
-type ModalOverlayProps = {
-  isShow?: boolean;
-  onClick?: (e: React.MouseEvent) => void;
+const ModalOverlay = ({ ...restProps }) => {
+  return <motion.div css={style} {...restProps}></motion.div>;
 };
 
-const ModalOverlay = ({ isShow = true, onClick }: ModalOverlayProps) => {
-  return <div css={style(isShow)} onClick={onClick}></div>;
-};
-
-const style = (isShow: boolean) => css`
-  display: ${isShow ? 'block' : 'none'};
+const style = css`
   position: fixed;
   width: 100%;
   height: 100%;

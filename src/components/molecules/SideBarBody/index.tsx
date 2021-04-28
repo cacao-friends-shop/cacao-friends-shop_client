@@ -2,34 +2,7 @@ import { css } from '@emotion/react';
 import { v4 as uuid } from 'uuid';
 import { Link } from 'react-router-dom';
 import { colors } from 'theme';
-
-const IconList = [
-  {
-    link: '/',
-    imagePath: 'assets/ryan_avatar.png',
-    name: '라이언',
-  },
-  {
-    link: '/',
-    imagePath: 'assets/apeach_avatar.png',
-    name: '어피치',
-  },
-  {
-    link: '/',
-    imagePath: 'assets/muzi_avatar.png',
-    name: '무지',
-  },
-  {
-    link: '/',
-    imagePath: 'assets/frodo_avator.png',
-    name: '프로도',
-  },
-  {
-    link: '/',
-    imagePath: 'assets/neo_avatar.png',
-    name: '네오',
-  },
-];
+import { IconList } from 'staticData';
 
 const SideBarBody = () => {
   return (
@@ -90,6 +63,10 @@ const style_character = css`
   p {
     margin-top: 0.7rem;
     font-size: 1.2rem;
+  }
+
+  img:hover {
+    background-color: red;
   }
 `;
 
