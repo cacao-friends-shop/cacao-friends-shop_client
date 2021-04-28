@@ -1,19 +1,25 @@
 import React from 'react';
 import { Global } from '@emotion/react';
 import GlobalStyles from 'styles/GlobalStyles';
-import ProductCard from 'components/molecules/ProductCard';
-import ProductCardList from 'components/organisms/ProductCardList/ProductCardList';
+import ProductImageCardList from 'components/organisms/ProductImageCardList/ProductImageCardList';
+import ProductImageCardListType2 from 'components/organisms/ProductImageCardList/ProductImageCardListType2';
+import ProductImageCardListType3 from 'components/organisms/ProductImageCardList/ProductImageCardListType3';
+import imgListDivider from 'hooks/imgListDivider';
 
-const imageList = [
-  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210426185905.jpg',
-  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_1_20210426185905.jpg',
-  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_2_20210426185905.jpg',
+const ProductImageCardListGroup = (img: string[], i: number) => [
+  <ProductImageCardList key={'type1 - ' + i} imgList={img} />,
+  <ProductImageCardListType3 key={'type3 - ' + i} imgList={img} />,
+  <ProductImageCardListType2 key={'type2 - ' + i} imgList={img} />,
+  <ProductImageCardListType3 key={'type3 - ' + i} imgList={img} />,
 ];
+
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <ProductCardList />
+      {imgListDivider.map(
+        (img: string[], i: number) => ProductImageCardListGroup(img, i)[i % 4]
+      )}
     </>
   );
 }
