@@ -38,9 +38,7 @@ const iconButtonTypes = [
   'arrowDown',
   'circleArrowUp',
   'share',
-
   'lock',
-
   'kakaoTalk',
 ];
 
