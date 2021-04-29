@@ -134,44 +134,44 @@ const AgreementForm = (props: Props) => {
 };
 
 const AgreementFormStyle = css`
-  max-width: 520px;
+  max-width: 52rem;
   margin: 0 auto;
 
   h1 {
-    padding-top: 50px;
+    padding-top: 5rem;
     text-align: center;
     font-size: 3.2rem;
   }
 `;
 const formStyle = css`
-  margin-top: 40px;
+  margin-top: 4rem;
   width: 100%;
   display: inline-block;
   vertical-align: top;
   text-align: left;
-  padding: 60px 70px;
-  font-size: 16px;
+  padding: 6rem 7rem;
+  font-size: 1rem;
   box-sizing: border-box;
-  border: 1px solid #e5e5e5;
+  border: 0.1rem solid #e5e5e5;
 
   h2 {
-    margin-bottom: 23px;
-    font-size: 24px;
-    line-height: 34px;
+    margin-bottom: 2.3rem;
+    font-size: 2.4rem;
+    line-height: 3.4rem;
   }
   h2 ~ div {
-    margin-top: 20px;
+    margin-top: 2rem;
   }
   .agree-button {
     width: 100%;
-    height: 50px;
+    height: 5rem;
     padding: 0;
     border: 0;
-    border-radius: 4px;
-    font-size: 15px;
+    border-radius: 0.44rem;
+    font-size: 1.5rem;
     color: #191919;
     background-color: #f6f6f6;
-    margin-top: 40px;
+    margin-top: 4rem;
   }
   .flex-row {
     display: flex;
@@ -179,23 +179,23 @@ const formStyle = css`
   }
   .all-agreed label {
     color: #333;
-    font-size: 17px;
-    line-height: 22px;
+    font-size: 1.7rem;
+    line-height: 2.2rem;
     font-weight: 700;
     display: inline-block;
-    margin-left: 8px;
+    margin-left: 0.8rem;
   }
   .sub-desc {
-    padding: 10px 40px 20px 28px;
-    border-bottom: 1px solid #e5e5e5;
-    font-size: 12px;
+    padding: 1rem 4rem 2rem 2.8rem;
+    border-bottom: 0.1rem solid #e5e5e5;
+    font-size: 1.2rem;
     color: #959595;
     word-break: keep-all;
     line-height: 150%;
   }
   input + label {
-    margin-left: 8px;
-    font-size: 14px;
+    margin-left: 0.8rem;
+    font-size: 1.4rem;
   }
 
   svg {

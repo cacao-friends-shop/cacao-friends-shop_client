@@ -100,63 +100,63 @@ const SignUpForm = (props: Props) => {
   );
 };
 const SignUpFormStyle = css`
-  max-width: 580px;
+  max-width: 58rem;
   margin: 0 auto;
 
   h1 {
-    padding-top: 50px;
+    padding-top: 5rem;
     text-align: center;
     font-size: 3.2rem;
   }
 `;
 
 const formStyle = css`
-  margin-top: 40px;
+  margin-top: 4rem;
   width: 100%;
   display: inline-block;
   vertical-align: top;
   text-align: left;
-  padding: 60px 70px;
-  font-size: 16px;
+  padding: 6rem 7rem;
+  font-size: 1.6rem;
   box-sizing: border-box;
-  border: 1px solid #e5e5e5;
+  border: 0.1rem solid #e5e5e5;
 
   h2 {
-    font-size: 24px;
-    line-height: 34px;
+    font-size: 2.4rem;
+    line-height: 3.4rem;
     color: #252525;
     font-weight: normal;
   }
   h3 {
     display: block;
-    font-size: 12px;
+    font-size: 1.2rem;
     color: #000;
     font-weight: normal;
-    margin-top: 40px;
+    margin-top: 4rem;
   }
   .verification-button {
     max-width: 152px;
     float: right;
     display: inline-block;
-    height: 42px;
-    padding: 0 31px;
+    height: 4.2rem;
+    padding: 0 3.1rem;
     color: #252525;
-    border: 1px solid #dbdbdb;
-    border-radius: 30px;
+    border: 0.1rem solid #dbdbdb;
+    border-radius: 3rem;
     box-sizing: border-box;
-    margin-top: 30px;
+    margin-top: 3rem;
     background: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
   }
   .submit-button {
     display: block;
-    margin-top: 30px;
+    margin-top: 3rem;
     width: 100%;
-    height: 50px;
+    height: 5rem;
     padding: 0;
     border: 0;
-    border-radius: 4px;
-    font-size: 15px;
+    border-radius: 0.4rem;
+    font-size: 1.5rem;
     color: #191919;
     background-color: #f6f6f6;
   }
@@ -165,20 +165,20 @@ const formStyle = css`
 const emailInputStyle = css`
   position: relative;
   ul {
-    margin-top: 22px;
+    margin-top: 2.2rem;
   }
   ul > li {
-    font-size: 12px;
-    margin-top: 7px;
+    font-size: 1.2rem;
+    margin-top: 0.7rem;
     color: #999;
     list-style: inside;
   }
 
   span {
     position: absolute;
-    top: 30px;
+    top: 3rem;
     right: 0;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 1.5;
     font-weight: 700;
     color: #7c7c7c;
@@ -189,11 +189,11 @@ const nicknameInputStyle = css`
 
   .nickname-limit {
     position: absolute;
-    top: 25px;
+    top: 2.5rem;
     right: 0;
-    font-size: 12px;
+    font-size: 1.2rem;
     color: #adadad;
-    line-height: 22px;
+    line-height: 2.2rem;
   }
 `;
 export default SignUpForm;
