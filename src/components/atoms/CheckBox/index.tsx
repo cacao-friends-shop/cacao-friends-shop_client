@@ -6,16 +6,19 @@ import { colors } from 'theme';
 type CheckBoxProps = {
   color?: string;
   size?: number;
-};
+} & React.LabelHTMLAttributes<HTMLLabelElement>;
 
-const CheckBox = ({ color = colors.black, size = 20 }: CheckBoxProps) => {
-  const [isChecked, setchecked] = useState(false);
+const CheckBox = ({
+  color = colors.black,
+  size = 20,
+  ...restProps
+}: CheckBoxProps) => {
+  const [isChecked, setisChecked] = useState(false);
 
-  const handleClick = () => setchecked(checked => !checked);
-
+  const handleClick = () => setisChecked(!isChecked);
   return (
-    <label htmlFor="checkbox" css={style(color)}>
-      <input type="checkbox" id="checkbox" onClick={handleClick} />
+    <label css={style(color)} {...restProps}>
+      <input type="checkbox" onChange={handleClick} checked={isChecked} />
 
       {isChecked ? (
         <Icon name="checkboxChecked" size={size} />

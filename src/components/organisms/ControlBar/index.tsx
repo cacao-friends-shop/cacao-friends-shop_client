@@ -8,7 +8,7 @@ const ControlBar = ({ ...restProps }) => {
   return (
     <div css={style} {...restProps}>
       <div>
-        <CheckBox />
+        <CheckBox className="checkbox" />
         <Button bgColor="transparent" width="20" disabled={true}>
           삭제
         </Button>
@@ -23,7 +23,7 @@ const style = css`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  border: 1px solid ${colors.gray};
+  border: 1px solid #e0e5ee;
   padding: 1.3rem 1.5rem;
   border-radius: 3px;
   margin-top: 1rem;
@@ -36,6 +36,12 @@ const style = css`
 
   button[disabled] {
     color: ${colors.gray};
+  }
+
+  .checkbox {
+    svg {
+      fill: #c5cdd7;
+    }
   }
 `;
 

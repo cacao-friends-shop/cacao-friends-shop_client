@@ -57,6 +57,10 @@ const style_link = css`
   svg {
     fill: ${colors.gray};
   }
+
+  &:hover {
+    box-shadow: 0 0 5px 1px #c5cdd7;
+  }
 `;
 
 export default AdminListHeader;

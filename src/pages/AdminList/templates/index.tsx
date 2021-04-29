@@ -2,12 +2,14 @@ import React from 'react';
 import AdminListHeader from 'components/organisms/AdminListHeader';
 import { css } from '@emotion/react';
 import AdminListBody from 'components/organisms/AdminListBody';
+import AdminListFooter from 'components/organisms/AdminListFooter';
 
 const Template = () => {
   return (
     <div css={style_container}>
       <AdminListHeader />
       <AdminListBody />
+      <AdminListFooter />
     </div>
   );
 };

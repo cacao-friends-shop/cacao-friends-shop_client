@@ -8,7 +8,7 @@ type PostInfoProps = {
   writer: string;
   date: string;
   commentsCount: number;
-};
+} & React.HTMLAttributes<HTMLUListElement>;
 
 const PostInfo = ({
   likeCount,

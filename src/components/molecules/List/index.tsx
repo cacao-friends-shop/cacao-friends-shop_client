@@ -17,7 +17,7 @@ const List = ({ title, likeCount, writer, date, commentsCount }: ListProps) => {
   return (
     <li css={style}>
       <div className="post_info">
-        <CheckBox />
+        <CheckBox className="info_checkbox" />
         <div>
           <Link to="/" className="title">
             <Title headingNumber={2}>{title}</Title>
@@ -27,6 +27,7 @@ const List = ({ title, likeCount, writer, date, commentsCount }: ListProps) => {
             writer={writer}
             date={date}
             commentsCount={commentsCount}
+            className="info_data"
           />
         </div>
       </div>
@@ -43,11 +44,17 @@ const style = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid ${colors.gray};
+  border-bottom: 1px solid #f1f3f6;
 
   .post_info {
     display: flex;
     align-items: center;
+
+    .info_checkbox {
+      svg {
+        fill: #c5cdd7;
+      }
+    }
   }
 
   .title {
@@ -66,18 +73,28 @@ const style = css`
   }
 
   &:hover {
-    background-color: ${colors.lightGray};
+    background-color: #fafbfd;
+    .info_data {
+      color: ${colors.darkGray};
+      svg {
+        fill: red;
+      }
+    }
   }
 
   .post_btn {
     a {
       font-size: 1.3rem;
       padding: 0.5rem 1rem;
-      border: 1px solid ${colors.gray};
+      border: 1px solid #c5cdd7;
     }
 
     a + a {
       margin-left: 0.5rem;
+    }
+
+    a:hover {
+      box-shadow: 0 0 5px 1px #c5cdd7;
     }
   }
 `;

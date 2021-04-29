@@ -90,7 +90,7 @@ const style_bodyContainer = css`
   }
   .list-table {
     max-height: 710px;
-    border: 1px solid ${colors.gray};
+    border: 1px solid #e0e5ee;
 
     li:last-child {
       border-bottom: none;
