@@ -64,10 +64,6 @@ const style_character = css`
     margin-top: 0.7rem;
     font-size: 1.2rem;
   }
-
-  img:hover {
-    background-color: red;
-  }
 `;
 
 const style_avatar = css`

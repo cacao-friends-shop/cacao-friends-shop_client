@@ -52,6 +52,7 @@ const style_link = css`
   padding: 1rem;
   font-size: 1.2rem;
   border: 1px solid ${colors.gray};
+  border-radius: 3px;
 
   svg {
     fill: ${colors.gray};
