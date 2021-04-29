@@ -4,7 +4,9 @@ import Icon from '../Icon';
 import { colors } from 'theme';
 
 type CheckBoxProps = {
+  /** 체크박스 색 */
   color?: string;
+  /** 체크박스 사이즈 */
   size?: number;
 } & React.LabelHTMLAttributes<HTMLLabelElement>;
 
@@ -14,8 +16,8 @@ const CheckBox = ({
   ...restProps
 }: CheckBoxProps) => {
   const [isChecked, setisChecked] = useState(false);
-
   const handleClick = () => setisChecked(!isChecked);
+
   return (
     <label css={style(color)} {...restProps}>
       <input type="checkbox" onChange={handleClick} checked={isChecked} />

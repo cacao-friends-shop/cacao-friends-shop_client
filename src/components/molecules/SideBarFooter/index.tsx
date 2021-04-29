@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
-import LinkIcon from 'components/molecules/LinkIcon';
 import { colors } from 'theme';
+import IconLink from '../IconLink';
 
 const SideBarFooter = () => {
   return (
-    <LinkIcon
+    <IconLink
       type="leftIcon"
       to="/"
       iconName="lock"
@@ -13,11 +13,12 @@ const SideBarFooter = () => {
       css={style}
     >
       로그인
-    </LinkIcon>
+    </IconLink>
   );
 };
 
 const style = css`
+  display: flex;
   padding: 2rem 0;
   color: ${colors.gray};
 

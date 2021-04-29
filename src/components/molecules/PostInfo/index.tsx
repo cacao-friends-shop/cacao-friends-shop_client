@@ -4,9 +4,13 @@ import { css } from '@emotion/react';
 import { colors } from 'theme';
 
 type PostInfoProps = {
+  /** 좋아요 수 */
   likeCount: number;
+  /** 작성자 */
   writer: string;
+  /** 글 날짜 */
   date: string;
+  /** 댓글수 */
   commentsCount: number;
 } & React.HTMLAttributes<HTMLUListElement>;
 

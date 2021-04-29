@@ -32,12 +32,12 @@ const Header = (props: HeaderProps) => {
       <AnimatePresence>
         {isShow && (
           <ModalContainer id="modal-root">
-            <ModalOverlay
+            {/* <ModalOverlay
               onClick={() => setIsShow(false)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.7 }}
               exit={{ opacity: 0 }}
-            />
+            /> */}
             <SideBar
               initial={{ x: '-100vw', opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}

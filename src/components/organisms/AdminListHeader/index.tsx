@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Title from 'components/atoms/Title';
 import { colors } from 'theme';
-import LinkIcon from 'components/molecules/LinkIcon';
+import IconLink from 'components/molecules/IconLink';
 
 const AdminListHeader = () => {
   return (
@@ -13,7 +13,7 @@ const AdminListHeader = () => {
         </Title>
         <span css={style_count}>36</span>
       </div>
-      <LinkIcon
+      <IconLink
         type="rightIcon"
         to="/"
         iconName="pencil"
@@ -22,7 +22,7 @@ const AdminListHeader = () => {
         css={style_link}
       >
         글쓰기
-      </LinkIcon>
+      </IconLink>
     </div>
   );
 };

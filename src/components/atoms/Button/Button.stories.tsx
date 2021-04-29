@@ -1,7 +1,7 @@
 import Button from './index';
 import { css } from '@emotion/react';
 import { colors } from 'theme';
-import Icon from '../Icon';
+import Icon from 'components/atoms/Icon';
 
 export default {
   component: Button,
@@ -56,11 +56,9 @@ const styledLogin = css`
 // 버튼 그룹
 export const listOfButtons = () => {
   return (
-    <ul css={styleButtonList}>
+    <ul>
       <li>{buyNow()}</li>
       <li>{login()}</li>
     </ul>
   );
 };
-
-const styleButtonList = css``;

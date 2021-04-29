@@ -1,17 +1,24 @@
 import { Link } from '@chakra-ui/layout';
 import { css } from '@emotion/react';
+import { v4 as uuid } from 'uuid';
+import { colors } from 'theme';
 
 type PaginationProps = {
+  /** 게시물의 총개수 */
   contentsLength: number;
-};
+} & React.HTMLAttributes<HTMLUListElement>;
 
-const Pagination = ({ contentsLength }: PaginationProps) => {
-  const pageLength = Math.floor(contentsLength / 10) + 1;
+const Pagination = ({ contentsLength, ...restProps }: PaginationProps) => {
+  const pagesLength =
+    contentsLength % 10
+      ? Math.floor(contentsLength / 10) + 1
+      : contentsLength / 10;
+
   return (
-    <ul css={style}>
-      {Array.from({ length: pageLength }).map((_, i) => (
-        <li key={i}>
-          <Link to="/">{i}</Link>
+    <ul css={style} {...restProps}>
+      {Array.from({ length: pagesLength }).map((_, i) => (
+        <li key={uuid()}>
+          <Link to="/">{i + 1}</Link>
         </li>
       ))}
     </ul>
@@ -32,7 +39,7 @@ const style = css`
   a {
     cursor: pointer;
     &:hover {
-      color: red;
+      color: ${colors.red};
       text-decoration: underline;
     }
   }

@@ -1,23 +1,35 @@
+import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
+import { colors } from 'theme';
 import CheckBox from 'components/atoms/CheckBox';
 import Title from 'components/atoms/Title';
-import { Link } from 'react-router-dom';
-import { colors } from 'theme';
-import PostInfo from '../PostInfo';
+import PostInfo from 'components/molecules/PostInfo';
 
 type ListProps = {
+  /** 리스트 제목 */
   title: string;
+  /** 리스트 좋아요 수 */
   likeCount: number;
+  /** 리스트 작성자 */
   writer: string;
+  /** 리스트 날짜 */
   date: string;
+  /** 리스트 댓글수 */
   commentsCount: number;
-};
+} & React.LiHTMLAttributes<HTMLLIElement>;
 
-const List = ({ title, likeCount, writer, date, commentsCount }: ListProps) => {
+const List = ({
+  title,
+  likeCount,
+  writer,
+  date,
+  commentsCount,
+  ...restProps
+}: ListProps) => {
   return (
-    <li css={style}>
+    <li css={style} {...restProps}>
       <div className="post_info">
-        <CheckBox className="info_checkbox" />
+        <CheckBox color={colors.adminGray} />
         <div>
           <Link to="/" className="title">
             <Title headingNumber={2}>{title}</Title>
@@ -44,17 +56,11 @@ const style = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #f1f3f6;
+  border-bottom: 1px solid ${colors.adminLightGray};
 
   .post_info {
     display: flex;
     align-items: center;
-
-    .info_checkbox {
-      svg {
-        fill: #c5cdd7;
-      }
-    }
   }
 
   .title {
@@ -73,7 +79,7 @@ const style = css`
   }
 
   &:hover {
-    background-color: #fafbfd;
+    background-color: ${colors.adminLightGray_02};
     .info_data {
       color: ${colors.darkGray};
       svg {
@@ -86,7 +92,7 @@ const style = css`
     a {
       font-size: 1.3rem;
       padding: 0.5rem 1rem;
-      border: 1px solid #c5cdd7;
+      border: 1px solid ${colors.adminGray};
     }
 
     a + a {
@@ -94,7 +100,7 @@ const style = css`
     }
 
     a:hover {
-      box-shadow: 0 0 5px 1px #c5cdd7;
+      box-shadow: 0 0 5px 1px ${colors.adminGray};
     }
   }
 `;
