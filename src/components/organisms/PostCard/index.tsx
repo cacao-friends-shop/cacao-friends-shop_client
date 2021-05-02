@@ -1,11 +1,11 @@
 import Profile from 'components/molecules/Profile';
-import { useState } from 'react';
 import Carousel from 'components/organisms/Carousel';
 import Actionbar from 'components/molecules/Actionbar';
 import { css } from '@emotion/react';
 import Comment from 'components/atoms/Comment';
 import { Link } from 'react-router-dom';
 import CommentTextArea from 'components/atoms/CommentTextArea';
+import useCarouselState from 'hooks/useCarouselState';
 
 type PostCardProps = {
   /** 캐러셀에 들어갈 이미지 경로 배열 */
@@ -13,21 +13,10 @@ type PostCardProps = {
 };
 
 const PostCard = ({ imgList }: PostCardProps) => {
-  const [[currentIdx, direction], setSlide] = useState([0, 0]);
+  const { currentIdx, direction, handleNext, handlePrev } = useCarouselState(
+    imgList
+  );
 
-  const slideMove = (newDirection: number) => {
-    setSlide([currentIdx + newDirection, newDirection]);
-  };
-
-  const handlePrev = () => {
-    if (currentIdx <= 0) return;
-    slideMove(-1);
-  };
-
-  const handleNext = () => {
-    if (currentIdx >= imgList.length - 1) return;
-    slideMove(1);
-  };
   return (
     <article css={articleStyle}>
       <div>
