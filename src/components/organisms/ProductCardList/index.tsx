@@ -9,7 +9,7 @@ const ProductCardList = () => {
       templateColumns="repeat(2, 1fr)"
       gap={20}
       rowGap={60}
-      maxWidth="55rem"
+      maxWidth="64rem"
     >
       <ProductCard />
       <ProductCard />

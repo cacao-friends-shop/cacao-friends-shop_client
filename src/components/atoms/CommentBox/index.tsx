@@ -2,39 +2,34 @@ import { css } from '@emotion/react';
 import React from 'react';
 
 type CommentTextAreaProps = {
-  placeholder: string;
+  children: React.ReactNode;
 };
 
-const CommentTextArea = ({ placeholder }: CommentTextAreaProps) => {
-  return (
-    <div css={container}>
-      <textarea
-        name="comment"
-        title={placeholder}
-        placeholder={placeholder}
-        disabled
-      ></textarea>
-    </div>
-  );
+const CommentBox = ({ children }: CommentTextAreaProps) => {
+  return <div css={container}>{children}</div>;
 };
 
 const container = css`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-top: 1rem;
   background-color: rgb(240, 241, 244);
   border-radius: 30px;
   border-top-left-radius: 0;
+  padding: 1rem 1.5rem;
 
   textarea {
     width: 100%;
-    padding-top: 1rem;
+    padding: 0;
     padding-left: 0.5rem;
     resize: none;
     background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
+    font-size: 1.5rem;
+    height: 2rem;
 
     &::placeholder {
       color: #aaa;
@@ -42,4 +37,4 @@ const container = css`
   }
 `;
 
-export default CommentTextArea;
+export default CommentBox;

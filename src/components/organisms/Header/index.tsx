@@ -7,39 +7,21 @@ import ModalContainer from 'utils/potal';
 import SideBar from 'components/organisms/SideBar';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
+import PostCard from '../PostCard';
+import NewProductTemplate from 'pages/NewProduct/template';
+import FavoriteProductsTemplate from '../../../pages/FavoriteProducts/template/index';
+
+const imageList = [
+  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210426185905.jpg',
+  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_1_20210426185905.jpg',
+  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_2_20210426185905.jpg',
+];
 
 export type HeaderProps = {
   TabComp?: any;
 };
 
-<<<<<<< HEAD
 const Header = ({ TabComp }: HeaderProps) => {
-  return (
-    <header css={headerStyle}>
-      <section css={headerContainerStyle}>
-        <IconButton name="menu" size={25} />
-        <div css={headerLogoStyle}>
-          <Link to="/"></Link>
-          <A11yHiddenHeading comp="h1">
-            CACAO Friends 웹사이트
-          </A11yHiddenHeading>
-        </div>
-        <div css={IconButtonContainerStyle}>
-          {/* 추후 아이콘 추가  */}
-          <IconButton name="search" size={25} />
-        </div>
-      </section>
-      {TabComp ? (
-        <TabComp
-          todayTab={<div>today</div>}
-          newTab={<div>new</div>}
-          popularTab={<div>popular</div>}
-          myTab={<div>my</div>}
-        />
-      ) : null}
-    </header>
-=======
-const Header = (props: HeaderProps) => {
   const [isShow, setIsShow] = useState(false);
   return (
     <>
@@ -57,6 +39,14 @@ const Header = (props: HeaderProps) => {
             <IconButton name="search" size={32} />
           </div>
         </section>
+        {TabComp ? (
+          <TabComp
+            todayTab={<PostCard imgList={imageList} />}
+            newTab={<NewProductTemplate />}
+            popularTab={<FavoriteProductsTemplate />}
+            myTab={<div>my</div>}
+          />
+        ) : null}
       </header>
       <AnimatePresence>
         {isShow && (
@@ -77,7 +67,6 @@ const Header = (props: HeaderProps) => {
         )}
       </AnimatePresence>
     </>
->>>>>>> 17f548641edc3925d037201efdc0bc3c4bbcf214
   );
 };
 

@@ -14,6 +14,7 @@ const style = css`
   left: 0;
   background-color: ${colors.black};
   opacity: 0.7;
+  z-index: 1000;
 `;
 
 export default ModalOverlay;
