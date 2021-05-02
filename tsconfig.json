@@ -2,11 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -21,9 +17,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "downlevelIteration": true,
-    "isolatedModules": true
+    "isolatedModules": false
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

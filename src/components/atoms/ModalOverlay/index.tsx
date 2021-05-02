@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { motion } from 'framer-motion';
+import { HTMLMotionProps, motion } from 'framer-motion';
 import { colors } from 'theme';
 
 type ModalOverlayProps = {
@@ -7,8 +7,7 @@ type ModalOverlayProps = {
   bgColor?: string;
   /** 오버레이 투명도 */
   opacity?: number;
-};
-// TODO: ...restProps 타입추가
+} & HTMLMotionProps<'div'>;
 
 const ModalOverlay = ({
   bgColor = colors.black,

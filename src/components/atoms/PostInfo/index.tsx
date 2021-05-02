@@ -1,7 +1,7 @@
 import Icon from 'components/atoms/Icon';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
 import { css } from '@emotion/react';
-import { colors } from 'theme';
+import { colors, fontSizes } from 'theme';
 
 type PostInfoProps = {
   /** 좋아요 수 */
@@ -49,7 +49,7 @@ const style = css`
   align-items: center;
   justify-content: space-between;
   color: ${colors.gray};
-  font-size: 1.4rem;
+  font-size: ${fontSizes[14]};
 
   li + li {
     margin-left: 1.2rem;
@@ -65,12 +65,13 @@ const style = css`
   }
 
   .comments {
+    display: flex;
+    align-items: center;
+    font-size: ${fontSizes[13]};
+
     h3 {
       font-weight: 400;
     }
-    display: flex;
-    align-items: center;
-    font-size: 1.3rem;
   }
 `;
 

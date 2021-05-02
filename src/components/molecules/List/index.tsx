@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { colors } from 'theme';
 import CheckBox from 'components/atoms/CheckBox';
 import Title from 'components/atoms/Title';
-import PostInfo from 'components/molecules/PostInfo';
+import PostInfo from 'components/atoms/PostInfo';
 
 type ListProps = {
   /** 리스트 제목 */
@@ -83,7 +83,7 @@ const style = css`
     .info_data {
       color: ${colors.darkGray};
       svg {
-        fill: red;
+        fill: ${colors.red};
       }
     }
   }

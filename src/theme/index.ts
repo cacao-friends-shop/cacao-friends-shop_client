@@ -1,18 +1,4 @@
-type Color = {
-  black: string;
-  white: string;
-  pink: string;
-  red: string;
-  yellow: string;
-  lightGray: string;
-  gray: string;
-  darkGray: string;
-  adminGray: string;
-  adminLightGray: string;
-  adminLightGray_02: string;
-};
-
-export const colors: Color = {
+export const colors = {
   black: '#232323',
   white: '#fff',
   pink: '#fb3a61',
@@ -24,4 +10,16 @@ export const colors: Color = {
   adminGray: '#c5cdd7',
   adminLightGray: '#f1f3f6',
   adminLightGray_02: '#fafbfd',
+};
+
+export const fontSizes = {
+  12: '1.2rem',
+  13: '1.3rem',
+  14: '1.4rem',
+  15: '1.5rem',
+  16: '1.6rem',
+  18: '1.8rem',
+  20: '2rem',
+  22: '2.2rem',
+  24: '2.4rem',
 };

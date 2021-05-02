@@ -35,9 +35,6 @@ const style = (color: string) => css`
   display: inline-block;
   position: relative;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 
   input {

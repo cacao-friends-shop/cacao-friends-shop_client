@@ -2,7 +2,7 @@ import PostInfo from './index';
 
 export default {
   componen: PostInfo,
-  title: 'molecules/PostInfo',
+  title: 'atoms/PostInfo',
 };
 
 export const postInfo = () => (
