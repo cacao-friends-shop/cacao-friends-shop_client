@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
-// 사용처: SideBarBody
+// 사용처: organisms/SideBar
 export const IconList = [
   {
     id: uuid(),
@@ -31,5 +31,79 @@ export const IconList = [
     link: '/',
     imagePath: 'assets/neo_avatar.png',
     name: '네오',
+  },
+];
+
+// 사용처: pages/AdminList/templates
+export const PostList = [
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
+  },
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
+  },
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
+  },
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
+  },
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
+  },
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
+  },
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
+  },
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
+  },
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
+  },
+  {
+    title: '라이언 복근만들기 프로젝트',
+    likeCount: 3,
+    writer: 'jiwon',
+    date: '2020-05-19 17:27',
+    commentsCount: 3,
   },
 ];

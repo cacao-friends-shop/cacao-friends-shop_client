@@ -23,7 +23,7 @@ const style = css`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  border: 1px solid #e0e5ee;
+  border: 1px solid ${colors.adminBorderGray};
   padding: 1.3rem 1.5rem;
   border-radius: 3px;
   margin-top: 1rem;
@@ -40,7 +40,7 @@ const style = css`
 
   .checkbox {
     svg {
-      fill: #c5cdd7;
+      fill: ${colors.adminGray};
     }
   }
 `;

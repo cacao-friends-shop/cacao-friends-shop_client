@@ -10,6 +10,7 @@ export const colors = {
   adminGray: '#c5cdd7',
   adminLightGray: '#f1f3f6',
   adminLightGray_02: '#fafbfd',
+  adminBorderGray: '#e0e5ee',
 };
 
 export const fontSizes = {
