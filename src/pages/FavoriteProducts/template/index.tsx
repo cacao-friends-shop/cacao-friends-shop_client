@@ -1,9 +1,9 @@
 import ProductImageCardList from 'components/organisms/ProductImageCardList/ProductImageCardList';
 import ProductImageCardListType2 from 'components/organisms/ProductImageCardList/ProductImageCardListType2';
+import ProductImageCardListType3 from 'components/organisms/ProductImageCardList/ProductImageCardListType3';
 import React from 'react';
 import imgListDivider from 'utils/imgListDivider';
 import { v4 } from 'uuid';
-import ProductImageCardListType3 from '../../../components/organisms/ProductImageCardList/ProductImageCardListType3';
 
 const ProductImageCardListGroup = (imgs: string[]) => [
   <ProductImageCardList key={v4()} imgList={imgs} />,
