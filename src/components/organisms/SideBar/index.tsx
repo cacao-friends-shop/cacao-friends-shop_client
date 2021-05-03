@@ -12,13 +12,13 @@ type SideBarProps = {
 // SideBar
 const SideBar = ({ children, ...restProps }: SideBarProps) => {
   return (
-    <motion.div css={style_sideBar} {...restProps}>
+    <motion.div css={sidebarStyle} {...restProps}>
       {children}
     </motion.div>
   );
 };
 
-const style_sideBar = css`
+const sidebarStyle = css`
   position: absolute;
   top: 0;
   left: 0;
@@ -37,25 +37,15 @@ const style_sideBar = css`
 // SideBar.Header
 const SideBarHeader = () => {
   return (
-    <div css={style_header}>
-      <Link to="/" css={style_login}>
+    <div css={headerStyle}>
+      <Link to="/" css={loginStyle}>
         <span className="text-login">로그인</span>이 필요해요!
       </Link>
-      <IconLink
-        type="rightIcon"
-        to="/"
-        iconName="arrowRight"
-        iconSize={15}
-        bgColor="transparent"
-        css={style_button}
-      >
-        비회원 주문조회
-      </IconLink>
     </div>
   );
 };
 
-const style_header = css`
+const headerStyle = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,7 +53,7 @@ const style_header = css`
   padding: 0 2.4rem 2.5rem;
 `;
 
-const style_login = css`
+const loginStyle = css`
   font-weight: bold;
   font-size: 1.8rem;
   .text-login {
@@ -71,18 +61,11 @@ const style_login = css`
   }
 `;
 
-const style_button = css`
-  font-size: 1.4rem;
-  span {
-    margin-right: 0.3rem;
-  }
-`;
-
 // ---------------------------------------------------------------------------
 // SideBar.Body
 const SideBarBody = () => {
   return (
-    <ul css={style_body}>
+    <ul css={bodyStyle}>
       <li>
         <Link to="/">장바구니 내역</Link>
       </li>
@@ -91,11 +74,11 @@ const SideBarBody = () => {
       </li>
       <li className="style_category">
         <span tabIndex={0}>캐릭터</span>
-        <ul css={style_character}>
+        <ul css={characterStyle}>
           {IconList.map(icon => (
             <li key={icon.id}>
               <Link to={icon.link}>
-                <img css={style_avatar} src={icon.imagePath} alt={icon.name} />
+                <img css={avatarStyle} src={icon.imagePath} alt={icon.name} />
                 <p>{icon.name}</p>
               </Link>
             </li>
@@ -106,7 +89,7 @@ const SideBarBody = () => {
   );
 };
 
-const style_body = css`
+const bodyStyle = css`
   font-size: 1.5rem;
   padding: 0 2.4rem;
   border-bottom: 1px solid ${colors.gray};
@@ -125,7 +108,7 @@ const style_body = css`
   }
 `;
 
-const style_character = css`
+const characterStyle = css`
   display: flex;
   justify-content: space-between;
 
@@ -142,7 +125,7 @@ const style_character = css`
   }
 `;
 
-const style_avatar = css`
+const avatarStyle = css`
   width: 5rem;
 `;
 
@@ -156,14 +139,14 @@ const SideBarFooter = () => {
       iconName="lock"
       iconSize={20}
       bgColor="transparent"
-      css={style_footer}
+      css={footerStyle}
     >
       로그인
     </IconLink>
   );
 };
 
-const style_footer = css`
+const footerStyle = css`
   display: flex;
   padding: 2rem 0;
   color: ${colors.gray};

@@ -13,33 +13,6 @@ export type HeaderProps = {
   TabComp?: any;
 };
 
-<<<<<<< HEAD
-const Header = ({ TabComp }: HeaderProps) => {
-  return (
-    <header css={headerStyle}>
-      <section css={headerContainerStyle}>
-        <IconButton name="menu" size={25} />
-        <div css={headerLogoStyle}>
-          <Link to="/"></Link>
-          <A11yHiddenHeading comp="h1">
-            CACAO Friends 웹사이트
-          </A11yHiddenHeading>
-        </div>
-        <div css={IconButtonContainerStyle}>
-          {/* 추후 아이콘 추가  */}
-          <IconButton name="search" size={25} />
-        </div>
-      </section>
-      {TabComp ? (
-        <TabComp
-          todayTab={<div>today</div>}
-          newTab={<div>new</div>}
-          popularTab={<div>popular</div>}
-          myTab={<div>my</div>}
-        />
-      ) : null}
-    </header>
-=======
 const Header = (props: HeaderProps) => {
   const [isShow, setIsShow] = useState(false);
   return (
@@ -84,7 +57,6 @@ const Header = (props: HeaderProps) => {
         )}
       </AnimatePresence>
     </>
->>>>>>> 17f548641edc3925d037201efdc0bc3c4bbcf214
   );
 };
 

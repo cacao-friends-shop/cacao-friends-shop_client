@@ -20,7 +20,7 @@ const styleBuyNow = css`
   position: relative;
   color: ${colors.white};
   font-weight: bold;
-  font-size: ${fontSizes[18]};
+  font-size: ${fontSizes.lg_18};
   opacity: 0.9;
 
   svg {
@@ -42,7 +42,7 @@ export const login = () => (
 const styledLogin = css`
   position: relative;
   width: 30%;
-  font-size: ${fontSizes[15]};
+  font-size: ${fontSizes.sm_15};
   border-radius: 4px;
 
   svg {

@@ -21,8 +21,8 @@ type TemplateProps = {
 
 const Template = ({ contents }: TemplateProps) => {
   return (
-    <div css={style_container}>
-      <div css={style_header}>
+    <div css={container}>
+      <div css={headerStyle}>
         <PostListTitle title="글 관리" count={contents.length} />
         <IconLink
           type="rightIcon"
@@ -30,12 +30,12 @@ const Template = ({ contents }: TemplateProps) => {
           iconName="pencil"
           iconSize={12}
           bgColor={colors.white}
-          css={style_link}
+          css={linkStyle}
         >
           글쓰기
         </IconLink>
       </div>
-      <div css={style_body}>
+      <div css={bodyStyle}>
         <ControlBar className="control" />
         <ul className="list-table">
           {contents.map(content => (
@@ -54,7 +54,7 @@ const Template = ({ contents }: TemplateProps) => {
   );
 };
 
-const style_container = css`
+const container = css`
   padding: 3rem 1.75rem 0;
   max-width: 64rem;
   margin: 0 auto;
@@ -62,13 +62,13 @@ const style_container = css`
 
 // ---------------------------------------------------------------------------
 // header
-const style_header = css`
+const headerStyle = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const style_link = css`
+const linkStyle = css`
   padding: 1rem;
   font-size: 1.2rem;
   border: 1px solid ${colors.gray};
@@ -85,7 +85,7 @@ const style_link = css`
 
 // ---------------------------------------------------------------------------
 // body
-const style_body = css`
+const bodyStyle = css`
   .control {
     margin-bottom: 0.5rem;
   }

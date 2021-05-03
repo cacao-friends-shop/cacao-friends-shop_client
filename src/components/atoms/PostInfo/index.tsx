@@ -22,7 +22,7 @@ const PostInfo = ({
   ...restProps
 }: PostInfoProps) => {
   return (
-    <ul css={style} {...restProps}>
+    <ul css={postInfostyle} {...restProps}>
       <li className="like">
         <A11yHiddenHeading comp="h3">좋아요</A11yHiddenHeading>
         <Icon name="fillHeart" size={18} />
@@ -44,12 +44,12 @@ const PostInfo = ({
   );
 };
 
-const style = css`
+const postInfostyle = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: ${colors.gray};
-  font-size: ${fontSizes[14]};
+  font-size: ${fontSizes.xs_14};
 
   li + li {
     margin-left: 1.2rem;
@@ -67,7 +67,7 @@ const style = css`
   .comments {
     display: flex;
     align-items: center;
-    font-size: ${fontSizes[13]};
+    font-size: ${fontSizes.xxs_13};
 
     h3 {
       font-weight: 400;

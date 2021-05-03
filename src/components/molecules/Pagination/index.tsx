@@ -11,7 +11,7 @@ const Pagination = ({ contentsLength, ...restProps }: PaginationProps) => {
   const pagesLength = Math.ceil(contentsLength / 10);
 
   return (
-    <ul css={style} {...restProps}>
+    <ul css={paginationStyle} {...restProps}>
       {Array.from({ length: pagesLength }).map((_, i) => (
         <li key={i}>
           <Link to="/">{i + 1}</Link>
@@ -21,7 +21,7 @@ const Pagination = ({ contentsLength, ...restProps }: PaginationProps) => {
   );
 };
 
-const style = css`
+const paginationStyle = css`
   display: flex;
   justify-content: center;
   margin-top: 2rem;

@@ -6,7 +6,7 @@ import IconButton from 'components/molecules/IconButton';
 
 const ControlBar = ({ ...restProps }) => {
   return (
-    <div css={style} {...restProps}>
+    <div css={container} {...restProps}>
       <div>
         <CheckBox className="checkbox" />
         <Button bgColor="transparent" width="20" disabled={true}>
@@ -18,7 +18,7 @@ const ControlBar = ({ ...restProps }) => {
   );
 };
 
-const style = css`
+const container = css`
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -9,24 +9,24 @@ type PostListTitleProps = {
 
 const PostListTitle = ({ title, count }: PostListTitleProps) => {
   return (
-    <div css={style_titleContainer}>
-      <Title headingNumber={3} css={style_title}>
+    <div css={container}>
+      <Title headingNumber={3} css={titleStyle}>
         {title}
       </Title>
-      <span css={style_count}>{count}</span>
+      <span css={countStyle}>{count}</span>
     </div>
   );
 };
 
-const style_titleContainer = css`
+const container = css`
   display: flex;
 `;
 
-const style_title = css`
+const titleStyle = css`
   font-weight: 700;
 `;
 
-const style_count = css`
+const countStyle = css`
   color: ${colors.darkGray};
   font-size: 1.2rem;
   margin-left: 1rem;

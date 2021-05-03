@@ -14,10 +14,15 @@ const ModalOverlay = ({
   opacity = 0.7,
   ...restProps
 }: ModalOverlayProps) => {
-  return <motion.div css={style(bgColor, opacity)} {...restProps}></motion.div>;
+  return (
+    <motion.div
+      css={overlayStyle(bgColor, opacity)}
+      {...restProps}
+    ></motion.div>
+  );
 };
 
-const style = (bgColor: string, opacity: number) => css`
+const overlayStyle = (bgColor: string, opacity: number) => css`
   position: fixed;
   width: 100%;
   height: 100%;

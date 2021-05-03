@@ -19,7 +19,7 @@ const CheckBox = ({
   const handleClick = () => setisChecked(!isChecked);
 
   return (
-    <label css={style(color)} {...restProps}>
+    <label css={labelStyle(color)} {...restProps}>
       <input type="checkbox" onChange={handleClick} checked={isChecked} />
 
       {isChecked ? (
@@ -31,7 +31,7 @@ const CheckBox = ({
   );
 };
 
-const style = (color: string) => css`
+const labelStyle = (color: string) => css`
   display: inline-block;
   position: relative;
   cursor: pointer;
