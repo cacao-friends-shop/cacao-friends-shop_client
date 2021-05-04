@@ -8,6 +8,7 @@ const CartList = () => {
       <CartListItem title="내마음을 받아라이언" price={30000} />
       <CartListItem title="내마음을 받아라이언" price={30000} />
       <CartListItem title="내마음을 받아라이언" price={30000} />
+      <CartListItem title="내마음을 받아라이언" price={30000} />
     </ul>
   );
 };

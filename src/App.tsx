@@ -7,12 +7,13 @@ import ProductListItem from 'components/molecules/ProductListItem';
 import DeletebarBase from 'components/molecules/DeletebarBase';
 import CartListDeletebar from 'components/molecules/CartListDeletebar';
 import RecentlySeeTemplate from './pages/RecentlySee/template/index';
+import CartTemplate from 'pages/Cart/template';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <RecentlySeeTemplate />
+      <CartTemplate />
       {/* <Header TabComp={TabComp} /> */}
     </>
   );
