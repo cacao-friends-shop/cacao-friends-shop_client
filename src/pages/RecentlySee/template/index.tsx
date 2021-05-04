@@ -1,7 +1,7 @@
 import React from 'react';
 import DeletebarBase from 'components/molecules/DeletebarBase';
 import { css } from '@emotion/react';
-import ProductListItem from 'components/molecules/ProductListItem';
+import ProductList from 'components/organisms/ProductList';
 
 const RecentlySeeTemplate = () => {
   return (
@@ -9,10 +9,7 @@ const RecentlySeeTemplate = () => {
       <DeletebarBase deleteMsg="전체삭제">
         최근 50개까지 저장됩니다.
       </DeletebarBase>
-      <ProductListItem title="내사랑을 받아라이언" price={30000} />
-      <ProductListItem title="내사랑을 받아라이언" price={30000} />
-      <ProductListItem title="내사랑을 받아라이언" price={30000} />
-      <ProductListItem title="내사랑을 받아라이언" price={30000} />
+      <ProductList />
     </div>
   );
 };

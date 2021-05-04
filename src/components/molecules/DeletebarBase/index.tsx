@@ -31,6 +31,7 @@ const container = css`
   color: rgb(154, 154, 158);
   font-size: ${fontSizes.xxs_13};
   padding: 1.5rem 1rem;
+  border-bottom: 1px solid rgb(242, 242, 242);
 `;
 
 const deleteContainer = css`

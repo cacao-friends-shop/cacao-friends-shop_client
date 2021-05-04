@@ -21,7 +21,6 @@ const CartListItem = ({ title, price }: CartListItemProps) => {
 
 const container = css`
   padding-left: 4.5rem;
-  margin: 100px;
 
   input[type='number'] {
     margin-top: 2rem;

@@ -10,7 +10,7 @@ type ProductListItemProps = {
   /** 상품 가격 */
   price: number;
   children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & React.LiHTMLAttributes<HTMLLIElement>;
 
 const ProductListItem = ({
   title,
@@ -19,7 +19,7 @@ const ProductListItem = ({
   ...restProps
 }: ProductListItemProps) => {
   return (
-    <div css={container} {...restProps}>
+    <li css={container} {...restProps}>
       <Link to="/" css={imgContainer}>
         <img
           src="https://t1.daumcdn.net/friends/prod/product/20210421145731862_8809721508497_AW_00.jpg?type=thumb&opt=R255x255@2xa"
@@ -32,14 +32,14 @@ const ProductListItem = ({
         {children}
       </div>
       <IconButton css={buttonStyle} name="close" size={20} />
-    </div>
+    </li>
   );
 };
 
 const container = css`
   display: flex;
   align-items: flex-start;
-  border-top: 1px solid rgb(242, 242, 242);
+  border-bottom: 1px solid rgb(242, 242, 242);
   padding: 2.5rem;
   position: relative;
 `;
