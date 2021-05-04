@@ -2,10 +2,15 @@ import { css } from '@emotion/react';
 import Icon from 'components/atoms/Icon';
 import React from 'react';
 
-const CircleCheckbox = () => {
+type CircleCheckboxProps = {
+  children?: React.ReactNode;
+} & React.LabelHTMLAttributes<HTMLLabelElement>;
+
+const CircleCheckbox = ({ children, ...restProps }: CircleCheckboxProps) => {
   return (
-    <label css={labelStyle}>
+    <label css={labelStyle} {...restProps}>
       <Icon name="checkCircle" size={23} />
+      {children}
       <input css={checkboxStyle} type="checkbox" />
     </label>
   );

@@ -6,11 +6,15 @@ import IconButton from '../IconButton';
 type DeletebarBaseProps = {
   deleteMsg: string;
   children: React.ReactNode;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
-const DeletebarBase = ({ children, deleteMsg }: DeletebarBaseProps) => {
+const DeletebarBase = ({
+  children,
+  deleteMsg,
+  ...restProps
+}: DeletebarBaseProps) => {
   return (
-    <div css={container}>
+    <div css={container} {...restProps}>
       <div>{children}</div>
       <div css={deleteContainer}>
         <span>{deleteMsg}</span>
@@ -26,6 +30,7 @@ const container = css`
   align-items: center;
   color: rgb(154, 154, 158);
   font-size: ${fontSizes.xxs_13};
+  padding: 1.5rem 1rem;
 `;
 
 const deleteContainer = css`

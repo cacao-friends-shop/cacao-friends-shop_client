@@ -1,7 +1,6 @@
 import React from 'react';
 import ProductListItem from 'components/molecules/ProductListItem';
 import { css } from '@emotion/react';
-import Icon from 'components/atoms/Icon';
 import CircleCheckbox from '../CircleCheckbox';
 
 type CartListItemProps = {
