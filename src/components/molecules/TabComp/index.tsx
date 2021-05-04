@@ -1,74 +1,93 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
-export type TabProps = {
-  /** 오늘 탭 내용 */
-  todayTab: React.ReactNode;
-  /** 신규 탭 내용 */
-  newTab: React.ReactNode;
-  /** 인기 탭 내용 */
-  popularTab: React.ReactNode;
-  /** 마이 탭 내용 */
-  myTab: React.ReactNode;
-};
+import { NavLink } from 'react-router-dom';
 
-const TabComp = ({ todayTab, newTab, popularTab, myTab }: TabProps) => {
+const TabComp = () => {
   return (
-    <Tabs css={tabStyle} variant="line">
-      <TabList>
-        <Tab _selected={activeTabStyle}>오늘</Tab>
-        <Tab _selected={activeTabStyle} className="update">
-          신규
-        </Tab>
-        <Tab _selected={activeTabStyle}>인기</Tab>
-        <Tab _selected={activeTabStyle}>마이</Tab>
-      </TabList>
+    <section css={tabStyle}>
+      <div className="navContainer">
+        <NavLink
+          activeClassName={'selected'}
+          className="navItem"
+          to="/today"
+          activeStyle={activeTabStyle}
+        >
+          오늘
+        </NavLink>
+      </div>
 
-      <TabPanels>
-        <TabPanel>{todayTab}</TabPanel>
-        <TabPanel>{newTab}</TabPanel>
-        <TabPanel>{popularTab}</TabPanel>
-        <TabPanel>{myTab}</TabPanel>
-      </TabPanels>
-    </Tabs>
+      <div className="navContainer">
+        <NavLink
+          to="/new"
+          activeClassName={'selected'}
+          className="navItem update"
+          activeStyle={activeTabStyle}
+        >
+          신규
+        </NavLink>
+      </div>
+
+      <div className="navContainer">
+        <NavLink
+          className="navItem"
+          to="/popularTab"
+          activeStyle={activeTabStyle}
+        >
+          인기
+        </NavLink>
+      </div>
+
+      <div className="navContainer">
+        <NavLink className="navItem" to="/myTab" activeStyle={activeTabStyle}>
+          마이
+        </NavLink>
+      </div>
+    </section>
   );
 };
 const activeTabStyle = {
-  borderBottom: '4px solid black !important',
+  borderBottom: '4px solid black',
   fontWeight: 700,
 };
 const tabStyle = css`
+  max-width: 640px;
+  position: relative;
   width: 100%;
+  padding: 0 17.5px;
+  display: flex;
+  margin: 20px auto 0;
 
-  & [role='tablist'] {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    padding: 0 1.75rem;
-  }
-  & [role='tablist'] > button {
+  & .navContainer {
     flex-basis: 25%;
-    background: transparent;
-    padding: 0.7rem 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4px;
     position: relative;
-    border-bottom: 0.4rem solid white;
-
-    span {
-      line-height: 150%;
-    }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   }
-  & [role='tablist'] > .update::after {
-    content: '';
+  & .navItem {
+    width: 100%;
+    display: inline-block;
 
+    padding: 0 1.75rem 10px;
+  }
+
+  .update::after {
+    content: '';
     width: 0.5rem;
     height: 0.5rem;
     background: red;
     border-radius: 50%;
     position: absolute;
-    top: 20%;
-    right: 35%;
+    top: 0;
+    right: 32%;
   }
-  & [role='tablist'] > .update:focus::after {
-    top: 25%;
+  .update:focus::after {
+    top: 10%;
+  }
+  .selected {
+    border-bottom: 4px solid black;
+    font-weight: 700;
   }
 `;
 export default TabComp;
