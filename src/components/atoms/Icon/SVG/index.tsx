@@ -21,6 +21,8 @@ import {
   IoIosArrowUp,
 } from 'react-icons/io';
 
+import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
+
 type Icon = {
   [key: string]: IconType;
 };
@@ -44,6 +46,8 @@ const icon: Icon = {
   share: RiShareForwardLine,
   lock: AiOutlineLock,
   kakaoTalk: RiKakaoTalkFill,
+  checkboxUnchecked: ImCheckboxUnchecked,
+  checkboxChecked: ImCheckboxChecked,
   mdCheckCircle: MdCheckCircle,
 };
 
