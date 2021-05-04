@@ -1,7 +1,7 @@
 import Button from './index';
 import { css } from '@emotion/react';
-import { colors } from 'theme';
-import Icon from '../Icon';
+import { colors, fontSizes } from 'theme';
+import Icon from 'components/atoms/Icon';
 
 export default {
   component: Button,
@@ -20,7 +20,7 @@ const styleBuyNow = css`
   position: relative;
   color: ${colors.white};
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: ${fontSizes.lg_18};
   opacity: 0.9;
 
   svg {
@@ -42,7 +42,7 @@ export const login = () => (
 const styledLogin = css`
   position: relative;
   width: 30%;
-  font-size: 1.5rem;
+  font-size: ${fontSizes.sm_15};
   border-radius: 4px;
 
   svg {
@@ -56,11 +56,9 @@ const styledLogin = css`
 // 버튼 그룹
 export const listOfButtons = () => {
   return (
-    <ul css={styleButtonList}>
+    <ul>
       <li>{buyNow()}</li>
       <li>{login()}</li>
     </ul>
   );
 };
-
-const styleButtonList = css``;

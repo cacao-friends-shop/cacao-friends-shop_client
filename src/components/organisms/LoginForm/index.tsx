@@ -64,18 +64,18 @@ const LoginForm = (props: Props) => {
   );
 };
 const loginFormStyle = css`
-  max-width: 420px;
+  max-width: 42rem;
   display: inline-block;
   vertical-align: top;
   text-align: left;
   width: 100%;
-  padding: 60px 70px;
-  font-size: 16px;
+  padding: 6rem 7rem;
+  font-size: 1.6rem;
   box-sizing: border-box;
-  border: 1px solid #e5e5e5;
+  border: 0.1rem solid #e5e5e5;
 
   h1 {
-    margin: 0 0 30px 0;
+    margin: 0 0 3rem 0;
   }
 
   label {
@@ -83,18 +83,18 @@ const loginFormStyle = css`
     top: 0;
     left: 0;
     width: 100%;
-    height: 47px;
-    line-height: 47px;
+    height: 4.7rem;
+    line-height: 4.7rem;
     color: #ccc;
   }
   input[type='email'],
   input[type='password'] {
     width: 100%;
-    height: 48px;
-    border-width: 0 0 2px 0;
+    height: 4.8rem;
+    border-width: 0 0 0.2rem 0;
     border-color: #ebebeb;
-    font-size: 15px;
-    padding: 11px 70px 8px 0;
+    font-size: 1.5rem;
+    padding: 1.1rem 7rem 0.8rem 0;
     color: #252525;
     outline: 0;
     border-radius: 0;
@@ -106,15 +106,15 @@ const loginFormStyle = css`
   }
   input[type='checkbox'] + label {
     position: initial;
-    font-size: 14px;
-    line-height: 20px;
-    margin-left: 10px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-left: 1rem;
     color: #252525;
   }
   input[type='checkbox'] + label::after {
     content: '';
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
     position: absolute;
     border-radius: 50%;
     border: 1px solid #e5e5e5;
@@ -124,20 +124,20 @@ const loginFormStyle = css`
   }
 
   a {
-    font-size: 12px;
+    font-size: 1.2rem;
     color: rgba(0, 0, 0, 0.7);
   }
   button {
     width: 100%;
     background: #fee500;
-    height: 50px;
+    height: 5rem;
     padding: 0;
     border: 0;
-    border-radius: 4px;
-    font-size: 15px;
+    border-radius: 0.4rem;
+    font-size: 1.5rem;
     color: #191919;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
   }
 `;
 
@@ -153,7 +153,7 @@ const formStyle = css`
     }
   }
   .third-input {
-    margin-top: 30px;
+    margin-top: 3rem;
   }
 `;
 export default LoginForm;

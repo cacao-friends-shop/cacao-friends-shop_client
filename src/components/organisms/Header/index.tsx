@@ -7,6 +7,7 @@ import ModalContainer from 'utils/potal';
 import SideBar from 'components/organisms/SideBar';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
+import { colors } from 'theme';
 import PostCard from '../PostCard';
 import NewProductTemplate from 'pages/NewProduct/template';
 import FavoriteProductsTemplate from '../../../pages/FavoriteProducts/template/index';
@@ -39,20 +40,15 @@ const Header = ({ TabComp }: HeaderProps) => {
             <IconButton name="search" size={32} />
           </div>
         </section>
-        {TabComp ? (
-          <TabComp
-            todayTab={<PostCard imgList={imageList} />}
-            newTab={<NewProductTemplate />}
-            popularTab={<FavoriteProductsTemplate />}
-            myTab={<div>my</div>}
-          />
-        ) : null}
+        {TabComp ? <TabComp /> : null}
       </header>
       <AnimatePresence>
         {isShow && (
           <ModalContainer id="modal-root">
             <ModalOverlay
               onClick={() => setIsShow(false)}
+              bgColor={colors.black}
+              opacity={0.7}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.7 }}
               exit={{ opacity: 0 }}
@@ -62,7 +58,11 @@ const Header = ({ TabComp }: HeaderProps) => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ type: 'none' }}
               exit={{ x: '-100vw', opacity: 0 }}
-            />
+            >
+              <SideBar.Header />
+              <SideBar.Body />
+              <SideBar.Footer />
+            </SideBar>
           </ModalContainer>
         )}
       </AnimatePresence>

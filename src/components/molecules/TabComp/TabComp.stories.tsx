@@ -13,11 +13,4 @@ export default {
  * popularTab: React.ReactNode
  * myTab: React.ReactNode
  */
-export const TabBlock = () => (
-  <TabComp
-    todayTab={<div>today</div>}
-    newTab={<div>new</div>}
-    popularTab={<div>popular</div>}
-    myTab={<div>my</div>}
-  ></TabComp>
-);
+export const TabBlock = () => <TabComp></TabComp>;
