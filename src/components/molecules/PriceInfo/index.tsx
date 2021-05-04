@@ -5,11 +5,11 @@ import { fontSizes } from 'theme';
 type PriceInfoProps = {
   /** 총 가격 */
   totalPrice: number;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
-const PriceInfo = ({ totalPrice }: PriceInfoProps) => {
+const PriceInfo = ({ totalPrice, ...restProps }: PriceInfoProps) => {
   return (
-    <div css={infoContainer}>
+    <div css={infoContainer} {...restProps}>
       <div>
         <span>총 주문금액</span> <span>{totalPrice}원</span>
       </div>

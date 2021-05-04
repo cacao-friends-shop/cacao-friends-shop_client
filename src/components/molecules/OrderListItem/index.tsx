@@ -24,8 +24,8 @@ const container = css`
   }
   span {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 2rem;
+    right: 2rem;
     font-weight: 500;
   }
 

@@ -1,20 +1,24 @@
 import React from 'react';
 import { Global } from '@emotion/react';
 import GlobalStyles from 'styles/GlobalStyles';
-import Header from 'components/organisms/Header';
-import TabComp from 'components/molecules/TabComp';
-import ProductListItem from 'components/molecules/ProductListItem';
-import DeletebarBase from 'components/molecules/DeletebarBase';
-import CartListDeletebar from 'components/molecules/CartListDeletebar';
-import RecentlySeeTemplate from './pages/RecentlySee/template/index';
-import CartTemplate from 'pages/Cart/template';
-import OrderListItem from 'components/molecules/OrderListItem';
+import ActivityListItem from 'components/molecules/ActivityListItem';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <OrderListItem />
+      <ActivityListItem
+        title="시들지 않고 오래오래 옆에 있어 줄게"
+        time="4분전"
+      />
+      <ActivityListItem
+        title="시들지 않고 오래오래 옆에 있어 줄게"
+        time="4분전"
+      />
+      <ActivityListItem
+        title="시들지 않고 오래오래 옆에 있어 줄게"
+        time="4분전"
+      />
       {/* <Header TabComp={TabComp} /> */}
     </>
   );

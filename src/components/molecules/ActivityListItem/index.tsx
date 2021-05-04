@@ -1,34 +1,36 @@
 import { css } from '@emotion/react';
+import TimeStemp from 'components/atoms/TimeStemp';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { fontSizes } from 'theme';
 import IconButton from '../IconButton';
 
-type ProductListItemProps = {
-  /** 상품 이름 */
+type ActivityListItemProps = {
+  /** 포스트 제목 */
   title: string;
-  /** 상품 가격 */
-  price: number;
+  /** 활동 시간 */
+  time: string;
   children?: React.ReactNode;
 } & React.LiHTMLAttributes<HTMLLIElement>;
 
-const ProductListItem = ({
+const ActivityListItem = ({
   title,
-  price,
+  time,
   children,
   ...restProps
-}: ProductListItemProps) => {
+}: ActivityListItemProps) => {
   return (
     <li css={container} {...restProps}>
       <Link to="/" css={imgContainer}>
         <img
-          src="https://t1.daumcdn.net/friends/prod/product/20210421145731862_8809721508497_AW_00.jpg?type=thumb&opt=R255x255@2xa"
+          src="https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210422104953.jpg"
           alt="img"
         />
       </Link>
       <div css={textContainer}>
         <h3>{title}</h3>
-        <span>{price}원</span>
-        {children}
+        <span>게시물을 좋아했습니다</span>
+        <TimeStemp time={time} />
       </div>
       <IconButton css={buttonStyle} name="close" size={20} />
     </li>
@@ -45,21 +47,11 @@ const container = css`
 
 const imgContainer = css`
   display: block;
-  background-color: rgba(0, 0, 0, 0.02);
   width: 10rem;
   box-sizing: border-box;
   position: relative;
   margin-right: 2rem;
   flex-shrink: 0;
-  &::after {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.02);
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding-top: 100%;
-  }
 
   img {
     width: 100%;
@@ -68,20 +60,24 @@ const imgContainer = css`
 
 const textContainer = css`
   flex: 1;
-  h3,
-  span {
-    font-size: 1.6rem;
-  }
 
   h3 {
-    color: #777;
-    font-weight: 400;
-    margin: 1rem 0;
+    max-width: 21rem;
+    font-weight: 700;
+    line-height: 1.5;
+    font-size: ${fontSizes.sm_15};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   span {
     display: block;
-    font-weight: 900;
+    font-size: ${fontSizes.xxs_13};
+  }
+
+  span + span {
+    margin-top: 1rem;
   }
 `;
 
@@ -89,4 +85,4 @@ const buttonStyle = css`
   color: #777;
 `;
 
-export default ProductListItem;
+export default ActivityListItem;
