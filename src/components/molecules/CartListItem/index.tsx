@@ -2,6 +2,7 @@ import React from 'react';
 import ProductListItem from 'components/molecules/ProductListItem';
 import { css } from '@emotion/react';
 import Icon from 'components/atoms/Icon';
+import CircleCheckbox from '../CircleCheckbox';
 
 type CartListItemProps = {
   /** 상품 이름 */
@@ -14,10 +15,7 @@ const CartListItem = ({ title, price }: CartListItemProps) => {
   return (
     <ProductListItem css={container} title={title} price={price}>
       <input type="number" />
-      <label css={labelStyle}>
-        <Icon name="checkCircle" size={23} />
-        <input css={checkboxStyle} type="checkbox" />
-      </label>
+      <CircleCheckbox />
     </ProductListItem>
   );
 };
@@ -39,20 +37,6 @@ const container = css`
     font-weight: 500;
     color: black;
   }
-`;
-
-const labelStyle = css`
-  position: absolute;
-  top: 2rem;
-  left: 1rem;
-`;
-
-const checkboxStyle = css`
-  transform: translate3d(-27px, -2px, 0);
-  width: 2rem;
-  height: 2rem;
-  opacity: 0;
-  cursor: pointer;
 `;
 
 export default CartListItem;
