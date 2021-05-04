@@ -8,12 +8,22 @@ import SideBar from 'components/organisms/SideBar';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
 import { colors } from 'theme';
+import PostCard from '../PostCard';
+import NewProductTemplate from 'pages/NewProduct/template';
+import FavoriteProductsTemplate from '../../../pages/FavoriteProducts/template/index';
+
+const imageList = [
+  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210426185905.jpg',
+  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_1_20210426185905.jpg',
+  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_2_20210426185905.jpg',
+];
 
 export type HeaderProps = {
   TabComp?: any;
 };
 
-const Header = (props: HeaderProps) => {
+
+const Header = ({ TabComp }: HeaderProps) => {
   const [isShow, setIsShow] = useState(false);
   return (
     <>
@@ -31,6 +41,14 @@ const Header = (props: HeaderProps) => {
             <IconButton name="search" size={32} />
           </div>
         </section>
+        {TabComp ? (
+          <TabComp
+            todayTab={<PostCard imgList={imageList} />}
+            newTab={<NewProductTemplate />}
+            popularTab={<FavoriteProductsTemplate />}
+            myTab={<div>my</div>}
+          />
+        ) : null}
       </header>
       <AnimatePresence>
         {isShow && (

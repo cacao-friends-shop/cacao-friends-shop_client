@@ -15,7 +15,7 @@ const ProductImageCardListType2 = ({
       marginBottom={2}
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(3, 1fr)"
-      maxWidth="60rem"
+      maxWidth="64rem"
       gap={2}
     >
       {imgList.map((img, i) => (

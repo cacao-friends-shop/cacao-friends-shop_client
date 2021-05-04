@@ -26,6 +26,7 @@ const sidebarStyle = css`
   width: 40rem;
   height: 100vh;
   padding: 3.5rem 0;
+  z-index: 1001;
 
   @media only screen and (max-width: 768px) {
     width: 100%;

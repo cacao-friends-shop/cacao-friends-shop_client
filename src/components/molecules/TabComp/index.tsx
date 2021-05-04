@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
-
+import { Link } from 'react-router-dom';
 export type TabProps = {
   /** 오늘 탭 내용 */
   todayTab: React.ReactNode;
