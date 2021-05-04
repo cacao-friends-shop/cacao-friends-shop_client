@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { colors } from 'theme';
 import PostListTitle from 'components/molecules/PostListTitle';
 import IconLink from 'components/molecules/IconLink';
-import List from 'components/molecules/List';
+import PostList from 'components/molecules/PostList';
 import Pagination from 'components/molecules/Pagination';
 import ControlBar from 'components/organisms/ControlBar';
 
@@ -39,7 +39,7 @@ const Template = ({ contents }: TemplateProps) => {
         <ControlBar className="control" />
         <ul className="list-table">
           {contents.map(content => (
-            <List
+            <PostList
               title={content.title}
               likeCount={content.likeCount}
               writer={content.writer}
