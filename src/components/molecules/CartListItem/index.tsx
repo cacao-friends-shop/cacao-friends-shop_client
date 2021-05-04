@@ -15,7 +15,7 @@ const CartListItem = ({ title, price }: CartListItemProps) => {
     <ProductListItem css={container} title={title} price={price}>
       <input type="number" />
       <label css={labelStyle}>
-        <Icon name="mdCheckCircle" size={23} />
+        <Icon name="checkCircle" size={23} />
         <input css={checkboxStyle} type="checkbox" />
       </label>
     </ProductListItem>
