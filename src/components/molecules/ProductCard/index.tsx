@@ -36,7 +36,7 @@ const container = css`
   display: inline-block;
 
   h3 {
-    max-width: 17rem;
+    max-width: 80%;
     color: #aaa;
     font-weight: 400;
     font-size: 1.6rem;
@@ -72,7 +72,8 @@ const imgContainer = css`
 const buttonConainer = css`
   position: absolute;
   right: 0;
-  top: 27.5rem;
+  top: 85%;
+  margin-left: 10px;
 `;
 
 const priceStyle = css`
