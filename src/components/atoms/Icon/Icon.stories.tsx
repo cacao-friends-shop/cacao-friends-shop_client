@@ -36,6 +36,8 @@ const iconTypes = [
   'kakaoTalk',
   'checkboxUnchecked',
   'checkboxChecked',
+  'arrowDropright',
+  'arrowDropleft',
 ];
 
 // 아이콘 그룹

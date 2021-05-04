@@ -101,6 +101,7 @@ const style = css`
 
     a:hover {
       box-shadow: 0 0 5px 1px ${colors.adminGray};
+      background-color: ${colors.white};
     }
   }
 `;

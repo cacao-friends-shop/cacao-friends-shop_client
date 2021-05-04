@@ -1,4 +1,3 @@
-import React from 'react';
 import { css } from '@emotion/react';
 import { colors } from 'theme';
 import PostListTitle from 'components/molecules/PostListTitle';

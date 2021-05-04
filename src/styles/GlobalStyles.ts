@@ -122,6 +122,16 @@ const GlobalStyles = css`
     padding: 0;
   }
 
+  legend {
+    overflow: hidden;
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+  }
+
   // TODO: 수정하기
   &:focus-visible {
     outline: none;
