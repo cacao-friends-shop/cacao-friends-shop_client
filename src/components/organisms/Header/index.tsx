@@ -7,6 +7,16 @@ import ModalContainer from 'utils/potal';
 import SideBar from 'components/organisms/SideBar';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
+import { colors } from 'theme';
+import PostCard from '../PostCard';
+import NewProductTemplate from 'pages/NewProduct/template';
+import FavoriteProductsTemplate from '../../../pages/FavoriteProducts/template/index';
+
+const imageList = [
+  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210426185905.jpg',
+  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_1_20210426185905.jpg',
+  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_2_20210426185905.jpg',
+];
 
 export type HeaderProps = {
   TabComp?: any;
@@ -37,6 +47,8 @@ const Header = ({ TabComp }: HeaderProps) => {
           <ModalContainer id="modal-root">
             <ModalOverlay
               onClick={() => setIsShow(false)}
+              bgColor={colors.black}
+              opacity={0.7}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.7 }}
               exit={{ opacity: 0 }}
@@ -46,7 +58,11 @@ const Header = ({ TabComp }: HeaderProps) => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ type: 'none' }}
               exit={{ x: '-100vw', opacity: 0 }}
-            />
+            >
+              <SideBar.Header />
+              <SideBar.Body />
+              <SideBar.Footer />
+            </SideBar>
           </ModalContainer>
         )}
       </AnimatePresence>

@@ -24,13 +24,16 @@ const Button = ({
   ...restProps
 }: ButtonProps) => {
   return (
-    <button css={style(borderRadius, width, bgColor, color)} {...restProps}>
+    <button
+      css={buttonStyle(borderRadius, width, bgColor, color)}
+      {...restProps}
+    >
       {children}
     </button>
   );
 };
 
-const style = (
+const buttonStyle = (
   borderRadius: string,
   width: string,
   bgColor: string,

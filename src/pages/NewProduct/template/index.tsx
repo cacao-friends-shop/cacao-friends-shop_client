@@ -31,6 +31,9 @@ const NewProductTemplate = () => {
           <h3>홈카페가 필요해</h3>
           <p>지구를 생각하는 일상</p>
         </div>
+        <span css={textStyle}>
+          {currentIdx + 1} / {imageList.length}
+        </span>
       </Carousel>
       <div css={productContainer}>
         <h2 css={{ marginBottom: '2rem', fontSize: '2rem' }}>상품 목록</h2>
@@ -41,12 +44,13 @@ const NewProductTemplate = () => {
 };
 
 const container = css`
-  max-width: 55rem;
+  max-width: 64rem;
   margin: 0 auto;
 `;
 const carouselStyle = css`
   position: relative;
   height: 30rem;
+  border-radius: 0;
 `;
 
 const productContainer = css`
@@ -59,5 +63,17 @@ const textContainer = css`
   color: #fff;
   bottom: 2rem;
   left: 2rem;
+`;
+
+const textStyle = css`
+  position: absolute;
+  line-height: 1.5;
+  color: #fff;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  font-size: 1.5rem;
+  bottom: 2rem;
+  right: 2rem;
 `;
 export default NewProductTemplate;

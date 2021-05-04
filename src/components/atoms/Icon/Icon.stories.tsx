@@ -33,8 +33,9 @@ const iconTypes = [
   'circleArrowUp',
   'share',
   'lock',
-
   'kakaoTalk',
+  'checkboxUnchecked',
+  'checkboxChecked',
 ];
 
 // 아이콘 그룹
@@ -44,7 +45,6 @@ export const listOfIcons = () => {
       {iconTypes.map(icon => (
         <li key={icon}>
           <Icon name={icon} size={20} />
-
           {icon}
         </li>
       ))}

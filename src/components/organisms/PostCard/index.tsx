@@ -4,7 +4,7 @@ import Actionbar from 'components/molecules/Actionbar';
 import { css } from '@emotion/react';
 import Comment from 'components/atoms/Comment';
 import { Link } from 'react-router-dom';
-import CommentTextArea from 'components/atoms/CommentTextArea';
+import CommentBox from 'components/atoms/CommentBox';
 import useCarouselState from 'hooks/useCarouselState';
 
 type PostCardProps = {
@@ -56,14 +56,16 @@ const PostCard = ({ imgList }: PostCardProps) => {
       <Link to="/" css={commentCountStyle}>
         댓글 543개
         <Comment name="김지원" comment="나 좀 알려줘~~~" />
-        <CommentTextArea placeholder="댓글을 달아주세요." />
+        <CommentBox>
+          <textarea name="comment" placeholder="댓글을 입력해주세요." />
+        </CommentBox>
       </Link>
     </article>
   );
 };
 
 const articleStyle = css`
-  max-width: 600px;
+  max-width: 64rem;
   margin: 0 auto;
   padding: 1rem;
 
@@ -80,6 +82,7 @@ const titleStyle = css`
   font-weight: bold;
   font-size: 1.8rem;
   margin: 1rem 0;
+  line-height: 1.5;
 `;
 
 const commentCountStyle = css`
