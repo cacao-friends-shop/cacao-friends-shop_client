@@ -8,12 +8,13 @@ import DeletebarBase from 'components/molecules/DeletebarBase';
 import CartListDeletebar from 'components/molecules/CartListDeletebar';
 import RecentlySeeTemplate from './pages/RecentlySee/template/index';
 import CartTemplate from 'pages/Cart/template';
+import OrderListItem from 'components/molecules/OrderListItem';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <CartTemplate />
+      <OrderListItem />
       {/* <Header TabComp={TabComp} /> */}
     </>
   );

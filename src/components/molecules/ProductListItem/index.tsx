@@ -69,7 +69,7 @@ const imgContainer = css`
 
 const textContainer = css`
   flex: 1;
-
+  position: relative;
   h2,
   span {
     font-size: 1.6rem;
