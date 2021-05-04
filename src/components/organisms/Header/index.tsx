@@ -40,14 +40,7 @@ const Header = ({ TabComp }: HeaderProps) => {
             <IconButton name="search" size={32} />
           </div>
         </section>
-        {TabComp ? (
-          <TabComp
-            todayTab={<PostCard imgList={imageList} />}
-            newTab={<NewProductTemplate />}
-            popularTab={<FavoriteProductsTemplate />}
-            myTab={<div>my</div>}
-          />
-        ) : null}
+        {TabComp ? <TabComp /> : null}
       </header>
       <AnimatePresence>
         {isShow && (
