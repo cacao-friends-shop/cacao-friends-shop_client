@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 import Input from 'components/atoms/Input';
 import { css } from '@emotion/react';

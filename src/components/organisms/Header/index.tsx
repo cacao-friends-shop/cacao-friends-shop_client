@@ -8,10 +8,7 @@ import SideBar from 'components/organisms/SideBar';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
 import { colors } from 'theme';
-import PostCard from '../PostCard';
-import NewProductTemplate from 'pages/NewProduct/template';
-import FavoriteProductsTemplate from '../../../pages/FavoriteProducts/template/index';
-
+import { ReactComponent as HeaderLogo } from 'assets/logo.svg';
 const imageList = [
   'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210426185905.jpg',
   'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_1_20210426185905.jpg',
@@ -30,7 +27,9 @@ const Header = ({ TabComp }: HeaderProps) => {
         <section css={headerContainerStyle}>
           <IconButton name="menu" size={32} onClick={() => setIsShow(true)} />
           <div css={headerLogoStyle}>
-            <Link to="/"></Link>
+            <Link to="/">
+              <HeaderLogo />
+            </Link>
             <A11yHiddenHeading comp="h1">
               CACAO Friends 웹사이트
             </A11yHiddenHeading>
@@ -89,15 +88,18 @@ const headerContainerStyle = css`
   }
 `;
 const headerLogoStyle = css`
-  width: 147px;
-  height: 24px;
+  width: 200px;
+  height: 50px;
 
   a {
     display: block;
     width: 100%;
     height: 100%;
-    background: url('https://t1.kakaocdn.net/friends/new_store/2.0/mobile/new-logo-mo.png');
-    background-size: cover;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 const IconButtonContainerStyle = css`
