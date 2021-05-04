@@ -9,8 +9,6 @@ function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <ProductListItem title="내사랑을 받아라이언" price={32000} />
-      <ProductListItem title="내사랑을 받아라이언" price={32000} />
       {/* <Header TabComp={TabComp} /> */}
     </>
   );

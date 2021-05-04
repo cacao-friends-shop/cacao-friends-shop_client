@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 import IconButton from '../IconButton';
 
 type ProductListItemProps = {
+  /** 상품 이름 */
   title: string;
+  /** 상품 가격 */
   price: number;
   children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
@@ -39,6 +41,7 @@ const container = css`
   align-items: flex-start;
   border-top: 1px solid rgb(242, 242, 242);
   padding: 2.5rem;
+  position: relative;
 `;
 
 const imgContainer = css`
@@ -48,6 +51,7 @@ const imgContainer = css`
   box-sizing: border-box;
   position: relative;
   margin-right: 2rem;
+  flex-shrink: 0;
   &::after {
     position: absolute;
     background: rgba(0, 0, 0, 0.02);
@@ -78,6 +82,7 @@ const textContainer = css`
   }
 
   span {
+    display: block;
     font-weight: 900;
   }
 `;
