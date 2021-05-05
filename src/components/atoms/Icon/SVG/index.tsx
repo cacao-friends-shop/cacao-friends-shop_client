@@ -12,8 +12,9 @@ import {
   IoBasketOutline,
   IoArrowUpCircleSharp,
   IoChatbubbleOutline,
+  IoCheckmarkCircleSharp,
+  IoCheckmarkCircleOutline,
 } from 'react-icons/io5';
-import { MdCheckCircle } from 'react-icons/md';
 import {
   IoIosArrowBack,
   IoIosArrowDown,
@@ -48,7 +49,8 @@ const icon: Icon = {
   kakaoTalk: RiKakaoTalkFill,
   checkboxUnchecked: ImCheckboxUnchecked,
   checkboxChecked: ImCheckboxChecked,
-  mdCheckCircle: MdCheckCircle,
+  checkCircle: IoCheckmarkCircleSharp,
+  unCheckCircle: IoCheckmarkCircleOutline,
 };
 
 export default icon;
