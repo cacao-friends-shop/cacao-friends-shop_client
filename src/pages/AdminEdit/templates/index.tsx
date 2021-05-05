@@ -7,6 +7,8 @@ import 'tui-color-picker/dist/tui-color-picker.css';
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import { colors, fontSizes } from 'theme';
 import { Link } from 'react-router-dom';
+import Button from 'components/atoms/Button';
+import PostTitle from 'components/atoms/PostTitle';
 
 const Templates = () => {
   const [content, setContent] = useState('');
@@ -20,9 +22,7 @@ const Templates = () => {
 
   return (
     <div css={container}>
-      <label css={titleStyle}>
-        <input type="text" placeholder="제목을 입력해주세요." />
-      </label>
+      <PostTitle />
       <Editor
         previewStyle="vertical"
         height="700px"
@@ -32,7 +32,14 @@ const Templates = () => {
         ref={ref => ref && (editorRef.current = ref)}
       />
       <div css={btnContainer}>
-        <button css={buttonStyle}>취소</button>
+        <Button
+          borderRadius="20px"
+          bgColor={colors.lightGray}
+          color={colors.darkGray}
+          css={buttonStyle}
+        >
+          취소
+        </Button>
         <Link to="/" onClick={handleSave} css={linkStyle}>
           완료
         </Link>
@@ -59,17 +66,6 @@ const container = css`
   }
 `;
 
-const titleStyle = css`
-  width: 100%;
-  input {
-    font-size: ${fontSizes.xxxl_24};
-    padding: 1rem;
-    border: none;
-    width: 100%;
-    outline: none;
-  }
-`;
-
 const btnContainer = css`
   display: flex;
   justify-content: center;
@@ -82,10 +78,7 @@ const btnContainer = css`
 `;
 
 const buttonStyle = css`
-  background-color: ${colors.lightGray};
-  color: ${colors.darkGray};
   padding: 1.7rem 6rem;
-  border-radius: 20px;
   font-size: ${fontSizes.base_16};
   transition: background-color 0.2s ease-in;
 

@@ -3,10 +3,16 @@ import ModalOverlay from 'components/atoms/ModalOverlay';
 import SortBox from 'components/atoms/SortBox';
 
 const SortModal = () => {
+  const [isShow, setIsShow] = useState(false);
+
   return (
     <>
-      <ModalOverlay />
-      <SortBox />
+      {isShow && (
+        <>
+          <ModalOverlay onClick={() => setIsShow(false)} />
+          <SortBox />
+        </>
+      )}
     </>
   );
 };

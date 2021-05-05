@@ -32,7 +32,7 @@ const ControlBar = ({ ...restProps }) => {
         <div css={normalStyleContainer}>
           <div css={normalStyle}>
             <CheckBox className="checkbox" />
-            <Button bgColor="transparent" width="20" disabled={true}>
+            <Button bgColor="transparent" disabled={true}>
               삭제
             </Button>
           </div>

@@ -5,35 +5,59 @@ import { Link } from 'react-router-dom';
 import Icon from '../Icon';
 
 const SortBox = () => {
-  const [check, setCheck] = useState(false);
-  const handleClick = () => setCheck(true);
+  const [check, setCheck] = useState({
+    sold: true,
+    lower: false,
+    expensive: false,
+  });
 
   return (
     <ul css={sortBoxStyle(check)}>
-      <li>
-        <Link to="/" onClick={handleClick}>
+      <li className="sold">
+        <Link
+          to="/"
+          onClick={() =>
+            setCheck({ sold: true, lower: false, expensive: false })
+          }
+        >
           판매량순
-          {check && <Icon name="outlineCheck" size={20} />}
+          {check.sold && <Icon name="outlineCheck" size={20} />}
         </Link>
       </li>
-      <li>
-        <Link to="/" onClick={handleClick}>
+      <li className="lower">
+        <Link
+          to="/"
+          onClick={() =>
+            setCheck({ sold: false, lower: true, expensive: false })
+          }
+        >
           낮은 가격순
-          {check && <Icon name="outlineCheck" size={20} />}
+          {check.lower && <Icon name="outlineCheck" size={20} />}
         </Link>
       </li>
 
-      <li>
-        <Link to="/" onClick={handleClick}>
+      <li className="expensive">
+        <Link
+          to="/"
+          onClick={() =>
+            setCheck({ sold: false, lower: false, expensive: true })
+          }
+        >
           높은 가격순
-          {check && <Icon name="outlineCheck" size={20} />}
+          {check.expensive && <Icon name="outlineCheck" size={20} />}
         </Link>
       </li>
     </ul>
   );
 };
 
-const sortBoxStyle = (check: boolean) => css`
+type checkState = {
+  sold: boolean;
+  lower: boolean;
+  expensive: boolean;
+};
+
+const sortBoxStyle = (check: checkState) => css`
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -44,18 +68,35 @@ const sortBoxStyle = (check: boolean) => css`
   background-color: ${colors.white};
   color: ${colors.gray};
 
-  a {
-    display: block;
-    padding: 2rem 1.5rem;
+  .sold {
+    background-color: ${check.sold && colors.lightGray};
+    color: ${check.sold && colors.black};
+  }
+  .lower {
+    background-color: ${check.lower && colors.lightGray};
+    color: ${check.lower && colors.black};
+  }
+  .expensive {
+    background-color: ${check.expensive && colors.lightGray};
+    color: ${check.expensive && colors.black};
   }
 
-  li {
-    background-color: ${check && colors.lightGray};
+  a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 2rem 1.5rem;
   }
 
   li:hover {
     background-color: ${colors.lightGray};
     color: ${colors.darkGray};
+  }
+
+  svg {
+    position: absolute;
+    right: 3%;
+    fill: ${colors.pink};
   }
 `;
 

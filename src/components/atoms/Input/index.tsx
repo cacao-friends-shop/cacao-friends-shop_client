@@ -18,7 +18,7 @@ export type InputProps = {
   value?: any;
   /** ref */
   ref?: any;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = React.forwardRef(
   ({ type, title, label, className, ...restProps }: InputProps, ref: any) => {
