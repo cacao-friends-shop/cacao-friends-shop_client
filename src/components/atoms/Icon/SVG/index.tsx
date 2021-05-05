@@ -12,8 +12,9 @@ import {
   IoBasketOutline,
   IoArrowUpCircleSharp,
   IoChatbubbleOutline,
+  IoCheckmarkCircleSharp,
+  IoCheckmarkCircleOutline,
 } from 'react-icons/io5';
-import { MdCheckCircle } from 'react-icons/md';
 import {
   IoIosArrowBack,
   IoIosArrowDown,
@@ -53,6 +54,8 @@ const icon: Icon = {
   mdCheckCircle: MdCheckCircle,
   arrowDropright: IoIosArrowDropright,
   arrowDropleft: IoIosArrowDropleft,
+  checkCircle: IoCheckmarkCircleSharp,
+  unCheckCircle: IoCheckmarkCircleOutline,
 };
 
 export default icon;
