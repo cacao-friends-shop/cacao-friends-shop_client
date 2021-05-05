@@ -54,8 +54,9 @@ const container = css`
     top: 50%;
     transform: translateY(-50%);
     left: 2.6rem;
+    color: rgb(200, 201, 204);
     path {
-      fill: rgb(200, 201, 204);
+      fill: currentColor;
     }
   }
   .search-input {
