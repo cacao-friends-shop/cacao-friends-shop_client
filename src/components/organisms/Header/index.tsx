@@ -9,6 +9,7 @@ import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
 import { colors } from 'theme';
 import { ReactComponent as HeaderLogo } from 'assets/logo.svg';
+
 const imageList = [
   'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210426185905.jpg',
   'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_1_20210426185905.jpg',
@@ -23,8 +24,8 @@ const Header = ({ TabComp }: HeaderProps) => {
   const [isShow, setIsShow] = useState(false);
   return (
     <>
-      <header css={headerStyle}>
-        <section css={headerContainerStyle}>
+      <header css={container}>
+        <section css={headerContainer}>
           <IconButton name="menu" size={32} onClick={() => setIsShow(true)} />
           <div css={headerLogoStyle}>
             <Link to="/">
@@ -69,27 +70,28 @@ const Header = ({ TabComp }: HeaderProps) => {
   );
 };
 
-const headerStyle = css`
+const container = css`
   display: flex;
   flex-direction: column;
-  max-width: 640px;
+  max-width: 64rem;
   position: sticky;
   z-index: 1000;
   top: 0;
   margin: 0 auto;
+  background-color: ${colors.white};
 `;
-const headerContainerStyle = css`
+const headerContainer = css`
   display: flex;
   justify-content: space-between;
   margin: 0.8rem 1.3rem 0.7rem;
 
   & + div {
-    margin-top: 20px;
+    margin-top: 2rem;
   }
 `;
 const headerLogoStyle = css`
-  width: 200px;
-  height: 50px;
+  width: 20rem;
+  height: 5rem;
 
   a {
     display: block;

@@ -6,7 +6,7 @@ import IconButton from 'components/molecules/IconButton';
 import { fontSizes } from 'theme';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 
-interface Props {}
+type Props = {};
 
 const LoginModalDialog = (props: Props) => {
   return (
@@ -59,11 +59,11 @@ const modalContainer = css`
     letter-spacing: -0.025rem;
     margin-bottom: 2.2rem;
     svg {
-      position: relative;
-      top: 0.5rem;
+      transform: translateY(0.5rem);
+      color: red;
     }
     path {
-      fill: red;
+      fill: currentColor;
     }
   }
 `;
@@ -82,9 +82,10 @@ const loginBtnStyle = css`
   margin-left: 0.5rem;
 
   svg {
-    position: relative;
+    transform: translate(-0.5rem, 0.5rem);
+    /* position: relative;
     top: 0.5rem;
-    left: -0.5rem;
+    left: -0.5rem; */
   }
 `;
 
