@@ -36,6 +36,9 @@ const iconTypes = [
   'kakaoTalk',
   'checkboxUnchecked',
   'checkboxChecked',
+  'bsStar',
+  'bsStarHalf',
+  'bsStarFill',
 ];
 
 // 아이콘 그룹

@@ -2,12 +2,11 @@ import { IconType } from 'react-icons/lib';
 import { BiSearch, BiHomeAlt, BiMenu } from 'react-icons/bi';
 import { VscTrash, VscClose } from 'react-icons/vsc';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import { BsPencil } from 'react-icons/bs';
+import { BsPencil, BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 
 import { AiOutlineLock } from 'react-icons/ai';
 
 import { RiKakaoTalkFill, RiShareForwardLine } from 'react-icons/ri';
-
 import {
   IoBasketOutline,
   IoArrowUpCircleSharp,
@@ -28,6 +27,9 @@ type Icon = {
 };
 
 const icon: Icon = {
+  bsStarFill: BsStarFill,
+  bsStarHalf: BsStarHalf,
+  bsStar: BsStar,
   search: BiSearch,
   trash: VscTrash,
   close: VscClose,

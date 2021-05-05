@@ -7,6 +7,7 @@ import { colors, fontSizes } from 'theme';
 import Title from 'components/atoms/Title';
 
 export type NavbarProps = {
+  /** 네브바 타이틀 */
   title: string;
 };
 
@@ -66,7 +67,7 @@ const headingStyle = css`
 const IconButtonContainerStyle = css`
   display: flex;
   button + button {
-    margin-left: 0.5rem;
+    margin-left: 1rem;
   }
 `;
 

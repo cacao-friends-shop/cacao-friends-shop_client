@@ -1,7 +1,7 @@
-import Template from './template';
+import Template, { productDetailProps } from './template';
 
-const ProductDetail = () => {
-  return <Template />;
+const ProductDetail = ({ ...restProps }: productDetailProps) => {
+  return <Template {...restProps} />;
 };
 
 export default ProductDetail;
