@@ -4,7 +4,7 @@ import { VscTrash, VscClose } from 'react-icons/vsc';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BsPencil } from 'react-icons/bs';
 
-import { AiOutlineLock } from 'react-icons/ai';
+import { AiOutlineLock, AiOutlineCheck } from 'react-icons/ai';
 
 import { RiKakaoTalkFill, RiShareForwardLine } from 'react-icons/ri';
 
@@ -53,6 +53,7 @@ const icon: Icon = {
   mdCheckCircle: MdCheckCircle,
   arrowDropright: IoIosArrowDropright,
   arrowDropleft: IoIosArrowDropleft,
+  outlineCheck: AiOutlineCheck,
 };
 
 export default icon;

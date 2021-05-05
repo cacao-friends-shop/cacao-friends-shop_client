@@ -9,12 +9,13 @@ import { colors, fontSizes } from 'theme';
 import { Link } from 'react-router-dom';
 
 const Templates = () => {
-  const [content, setContent] = useState();
-  const editorRef = useRef();
+  const [content, setContent] = useState('');
+  const editorRef = useRef<Editor>();
 
   const handleSave = () => {
-    // console.log(editorRef.current.getInstance().getHtml());
-    // setContent(editorRef.current.getInstance().getHtml());
+    if (editorRef.current) {
+      setContent(editorRef.current.getInstance().getHtml());
+    }
   };
 
   return (
@@ -28,7 +29,7 @@ const Templates = () => {
         initialEditType="wysiwyg"
         initialValue="내용을 입력해주세요!"
         plugins={[colorSyntax]}
-        // ref={editorRef}
+        ref={ref => ref && (editorRef.current = ref)}
       />
       <div css={btnContainer}>
         <button css={buttonStyle}>취소</button>
