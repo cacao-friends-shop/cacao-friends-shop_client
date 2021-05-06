@@ -22,6 +22,7 @@ const styleBuyNow = css`
   font-weight: bold;
   font-size: ${fontSizes.lg_18};
   opacity: 0.9;
+  width: 100%;
 
   svg {
     position: absolute;

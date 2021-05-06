@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
 import { Link } from 'react-router-dom';
 import IconButton from 'components/molecules/IconButton';
-import ModalContainer from 'utils/potal';
+import ModalContainer from 'utils/portal';
 import SideBar from 'components/organisms/SideBar';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
