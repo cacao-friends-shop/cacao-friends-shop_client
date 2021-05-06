@@ -2,12 +2,11 @@ import { IconType } from 'react-icons/lib';
 import { BiSearch, BiHomeAlt, BiMenu } from 'react-icons/bi';
 import { VscTrash, VscClose } from 'react-icons/vsc';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import { BsPencil } from 'react-icons/bs';
+import { BsPencil, BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 
-import { AiOutlineLock } from 'react-icons/ai';
+import { AiOutlineLock, AiOutlineCheck } from 'react-icons/ai';
 
 import { RiKakaoTalkFill, RiShareForwardLine } from 'react-icons/ri';
-
 import {
   IoBasketOutline,
   IoArrowUpCircleSharp,
@@ -20,7 +19,12 @@ import {
   IoIosArrowDown,
   IoIosArrowForward,
   IoIosArrowUp,
+
   IoLogoGithub,
+
+  IoIosArrowDropright,
+  IoIosArrowDropleft,
+
 } from 'react-icons/io';
 
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
@@ -30,6 +34,9 @@ type Icon = {
 };
 
 const icon: Icon = {
+  starFill: BsStarFill,
+  starHalf: BsStarHalf,
+  star: BsStar,
   search: BiSearch,
   trash: VscTrash,
   close: VscClose,
@@ -50,6 +57,10 @@ const icon: Icon = {
   kakaoTalk: RiKakaoTalkFill,
   checkboxUnchecked: ImCheckboxUnchecked,
   checkboxChecked: ImCheckboxChecked,
+  // mdCheckCircle: MdCheckCircle,
+  arrowDropright: IoIosArrowDropright,
+  arrowDropleft: IoIosArrowDropleft,
+  outlineCheck: AiOutlineCheck,
   checkCircle: IoCheckmarkCircleSharp,
   unCheckCircle: IoCheckmarkCircleOutline,
   github: IoLogoGithub,

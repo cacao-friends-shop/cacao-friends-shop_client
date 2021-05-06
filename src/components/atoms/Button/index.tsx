@@ -7,8 +7,6 @@ export type ButtonProps = {
   children: React.ReactNode;
   /** 버튼 border-radius */
   borderRadius?: string;
-  /** 버튼 width */
-  width?: string;
   /** 버튼 배경색 */
   bgColor?: string;
   /** 버튼 글자색 */
@@ -18,16 +16,12 @@ export type ButtonProps = {
 const Button = ({
   children,
   borderRadius = 'none',
-  width = '100%',
   bgColor = colors.pink,
   color = colors.black,
   ...restProps
 }: ButtonProps) => {
   return (
-    <button
-      css={buttonStyle(borderRadius, width, bgColor, color)}
-      {...restProps}
-    >
+    <button css={buttonStyle(borderRadius, bgColor, color)} {...restProps}>
       {children}
     </button>
   );
@@ -35,14 +29,12 @@ const Button = ({
 
 const buttonStyle = (
   borderRadius: string,
-  width: string,
   bgColor: string,
   color: string
 ) => css`
   background-color: ${bgColor};
   color: ${colors.white};
   border-radius: ${borderRadius};
-  width: ${width};
   color: ${color};
   text-align: center;
   padding: 1.5rem 0rem;

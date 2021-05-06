@@ -107,3 +107,42 @@ export const PostList = [
     commentsCount: 3,
   },
 ];
+
+//사용처 organisms/SearchBarChar/SearchBarChar
+export const charList = [
+  {
+    id: uuid(),
+    imagePath:
+      'https://t1.daumcdn.net/friends/prod/category/Ryan_71_color_210303.png',
+    alt: '라이언',
+    url: '/',
+  },
+  {
+    id: uuid(),
+    imagePath:
+      'https://t1.daumcdn.net/friends/prod/category/Apeach_71_color_210303.png',
+    alt: '이파치',
+    url: '/',
+  },
+  {
+    id: uuid(),
+    imagePath:
+      'https://t1.daumcdn.net/friends/prod/category/Muzi_71_color_210303.png',
+    alt: '무지',
+    url: '/',
+  },
+  {
+    id: uuid(),
+    imagePath:
+      'https://t1.daumcdn.net/friends/prod/category/Frodo_71_color_210303.png',
+    alt: '프로도',
+    url: '/',
+  },
+  {
+    id: uuid(),
+    imagePath:
+      'https://t1.daumcdn.net/friends/prod/category/Neo_71_color_210303.png',
+    alt: '네오',
+    url: '/',
+  },
+];
