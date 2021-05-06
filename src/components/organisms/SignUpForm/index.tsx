@@ -8,7 +8,7 @@ interface Props {}
 
 const SignUpForm = (props: Props) => {
   return (
-    <section css={SignUpFormStyle}>
+    <section css={container}>
       <h1>KaKao</h1>
       <Formik
         initialValues={{ email: '', password: '', confirmPassword: '' }}
@@ -31,7 +31,6 @@ const SignUpForm = (props: Props) => {
                   onBlur={handleBlur}
                   value={values.email}
                 />
-                <span>@kakao.com</span>
                 <ul>
                   <li>
                     입력한 카카오메일로 카카오계정에 로그인할 수 있습니다.
@@ -88,7 +87,7 @@ const SignUpForm = (props: Props) => {
                   value={values.password}
                 />
               </div>
-              <Button className="verification-button">인증번호 발송</Button>
+              {/* <Button className="verification-button">인증번호 발송</Button> */}
               <Button className="submit-button" type="submit">
                 회원가입
               </Button>
@@ -99,7 +98,7 @@ const SignUpForm = (props: Props) => {
     </section>
   );
 };
-const SignUpFormStyle = css`
+const container = css`
   max-width: 58rem;
   margin: 0 auto;
 
@@ -172,16 +171,6 @@ const emailInputStyle = css`
     margin-top: 0.7rem;
     color: #999;
     list-style: inside;
-  }
-
-  span {
-    position: absolute;
-    top: 3rem;
-    right: 0;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    font-weight: 700;
-    color: #7c7c7c;
   }
 `;
 const nicknameInputStyle = css`

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 import Input from 'components/atoms/Input';
 import { css } from '@emotion/react';
@@ -16,7 +16,7 @@ const LoginForm = (props: Props) => {
   // }, [emailInputRef, passwordInputRef]);
 
   return (
-    <section css={loginFormStyle}>
+    <section css={container}>
       <h1>KaKao</h1>
       <Formik
         initialValues={{ email: '', password: '', agreement: false }}
@@ -63,7 +63,7 @@ const LoginForm = (props: Props) => {
     </section>
   );
 };
-const loginFormStyle = css`
+const container = css`
   max-width: 42rem;
   display: inline-block;
   vertical-align: top;

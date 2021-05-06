@@ -5,6 +5,7 @@ import Icon from 'components/atoms/Icon';
 import Input from 'components/atoms/Input';
 import { useFormik } from 'formik';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
+import { colors, fontSizes } from 'theme';
 
 interface Props {}
 
@@ -18,7 +19,7 @@ const SearchBar = (props: Props) => {
     },
   });
   return (
-    <section css={searchFormStyle}>
+    <section css={container}>
       <A11yHiddenHeading comp="h1">검색창</A11yHiddenHeading>
       <form onSubmit={formik.handleSubmit}>
         <Icon name="search" size={32}></Icon>
@@ -36,7 +37,7 @@ const SearchBar = (props: Props) => {
   );
 };
 
-const searchFormStyle = css`
+const container = css`
   max-width: 640px;
   width: 100%;
 
@@ -44,6 +45,7 @@ const searchFormStyle = css`
     display: flex;
     position: relative;
     padding: 2rem 0 2rem 2rem;
+
     border-bottom: 1px solid rgb(200, 201, 204);
   }
   svg {
@@ -52,9 +54,7 @@ const searchFormStyle = css`
     top: 50%;
     transform: translateY(-50%);
     left: 2.6rem;
-    path {
-      fill: rgb(200, 201, 204);
-    }
+    color: rgb(200, 201, 204);
   }
   .search-input {
     flex-basis: 90%;
@@ -70,7 +70,8 @@ const searchFormStyle = css`
   .search-button {
     flex-basis: 10%;
     background: transparent;
-    font-size: 1.5rem;
+    font-size: ${fontSizes.sm_15};
+    color: ${colors.black};
   }
 `;
 export default SearchBar;
