@@ -42,6 +42,7 @@ const iconTypes = [
   'arrowDropright',
   'arrowDropleft',
   'outlineCheck',
+  'edit',
 ];
 
 // 아이콘 그룹

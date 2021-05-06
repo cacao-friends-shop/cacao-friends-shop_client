@@ -24,6 +24,7 @@ import {
 } from 'react-icons/io';
 
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
+import { GrEdit } from 'react-icons/gr';
 
 type Icon = {
   [key: string]: IconType;
@@ -59,6 +60,7 @@ const icon: Icon = {
   outlineCheck: AiOutlineCheck,
   checkCircle: IoCheckmarkCircleSharp,
   unCheckCircle: IoCheckmarkCircleOutline,
+  edit: GrEdit,
 };
 
 export default icon;

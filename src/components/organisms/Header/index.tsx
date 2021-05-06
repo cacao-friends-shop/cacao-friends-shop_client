@@ -9,6 +9,7 @@ import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
 import { colors } from 'theme';
 import { ReactComponent as HeaderLogo } from 'assets/logo.svg';
+import IconLink from 'components/molecules/IconLink';
 
 const imageList = [
   'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210426185905.jpg',
@@ -26,7 +27,7 @@ const Header = ({ TabComp }: HeaderProps) => {
     <>
       <header css={container}>
         <section css={headerContainer}>
-          <IconButton name="menu" size={32} onClick={() => setIsShow(true)} />
+          <IconButton name="menu" size={30} onClick={() => setIsShow(true)} />
           <div css={headerLogoStyle}>
             <Link to="/">
               <HeaderLogo />
@@ -37,7 +38,8 @@ const Header = ({ TabComp }: HeaderProps) => {
           </div>
           <div css={IconButtonContainerStyle}>
             {/* 추후 아이콘 추가  */}
-            <IconButton name="search" size={32} />
+            <IconLink iconName="edit" iconSize={20} to="/" css={LinkStyle} />
+            <IconButton name="search" size={25} />
           </div>
         </section>
         {TabComp ? <TabComp /> : null}
@@ -83,7 +85,7 @@ const container = css`
 const headerContainer = css`
   display: flex;
   justify-content: space-between;
-  margin: 0.8rem 1.3rem 0.7rem;
+  margin: 0.8rem 1.3rem 0;
 
   & + div {
     margin-top: 2rem;
@@ -109,6 +111,10 @@ const IconButtonContainerStyle = css`
   button + button {
     margin-left: 0.5rem;
   }
+`;
+
+const LinkStyle = css`
+  margin-right: 2rem;
 `;
 
 export default Header;
