@@ -42,6 +42,8 @@ const iconTypes = [
   'arrowDropright',
   'arrowDropleft',
   'outlineCheck',
+  'fontAwesomeCheckCircle',
+  'fontAwesomeregCheckCircle',
 ];
 
 // 아이콘 그룹

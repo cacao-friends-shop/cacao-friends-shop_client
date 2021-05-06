@@ -1,14 +1,18 @@
+import React from 'react';
 import { css } from '@emotion/react';
 import Button from 'components/atoms/Button';
 import CartListDeletebar from 'components/molecules/CartListDeletebar';
 import PriceInfo from 'components/molecules/PriceInfo';
 import CartList from 'components/organisms/CartList';
-import React from 'react';
 import { fontSizes } from 'theme';
+import Header from 'components/organisms/Header';
+import TabComp from 'components/molecules/TabComp';
+import MyTab from 'components/molecules/MyTab';
 
 const CartTemplate = () => {
   return (
     <>
+      <Header TabComp={TabComp} MyTab={MyTab}></Header>
       <div css={container}>
         <CartListDeletebar />
         <CartList />
@@ -29,6 +33,7 @@ const buttonStyle = css`
   position: fixed;
   bottom: 0;
   left: 50%;
+  width: 100%;
   transform: translate3d(-50%, 0, 0);
   max-width: 64rem;
   color: #fff;

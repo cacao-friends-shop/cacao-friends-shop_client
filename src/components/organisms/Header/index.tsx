@@ -5,24 +5,23 @@ import { Link } from 'react-router-dom';
 import IconButton from 'components/molecules/IconButton';
 import ModalContainer from 'utils/potal';
 import SideBar from 'components/organisms/SideBar';
+import SearchBarChar from 'components/organisms/SearchBarChar';
+import SearchBar from 'components/molecules/SearchBar';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
 import { colors } from 'theme';
 import { ReactComponent as HeaderLogo } from 'assets/logo.svg';
 
-const imageList = [
-  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_0_20210426185905.jpg',
-  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_1_20210426185905.jpg',
-  'https://t1.kakaocdn.net/friends/prod/main_tab/feed/media/media_2_20210426185905.jpg',
-];
-
 export type HeaderProps = {
   TabComp?: any;
+  MyTab?: any;
 };
 
-const Header = ({ TabComp }: HeaderProps) => {
+const Header = ({ TabComp, MyTab }: HeaderProps) => {
   const [isShow, setIsShow] = useState(false);
-  return (
+  const [isSearchShown, setIsSearchShown] = useState(false);
+
+  return !isSearchShown ? (
     <>
       <header css={container}>
         <section css={headerContainer}>
@@ -37,10 +36,15 @@ const Header = ({ TabComp }: HeaderProps) => {
           </div>
           <div css={IconButtonContainerStyle}>
             {/* 추후 아이콘 추가  */}
-            <IconButton name="search" size={32} />
+            <IconButton
+              name="search"
+              size={32}
+              onClick={() => setIsSearchShown(!isSearchShown)}
+            />
           </div>
         </section>
         {TabComp ? <TabComp /> : null}
+        {MyTab ? <MyTab /> : null}
       </header>
       <AnimatePresence>
         {isShow && (
@@ -66,6 +70,11 @@ const Header = ({ TabComp }: HeaderProps) => {
           </ModalContainer>
         )}
       </AnimatePresence>
+    </>
+  ) : (
+    <>
+      <SearchBar onClick={() => setIsSearchShown(false)}></SearchBar>
+      <SearchBarChar />
     </>
   );
 };

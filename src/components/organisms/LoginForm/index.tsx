@@ -7,67 +7,69 @@ import { Link } from 'react-router-dom';
 interface Props {}
 
 const LoginForm = (props: Props) => {
-  // const emailInputRef = useRef<any>(null);
-  // const passwordInputRef = useRef<any>(null);
-
-  // useEffect(() => {
-  //   emailInputRef.current?.addEventListenr('click');
-  //   passwordInputRef.current?.addEventListner('click');
-  // }, [emailInputRef, passwordInputRef]);
-
   return (
     <section css={container}>
-      <h1>KaKao</h1>
-      <Formik
-        initialValues={{ email: '', password: '', agreement: false }}
-        onSubmit={values => {
-          console.log(values);
-        }}
-      >
-        {({ values, handleChange, handleBlur, handleSubmit }) => (
-          <>
-            <form css={formStyle} noValidate onSubmit={handleSubmit}>
-              <Input
-                type="email"
-                title="email"
-                label="카카오 아이디, 이메일, 전화번호"
-                onChange={handleChange}
-                className="first-input"
-                onBlur={handleBlur}
-                value={values.email}
-              />
-              <Input
-                type="password"
-                title="password"
-                label="비밀번호"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className="second-input"
-                value={values.password}
-              />
-              <Input
-                type="checkbox"
-                title="agreement"
-                className="third-input"
-                onChange={handleChange}
-                label="로그인 상태유지"
-                onBlur={handleBlur}
-                value={values.agreement}
-              />
-              <button type="submit">로그인</button>
-            </form>
-          </>
-        )}
-      </Formik>
-      <Link to="/signup">회원가입</Link>
+      <article css={loginFormContainer}>
+        <h1>KaKao</h1>
+        <Formik
+          initialValues={{ email: '', password: '', agreement: false }}
+          onSubmit={values => {
+            console.log(values);
+          }}
+        >
+          {({ values, handleChange, handleBlur, handleSubmit }) => (
+            <>
+              <form css={formStyle} noValidate onSubmit={handleSubmit}>
+                <Input
+                  type="email"
+                  title="email"
+                  label="카카오 아이디, 이메일, 전화번호"
+                  onChange={handleChange}
+                  className="first-input"
+                  onBlur={handleBlur}
+                  value={values.email}
+                />
+                <Input
+                  type="password"
+                  title="password"
+                  label="비밀번호"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="second-input"
+                  value={values.password}
+                />
+
+                <Input
+                  type="checkbox"
+                  title="agreement"
+                  className="third-input"
+                  onChange={handleChange}
+                  label="로그인 상태유지"
+                  onBlur={handleBlur}
+                  value={values.agreement}
+                />
+                <button type="submit">로그인</button>
+              </form>
+            </>
+          )}
+        </Formik>
+        <Link to="/signup">회원가입</Link>
+      </article>
     </section>
   );
 };
 const container = css`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+`;
+const loginFormContainer = css`
   max-width: 42rem;
   display: inline-block;
   vertical-align: top;
   text-align: left;
+  margin: 0 auto;
   width: 100%;
   padding: 6rem 7rem;
   font-size: 1.6rem;
@@ -77,11 +79,19 @@ const container = css`
   h1 {
     margin: 0 0 3rem 0;
   }
-
-  label {
+  svg {
     position: absolute;
     top: 0;
     left: 0;
+    color: #ccc;
+  }
+  input[value='true'] + svg {
+    color: #fee500;
+  }
+  label {
+    position: absolute;
+    top: -15px;
+    left: 20px;
     width: 100%;
     height: 4.7rem;
     line-height: 4.7rem;
@@ -103,6 +113,8 @@ const container = css`
   }
   input[type='checkbox'] {
     opacity: 0;
+    z-index: 1000;
+    position: relative;
   }
   input[type='checkbox'] + label {
     position: initial;
@@ -140,7 +152,6 @@ const container = css`
     margin-bottom: 3rem;
   }
 `;
-
 const formStyle = css`
   .first-input input:focus {
     & + label {

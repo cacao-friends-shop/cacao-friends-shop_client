@@ -32,7 +32,7 @@ const container = css`
   min-height: 80vh;
   margin: 0 auto;
   max-width: 64rem;
-  background-color: ${colors.myTabGray};
+  padding-top: 3rem;
 `;
 const avatarListContainer = css`
   display: grid;
