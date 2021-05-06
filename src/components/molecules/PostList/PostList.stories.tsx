@@ -1,12 +1,12 @@
-import List from './index';
+import PostList from './index';
 
 export default {
-  component: List,
+  component: PostList,
   title: 'molecules/List',
 };
 
 export const list = () => (
-  <List
+  <PostList
     title="라이언 복근만들기 프로젝트"
     likeCount={3}
     writer="jiwon"

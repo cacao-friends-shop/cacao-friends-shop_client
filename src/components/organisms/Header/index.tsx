@@ -59,9 +59,9 @@ const Header = ({ TabComp }: HeaderProps) => {
               transition={{ type: 'none' }}
               exit={{ x: '-100vw', opacity: 0 }}
             >
-              <SideBar.Header />
+              <SideBar.Header type="nonLogin" />
               <SideBar.Body />
-              <SideBar.Footer />
+              <SideBar.Footer type="nonLogin" />
             </SideBar>
           </ModalContainer>
         )}

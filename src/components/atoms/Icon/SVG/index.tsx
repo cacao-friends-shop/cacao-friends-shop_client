@@ -4,7 +4,7 @@ import { VscTrash, VscClose } from 'react-icons/vsc';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BsPencil, BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 
-import { AiOutlineLock } from 'react-icons/ai';
+import { AiOutlineLock, AiOutlineCheck } from 'react-icons/ai';
 
 import { RiKakaoTalkFill, RiShareForwardLine } from 'react-icons/ri';
 import {
@@ -19,6 +19,8 @@ import {
   IoIosArrowDown,
   IoIosArrowForward,
   IoIosArrowUp,
+  IoIosArrowDropright,
+  IoIosArrowDropleft,
 } from 'react-icons/io';
 
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
@@ -51,6 +53,10 @@ const icon: Icon = {
   kakaoTalk: RiKakaoTalkFill,
   checkboxUnchecked: ImCheckboxUnchecked,
   checkboxChecked: ImCheckboxChecked,
+  // mdCheckCircle: MdCheckCircle,
+  arrowDropright: IoIosArrowDropright,
+  arrowDropleft: IoIosArrowDropleft,
+  outlineCheck: AiOutlineCheck,
   checkCircle: IoCheckmarkCircleSharp,
   unCheckCircle: IoCheckmarkCircleOutline,
 };

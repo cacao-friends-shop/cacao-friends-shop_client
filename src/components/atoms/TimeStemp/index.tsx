@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import React from 'react';
+import { colors } from 'theme';
 
 type TimeStempProps = {
   /** 시간 입력 */
@@ -15,9 +16,9 @@ const TimeStemp = ({ time, ...restProps }: TimeStempProps) => {
 };
 
 const timeStempStyle = css`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   letter-spacing: -0.2px;
-  color: rgb(154, 154, 158);
+  color: ${colors.gray};
 `;
 
 export default TimeStemp;

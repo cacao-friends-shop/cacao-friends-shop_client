@@ -1,6 +1,7 @@
 import { Link } from '@chakra-ui/layout';
 import { css } from '@emotion/react';
 import { colors } from 'theme';
+import IconLink from 'components/molecules/IconLink';
 
 type PaginationProps = {
   /** 게시물의 총개수 */
@@ -11,20 +12,44 @@ const Pagination = ({ contentsLength, ...restProps }: PaginationProps) => {
   const pagesLength = Math.ceil(contentsLength / 10);
 
   return (
-    <ul css={paginationStyle} {...restProps}>
-      {Array.from({ length: pagesLength }).map((_, i) => (
-        <li key={i}>
-          <Link to="/">{i + 1}</Link>
-        </li>
-      ))}
-    </ul>
+    <div css={container}>
+      <IconLink
+        iconName="arrowDropleft"
+        iconSize={20}
+        to="/"
+        css={linkStyle('left')}
+      />
+      <ul css={paginationStyle} {...restProps}>
+        {Array.from({ length: pagesLength }).map((_, i) => (
+          <li key={i}>
+            <Link to="/">{i + 1}</Link>
+          </li>
+        ))}
+      </ul>
+      <IconLink
+        iconName="arrowDropright"
+        iconSize={20}
+        to="/"
+        css={linkStyle('right')}
+      />
+    </div>
   );
 };
 
+const container = css`
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const linkStyle = (type: string) => css`
+  margin-right: ${type === 'left' && '1rem'};
+  margin-left: ${type === 'right' && '1rem'};
+`;
+
 const paginationStyle = css`
   display: flex;
-  justify-content: center;
-  margin-top: 2rem;
   font-size: 1.8rem;
   font-weight: 500;
 
