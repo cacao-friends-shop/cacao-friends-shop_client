@@ -1,6 +1,7 @@
+import React from 'react';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
-import { colors } from 'theme';
+import { colors, fontSizes } from 'theme';
 import { HTMLMotionProps, motion } from 'framer-motion';
 import IconLink from 'components/molecules/IconLink';
 import { IconList } from 'staticData';
@@ -36,11 +37,30 @@ const sidebarStyle = css`
 
 // ---------------------------------------------------------------------------
 // SideBar.Header
-const SideBarHeader = () => {
+type SideBarHeaderProps = {
+  /** 로그인 상태 확인 login 또는 nonLogin */
+  type: string;
+  /** 로그인 시 사용자 닉네임 */
+  nickName?: string;
+};
+
+const SideBarHeader = ({ type, nickName }: SideBarHeaderProps) => {
+  const login = (
+    <>
+      <span className="text">{nickName}</span>
+      님! 반가워요!
+    </>
+  );
+  const nonLogin = (
+    <>
+      <span className="text">로그인</span>이 필요해요!
+    </>
+  );
+
   return (
     <div css={headerStyle}>
       <Link to="/" css={loginStyle}>
-        <span className="text-login">로그인</span>이 필요해요!
+        {type === 'login' ? login : nonLogin}
       </Link>
     </div>
   );
@@ -57,21 +77,34 @@ const headerStyle = css`
 const loginStyle = css`
   font-weight: bold;
   font-size: 1.8rem;
-  .text-login {
+  .text {
     text-decoration: underline;
   }
 `;
 
 // ---------------------------------------------------------------------------
 // SideBar.Body
-const SideBarBody = () => {
+type SideBarBodyProps = {
+  /** 장바구니에 넣은 상품 갯수 */
+  cartCount?: number;
+  /** 주문한 상품의 갯수 */
+  orderCount?: number;
+};
+
+const SideBarBody = ({ cartCount, orderCount }: SideBarBodyProps) => {
   return (
     <ul css={bodyStyle}>
       <li>
-        <Link to="/">장바구니 내역</Link>
+        <Link to="/">
+          장바구니 내역
+          {cartCount && <span css={countStyle}>{cartCount}</span>}
+        </Link>
       </li>
       <li>
-        <Link to="/">주문·배송 내역</Link>
+        <Link to="/">
+          주문·배송 내역
+          {orderCount && <span css={countStyle}>{orderCount}</span>}
+        </Link>
       </li>
       <li className="style_category">
         <span tabIndex={0}>캐릭터</span>
@@ -109,6 +142,19 @@ const bodyStyle = css`
   }
 `;
 
+const countStyle = css`
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.3rem;
+  background-color: ${colors.pink};
+  border-radius: 50%;
+  color: ${colors.white};
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  font-size: ${fontSizes.xxs_13};
+`;
+
 const characterStyle = css`
   display: flex;
   justify-content: space-between;
@@ -132,7 +178,12 @@ const avatarStyle = css`
 
 // ---------------------------------------------------------------------------
 // SideBar.Footer
-const SideBarFooter = () => {
+type SideBarFooterProps = {
+  /** 로그인 상태 확인 login 또는 nonLogin */
+  type: string;
+};
+
+const SideBarFooter = ({ type }: SideBarFooterProps) => {
   return (
     <IconLink
       type="leftIcon"
@@ -142,7 +193,7 @@ const SideBarFooter = () => {
       bgColor="transparent"
       css={footerStyle}
     >
-      로그인
+      {type === 'login' ? '로그아웃' : '로그인'}
     </IconLink>
   );
 };

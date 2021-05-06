@@ -5,7 +5,7 @@ import CheckBox from 'components/atoms/CheckBox';
 import Title from 'components/atoms/Title';
 import PostInfo from 'components/atoms/PostInfo';
 
-type ListProps = {
+type PostListProps = {
   /** 리스트 제목 */
   title: string;
   /** 리스트 좋아요 수 */
@@ -18,14 +18,14 @@ type ListProps = {
   commentsCount: number;
 } & React.LiHTMLAttributes<HTMLLIElement>;
 
-const List = ({
+const PostList = ({
   title,
   likeCount,
   writer,
   date,
   commentsCount,
   ...restProps
-}: ListProps) => {
+}: PostListProps) => {
   return (
     <li css={style} {...restProps}>
       <div className="post_info">
@@ -101,8 +101,9 @@ const style = css`
 
     a:hover {
       box-shadow: 0 0 5px 1px ${colors.adminGray};
+      background-color: ${colors.white};
     }
   }
 `;
 
-export default List;
+export default PostList;
