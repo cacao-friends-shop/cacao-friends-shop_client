@@ -20,6 +20,7 @@ import {
   IoIosArrowDown,
   IoIosArrowForward,
   IoIosArrowUp,
+  IoLogoGithub,
 } from 'react-icons/io';
 
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
@@ -51,6 +52,7 @@ const icon: Icon = {
   checkboxChecked: ImCheckboxChecked,
   checkCircle: IoCheckmarkCircleSharp,
   unCheckCircle: IoCheckmarkCircleOutline,
+  github: IoLogoGithub,
 };
 
 export default icon;
