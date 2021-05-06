@@ -8,7 +8,7 @@ interface Props {}
 
 const AgreementForm = (props: Props) => {
   return (
-    <section css={AgreementFormStyle}>
+    <section css={container}>
       <h1>KaKao</h1>
       <Formik
         initialValues={{ allAgreed: false, moreThanFourteen: false }}
@@ -133,7 +133,7 @@ const AgreementForm = (props: Props) => {
   );
 };
 
-const AgreementFormStyle = css`
+const container = css`
   max-width: 52rem;
   margin: 0 auto;
 

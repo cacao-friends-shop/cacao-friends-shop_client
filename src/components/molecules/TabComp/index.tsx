@@ -53,7 +53,7 @@ const tabStyle = css`
   max-width: 640px;
   position: relative;
   width: 100%;
-  padding: 0 17.5px;
+  margin: 0 17.5px;
   display: flex;
   margin: 20px auto 0;
 
