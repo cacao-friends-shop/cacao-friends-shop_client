@@ -92,6 +92,7 @@ const basketBtnStyle = css`
   max-width: 64rem;
   height: 6.7rem;
   z-index: 1002;
+  width: 100%;
   p {
     font-size: ${fontSizes.lg_18};
     letter-spacing: normal;

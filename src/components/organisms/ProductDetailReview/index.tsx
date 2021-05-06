@@ -95,6 +95,7 @@ const container = css`
   button {
     display: flex;
     justify-content: center;
+    width: 100%;
     align-items: center;
     margin-top: 1.5rem;
     font-size: ${fontSizes.base_16};
