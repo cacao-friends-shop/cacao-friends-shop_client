@@ -6,24 +6,16 @@ const MyTab = () => {
   return (
     <ul css={myTabStyle}>
       <li>
-        <NavLink to="/seen" activeStyle={activeMyTabStyle}>
-          최근 본
-        </NavLink>
+        <NavLink to="/seen">최근 본</NavLink>
       </li>
       <li>
-        <NavLink to="/act" activeStyle={activeMyTabStyle}>
-          내 활동
-        </NavLink>
+        <NavLink to="/act">내 활동</NavLink>
       </li>
       <li>
-        <NavLink to="/basket" activeStyle={activeMyTabStyle}>
-          장바구니
-        </NavLink>
+        <NavLink to="/basket">장바구니</NavLink>
       </li>
       <li>
-        <NavLink to="/orderlist" activeStyle={activeMyTabStyle}>
-          주문내역
-        </NavLink>
+        <NavLink to="/orderlist">주문내역</NavLink>
       </li>
     </ul>
   );
@@ -45,11 +37,11 @@ const myTabStyle = css`
     text-align: center;
     padding: 1.3rem 4.5rem;
   }
-`;
 
-const activeMyTabStyle = {
-  color: colors.black,
-  fontWeight: 700,
-};
+  .active {
+    color: ${colors.black};
+    font-weight: bold;
+  }
+`;
 
 export default MyTab;
