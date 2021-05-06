@@ -19,6 +19,7 @@ import {
   IoIosArrowDown,
   IoIosArrowForward,
   IoIosArrowUp,
+  IoLogoGithub,
   IoIosArrowDropright,
   IoIosArrowDropleft,
 } from 'react-icons/io';
@@ -61,6 +62,7 @@ const icon: Icon = {
   checkCircle: IoCheckmarkCircleSharp,
   unCheckCircle: IoCheckmarkCircleOutline,
   edit: GrEdit,
+  github: IoLogoGithub,
 };
 
 export default icon;
