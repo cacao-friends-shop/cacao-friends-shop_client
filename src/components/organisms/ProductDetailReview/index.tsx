@@ -5,14 +5,13 @@ import Button from 'components/atoms/Button';
 import Icon from 'components/atoms/Icon';
 import { colors, fontSizes } from 'theme';
 import Rating from 'components/molecules/Rating';
-import ProductDetailComment, {
-  productDetailCommentProps,
-} from '../ProductDetailComment';
+import ProductDetailComment from '../ProductDetailComment';
 import { v4 as uuid } from 'uuid';
 import Pagination from 'components/molecules/Pagination';
 
 type productDetailReviewProps = {
   numOfReviews: number;
+  rating: number;
 };
 
 const ProductDetailComments = [
@@ -42,14 +41,17 @@ const ProductDetailComments = [
   },
 ];
 
-const ProductDetailReview = ({ numOfReviews }: productDetailReviewProps) => {
+const ProductDetailReview = ({
+  numOfReviews,
+  rating,
+}: productDetailReviewProps) => {
   return (
     <section css={container}>
       <div css={reviewContentContainer}>
         <Title headingNumber={2}>리뷰 {numOfReviews}개</Title>
-        <Rating numOfReviews={4.8}>
+        <Rating numOfReviews={rating}>
           <p>
-            {numOfReviews} <span>| 5.0</span>
+            {rating} <span>| 5.0</span>
           </p>
         </Rating>
       </div>
@@ -71,7 +73,7 @@ const ProductDetailReview = ({ numOfReviews }: productDetailReviewProps) => {
             <ProductDetailComment
               key={id}
               username={username}
-              numOfReviews={rating}
+              rating={rating}
               date={date}
               comment={content}
               numOfLikes={numOfLikes}

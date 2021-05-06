@@ -29,9 +29,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
-    return () => {
-      if (isOpen) document.body.style.overflow = 'auto';
-    };
+    if (!isOpen) document.body.style.overflow = 'auto';
   }, [isOpen]);
 
   return (
@@ -52,7 +50,7 @@ const ProductDetail = () => {
           price={productInfo.price}
           imageList={productInfo.imageList}
         />
-        <ProductDetailReview numOfReviews={4.8} />
+        <ProductDetailReview numOfReviews={5} rating={4.8} />
         {isOpen && (
           <div css={priceAndQuantityContainer}>
             <Select>
@@ -93,7 +91,7 @@ const basketBtnStyle = css`
   bottom: 0;
   max-width: 64rem;
   height: 6.7rem;
-  z-index: 11000;
+  z-index: 1002;
   p {
     font-size: ${fontSizes.lg_18};
     letter-spacing: normal;
@@ -108,9 +106,6 @@ const basketBtnStyle = css`
     transform: translateY(-50%);
     color: ${colors.white};
   }
-  path {
-    fill: currentColor;
-  }
 `;
 const priceAndQuantityContainer = css`
   background-color: ${colors.white};
@@ -118,7 +113,7 @@ const priceAndQuantityContainer = css`
   max-width: 64rem;
   position: fixed;
   bottom: 6.7rem;
-  z-index: 11000;
+  z-index: 1002;
   height: 6.7rem;
   display: flex;
   justify-content: space-between;
@@ -146,6 +141,6 @@ const priceAndQuantityContainer = css`
   }
 `;
 const overlayStyle = css`
-  z-index: 10000;
+  z-index: 1001;
 `;
 export default ProductDetail;

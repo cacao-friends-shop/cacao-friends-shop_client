@@ -55,9 +55,6 @@ const container = css`
     transform: translateY(-50%);
     left: 2.6rem;
     color: rgb(200, 201, 204);
-    path {
-      fill: currentColor;
-    }
   }
   .search-input {
     flex-basis: 90%;

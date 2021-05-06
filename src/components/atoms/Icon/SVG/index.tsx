@@ -28,9 +28,9 @@ type Icon = {
 };
 
 const icon: Icon = {
-  bsStarFill: BsStarFill,
-  bsStarHalf: BsStarHalf,
-  bsStar: BsStar,
+  starFill: BsStarFill,
+  starHalf: BsStarHalf,
+  star: BsStar,
   search: BiSearch,
   trash: VscTrash,
   close: VscClose,

@@ -7,5 +7,5 @@ export default {
 
 // 기본 포스트 카드
 export const ProductDetailReviewBlock = () => (
-  <ProductDetailReview numOfReviews={4} />
+  <ProductDetailReview numOfReviews={4} rating={7} />
 );

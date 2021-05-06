@@ -9,28 +9,24 @@ import { colors, fontSizes } from 'theme';
 
 export type productDetailCommentProps = {
   username: string;
-  numOfReviews: number;
+  rating: number;
   date: string;
   comment: string;
   numOfLikes: number;
 };
 
-const replaceMiddleTextWithAst = (character: string) => {
-  return character.substr(0, 1) + '*' + character.substr(1 + 1);
-};
-
 const ProductDetailComment = ({
   username,
-  numOfReviews,
+  rating,
   date,
   comment,
   numOfLikes,
 }: productDetailCommentProps) => {
   return (
     <section css={container}>
-      <strong css={usernameStyle}>{replaceMiddleTextWithAst(username)}</strong>
+      <strong css={usernameStyle}>{username}</strong>
       <div css={ratingAndDateStyle}>
-        <Rating numOfReviews={numOfReviews}></Rating>
+        <Rating numOfReviews={rating}></Rating>
         <time>{date}</time>
       </div>
       <p css={commentStyle}>{comment}</p>

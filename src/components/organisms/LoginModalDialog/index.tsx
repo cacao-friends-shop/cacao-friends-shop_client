@@ -62,9 +62,6 @@ const modalContainer = css`
       transform: translateY(0.5rem);
       color: red;
     }
-    path {
-      fill: currentColor;
-    }
   }
 `;
 
