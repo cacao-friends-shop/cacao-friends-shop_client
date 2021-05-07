@@ -37,8 +37,8 @@ const Header = ({ TabComp }: HeaderProps) => {
             </A11yHiddenHeading>
           </div>
           <div css={IconButtonContainerStyle}>
-            {/* 추후 아이콘 추가  */}
-            <IconLink iconName="edit" iconSize={20} to="/" css={LinkStyle} />
+            {/* 추후 어드민 아이콘 처리  */}
+            {/* <IconLink iconName="edit" iconSize={20} to="/" css={LinkStyle} /> */}
             <IconButton name="search" size={25} />
           </div>
         </section>

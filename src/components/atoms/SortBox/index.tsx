@@ -58,6 +58,7 @@ type checkState = {
 };
 
 const sortBoxStyle = (check: checkState) => css`
+  z-index: 1002;
   position: absolute;
   bottom: 0;
   left: 50%;
