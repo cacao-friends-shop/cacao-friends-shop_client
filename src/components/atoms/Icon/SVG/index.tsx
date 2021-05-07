@@ -19,15 +19,13 @@ import {
   IoIosArrowDown,
   IoIosArrowForward,
   IoIosArrowUp,
-
   IoLogoGithub,
-
   IoIosArrowDropright,
   IoIosArrowDropleft,
-
 } from 'react-icons/io';
 import { FaCheckCircle, FaRegCheckCircle } from 'react-icons/fa';
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
+import { GrEdit } from 'react-icons/gr';
 
 type Icon = {
   [key: string]: IconType;
@@ -65,6 +63,7 @@ const icon: Icon = {
   outlineCheck: AiOutlineCheck,
   checkCircle: IoCheckmarkCircleSharp,
   unCheckCircle: IoCheckmarkCircleOutline,
+  edit: GrEdit,
   github: IoLogoGithub,
 };
 

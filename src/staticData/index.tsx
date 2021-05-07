@@ -146,3 +146,10 @@ export const charList = [
     url: '/',
   },
 ];
+
+// 사용처: pages/CharacterProducts/templates
+export const options = [
+  { id: uuid(), label: '판매량순', to: '/' },
+  { id: uuid(), label: '낮은 가격순', to: '/' },
+  { id: uuid(), label: '높은 가격순', to: '/' },
+];
