@@ -1,7 +1,7 @@
-import React from 'react';
+import Template from './template';
 
-const NewProductPage = () => {
-  return <div></div>;
+const NewProductTemplate = ({ ...restProps }) => {
+  return <Template {...restProps} />;
 };
 
-export default NewProductPage;
+export default NewProductTemplate;

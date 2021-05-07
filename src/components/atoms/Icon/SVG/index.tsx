@@ -26,7 +26,7 @@ import {
   IoIosArrowDropleft,
 
 } from 'react-icons/io';
-
+import { FaCheckCircle, FaRegCheckCircle } from 'react-icons/fa';
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 
 type Icon = {
@@ -34,6 +34,8 @@ type Icon = {
 };
 
 const icon: Icon = {
+  fontAwesomeCheckCircle: FaCheckCircle,
+  fontAwesomeregCheckCircle: FaRegCheckCircle,
   starFill: BsStarFill,
   starHalf: BsStarHalf,
   star: BsStar,

@@ -26,7 +26,6 @@ const myTabStyle = css`
   align-items: center;
   justify-content: space-around;
   max-width: 64rem;
-  margin: 0 auto;
   background-color: ${colors.lightGray};
   color: ${colors.gray};
   border-top: 1px solid ${colors.gray};

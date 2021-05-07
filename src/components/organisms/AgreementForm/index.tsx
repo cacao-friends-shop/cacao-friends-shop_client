@@ -26,7 +26,7 @@ const AgreementForm = (props: Props) => {
               <div>
                 <Input
                   type="checkbox"
-                  title="agreement"
+                  title="totalAgreement"
                   className="all-agreed"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -42,7 +42,7 @@ const AgreementForm = (props: Props) => {
               <div>
                 <Input
                   type="checkbox"
-                  title="agreement"
+                  title="ageAgreement"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="만 14세 이상입니다."
@@ -52,7 +52,7 @@ const AgreementForm = (props: Props) => {
               <div className="flex-row">
                 <Input
                   type="checkbox"
-                  title="agreement"
+                  title="accountAgreement"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[필수] 카카오계정 약관"
@@ -64,7 +64,7 @@ const AgreementForm = (props: Props) => {
                 <div className="flex-row">
                   <Input
                     type="checkbox"
-                    title="agreement"
+                    title="serviceAgreement"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     label="[필수] 카카오 통합서비스 약관"
@@ -81,7 +81,7 @@ const AgreementForm = (props: Props) => {
               <div className="flex-row">
                 <Input
                   type="checkbox"
-                  title="agreement"
+                  title="adAgreement"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[선택] 카카오알림 채널 추가 및 광고메시지 수신"
@@ -92,7 +92,7 @@ const AgreementForm = (props: Props) => {
               <div className="flex-row">
                 <Input
                   type="checkbox"
-                  title="agreement"
+                  title="personalInfoAgreement"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[필수] 개인정보 수집 및 이용 동의"
@@ -103,7 +103,7 @@ const AgreementForm = (props: Props) => {
               <div className="flex-row">
                 <Input
                   type="checkbox"
-                  title="agreement"
+                  title="locationAgreement"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[선택] 위치정보 수집 및 이용 동의"
@@ -114,7 +114,7 @@ const AgreementForm = (props: Props) => {
               <div className="flex-row">
                 <Input
                   type="checkbox"
-                  title="agreement"
+                  title="profileAgreement"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[선택] 프로필 정보 추가 수집 동의"
@@ -159,9 +159,23 @@ const formStyle = css`
     font-size: 2.4rem;
     line-height: 3.4rem;
   }
+
   h2 ~ div {
     margin-top: 2rem;
   }
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ccc;
+    transform: translateY(3px);
+  }
+  input {
+    opacity: 0;
+    z-index: 1000;
+    position: relative;
+  }
+
   .agree-button {
     width: 100%;
     height: 5rem;
@@ -173,6 +187,7 @@ const formStyle = css`
     background-color: #f6f6f6;
     margin-top: 4rem;
   }
+
   .flex-row {
     display: flex;
     justify-content: space-between;
@@ -196,12 +211,6 @@ const formStyle = css`
   input + label {
     margin-left: 0.8rem;
     font-size: 1.4rem;
-  }
-
-  svg {
-    path {
-      fill: #959595;
-    }
   }
 `;
 export default AgreementForm;

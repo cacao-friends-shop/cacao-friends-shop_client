@@ -7,9 +7,7 @@ import { useFormik } from 'formik';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
 import { colors, fontSizes } from 'theme';
 
-interface Props {}
-
-const SearchBar = (props: Props) => {
+const SearchBar = ({ ...restProps }) => {
   const formik = useFormik({
     initialValues: {
       search: '',
@@ -29,7 +27,7 @@ const SearchBar = (props: Props) => {
           className="search-input"
           onChange={formik.handleChange}
         ></Input>
-        <Button className="search-button" type="submit">
+        <Button className="search-button" {...restProps}>
           취소
         </Button>
       </form>
@@ -40,6 +38,7 @@ const SearchBar = (props: Props) => {
 const container = css`
   max-width: 640px;
   width: 100%;
+  margin: 0 auto;
 
   form {
     display: flex;
@@ -48,21 +47,23 @@ const container = css`
 
     border-bottom: 1px solid rgb(200, 201, 204);
   }
+
   svg {
     position: absolute;
     z-index: 1;
     top: 50%;
     transform: translateY(-50%);
-    left: 2.6rem;
+    left: 3rem;
     color: rgb(200, 201, 204);
   }
+
   .search-input {
     flex-basis: 90%;
 
     input {
-      border-radius: 21px;
-      padding: 1.3rem 1.3rem 1.3rem 4.5rem;
-      font-size: 1.6rem;
+      border-radius: 2.1rem !important;
+      padding: 1.3rem 1.3rem 1.3rem 4.5rem !important;
+      font-size: 1.6rem !important;
       border: 0;
       background: rgb(239, 240, 244);
     }

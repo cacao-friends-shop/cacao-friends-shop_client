@@ -4,6 +4,8 @@ import ProductImageCardListType3 from 'components/organisms/ProductImageCardList
 import React from 'react';
 import imgListDivider from 'utils/imgListDivider';
 import { v4 as uuid } from 'uuid';
+import Header from 'components/organisms/Header';
+import TabComp from 'components/molecules/TabComp';
 
 const ProductImageCardListGroup = (imgs: string[]) => [
   <ProductImageCardList key={uuid()} imgList={imgs} />,
@@ -14,11 +16,14 @@ const ProductImageCardListGroup = (imgs: string[]) => [
 
 const FavoriteProductsTemplate = () => {
   return (
-    <div css={{ maxWidth: '64rem', margin: '0 auto' }}>
-      {imgListDivider.map(
-        (imgs: string[], i: number) => ProductImageCardListGroup(imgs)[i % 4]
-      )}
-    </div>
+    <>
+      <Header TabComp={TabComp}></Header>
+      <div css={{ maxWidth: '64rem', margin: '0 auto' }}>
+        {imgListDivider.map(
+          (imgs: string[], i: number) => ProductImageCardListGroup(imgs)[i % 4]
+        )}
+      </div>
+    </>
   );
 };
 
