@@ -37,6 +37,7 @@ const container = css`
 `;
 
 const modalContainer = css`
+  z-index: 1002;
   display: flex;
   flex-flow: column nowrap;
   padding: 4rem;

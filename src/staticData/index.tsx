@@ -1,3 +1,4 @@
+import React from 'react';
 import { v4 as uuid } from 'uuid';
 
 // 사용처: organisms/SideBar
@@ -152,4 +153,57 @@ export const options = [
   { id: uuid(), label: '판매량순', to: '/' },
   { id: uuid(), label: '낮은 가격순', to: '/' },
   { id: uuid(), label: '높은 가격순', to: '/' },
+];
+
+// 사용처: molecules/PostProfileBox
+export const profileList = [
+  {
+    title: '라이언',
+    imgURL: 'assets/profile_ryan.png',
+    desc: (
+      <>
+        머나먼 둥둥섬을 떠나 자유를 찾아온 왕자.
+        <br /> 나는 갈기 없는 숫사자 컴플렉스야 (쉿)
+      </>
+    ),
+  },
+  {
+    title: '어피치',
+    imgURL: 'assets/profile_apeach.png',
+    desc: (
+      <>
+        카카오프렌즈 최고 잔망꾸러기 복숭아🍑
+        <br /> 피치 못할 매력에 빠져봐!
+      </>
+    ),
+  },
+  {
+    title: '프로도',
+    imgURL: 'assets/profile_frodo.png',
+    desc: (
+      <>
+        네오의 영원한 단짝.
+        <br /> 부잣집 도시개 프로도를 알고싶다면?
+      </>
+    ),
+  },
+  {
+    title: '무지',
+    imgURL: 'assets/profile_muzi.png',
+    desc: (
+      <>
+        무지무지 귀여운 토끼옷을 입은 <br /> 단무지의 하루를 보여줄게 🐰
+      </>
+    ),
+  },
+  {
+    title: '네오',
+    imgURL: 'assets/profile_neo.png',
+    desc: (
+      <>
+        카카오프렌즈 최고의 패셔니스타. <br /> 도도한 고양이 네오의 하루가
+        궁금하니?
+      </>
+    ),
+  },
 ];

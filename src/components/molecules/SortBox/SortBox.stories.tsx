@@ -4,7 +4,7 @@ import { options } from 'staticData/index';
 
 export default {
   component: SortBox,
-  title: 'atoms/SortBox',
+  title: 'molecules/SortBox',
 };
 
 // 기본 정렬 박스
