@@ -3,8 +3,6 @@ import { Global } from '@emotion/react';
 import GlobalStyles from 'styles/GlobalStyles';
 
 import Header from 'components/organisms/Header';
-import PostDetailComment from 'components/organisms/PostDetailComment';
-import PostDetail from 'pages/PostDetail/template';
 
 function App() {
   return (
@@ -14,7 +12,6 @@ function App() {
       {/* <Header TabComp={TabComp} /> */}
 
       <Header />
-      <PostDetail />
     </>
   );
 }
