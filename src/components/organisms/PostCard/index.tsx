@@ -53,13 +53,6 @@ const PostCard = ({ imgList }: PostCardProps) => {
       <p css={{ fontSize: '1.4rem' }}>
         스노우타운의 명탐정 콥은 늦잠꾸러기 일까❓
       </p>
-      <Link to="/" css={commentCountStyle}>
-        댓글 543개
-        <Comment name="김지원" comment="나 좀 알려줘~~~" />
-        <CommentBox>
-          <textarea name="comment" placeholder="댓글을 입력해주세요." />
-        </CommentBox>
-      </Link>
     </article>
   );
 };
@@ -85,13 +78,4 @@ const titleStyle = css`
   line-height: 1.5;
 `;
 
-const commentCountStyle = css`
-  display: block;
-  color: #aaa;
-  margin: 1rem 0;
-  font-size: 1.2rem;
-  p {
-    margin-top: 1rem;
-  }
-`;
 export default PostCard;
