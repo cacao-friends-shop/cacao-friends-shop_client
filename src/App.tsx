@@ -1,20 +1,26 @@
 import React from 'react';
 import { Global } from '@emotion/react';
 import GlobalStyles from 'styles/GlobalStyles';
-
-import Header from 'components/organisms/Header';
-
+import { Switch, Route } from 'react-router-dom';
+import Login from 'pages/Login';
+import Signup from 'pages/SignUp';
+import Agreement from 'pages/Agreement';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-
-
-      {/* <Header TabComp={TabComp} /> */}
-
-      <Header />
-
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+        <Route path="/agreement">
+          <Agreement />
+        </Route>
+      </Switch>
     </>
   );
 }
