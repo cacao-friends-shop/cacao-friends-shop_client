@@ -1,7 +1,7 @@
-import React from 'react';
+import Template from './template';
 
-const FavoriteProducts = () => {
-  return <div></div>;
+const FavoriteProducts = ({ ...restProps }) => {
+  return <Template {...restProps} />;
 };
 
 export default FavoriteProducts;

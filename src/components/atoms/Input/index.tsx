@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
-import React from 'react';
+import React, { useState } from 'react';
+import Icon from '../Icon';
 
 export type InputProps = {
   /** Input 타입 */
@@ -22,9 +23,27 @@ export type InputProps = {
 
 const Input = React.forwardRef(
   ({ type, title, label, className, ...restProps }: InputProps, ref: any) => {
+    const [isChecked, setisChecked] = useState(false);
+    const handleClick = () => setisChecked(!isChecked);
     return (
-      <div css={subtitleStyle} className={className}>
-        <input type={type} id={title} name={title} ref={ref} {...restProps} />
+      <div css={subtitleStyle(isChecked)} className={className}>
+        <input
+          type={type}
+          id={title}
+          name={title}
+          ref={ref}
+          onClick={handleClick}
+          {...restProps}
+        />
+
+        {type === 'checkbox' ? (
+          isChecked ? (
+            <Icon name="fontAwesomeCheckCircle" size={18} />
+          ) : (
+            <Icon name="fontAwesomeregCheckCircle" size={18} />
+          )
+        ) : null}
+
         <label htmlFor={title}>
           {label}
           {type === 'checkbox' && <span></span>}
@@ -34,7 +53,7 @@ const Input = React.forwardRef(
   }
 );
 
-const subtitleStyle = css`
+const subtitleStyle = (isChecked: boolean) => css`
   box-sizing: border-box;
   position: relative;
 
@@ -60,6 +79,16 @@ const subtitleStyle = css`
     line-height: 47px;
     color: #ccc;
   }
+
+  ${isChecked &&
+  css`
+    input + svg {
+      color: #fee500;
+    }
+  `}
 `;
 
+const checkedIconStyle = css`
+  color: #fee500;
+`;
 export default Input;

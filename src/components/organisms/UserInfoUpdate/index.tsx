@@ -15,8 +15,8 @@ const UserInfoUpdate = () => {
         <Input
           css={updateInputStyle}
           type="text"
-          title="username"
-          label="이름"
+          title="nickname"
+          label="닉네임"
           value="이재훈"
         />
         <div css={buttonContainer}>
@@ -65,6 +65,7 @@ const buttonContainer = css`
 
   button {
     border-radius: 0.4rem;
+    width: 100%;
   }
   button + button {
     margin-left: 2rem;

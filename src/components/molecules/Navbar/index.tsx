@@ -42,7 +42,6 @@ const container = css`
   top: 0;
   margin: 0 auto;
   background-color: ${colors.white};
-  position: relative;
   border-bottom: 0.1rem solid rgb(200, 201, 204);
 `;
 const navbarContainer = css`

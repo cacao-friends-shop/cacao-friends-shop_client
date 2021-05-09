@@ -4,17 +4,22 @@ import PriceInfo from 'components/molecules/PriceInfo';
 import OrderList from 'components/organisms/OrderList';
 import React from 'react';
 import { fontSizes } from 'theme';
-
+import Header from 'components/organisms/Header';
+import TabComp from 'components/molecules/TabComp';
+import MyTab from 'components/molecules/MyTab';
 const OrderTemplate = () => {
   return (
-    <div css={container}>
-      <h2>주문상품</h2>
-      <OrderList />
-      <PriceInfo totalPrice={30000} />
-      <Button css={buttonStyle} bgColor="rgb(255, 234, 1)">
-        결제하기
-      </Button>
-    </div>
+    <>
+      <Header TabComp={TabComp} MyTab={MyTab}></Header>
+      <div css={container}>
+        <h2>주문상품</h2>
+        <OrderList />
+        <PriceInfo totalPrice={30000} />
+        <Button css={buttonStyle} bgColor="rgb(255, 234, 1)">
+          결제하기
+        </Button>
+      </div>
+    </>
   );
 };
 
@@ -33,6 +38,7 @@ const container = css`
 const buttonStyle = css`
   position: fixed;
   bottom: 0;
+  width: 100%;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
   max-width: 64rem;

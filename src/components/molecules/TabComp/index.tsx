@@ -61,7 +61,6 @@ const tabStyle = css`
     flex-basis: 25%;
     width: 100%;
     text-align: center;
-    margin-bottom: 4px;
     position: relative;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   }
