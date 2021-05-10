@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Activity = () => {
+const ActivityTemplate = () => {
   return <div></div>;
 };
 
-export default Activity;
+export default ActivityTemplate;

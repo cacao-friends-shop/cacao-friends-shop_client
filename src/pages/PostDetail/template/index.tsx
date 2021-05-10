@@ -6,9 +6,9 @@ import { css } from '@emotion/react';
 import PostDetailComment from 'components/organisms/PostDetailComment';
 import { fontSizes } from 'theme';
 
-const PostDetail = () => {
+const PostDetailTemplate = () => {
   return (
-    <div css={container}>
+    <section css={container}>
       <div css={postContainer}>
         <PostCard imgList={imgList} />
         <CommentBox>
@@ -28,7 +28,7 @@ const PostDetail = () => {
         <PostDetailComment />
         <PostDetailComment />
       </div>
-    </div>
+    </section>
   );
 };
 
@@ -73,4 +73,4 @@ const commentContainer = css`
   }
 `;
 
-export default PostDetail;
+export default PostDetailTemplate;

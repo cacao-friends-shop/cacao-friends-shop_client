@@ -2,10 +2,8 @@ import Profile from 'components/molecules/Profile';
 import Carousel from 'components/organisms/Carousel';
 import Actionbar from 'components/molecules/Actionbar';
 import { css } from '@emotion/react';
-import Comment from 'components/atoms/Comment';
-import { Link } from 'react-router-dom';
-import CommentBox from 'components/atoms/CommentBox';
 import useCarouselState from 'hooks/useCarouselState';
+import PostDetailLink from '../PostDetailLink';
 
 type PostCardProps = {
   /** 캐러셀에 들어갈 이미지 경로 배열 */
@@ -53,6 +51,7 @@ const PostCard = ({ imgList }: PostCardProps) => {
       <p css={{ fontSize: '1.4rem' }}>
         스노우타운의 명탐정 콥은 늦잠꾸러기 일까❓
       </p>
+      <PostDetailLink />
     </article>
   );
 };

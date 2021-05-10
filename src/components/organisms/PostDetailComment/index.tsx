@@ -6,14 +6,14 @@ import { fontSizes } from 'theme';
 
 const PostDetailComment = () => {
   return (
-    <div>
+    <article>
       <strong>김연구</strong>
       <CommentBox css={commentStyle}>
         등짝이 날라가는 제이지..... 구해줄 수 없......다... 엄마는 강력하다.....
         ....이런....제이지 : 옴마 잘못했어여 ㅠ
       </CommentBox>
       <CommentInfo css={commentInfoStyle} date="3시간 전" likeCount={3} />
-    </div>
+    </article>
   );
 };
 
