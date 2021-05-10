@@ -8,17 +8,24 @@ type ProductListItemProps = {
   title: string;
   /** 상품 가격 */
   price: number;
+  /** 태그 이름 */
+  tag?: keyof JSX.IntrinsicElements;
   children?: React.ReactNode;
-} & React.LiHTMLAttributes<HTMLLIElement>;
+};
 
-const ProductListItem = ({
+const ProductListItem: React.FunctionComponent<
+  ProductListItemProps & React.HTMLAttributes<HTMLOrSVGElement>
+> = ({
   title,
   price,
+  tag = 'li',
   children,
   ...restProps
 }: ProductListItemProps) => {
+  const Tag = tag;
+
   return (
-    <li css={container} {...restProps}>
+    <Tag css={container} {...restProps}>
       <Link to="/" css={imgContainer}>
         <img
           src="https://t1.daumcdn.net/friends/prod/product/20210421145731862_8809721508497_AW_00.jpg?type=thumb&opt=R255x255@2xa"
@@ -31,7 +38,7 @@ const ProductListItem = ({
         {children}
       </div>
       <IconButton css={buttonStyle} name="close" size={20} />
-    </li>
+    </Tag>
   );
 };
 
@@ -68,6 +75,7 @@ const imgContainer = css`
 
 const textContainer = css`
   flex: 1;
+
   h3,
   span {
     font-size: 1.6rem;

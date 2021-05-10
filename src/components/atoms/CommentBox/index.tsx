@@ -3,10 +3,14 @@ import React from 'react';
 
 type CommentTextAreaProps = {
   children: React.ReactNode;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
-const CommentBox = ({ children }: CommentTextAreaProps) => {
-  return <div css={container}>{children}</div>;
+const CommentBox = ({ children, ...restProps }: CommentTextAreaProps) => {
+  return (
+    <div css={container} {...restProps}>
+      {children}
+    </div>
+  );
 };
 
 const container = css`
