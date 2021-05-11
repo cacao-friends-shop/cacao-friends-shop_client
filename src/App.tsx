@@ -1,21 +1,26 @@
 import React from 'react';
 import { Global } from '@emotion/react';
 import GlobalStyles from 'styles/GlobalStyles';
-
-import Header from 'components/organisms/Header';
-import PostCard from 'components/organisms/PostCard';
-import { imgList } from 'staticData';
-import ActivityTemplate from 'pages/Activity/template';
-import NewProduct from './pages/NewProduct/index';
+import { Switch, Route } from 'react-router-dom';
+import Login from 'pages/Login';
+import Signup from 'pages/SignUp';
+import Agreement from 'pages/Agreement';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-
-      {/* <Header TabComp={TabComp} /> */}
-
-      <NewProduct />
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+        <Route path="/agreement">
+          <Agreement />
+        </Route>
+      </Switch>
     </>
   );
 }

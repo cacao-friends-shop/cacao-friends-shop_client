@@ -24,4 +24,5 @@ export const fontSizes = {
   xl_20: '2rem',
   xxl_22: '2.2rem',
   xxxl_24: '2.4rem',
+  xxxxl_28: '2.8rem',
 };

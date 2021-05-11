@@ -1,9 +1,9 @@
 import AgreementForm from 'components/organisms/AgreementForm';
 import React from 'react';
 
-type agreementProps = {};
+type AgreementProps = {};
 
-const Agreement = (props: agreementProps) => {
+const Agreement = (props: AgreementProps) => {
   return <AgreementForm />;
 };
 
