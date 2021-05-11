@@ -8,13 +8,13 @@ type ProductTotalCountProps = {
 
 const ProductTotalCount = ({ totalCount }: ProductTotalCountProps) => {
   return (
-    <div css={ProductTotalCountStyle}>
+    <div css={productTotalCountStyle}>
       총 <span>{totalCount}</span>개
     </div>
   );
 };
 
-const ProductTotalCountStyle = css`
+const productTotalCountStyle = css`
   padding: 2.5rem 2rem;
   span {
     font-weight: bold;
