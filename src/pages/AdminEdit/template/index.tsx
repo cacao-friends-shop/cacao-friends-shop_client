@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
@@ -9,6 +9,7 @@ import { colors, fontSizes } from 'theme';
 import { Link } from 'react-router-dom';
 import Button from 'components/atoms/Button';
 import PostTitle from 'components/atoms/PostTitle';
+import Header from 'components/organisms/Header';
 
 const Templates = () => {
   const [content, setContent] = useState('');
@@ -21,37 +22,39 @@ const Templates = () => {
   };
 
   return (
-    <div css={container}>
-      <PostTitle />
-      <Editor
-        previewStyle="vertical"
-        height="700px"
-        initialEditType="wysiwyg"
-        initialValue="내용을 입력해주세요!"
-        plugins={[colorSyntax]}
-        ref={ref => ref && (editorRef.current = ref)}
-      />
-      <div css={btnContainer}>
-        <Button
-          borderRadius="20px"
-          bgColor={colors.lightGray}
-          color={colors.darkGray}
-          css={buttonStyle}
-        >
-          취소
-        </Button>
-        <Link to="/" onClick={handleSave} css={linkStyle}>
-          완료
-        </Link>
+    <>
+      <Header />
+      <div css={container}>
+        <PostTitle />
+        <Editor
+          previewStyle="vertical"
+          height="700px"
+          initialEditType="wysiwyg"
+          plugins={[colorSyntax]}
+          ref={ref => ref && (editorRef.current = ref)}
+        />
+        <div css={btnContainer}>
+          <Button
+            borderRadius="20px"
+            bgColor={colors.lightGray}
+            color={colors.darkGray}
+            css={buttonStyle}
+          >
+            취소
+          </Button>
+          <Link to="/" onClick={handleSave} css={linkStyle}>
+            완료
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
 const container = css`
   max-width: 64rem;
   margin: 0 auto;
-  padding-top: 5rem;
+  padding-top: 3rem;
 
   label + div {
     margin-top: 1.5rem;
