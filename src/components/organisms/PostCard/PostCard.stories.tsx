@@ -1,4 +1,5 @@
 import PostCard from '.';
+import PostDetailLink from '../PostDetailLink';
 
 export default {
   component: PostCard,
@@ -12,4 +13,8 @@ const imageList = [
 ];
 
 // 기본 포스트 카드
-export const DefaultPostCard = () => <PostCard imgList={imageList} />;
+export const DefaultPostCard = () => (
+  <PostCard imgList={imageList}>
+    <PostDetailLink />
+  </PostCard>
+);
