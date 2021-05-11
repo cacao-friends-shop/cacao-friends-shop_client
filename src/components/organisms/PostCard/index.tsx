@@ -8,9 +8,10 @@ import PostDetailLink from '../PostDetailLink';
 type PostCardProps = {
   /** 캐러셀에 들어갈 이미지 경로 배열 */
   imgList: string[];
+  children?: React.ReactNode;
 };
 
-const PostCard = ({ imgList }: PostCardProps) => {
+const PostCard = ({ imgList, children }: PostCardProps) => {
   const { currentIdx, direction, handleNext, handlePrev } = useCarouselState(
     imgList
   );
@@ -51,7 +52,7 @@ const PostCard = ({ imgList }: PostCardProps) => {
       <p css={{ fontSize: '1.4rem' }}>
         스노우타운의 명탐정 콥은 늦잠꾸러기 일까❓
       </p>
-      <PostDetailLink />
+      {children}
     </article>
   );
 };
