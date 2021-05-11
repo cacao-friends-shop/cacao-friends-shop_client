@@ -44,6 +44,7 @@ const iconTypes = [
   'outlineCheck',
   'fontAwesomeCheckCircle',
   'fontAwesomeregCheckCircle',
+  'edit',
 ];
 
 // 아이콘 그룹

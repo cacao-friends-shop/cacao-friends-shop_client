@@ -1,7 +1,5 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
-import { Link } from 'react-router-dom';
 import IconButton from 'components/molecules/IconButton';
 import { colors, fontSizes } from 'theme';
 import Title from 'components/atoms/Title';

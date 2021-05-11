@@ -5,4 +5,10 @@ export default {
   title: 'organisms/SideBar',
 };
 
-export const sideBar = () => <SideBar />;
+export const sideBar = () => (
+  <SideBar>
+    <SideBar.Header type="nonLogin" />
+    <SideBar.Body />
+    <SideBar.Footer type="nonLogin" />
+  </SideBar>
+);
