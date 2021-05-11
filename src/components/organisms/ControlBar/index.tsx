@@ -49,6 +49,7 @@ const container = css`
   padding: 1.3rem 1.5rem;
   border-radius: 3px;
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const searchStyle = css`

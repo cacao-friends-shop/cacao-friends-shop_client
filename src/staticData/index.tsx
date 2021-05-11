@@ -1,4 +1,5 @@
 import React from 'react';
+import getPublicAsset from 'utils/getPublicAsset';
 import { v4 as uuid } from 'uuid';
 
 // 사용처: organisms/SideBar
@@ -6,38 +7,39 @@ export const IconList = [
   {
     id: uuid(),
     link: '/',
-    imagePath: 'assets/ryan_avatar.png',
+    imagePath: getPublicAsset('assets/ryan_avatar.png'),
     name: '라이언',
   },
   {
     id: uuid(),
     link: '/',
-    imagePath: 'assets/apeach_avatar.png',
+    imagePath: getPublicAsset('assets/apeach_avatar.png'),
     name: '어피치',
   },
   {
     id: uuid(),
     link: '/',
-    imagePath: 'assets/muzi_avatar.png',
+    imagePath: getPublicAsset('assets/muzi_avatar.png'),
     name: '무지',
   },
   {
     id: uuid(),
     link: '/',
-    imagePath: 'assets/frodo_avator.png',
+    imagePath: getPublicAsset('assets/frodo_avator.png'),
     name: '프로도',
   },
   {
     id: uuid(),
     link: '/',
-    imagePath: 'assets/neo_avatar.png',
+    imagePath: getPublicAsset('assets/neo_avatar.png'),
     name: '네오',
   },
 ];
 
 // 사용처: pages/AdminList/templates
-export const PostList = [
+export const PostListItems = [
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
@@ -45,6 +47,7 @@ export const PostList = [
     commentsCount: 3,
   },
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
@@ -52,6 +55,7 @@ export const PostList = [
     commentsCount: 3,
   },
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
@@ -59,6 +63,7 @@ export const PostList = [
     commentsCount: 3,
   },
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
@@ -66,6 +71,7 @@ export const PostList = [
     commentsCount: 3,
   },
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
@@ -73,6 +79,7 @@ export const PostList = [
     commentsCount: 3,
   },
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
@@ -80,6 +87,7 @@ export const PostList = [
     commentsCount: 3,
   },
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
@@ -87,6 +95,7 @@ export const PostList = [
     commentsCount: 3,
   },
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
@@ -94,6 +103,7 @@ export const PostList = [
     commentsCount: 3,
   },
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
@@ -101,6 +111,7 @@ export const PostList = [
     commentsCount: 3,
   },
   {
+    id: uuid(),
     title: '라이언 복근만들기 프로젝트',
     likeCount: 3,
     writer: 'jiwon',
