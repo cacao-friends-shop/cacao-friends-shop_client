@@ -5,6 +5,8 @@ import GlobalStyles from 'styles/GlobalStyles';
 import Header from 'components/organisms/Header';
 import PostCard from 'components/organisms/PostCard';
 import { imgList } from 'staticData';
+import ActivityTemplate from 'pages/Activity/template';
+import NewProduct from './pages/NewProduct/index';
 
 function App() {
   return (
@@ -13,8 +15,7 @@ function App() {
 
       {/* <Header TabComp={TabComp} /> */}
 
-      <Header />
-      <PostCard imgList={imgList} />
+      <NewProduct />
     </>
   );
 }

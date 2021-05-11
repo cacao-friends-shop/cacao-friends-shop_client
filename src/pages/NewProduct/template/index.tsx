@@ -40,7 +40,6 @@ const NewProductTemplate = () => {
           </span>
         </Carousel>
         <div css={productContainer}>
-          <h2 css={{ marginBottom: '2rem', fontSize: '2rem' }}>상품 목록</h2>
           <ProductCardList />
         </div>
       </div>

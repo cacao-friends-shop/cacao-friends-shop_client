@@ -1,8 +1,8 @@
-import OrderTemplate from './template';
+import Order from './';
 
 export default {
-  title: 'pages/OrderTemplate',
-  component: OrderTemplate,
+  title: 'pages/Order',
+  component: Order,
 };
 
-export const OrderTemplateBlock = () => <OrderTemplate />;
+export const OrderBlock = () => <Order />;
