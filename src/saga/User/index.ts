@@ -1,26 +1,7 @@
-import { Dispatch } from 'react';
+import { LoginInfo, User } from 'types/User';
+import { LOG_IN, SIGN_OUT, LOG_IN_FAILURE, PENDING } from './actions';
 
-const LOG_IN = 'auth/LOGIN';
-const SIGN_OUT = 'auth/SIGN_OUT';
-const LOG_IN_FAILURE = 'auth/LOG_IN_FAILURE';
-const PENDING = 'auth/PENDING';
-
-type User = {
-  userId: string;
-  nickName: string;
-  phoneNumber: string;
-  email: string;
-  password: string;
-  role: string;
-  avatar: string;
-};
-
-type LoginInfo = {
-  email: string;
-  password: string;
-};
-
-class AuthError extends Error {
+export class AuthError extends Error {
   status: number;
 
   constructor(message: string, status: number) {
@@ -41,47 +22,6 @@ const loginRequest = (userInfo: LoginInfo) => {
     },
     body: JSON.stringify(userInfo),
   });
-};
-
-type MyDispatch = {
-  type: string;
-  authUser?: User;
-  isLoading?: boolean;
-  error?: AuthError;
-};
-
-// action creator
-export const logInActionSuccess = (authUser: User) => ({
-  type: LOG_IN,
-  authUser,
-});
-
-export const loginActionFailure = (err: any) => ({
-  type: LOG_IN_FAILURE,
-  error: new AuthError(err.message, err.status),
-});
-
-const pending = () => ({
-  type: PENDING,
-  isLoading: true,
-});
-
-export const signOutAction = () => ({ type: SIGN_OUT });
-
-// thunk
-export const logInActionAsync = (userInfo: LoginInfo) => async (
-  dispatch: Dispatch<MyDispatch>
-) => {
-  // 비동기 처리
-  dispatch(pending());
-  try {
-    const res = await loginRequest(userInfo).then(res => res.json());
-    dispatch(logInActionSuccess(res.user));
-  } catch (err) {
-    dispatch(loginActionFailure(err));
-  }
-
-  return dispatch;
 };
 
 const initialState = {
