@@ -7,6 +7,7 @@ import { fontSizes } from 'theme';
 import Header from 'components/organisms/Header';
 import TabComp from 'components/molecules/TabComp';
 import MyTab from 'components/molecules/MyTab';
+
 const OrderTemplate = () => {
   return (
     <>
