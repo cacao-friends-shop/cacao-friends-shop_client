@@ -1,4 +1,4 @@
-import OrderTemplate from '.';
+import OrderTemplate from './';
 
 export default {
   title: 'pages/OrderTemplate',

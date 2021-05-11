@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
 import { Link } from 'react-router-dom';
 import IconButton from 'components/molecules/IconButton';
-import ModalContainer from 'utils/potal';
+import ModalContainer from 'utils/portal';
 import SideBar from 'components/organisms/SideBar';
 import SearchBarChar from 'components/organisms/SearchBarChar';
 import SearchBar from 'components/molecules/SearchBar';
@@ -25,7 +25,7 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
     <>
       <header css={container}>
         <section css={headerContainer}>
-          <IconButton name="menu" size={32} onClick={() => setIsShow(true)} />
+          <IconButton name="menu" size={30} onClick={() => setIsShow(true)} />
           <div css={headerLogoStyle}>
             <Link to="/">
               <HeaderLogo />
@@ -35,12 +35,9 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
             </A11yHiddenHeading>
           </div>
           <div css={IconButtonContainerStyle}>
-            {/* 추후 아이콘 추가  */}
-            <IconButton
-              name="search"
-              size={32}
-              onClick={() => setIsSearchShown(!isSearchShown)}
-            />
+            {/* 추후 어드민 아이콘 처리  */}
+            {/* <IconLink iconName="edit" iconSize={20} to="/" css={LinkStyle} /> */}
+            <IconButton name="search" size={25} />
           </div>
         </section>
         {TabComp ? <TabComp /> : null}
@@ -92,7 +89,7 @@ const container = css`
 const headerContainer = css`
   display: flex;
   justify-content: space-between;
-  margin: 0.8rem 1.3rem 0.7rem;
+  margin: 0.8rem 1.3rem 0;
 
   & + div {
     margin-top: 2rem;

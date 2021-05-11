@@ -23,6 +23,7 @@ const ModalOverlay = ({
 };
 
 const overlayStyle = (bgColor: string, opacity: number) => css`
+  z-index: 1001;
   position: fixed;
   width: 100%;
   height: 100%;

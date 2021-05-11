@@ -11,13 +11,13 @@ const PriceInfo = ({ totalPrice, ...restProps }: PriceInfoProps) => {
   return (
     <div css={infoContainer} {...restProps}>
       <div>
-        <span>총 주문금액</span> <span>{totalPrice}원</span>
+        <span>총 주문금액</span> <span>{totalPrice}원</span>
       </div>
       <div>
-        <span>배송비</span> <span>무료</span>
+        <span>배송비</span> <span>무료</span>
       </div>
       <div>
-        <em>총 결제금액</em> <strong>{totalPrice}원</strong>
+        <em>총 결제금액</em> <strong>{totalPrice}원</strong>
       </div>
     </div>
   );
