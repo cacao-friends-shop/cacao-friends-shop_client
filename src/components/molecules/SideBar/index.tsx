@@ -1,10 +1,11 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
-import { colors, fontSizes } from 'theme';
+import { colors } from 'theme';
 import { HTMLMotionProps, motion } from 'framer-motion';
 import IconLink from 'components/molecules/IconLink';
-import { IconList } from 'staticData';
+import LinkCount from 'components/atoms/LinkCount';
+import CharacterList from 'components/atoms/CharacterList';
 
 type SideBarProps = {
   children: React.ReactNode;
@@ -95,29 +96,14 @@ const SideBarBody = ({ cartCount, orderCount }: SideBarBodyProps) => {
   return (
     <ul css={bodyStyle}>
       <li>
-        <Link to="/">
-          장바구니 내역
-          {cartCount && <span css={countStyle}>{cartCount}</span>}
-        </Link>
+        <LinkCount title="장바구니 내역" count={cartCount} to="/" />
       </li>
       <li>
-        <Link to="/">
-          주문·배송 내역
-          {orderCount && <span css={countStyle}>{orderCount}</span>}
-        </Link>
+        <LinkCount title="주문·배송 내역" count={orderCount} to="/" />
       </li>
       <li className="style_category">
         <span tabIndex={0}>캐릭터</span>
-        <ul css={characterStyle}>
-          {IconList.map(icon => (
-            <li key={icon.id}>
-              <Link to={icon.link}>
-                <img css={avatarStyle} src={icon.imagePath} alt={icon.name} />
-                <p>{icon.name}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <CharacterList />
       </li>
     </ul>
   );
@@ -132,48 +118,14 @@ const bodyStyle = css`
     padding: 0.5rem 0;
   }
 
-  li > a {
-    display: block;
-    padding: 2rem 0;
-  }
-
   .style_category {
     padding: 2rem 0;
+
+    span {
+      display: block;
+      margin-bottom: 1.5rem;
+    }
   }
-`;
-
-const countStyle = css`
-  display: inline-block;
-  margin-left: 0.5rem;
-  padding: 0.3rem;
-  background-color: ${colors.pink};
-  border-radius: 50%;
-  color: ${colors.white};
-  width: 2rem;
-  height: 2rem;
-  text-align: center;
-  font-size: ${fontSizes.xxs_13};
-`;
-
-const characterStyle = css`
-  display: flex;
-  justify-content: space-between;
-
-  a {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    text-align: center;
-  }
-
-  p {
-    margin-top: 0.7rem;
-    font-size: 1.2rem;
-  }
-`;
-
-const avatarStyle = css`
-  width: 5rem;
 `;
 
 // ---------------------------------------------------------------------------

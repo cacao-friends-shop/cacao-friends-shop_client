@@ -4,13 +4,12 @@ import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
 import { Link } from 'react-router-dom';
 import IconButton from 'components/molecules/IconButton';
 import ModalContainer from 'utils/portal';
-import SideBar from 'components/organisms/SideBar';
 import SearchBarChar from 'components/organisms/SearchBarChar';
 import SearchBar from 'components/molecules/SearchBar';
-import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
 import { colors } from 'theme';
 import { ReactComponent as HeaderLogo } from 'assets/logo.svg';
+import SideBarModal from '../SideBarModal';
 
 export type HeaderProps = {
   TabComp?: any;
@@ -46,24 +45,7 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
       <AnimatePresence>
         {isShow && (
           <ModalContainer id="modal-root">
-            <ModalOverlay
-              onClick={() => setIsShow(false)}
-              bgColor={colors.black}
-              opacity={0.7}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.7 }}
-              exit={{ opacity: 0 }}
-            />
-            <SideBar
-              initial={{ x: '-100vw', opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ type: 'none' }}
-              exit={{ x: '-100vw', opacity: 0 }}
-            >
-              <SideBar.Header type="nonLogin" />
-              <SideBar.Body />
-              <SideBar.Footer type="nonLogin" />
-            </SideBar>
+            <SideBarModal setIsShow={setIsShow} />
           </ModalContainer>
         )}
       </AnimatePresence>

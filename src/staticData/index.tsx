@@ -133,7 +133,7 @@ export const charList = [
     id: uuid(),
     imagePath:
       'https://t1.daumcdn.net/friends/prod/category/Apeach_71_color_210303.png',
-    alt: '이파치',
+    alt: '어피치',
     url: '/',
   },
   {
