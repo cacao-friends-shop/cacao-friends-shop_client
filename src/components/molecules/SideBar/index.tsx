@@ -39,13 +39,17 @@ const sidebarStyle = css`
 // ---------------------------------------------------------------------------
 // SideBar.Header
 type SideBarHeaderProps = {
+  /** 사이드바 가시여부 상태 */
+  setIsShow: (value: React.SetStateAction<boolean>) => void;
   /** 로그인 상태 확인 login 또는 nonLogin */
   type: string;
   /** 로그인 시 사용자 닉네임 */
   nickName?: string;
 };
 
-const SideBarHeader = ({ type, nickName }: SideBarHeaderProps) => {
+const SideBarHeader = ({ setIsShow, type, nickName }: SideBarHeaderProps) => {
+  const handleClick = () => setIsShow(false);
+
   const login = (
     <>
       <span className="text">{nickName}</span>
@@ -60,7 +64,11 @@ const SideBarHeader = ({ type, nickName }: SideBarHeaderProps) => {
 
   return (
     <div css={headerStyle}>
-      <Link to="/" css={loginStyle}>
+      <Link
+        to={type === 'login' ? '/' : '/login'}
+        css={loginStyle}
+        onClick={handleClick}
+      >
         {type === 'login' ? login : nonLogin}
       </Link>
     </div>
@@ -86,24 +94,41 @@ const loginStyle = css`
 // ---------------------------------------------------------------------------
 // SideBar.Body
 type SideBarBodyProps = {
+  /** 사이드바 가시여부 상태 */
+  setIsShow: (value: React.SetStateAction<boolean>) => void;
   /** 장바구니에 넣은 상품 갯수 */
   cartCount?: number;
   /** 주문한 상품의 갯수 */
   orderCount?: number;
 };
 
-const SideBarBody = ({ cartCount, orderCount }: SideBarBodyProps) => {
+const SideBarBody = ({
+  setIsShow,
+  cartCount,
+  orderCount,
+}: SideBarBodyProps) => {
+  const handleClick = () => setIsShow(false);
   return (
     <ul css={bodyStyle}>
       <li>
-        <LinkCount title="장바구니 내역" count={cartCount} to="/" />
+        <LinkCount
+          title="장바구니 내역"
+          count={cartCount}
+          to="/mypage/cart"
+          onClick={handleClick}
+        />
       </li>
       <li>
-        <LinkCount title="주문·배송 내역" count={orderCount} to="/" />
+        <LinkCount
+          title="주문·배송 내역"
+          count={orderCount}
+          to="/mypage/orderlist"
+          onClick={handleClick}
+        />
       </li>
       <li className="style_category">
         <span tabIndex={0}>캐릭터</span>
-        <CharacterList />
+        <CharacterList setIsShow={setIsShow} />
       </li>
     </ul>
   );
@@ -131,19 +156,24 @@ const bodyStyle = css`
 // ---------------------------------------------------------------------------
 // SideBar.Footer
 type SideBarFooterProps = {
+  /** 사이드바 가시여부 상태 */
+  setIsShow: (value: React.SetStateAction<boolean>) => void;
   /** 로그인 상태 확인 login 또는 nonLogin */
   type: string;
 };
 
-const SideBarFooter = ({ type }: SideBarFooterProps) => {
+const SideBarFooter = ({ setIsShow, type }: SideBarFooterProps) => {
+  const handleClick = () => setIsShow(false);
+
   return (
     <IconLink
       type="leftIcon"
-      to="/"
+      to={type === 'login' ? '/' : '/login'}
       iconName="lock"
       iconSize={20}
       bgColor="transparent"
       css={footerStyle}
+      onClick={handleClick}
     >
       {type === 'login' ? '로그아웃' : '로그인'}
     </IconLink>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CharacterList from './index';
 
 export default {
@@ -5,4 +6,7 @@ export default {
   title: 'atoms/CharacterList',
 };
 
-export const characterList = () => <CharacterList />;
+export const CharacterListBlock = () => {
+  const [isShow, setIsShow] = useState(false);
+  return <CharacterList setIsShow={setIsShow} />;
+};

@@ -17,7 +17,7 @@ const ProductImageCardListGroup = (imgs: string[]) => [
 const FavoriteProductsTemplate = () => {
   return (
     <>
-      <Header TabComp={TabComp}></Header>
+      <TabComp />
       <div css={{ maxWidth: '64rem', margin: '0 auto' }}>
         {imgListDivider.map(
           (imgs: string[], i: number) => ProductImageCardListGroup(imgs)[i % 4]

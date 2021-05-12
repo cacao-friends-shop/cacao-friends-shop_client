@@ -13,17 +13,17 @@ import ProductTotalCount from 'components/atoms/ProductTotalCount';
 import { options } from 'staticData/index';
 
 type TemplateProps = {
-  title: string;
+  title?: string;
   imgURL: string;
+  characterType?: string;
 };
 
-const Template = ({ title, imgURL }: TemplateProps) => {
+const Template = ({ title, imgURL, characterType }: TemplateProps) => {
   const [isShow, setIsShow] = useState(false);
   const [selectedIdx, setSelectedIdx] = useState(0);
 
   return (
     <div css={container}>
-      <Navbar title={title} />
       <ProductBanner title={title} imgURL={imgURL} />
       <Button
         css={buttonStyle}

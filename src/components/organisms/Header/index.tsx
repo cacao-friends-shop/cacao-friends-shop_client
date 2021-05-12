@@ -8,8 +8,9 @@ import SearchBarChar from 'components/organisms/SearchBarChar';
 import SearchBar from 'components/molecules/SearchBar';
 import { AnimatePresence } from 'framer-motion';
 import { colors } from 'theme';
-import { ReactComponent as HeaderLogo } from 'assets/logo.svg';
+// import { ReactComponent as HeaderLogo } from 'assets/logo.svg';
 import SideBarModal from '../SideBarModal';
+import getPublicAsset from 'utils/getPublicAsset';
 
 export type HeaderProps = {
   TabComp?: any;
@@ -27,7 +28,10 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
           <IconButton name="menu" size={30} onClick={() => setIsShow(true)} />
           <div css={headerLogoStyle}>
             <Link to="/">
-              <HeaderLogo />
+              <img
+                src={getPublicAsset('assets/logo.png')}
+                alt="CACAO FRIENDS"
+              />
             </Link>
             <A11yHiddenHeading comp="h1">
               CACAO Friends 웹사이트
@@ -71,15 +75,16 @@ const container = css`
 const headerContainer = css`
   display: flex;
   justify-content: space-between;
-  margin: 0.8rem 1.3rem 0;
+  align-items: center;
+  margin: 1rem 1.3rem 1rem;
 
   & + div {
     margin-top: 2rem;
   }
 `;
 const headerLogoStyle = css`
-  width: 20rem;
-  height: 5rem;
+  /* width: 20rem;
+  height: 5rem; */
 
   a {
     display: block;

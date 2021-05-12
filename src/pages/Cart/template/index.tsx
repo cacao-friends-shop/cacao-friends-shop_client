@@ -5,14 +5,14 @@ import CartListDeletebar from 'components/molecules/CartListDeletebar';
 import PriceInfo from 'components/molecules/PriceInfo';
 import CartList from 'components/organisms/CartList';
 import { fontSizes } from 'theme';
-import Header from 'components/organisms/Header';
 import TabComp from 'components/molecules/TabComp';
 import MyTab from 'components/molecules/MyTab';
 
 const CartTemplate = () => {
   return (
     <>
-      <Header TabComp={TabComp} MyTab={MyTab}></Header>
+      <TabComp />
+      <MyTab />
       <div css={container}>
         <CartListDeletebar />
         <CartList />
