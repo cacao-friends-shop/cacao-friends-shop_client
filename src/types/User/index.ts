@@ -1,5 +1,3 @@
-import { AuthError } from 'saga/User/index';
-
 export type User = {
   userId: string;
   nickName: string;
@@ -15,9 +13,8 @@ export type LoginInfo = {
   password: string;
 };
 
-export type MyDispatch = {
-  type: string;
-  authUser?: User;
-  isLoading?: boolean;
-  error?: AuthError;
+export type LoginSuccessInfo = {
+  email: string;
+  role: string;
+  nickname: string;
 };

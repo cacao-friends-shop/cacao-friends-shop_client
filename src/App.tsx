@@ -11,7 +11,7 @@ function App() {
     <>
       <Global styles={GlobalStyles} />
       <Switch>
-        <Route path="/login">
+        <Route path="/">
           <Login />
         </Route>
         <Route path="/signup">

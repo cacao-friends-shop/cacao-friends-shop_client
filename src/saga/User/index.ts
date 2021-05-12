@@ -1,4 +1,4 @@
-import { LoginInfo, User } from 'types/User';
+import { User } from 'types/User';
 import { LOG_IN, SIGN_OUT, LOG_IN_FAILURE, PENDING } from './actions';
 
 export class AuthError extends Error {
@@ -10,27 +10,13 @@ export class AuthError extends Error {
   }
 }
 
-//api
-const loginRequest = (userInfo: LoginInfo) => {
-  return fetch('/members/login', {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(userInfo),
-  });
-};
-
 const initialState = {
   authUser: null,
   isLoading: false,
   error: AuthError,
 };
 
-export const authReducer = (
+const userReducer = (
   state = initialState,
   action: {
     type: string;
@@ -70,4 +56,4 @@ export const authReducer = (
   }
 };
 
-export default authReducer;
+export default userReducer;
