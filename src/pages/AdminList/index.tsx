@@ -1,8 +1,8 @@
-import { PostList } from 'staticData';
+import { PostListItems } from 'staticData';
 import Template from './template';
 
 const AdminList = () => {
-  return <Template contents={PostList} />;
+  return <Template contents={PostListItems} />;
 };
 
 export default AdminList;
