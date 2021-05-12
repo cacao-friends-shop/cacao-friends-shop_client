@@ -1,29 +1,48 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Formik } from 'formik';
 import Input from 'components/atoms/Input';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { LOG_IN } from 'saga/User/actions';
+import * as Yup from 'yup';
+import { colors, fontSizes } from 'theme';
 
-interface Props {}
+const LoginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('이메일 포맷에 맞게 넣어주세요')
+    .required('이메일을 넣어주세요'),
+});
 
-const LoginForm = (props: Props) => {
+const LoginForm = () => {
+  const dispatch = useDispatch();
+
   return (
     <section css={container}>
       <article css={loginFormContainer}>
         <h1>KaKao</h1>
         <Formik
-          initialValues={{ email: '', password: '', agreement: false }}
+          initialValues={{ email: '', password: '' }}
           onSubmit={values => {
+            dispatch({ type: LOG_IN, authUser: values });
             console.log(values);
           }}
+          validationSchema={LoginSchema}
         >
-          {({ values, handleChange, handleBlur, handleSubmit }) => (
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+          }) => (
             <>
               <form css={formStyle} noValidate onSubmit={handleSubmit}>
                 <Input
                   type="email"
                   title="email"
-                  label="카카오 아이디, 이메일, 전화번호"
+                  placeholder="카카오 아이디, 이메일, 전화번호"
                   onChange={handleChange}
                   className="first-input"
                   onBlur={handleBlur}
@@ -32,22 +51,26 @@ const LoginForm = (props: Props) => {
                 <Input
                   type="password"
                   title="password"
-                  label="비밀번호"
+                  placeholder="비밀번호"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className="second-input"
                   value={values.password}
                 />
 
-                <Input
+                {/* <Input
                   type="checkbox"
                   title="agreement"
                   className="third-input"
                   onChange={handleChange}
-                  label="로그인 상태유지"
+                  placeholder="로그인 상태유지"
                   onBlur={handleBlur}
                   value={values.agreement}
-                />
+                /> */}
+                {errors.email && touched.email ? (
+                  <div css={errorMessageStyle}>{errors.email}</div>
+                ) : null}
+
                 <button type="submit">로그인</button>
               </form>
             </>
@@ -166,5 +189,16 @@ const formStyle = css`
   .third-input {
     margin-top: 3rem;
   }
+`;
+const errorMessageStyle = css`
+  height: 70px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+  padding: 0 2rem;
+  font-size: ${fontSizes.xs_14};
+  color: ${colors.red};
+  background-color: ${colors.lightGray};
 `;
 export default LoginForm;
