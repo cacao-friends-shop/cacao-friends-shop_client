@@ -1,9 +1,4 @@
 import Input from './index';
-import { css } from '@emotion/css';
-
-const styles = css`
-  // background: black;
-`;
 
 export default {
   title: 'atoms/Input',
