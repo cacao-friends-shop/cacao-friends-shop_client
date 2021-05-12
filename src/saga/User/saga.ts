@@ -1,11 +1,11 @@
 import { Dispatch } from 'react';
-import { call, put } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { LOG_IN, SIGN_OUT, LOG_IN_FAILURE, PENDING } from './actions';
 import { loginRequest } from 'apis/User';
 import { LoginInfo, LoginSuccessInfo } from 'types/User';
+import { Action } from 'redux';
 
 export function* loginSaga(userInfo: LoginInfo) {
-  yield put({ type: PENDING });
   try {
     const user: LoginSuccessInfo = yield call(loginRequest, userInfo);
     console.log(user);
@@ -14,9 +14,12 @@ export function* loginSaga(userInfo: LoginInfo) {
     yield put({ type: LOG_IN_FAILURE, error });
   }
 }
+interface PandingAction extends Action, LoginInfo {
+  type: 'PENDING';
+}
 
 export function* userSaga() {
-  // yield takeEvery(INCREASE_ASYNC, increaseSaga); // 모든 INCREASE_ASYNC 액션을 처리
+  yield takeEvery<PandingAction>(PENDING, loginSaga); // 모든 INCREASE_ASYNC 액션을 처리
   // yield takeLatest(DECREASE_ASYNC, decreaseSaga); // 가장 마지막으로 디스패치된 DECREASE_ASYNC 액션만을 처리
 }
 

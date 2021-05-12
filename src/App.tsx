@@ -5,11 +5,13 @@ import { Switch, Route } from 'react-router-dom';
 import Login from 'pages/Login';
 import Signup from 'pages/SignUp';
 import Agreement from 'pages/Agreement';
+import NewProduct from 'pages/NewProduct';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
+      <NewProduct />
       <Switch>
         <Route path="/">
           <Login />
