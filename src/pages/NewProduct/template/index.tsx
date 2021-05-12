@@ -40,7 +40,7 @@ const NewProductTemplate = () => {
           </span>
         </Carousel>
         <div css={productContainer}>
-          <ProductCardList />
+          <ProductCardList characterName="라이언" />
         </div>
       </div>
     </>

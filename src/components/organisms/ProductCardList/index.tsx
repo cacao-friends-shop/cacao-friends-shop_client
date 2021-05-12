@@ -5,10 +5,16 @@ import Button from 'components/atoms/Button';
 import { css } from '@emotion/react';
 import { fontSizes } from 'theme';
 
-const ProductCardList = () => {
+type ProductCardListProps = {
+  characterName: string;
+};
+
+const ProductCardList = ({ characterName }: ProductCardListProps) => {
   return (
     <>
-      <h2 css={{ marginBottom: '2rem', fontSize: '2.5rem' }}>라이언</h2>
+      <h2 css={{ marginBottom: '2rem', fontSize: '2.5rem' }}>
+        {characterName}
+      </h2>
       <Grid
         as="ul"
         templateColumns="repeat(2, 1fr)"
