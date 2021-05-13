@@ -23,10 +23,10 @@ export type LoginSuccessInfo = {
 
 export type PandingAction = Action &
   LoginInfo & {
-    type: 'PENDING';
+    type: 'user/PENDING';
   };
 export type LoginAction = Action &
   LoginInfo & {
-    type: 'LOG_IN';
-    authUser: User;
+    type: 'user/LOG_IN';
+    userInfo: User;
   };

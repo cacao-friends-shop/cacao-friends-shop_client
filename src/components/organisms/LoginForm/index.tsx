@@ -4,10 +4,9 @@ import Input from 'components/atoms/Input';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { LOG_IN } from 'saga/User/actions';
 import * as Yup from 'yup';
 import { colors, fontSizes } from 'theme';
-import { loginAsync } from 'saga/User/actions';
+import { loginAction } from 'saga/User/actions';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -25,7 +24,7 @@ const LoginForm = () => {
         <Formik
           initialValues={{ email: '', password: '' }}
           onSubmit={userInfo => {
-            dispatch(loginAsync(userInfo));
+            dispatch(loginAction(userInfo));
           }}
           validationSchema={LoginSchema}
         >

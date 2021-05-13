@@ -1,19 +1,10 @@
 import { User } from 'types/User';
-import { LOG_IN, LOG_OUT, LOG_IN_FAILURE, PENDING } from './actions';
-
-export class AuthError extends Error {
-  status: number;
-
-  constructor(message: string, status: number) {
-    super(message);
-    this.status = status;
-  }
-}
+import { LOG_IN, LOG_OUT, LOG_IN_FAILURE, LOG_IN_SUCCESS } from './actions';
 
 const initialState = {
   authUser: null,
   isLoading: false,
-  error: AuthError,
+  error: '',
 };
 
 const userReducer = (
@@ -21,7 +12,7 @@ const userReducer = (
   action: {
     type: string;
     authUser?: User;
-    error?: AuthError;
+    error?: string;
   }
 ) => {
   switch (action.type) {
@@ -29,14 +20,15 @@ const userReducer = (
     case LOG_IN:
       return {
         ...state,
+        isLoading: true,
+      };
+    // LOG_IN_SUCCESS
+    case LOG_IN_SUCCESS:
+      return {
+        ...state,
         authUser: action.authUser,
         isLoading: false,
       };
-
-    // 로그아웃 (기본 처리)
-    case LOG_OUT:
-      return initialState;
-
     // LOG_IN_FAILURE
     case LOG_IN_FAILURE:
       return {
@@ -44,12 +36,9 @@ const userReducer = (
         error: action.error,
         isLoading: false,
       };
-    // PENDING
-    case PENDING:
-      return {
-        ...state,
-        isLoading: true,
-      };
+    // 로그아웃 (기본 처리)
+    case LOG_OUT:
+      return initialState;
     // 기본 (초기 상태)
     default:
       return state;
