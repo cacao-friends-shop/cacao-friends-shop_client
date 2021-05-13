@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProductCard from 'components/molecules/ProductCard';
 import { Grid } from '@chakra-ui/layout';
 import Button from 'components/atoms/Button';
 import { css } from '@emotion/react';
 import { fontSizes } from 'theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'saga';
+import { productsAsync } from 'modules/Product/actions';
+import { Product } from 'modules/Product/types';
 
 type ProductCardListProps = {
   characterName: string;
+  products: Product[];
 };
 
-const ProductCardList = ({ characterName }: ProductCardListProps) => {
+const ProductCardList = ({ characterName, products }: ProductCardListProps) => {
   return (
     <>
       <h2 css={{ marginBottom: '2rem', fontSize: '2.5rem' }}>
@@ -22,14 +27,14 @@ const ProductCardList = ({ characterName }: ProductCardListProps) => {
         rowGap={60}
         maxWidth="64rem"
       >
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products.map(({ id, title, price, thumbnailImageUrl }: Product) => (
+          <ProductCard
+            key={id}
+            title={title}
+            price={price}
+            imgPath={thumbnailImageUrl}
+          />
+        ))}
       </Grid>
 
       <Button css={buttonStyle}>더 보기 +</Button>

@@ -6,12 +6,13 @@ import Login from 'pages/Login';
 import Signup from 'pages/SignUp';
 import Agreement from 'pages/Agreement';
 import NewProduct from 'pages/NewProduct';
+import FavoriteProducts from './pages/FavoriteProducts/index';
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
-      <NewProduct />
+      <FavoriteProducts />
       <Switch>
         <Route path="/">
           <Login />
