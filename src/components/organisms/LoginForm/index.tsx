@@ -85,6 +85,7 @@ const container = css`
   display: flex;
   justify-content: center;
   margin-top: 10rem;
+  background-color: ${colors.white};
 `;
 const loginFormContainer = css`
   max-width: 42rem;

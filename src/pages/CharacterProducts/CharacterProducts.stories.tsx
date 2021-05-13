@@ -5,6 +5,4 @@ export default {
   component: CharacterProducts,
 };
 
-export const characterProducts = () => (
-  <CharacterProducts title="라이언" imgURL="assets/Category_Ryan.jpg" />
-);
+export const characterProducts = () => <CharacterProducts />;

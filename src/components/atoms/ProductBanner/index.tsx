@@ -3,7 +3,7 @@ import { colors, fontSizes } from 'theme';
 
 type ProductBannerProps = {
   /** 배너 타이틀 */
-  title: string;
+  title?: string;
   /** 배너 이미지 */
   imgURL: string;
 };

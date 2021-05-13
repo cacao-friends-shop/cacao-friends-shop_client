@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import IconButton from 'components/molecules/IconButton';
 import ModalContainer from 'utils/portal';
-import SideBar from 'components/organisms/SideBar';
 import SearchBarChar from 'components/organisms/SearchBarChar';
 import SearchBar from 'components/molecules/SearchBar';
-import ModalOverlay from 'components/atoms/ModalOverlay';
 import { AnimatePresence } from 'framer-motion';
 import { colors } from 'theme';
-import { ReactComponent as HeaderLogo } from 'assets/logo.svg';
+import SideBarModal from '../SideBarModal';
+import getPublicAsset from 'utils/getPublicAsset';
+import IconLink from 'components/molecules/IconLink';
 
 export type HeaderProps = {
   TabComp?: any;
@@ -28,7 +28,10 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
           <IconButton name="menu" size={30} onClick={() => setIsShow(true)} />
           <div css={headerLogoStyle}>
             <Link to="/">
-              <HeaderLogo />
+              <img
+                src={getPublicAsset('assets/logo.png')}
+                alt="CACAO FRIENDS"
+              />
             </Link>
             <A11yHiddenHeading comp="h1">
               CACAO Friends 웹사이트
@@ -36,7 +39,12 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
           </div>
           <div css={IconButtonContainerStyle}>
             {/* 추후 어드민 아이콘 처리  */}
-            {/* <IconLink iconName="edit" iconSize={20} to="/" css={LinkStyle} /> */}
+            <IconLink
+              iconName="edit"
+              iconSize={20}
+              to="/admin/posts"
+              css={linkStyle}
+            />
             <IconButton name="search" size={25} />
           </div>
         </section>
@@ -46,24 +54,7 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
       <AnimatePresence>
         {isShow && (
           <ModalContainer id="modal-root">
-            <ModalOverlay
-              onClick={() => setIsShow(false)}
-              bgColor={colors.black}
-              opacity={0.7}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.7 }}
-              exit={{ opacity: 0 }}
-            />
-            <SideBar
-              initial={{ x: '-100vw', opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ type: 'none' }}
-              exit={{ x: '-100vw', opacity: 0 }}
-            >
-              <SideBar.Header type="nonLogin" />
-              <SideBar.Body />
-              <SideBar.Footer type="nonLogin" />
-            </SideBar>
+            <SideBarModal setIsShow={setIsShow} />
           </ModalContainer>
         )}
       </AnimatePresence>
@@ -89,15 +80,16 @@ const container = css`
 const headerContainer = css`
   display: flex;
   justify-content: space-between;
-  margin: 0.8rem 1.3rem 0;
+  align-items: center;
+  margin: 1rem 1.3rem 1rem;
 
   & + div {
     margin-top: 2rem;
   }
 `;
 const headerLogoStyle = css`
-  width: 20rem;
-  height: 5rem;
+  /* width: 20rem;
+  height: 5rem; */
 
   a {
     display: block;
@@ -115,6 +107,10 @@ const IconButtonContainerStyle = css`
   button + button {
     margin-left: 0.5rem;
   }
+`;
+
+const linkStyle = css`
+  margin-right: 2rem;
 `;
 
 export default Header;
