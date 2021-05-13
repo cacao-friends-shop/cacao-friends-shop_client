@@ -43,7 +43,7 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
               iconName="edit"
               iconSize={20}
               to="/admin/posts"
-              css={LinkStyle}
+              css={linkStyle}
             />
             <IconButton name="search" size={25} />
           </div>
@@ -109,7 +109,7 @@ const IconButtonContainerStyle = css`
   }
 `;
 
-const LinkStyle = css`
+const linkStyle = css`
   margin-right: 2rem;
 `;
 
