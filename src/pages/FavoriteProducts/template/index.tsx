@@ -4,7 +4,6 @@ import ProductImageCardListType3 from 'components/organisms/ProductImageCardList
 import React, { useEffect } from 'react';
 import useFavoriteProductsImages from 'hooks/useFavoriteProductsImages';
 import { v4 as uuid } from 'uuid';
-import Header from 'components/organisms/Header';
 import TabComp from 'components/molecules/TabComp';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'saga';
@@ -20,7 +19,7 @@ const ProductImageCardListGroup = (imgs: string[]) => [
 const FavoriteProductsTemplate = () => {
   const { data } = useSelector((state: RootState) => state.product.products);
   const imgList = useFavoriteProductsImages(
-    data ? data.map(product => product.thumbnailImageUrl) : []
+    data ? data.content.map(product => product.thumbnailImageUrl) : []
   );
   const dispatch = useDispatch();
   useEffect(() => {

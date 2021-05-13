@@ -1,9 +1,8 @@
-import { productAsync, productsAsync } from 'modules/Product/actions';
+import { productsAsync } from 'modules/Product/actions';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'saga';
 import Template from './template';
-
 
 const NewProduct = () => {
   const { data: products } = useSelector(
@@ -16,8 +15,7 @@ const NewProduct = () => {
   }, [dispatch]);
 
   if (!products) return null;
-  return <Template products={products.slice(0, 8)} />;
-
+  return <Template products={products.content} />;
 };
 
 export default NewProduct;

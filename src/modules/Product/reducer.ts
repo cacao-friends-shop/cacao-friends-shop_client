@@ -6,8 +6,11 @@ import {
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCT_ERROR,
   GET_PRODUCT_SUCCESS,
+  LOAD_MORE_PRODUCTS,
+  LOAD_MORE_PRODUCTS_ERROR,
+  LOAD_MORE_PRODUCTS_SUCCESS,
 } from './actions';
-import { ProductsAction, ProductState } from './types';
+import { ProductsAction, ProductState } from '../../types/Product';
 
 const initialState: ProductState = {
   products: {
@@ -66,6 +69,35 @@ const productsReducer = createReducer<ProductState, ProductsAction>(
       },
     }),
     [GET_PRODUCT_ERROR]: (state, action) => ({
+      ...state,
+      product: {
+        loading: false,
+        data: null,
+        error: action.payload,
+      },
+    }),
+    [LOAD_MORE_PRODUCTS]: state => ({
+      ...state,
+      products: {
+        ...state.products,
+        loading: true,
+      },
+    }),
+    [LOAD_MORE_PRODUCTS_SUCCESS]: (state, action) => {
+      if (!state.products.data) return state;
+      return {
+        ...state,
+        products: {
+          loading: false,
+          data: {
+            ...state.products.data,
+            content: state.products.data.content.concat(action.payload),
+          },
+          error: null,
+        },
+      };
+    },
+    [LOAD_MORE_PRODUCTS_ERROR]: (state, action) => ({
       ...state,
       product: {
         loading: false,

@@ -1,17 +1,16 @@
 import { combineReducers } from 'redux';
-import { loginSaga, userSaga } from './User/saga';
-import { LOG_IN, SIGN_OUT, LOG_IN_FAILURE, PENDING } from './User/actions';
-import userReducer from './User';
-import { all, takeLatest } from 'redux-saga/effects';
+import { all } from 'redux-saga/effects';
 import productSaga from 'modules/Product/saga';
 import productsReducer from '../modules/Product/reducer';
+import cartsReducer, { cartsSaga } from 'modules/cart/actions';
 
 export function* rootSaga() {
-  yield all([productSaga()]); // all 은 배열 안의 여러 사가를 동시에 실행시켜줍니다.
+  yield all([productSaga(), cartsSaga()]); // all 은 배열 안의 여러 사가를 동시에 실행시켜줍니다.
 }
 
 const rootReducers = combineReducers({
   product: productsReducer,
+  carts: cartsReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducers>;

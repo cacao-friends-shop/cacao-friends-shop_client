@@ -2,15 +2,11 @@ import { css } from '@emotion/react';
 import DeletebarBase from 'components/molecules/DeletebarBase';
 import ActivityList from 'components/organisms/ActivityList';
 import React from 'react';
-import { css } from '@emotion/react';
-import DeletebarBase from 'components/molecules/DeletebarBase';
 import MyTab from 'components/molecules/MyTab';
 import TabComp from 'components/molecules/TabComp';
-import ActivityList from 'components/organisms/ActivityList';
 
 const ActivityTemplate = () => {
   return (
-
     <>
       <TabComp />
       <MyTab />
@@ -21,7 +17,6 @@ const ActivityTemplate = () => {
         <ActivityList />
       </div>
     </>
-
   );
 };
 

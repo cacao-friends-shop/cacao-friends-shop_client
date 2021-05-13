@@ -2,8 +2,6 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Avatar from 'components/atoms/Avatar';
 import Button from 'components/atoms/Button';
-import Icon from 'components/atoms/Icon';
-import IconButton from 'components/molecules/IconButton';
 import Rating from 'components/molecules/Rating';
 import { colors, fontSizes } from 'theme';
 

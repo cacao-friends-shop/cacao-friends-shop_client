@@ -4,7 +4,7 @@ import ProductCardList from 'components/organisms/ProductCardList';
 import useCarouselState from 'hooks/useCarouselState';
 import React from 'react';
 import TabComp from 'components/molecules/TabComp';
-import { Product, Products } from 'modules/Product/types';
+import { Product, Products } from 'types/Product';
 import { colors } from 'theme';
 
 type NewProductTemplateProps = {
@@ -19,9 +19,8 @@ const NewProductTemplate = ({ products }: NewProductTemplateProps) => {
     handlePrev,
     imgList,
   } = useCarouselState(
-    products.map((product: Product) => product.thumbnailImageUrl)
+    products.map((product: Product) => product?.thumbnailImageUrl)
   );
-
   return (
     <>
       <TabComp />

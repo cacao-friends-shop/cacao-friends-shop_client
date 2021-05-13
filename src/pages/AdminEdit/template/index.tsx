@@ -11,7 +11,7 @@ import Button from 'components/atoms/Button';
 import PostTitle from 'components/atoms/PostTitle';
 
 const Templates = () => {
-  const [content, setContent] = useState('');
+  const [, setContent] = useState('');
   const editorRef = useRef<Editor>();
 
   const handleSave = () => {
