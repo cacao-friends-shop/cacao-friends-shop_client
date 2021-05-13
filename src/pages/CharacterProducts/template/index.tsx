@@ -44,7 +44,7 @@ const Template = ({ title, imgURL }: TemplateProps) => {
         </>
       )}
       <ProductTotalCount totalCount={30} />
-      <ProductCardList characterName="라이언" />
+      <ProductCardList characterName="라이언" products={[]} />
     </div>
   );
 };

@@ -5,26 +5,29 @@ import useCarouselState from 'hooks/useCarouselState';
 import React from 'react';
 import Header from 'components/organisms/Header';
 import TabComp from 'components/molecules/TabComp';
+import { Product, Products } from 'modules/Product/types';
 
-const imageList = [
-  'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
-  'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
-  'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
-  'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
-  'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
-  'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
-];
+type NewProductTemplateProps = {
+  products: Products;
+};
 
-const NewProductTemplate = () => {
-  const { currentIdx, direction, handleNext, handlePrev } = useCarouselState(
-    imageList
+const NewProductTemplate = ({ products }: NewProductTemplateProps) => {
+  const {
+    currentIdx,
+    direction,
+    handleNext,
+    handlePrev,
+    imgList,
+  } = useCarouselState(
+    products.map((product: Product) => product.thumbnailImageUrl)
   );
+
   return (
     <>
       <Header TabComp={TabComp}></Header>
       <div css={container}>
         <Carousel
-          imgList={imageList}
+          imgList={imgList}
           currentIdx={currentIdx}
           direction={direction}
           handleNext={handleNext}
@@ -32,15 +35,14 @@ const NewProductTemplate = () => {
           css={carouselStyle}
         >
           <div css={textContainer}>
-            <h3>홈카페가 필요해</h3>
-            <p>지구를 생각하는 일상</p>
+            <h3>{products[currentIdx].title}</h3>
           </div>
           <span css={textStyle}>
-            {currentIdx + 1} / {imageList.length}
+            {currentIdx + 1} / {imgList.length}
           </span>
         </Carousel>
         <div css={productContainer}>
-          <ProductCardList characterName="라이언" />
+          <ProductCardList characterName="라이언" products={products} />
         </div>
       </div>
     </>
@@ -64,7 +66,7 @@ const productContainer = css`
 const textContainer = css`
   position: absolute;
   line-height: 1.5;
-  color: #fff;
+
   bottom: 2rem;
   left: 2rem;
 `;
