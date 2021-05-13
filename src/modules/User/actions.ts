@@ -16,7 +16,7 @@ export const loginSuccess = (authUser: User) => ({
   authUser,
 });
 
-export const loginFailure = (err: any) => ({
+export const loginFailure = (err: string) => ({
   type: LOG_IN_FAILURE,
-  error: err.message,
+  error: err,
 });

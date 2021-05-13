@@ -31,7 +31,6 @@ const AgreementForm = (props: Props) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="모두 동의합니다."
-                  value={values.allAgreed}
                 />
                 <p className="sub-desc">
                   전체동의는 필수 및 선택정보에 대한 동의도 포함되어 있으며,
@@ -46,7 +45,6 @@ const AgreementForm = (props: Props) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="만 14세 이상입니다."
-                  value={values.moreThanFourteen}
                 />
               </div>
               <div className="flex-row">
@@ -56,7 +54,6 @@ const AgreementForm = (props: Props) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[필수] 카카오계정 약관"
-                  value={values.moreThanFourteen}
                 />
                 <IconButton name="arrowRight" size={18} />
               </div>
@@ -68,7 +65,6 @@ const AgreementForm = (props: Props) => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     label="[필수] 카카오 통합서비스 약관"
-                    value={values.allAgreed}
                   />
                   <IconButton name="arrowRight" size={18} />
                 </div>
@@ -85,7 +81,6 @@ const AgreementForm = (props: Props) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[선택] 카카오알림 채널 추가 및 광고메시지 수신"
-                  value={values.moreThanFourteen}
                 />
                 <IconButton name="arrowRight" size={18} />
               </div>
@@ -96,7 +91,6 @@ const AgreementForm = (props: Props) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[필수] 개인정보 수집 및 이용 동의"
-                  value={values.moreThanFourteen}
                 />
                 <IconButton name="arrowRight" size={18} />
               </div>
@@ -107,7 +101,6 @@ const AgreementForm = (props: Props) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[선택] 위치정보 수집 및 이용 동의"
-                  value={values.moreThanFourteen}
                 />
                 <IconButton name="arrowRight" size={18} />
               </div>
@@ -118,7 +111,6 @@ const AgreementForm = (props: Props) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   label="[선택] 프로필 정보 추가 수집 동의"
-                  value={values.moreThanFourteen}
                 />
                 <IconButton name="arrowRight" size={18} />
               </div>

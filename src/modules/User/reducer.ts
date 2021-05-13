@@ -1,7 +1,7 @@
-import { User } from 'types/User';
+import { User, UserState } from 'types/User';
 import { LOG_IN, LOG_OUT, LOG_IN_FAILURE, LOG_IN_SUCCESS } from './actions';
 
-const initialState = {
+const initialState: UserState = {
   authUser: null,
   isLoading: false,
   error: '',
@@ -14,7 +14,7 @@ const userReducer = (
     authUser?: User;
     error?: string;
   }
-) => {
+): UserState => {
   switch (action.type) {
     // 로그인
     case LOG_IN:
@@ -26,14 +26,14 @@ const userReducer = (
     case LOG_IN_SUCCESS:
       return {
         ...state,
-        authUser: action.authUser,
+        authUser: action.authUser || null,
         isLoading: false,
       };
     // LOG_IN_FAILURE
     case LOG_IN_FAILURE:
       return {
         ...state,
-        error: action.error,
+        error: action.error || null,
         isLoading: false,
       };
     // 로그아웃 (기본 처리)

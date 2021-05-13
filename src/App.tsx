@@ -19,7 +19,6 @@ import CharacterProducts from 'pages/CharacterProducts';
 import AdminList from 'pages/AdminList';
 import AdminEdit from 'pages/AdminEdit';
 
-
 function App() {
   return (
     <>
@@ -34,12 +33,9 @@ function App() {
         <Route path="/mypage/act" component={Activity} />
         <Route path="/mypage/seen" component={RecentlySee} />
         <Route path="/mypage/orderlist" component={Order} />
-
         <Route path="/products/:character" component={CharacterProducts} />
-
         <Route path="/admin/posts" component={AdminList} />
         <Route path="/admin/newpost" component={AdminEdit} />
-
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/agreement" component={Agreement} />

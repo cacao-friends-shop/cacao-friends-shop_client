@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import IconButton from 'components/molecules/IconButton';
 import ModalContainer from 'utils/portal';
 import SearchBarChar from 'components/organisms/SearchBarChar';
@@ -12,12 +12,7 @@ import SideBarModal from '../SideBarModal';
 import getPublicAsset from 'utils/getPublicAsset';
 import IconLink from 'components/molecules/IconLink';
 
-export type HeaderProps = {
-  TabComp?: any;
-  MyTab?: any;
-};
-
-const Header = ({ TabComp, MyTab }: HeaderProps) => {
+const Header = () => {
   const [isShow, setIsShow] = useState(false);
   const [isSearchShown, setIsSearchShown] = useState(false);
 
@@ -48,8 +43,6 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
             <IconButton name="search" size={25} />
           </div>
         </section>
-        {TabComp ? <TabComp /> : null}
-        {MyTab ? <MyTab /> : null}
       </header>
       <AnimatePresence>
         {isShow && (

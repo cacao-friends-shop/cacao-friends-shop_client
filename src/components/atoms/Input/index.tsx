@@ -12,17 +12,17 @@ export type InputProps = {
   /** Input 클래스네임 */
   className?: string;
   /** change할때 일어나는 함수 */
-  onChange?: any;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   /** blur할때 일어나는 함수 */
-  onBlur?: any;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   /** Input value */
-  value?: any;
+  value?: string;
   /** ref */
-  ref?: any;
+  ref?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Input = React.forwardRef(
-  ({ type, title, label, className, ...restProps }: InputProps, ref: any) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ type, title, label, className, ...restProps }, ref) => {
     const [isChecked, setisChecked] = useState(false);
     const handleClick = () => setisChecked(!isChecked);
     return (
