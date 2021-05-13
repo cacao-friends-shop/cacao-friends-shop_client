@@ -1,10 +1,11 @@
 import { AuthError } from './index';
-import { User } from 'types/User';
+import { User, LoginInfo } from 'types/User';
 
-export const LOG_IN = 'LOGIN';
-export const SIGN_OUT = 'SIGN_OUT';
-export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
-export const PENDING = 'PENDING';
+export const LOG_IN = 'USER/LOGIN';
+export const LOG_OUT = 'USER/SIGN_OUT';
+export const LOG_IN_SUCCESS = 'USER/LOG_IN_SUCCESS';
+export const LOG_IN_FAILURE = 'USER/LOG_IN_FAILURE';
+export const PENDING = 'USER/PENDING';
 
 // action creator
 export const logInActionSuccess = (authUser: User) => ({
@@ -22,6 +23,6 @@ export const pending = () => ({
   isLoading: true,
 });
 
-export const signOutAction = () => ({ type: SIGN_OUT });
-export const loginAsync = () => ({ type: LOG_IN });
-export const signOutAsync = () => ({ type: SIGN_OUT });
+export const signOutAction = () => ({ type: LOG_OUT });
+export const loginAsync = (authUser: LoginInfo) => ({ type: LOG_IN, authUser });
+export const signOutAsync = () => ({ type: LOG_OUT });

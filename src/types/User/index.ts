@@ -1,3 +1,5 @@
+import { Action } from 'redux';
+
 export type User = {
   userId: string;
   nickName: string;
@@ -18,3 +20,13 @@ export type LoginSuccessInfo = {
   role: string;
   nickname: string;
 };
+
+export type PandingAction = Action &
+  LoginInfo & {
+    type: 'PENDING';
+  };
+export type LoginAction = Action &
+  LoginInfo & {
+    type: 'LOG_IN';
+    authUser: User;
+  };

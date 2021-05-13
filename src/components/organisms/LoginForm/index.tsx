@@ -1,12 +1,13 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 import Input from 'components/atoms/Input';
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LOG_IN } from 'saga/User/actions';
 import * as Yup from 'yup';
 import { colors, fontSizes } from 'theme';
+import { loginAsync } from 'saga/User/actions';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -16,16 +17,15 @@ const LoginSchema = Yup.object().shape({
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-
+  const user = useSelector(state => state);
   return (
     <section css={container}>
       <article css={loginFormContainer}>
         <h1>KaKao</h1>
         <Formik
           initialValues={{ email: '', password: '' }}
-          onSubmit={values => {
-            dispatch({ type: LOG_IN, authUser: values });
-            console.log(values);
+          onSubmit={userInfo => {
+            dispatch(loginAsync(userInfo));
           }}
           validationSchema={LoginSchema}
         >

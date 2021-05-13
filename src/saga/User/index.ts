@@ -1,5 +1,5 @@
 import { User } from 'types/User';
-import { LOG_IN, SIGN_OUT, LOG_IN_FAILURE, PENDING } from './actions';
+import { LOG_IN, LOG_OUT, LOG_IN_FAILURE, PENDING } from './actions';
 
 export class AuthError extends Error {
   status: number;
@@ -34,7 +34,7 @@ const userReducer = (
       };
 
     // 로그아웃 (기본 처리)
-    case SIGN_OUT:
+    case LOG_OUT:
       return initialState;
 
     // LOG_IN_FAILURE
