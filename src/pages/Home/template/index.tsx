@@ -1,6 +1,5 @@
 import React from 'react';
 import PostCard from 'components/organisms/PostCard';
-import Header from 'components/organisms/Header';
 import TabComp from 'components/molecules/TabComp';
 
 const imageList = [
@@ -12,7 +11,7 @@ const imageList = [
 const Template = () => {
   return (
     <>
-      <Header TabComp={TabComp} />
+      <TabComp />
       <PostCard imgList={imageList} />
       <PostCard imgList={imageList} />
       <PostCard imgList={imageList} />

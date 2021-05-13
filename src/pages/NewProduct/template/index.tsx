@@ -3,7 +3,6 @@ import Carousel from 'components/organisms/Carousel';
 import ProductCardList from 'components/organisms/ProductCardList';
 import useCarouselState from 'hooks/useCarouselState';
 import React from 'react';
-import Header from 'components/organisms/Header';
 import TabComp from 'components/molecules/TabComp';
 import { Product, Products } from 'modules/Product/types';
 import { colors } from 'theme';
@@ -25,7 +24,7 @@ const NewProductTemplate = ({ products }: NewProductTemplateProps) => {
 
   return (
     <>
-      <Header TabComp={TabComp}></Header>
+      <TabComp />
       <div css={container}>
         <Carousel
           imgList={imgList}

@@ -4,14 +4,14 @@ import PriceInfo from 'components/molecules/PriceInfo';
 import OrderList from 'components/organisms/OrderList';
 import React from 'react';
 import { fontSizes } from 'theme';
-import Header from 'components/organisms/Header';
 import TabComp from 'components/molecules/TabComp';
 import MyTab from 'components/molecules/MyTab';
 
 const OrderTemplate = () => {
   return (
     <>
-      <Header TabComp={TabComp} MyTab={MyTab}></Header>
+      <TabComp />
+      <MyTab />
       <div css={container}>
         <h2>주문상품</h2>
         <OrderList />

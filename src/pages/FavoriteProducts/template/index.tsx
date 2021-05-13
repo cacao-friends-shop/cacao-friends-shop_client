@@ -30,7 +30,7 @@ const FavoriteProductsTemplate = () => {
   if (!data) return null;
   return (
     <>
-      <Header TabComp={TabComp}></Header>
+      <TabComp />
       <div css={{ maxWidth: '64rem', margin: '0 auto' }}>
         {imgList.map(
           (imgs: string[], i: number) => ProductImageCardListGroup(imgs)[i % 4]

@@ -1,3 +1,4 @@
+
 type Colors = {
   black: '#232323';
   white: '#fff';
@@ -15,6 +16,7 @@ type Colors = {
 };
 
 export const colors: Colors = {
+
   black: '#232323',
   white: '#fff',
   pink: '#fb3a61',

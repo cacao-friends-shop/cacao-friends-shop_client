@@ -9,8 +9,9 @@ const TabComp = () => {
         <NavLink
           activeClassName={'selected'}
           className="navItem"
-          to="/today"
+          to="/"
           activeStyle={activeTabStyle}
+          exact
         >
           오늘
         </NavLink>
@@ -28,17 +29,13 @@ const TabComp = () => {
       </div>
 
       <div className="navContainer">
-        <NavLink
-          className="navItem"
-          to="/popularTab"
-          activeStyle={activeTabStyle}
-        >
+        <NavLink className="navItem" to="/hot" activeStyle={activeTabStyle}>
           인기
         </NavLink>
       </div>
 
       <div className="navContainer">
-        <NavLink className="navItem" to="/myTab" activeStyle={activeTabStyle}>
+        <NavLink className="navItem" to="/mypage" activeStyle={activeTabStyle}>
           마이
         </NavLink>
       </div>

@@ -6,31 +6,31 @@ import { v4 as uuid } from 'uuid';
 export const IconList = [
   {
     id: uuid(),
-    link: '/',
+    link: '/products/ryan',
     imagePath: getPublicAsset('assets/ryan_avatar.png'),
     name: '라이언',
   },
   {
     id: uuid(),
-    link: '/',
+    link: '/products/apeach',
     imagePath: getPublicAsset('assets/apeach_avatar.png'),
     name: '어피치',
   },
   {
     id: uuid(),
-    link: '/',
+    link: '/products/muzi',
     imagePath: getPublicAsset('assets/muzi_avatar.png'),
     name: '무지',
   },
   {
     id: uuid(),
-    link: '/',
+    link: '/products/frodo',
     imagePath: getPublicAsset('assets/frodo_avator.png'),
     name: '프로도',
   },
   {
     id: uuid(),
-    link: '/',
+    link: '/products/neo',
     imagePath: getPublicAsset('assets/neo_avatar.png'),
     name: '네오',
   },
@@ -133,7 +133,7 @@ export const charList = [
     id: uuid(),
     imagePath:
       'https://t1.daumcdn.net/friends/prod/category/Apeach_71_color_210303.png',
-    alt: '이파치',
+    alt: '어피치',
     url: '/',
   },
   {
@@ -218,6 +218,23 @@ export const profileList = [
     ),
   },
 ];
+
+export type CharacterNameLists = {
+  ryan: string;
+  apeach: string;
+  muzi: string;
+  frodo: string;
+  neo: string;
+};
+
+export const characterNameList: CharacterNameLists = {
+  ryan: '라이언',
+  apeach: '어피치',
+  muzi: '무지',
+  frodo: '프로도',
+  neo: '네오',
+};
+
 export const imgList = [
   'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
   'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
