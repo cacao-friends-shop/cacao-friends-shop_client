@@ -15,6 +15,8 @@ import Order from 'pages/Order';
 import Header from 'components/organisms/Header';
 import PageNotFound from 'pages/PageNotFound';
 import CharacterProducts from 'pages/CharacterProducts';
+import AdminList from 'pages/AdminList';
+import AdminEdit from 'pages/AdminEdit';
 
 function App() {
   return (
@@ -31,6 +33,9 @@ function App() {
         <Route path="/mypage/orderlist" component={Order} />
 
         <Route path="/products/:character" component={CharacterProducts} />
+
+        <Route path="/admin/posts" component={AdminList} />
+        <Route path="/admin/newpost" component={AdminEdit} />
 
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />

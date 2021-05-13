@@ -9,7 +9,6 @@ import { colors, fontSizes } from 'theme';
 import { Link } from 'react-router-dom';
 import Button from 'components/atoms/Button';
 import PostTitle from 'components/atoms/PostTitle';
-import Header from 'components/organisms/Header';
 
 const Templates = () => {
   const [content, setContent] = useState('');
@@ -22,32 +21,29 @@ const Templates = () => {
   };
 
   return (
-    <>
-      <Header />
-      <div css={container}>
-        <PostTitle />
-        <Editor
-          previewStyle="vertical"
-          height="700px"
-          initialEditType="wysiwyg"
-          plugins={[colorSyntax]}
-          ref={ref => ref && (editorRef.current = ref)}
-        />
-        <div css={btnContainer}>
-          <Button
-            borderRadius="20px"
-            bgColor={colors.lightGray}
-            color={colors.darkGray}
-            css={buttonStyle}
-          >
-            취소
-          </Button>
-          <Link to="/" onClick={handleSave} css={linkStyle}>
-            완료
-          </Link>
-        </div>
+    <div css={container}>
+      <PostTitle />
+      <Editor
+        previewStyle="vertical"
+        height="700px"
+        initialEditType="wysiwyg"
+        plugins={[colorSyntax]}
+        ref={ref => ref && (editorRef.current = ref)}
+      />
+      <div css={btnContainer}>
+        <Button
+          borderRadius="20px"
+          bgColor={colors.lightGray}
+          color={colors.darkGray}
+          css={buttonStyle}
+        >
+          취소
+        </Button>
+        <Link to="/" onClick={handleSave} css={linkStyle}>
+          완료
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 

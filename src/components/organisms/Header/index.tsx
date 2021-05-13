@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import IconButton from 'components/molecules/IconButton';
 import ModalContainer from 'utils/portal';
 import SearchBarChar from 'components/organisms/SearchBarChar';
 import SearchBar from 'components/molecules/SearchBar';
 import { AnimatePresence } from 'framer-motion';
 import { colors } from 'theme';
-// import { ReactComponent as HeaderLogo } from 'assets/logo.svg';
 import SideBarModal from '../SideBarModal';
 import getPublicAsset from 'utils/getPublicAsset';
+import IconLink from 'components/molecules/IconLink';
 
 export type HeaderProps = {
   TabComp?: any;
@@ -39,7 +39,12 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
           </div>
           <div css={IconButtonContainerStyle}>
             {/* 추후 어드민 아이콘 처리  */}
-            {/* <IconLink iconName="edit" iconSize={20} to="/" css={LinkStyle} /> */}
+            <IconLink
+              iconName="edit"
+              iconSize={20}
+              to="/admin/posts"
+              css={LinkStyle}
+            />
             <IconButton name="search" size={25} />
           </div>
         </section>
@@ -102,6 +107,10 @@ const IconButtonContainerStyle = css`
   button + button {
     margin-left: 0.5rem;
   }
+`;
+
+const LinkStyle = css`
+  margin-right: 2rem;
 `;
 
 export default Header;

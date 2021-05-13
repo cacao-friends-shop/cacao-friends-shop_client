@@ -1,37 +1,22 @@
 import getPublicAsset from 'utils/getPublicAsset';
 import Template from './template';
 import { characterNameList } from 'staticData';
+import { useParams } from 'react-router-dom';
 
-type match<T> = {
-  params: T;
-  isExact: boolean;
-  path: string;
-  url: string;
-};
-
-type MathParams = {
+type Params = {
   character: string;
 };
 
-type CharacterProductsProps<T> = {
-  match?: match<T>;
-};
+const CharacterProducts = () => {
+  const { character } = useParams<Params>();
 
-const CharacterProducts = ({ match }: CharacterProductsProps<MathParams>) => {
-  let characterType;
-
-  if (match) {
-    const { character } = match.params;
-    characterType = character;
-  }
-
-  const characterName = characterType && characterNameList[characterType];
+  const characterName = characterNameList[character];
 
   return (
     <Template
       title={characterName}
-      imgURL={getPublicAsset(`assets/Category_${characterType}.jpg`)}
-      characterType={characterType}
+      imgURL={getPublicAsset(`assets/Category_${character}.jpg`)}
+      characterType={character}
     />
   );
 };

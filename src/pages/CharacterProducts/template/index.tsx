@@ -6,7 +6,6 @@ import Icon from 'components/atoms/Icon';
 import { colors, fontSizes } from 'theme';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import SortBox from 'components/molecules/SortBox';
-import Navbar from 'components/molecules/Navbar';
 import ProductBanner from 'components/atoms/ProductBanner';
 import ProductCardList from 'components/organisms/ProductCardList';
 import ProductTotalCount from 'components/atoms/ProductTotalCount';
