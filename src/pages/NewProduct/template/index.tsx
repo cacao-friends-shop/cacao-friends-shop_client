@@ -6,6 +6,7 @@ import React from 'react';
 import Header from 'components/organisms/Header';
 import TabComp from 'components/molecules/TabComp';
 import { Product, Products } from 'modules/Product/types';
+import { colors } from 'theme';
 
 type NewProductTemplateProps = {
   products: Products;
@@ -74,7 +75,7 @@ const textContainer = css`
 const textStyle = css`
   position: absolute;
   line-height: 1.5;
-  color: #fff;
+  color: ${colors.white};
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.1);
   padding: 5px;

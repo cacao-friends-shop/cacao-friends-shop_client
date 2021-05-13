@@ -1,4 +1,20 @@
-export const colors = {
+type Colors = {
+  black: '#232323';
+  white: '#fff';
+  pink: '#fb3a61';
+  red: '#c92a2a';
+  yellow: '#fee500';
+  lightGray: '#ededed';
+  gray: '#bdbdbd';
+  darkGray: '#333';
+  adminGray: '#c5cdd7';
+  adminLightGray: '#f1f3f6';
+  adminLightGray_02: '#fafbfd';
+  adminBorderGray: '#e0e5ee';
+  myTabGray: '#FCFCFC';
+};
+
+export const colors: Colors = {
   black: '#232323',
   white: '#fff',
   pink: '#fb3a61',

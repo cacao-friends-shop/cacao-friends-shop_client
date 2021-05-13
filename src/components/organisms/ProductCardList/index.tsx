@@ -3,10 +3,7 @@ import ProductCard from 'components/molecules/ProductCard';
 import { Grid } from '@chakra-ui/layout';
 import Button from 'components/atoms/Button';
 import { css } from '@emotion/react';
-import { fontSizes } from 'theme';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'saga';
-import { productsAsync } from 'modules/Product/actions';
+import { colors, fontSizes } from 'theme';
 import { Product } from 'modules/Product/types';
 
 type ProductCardListProps = {
@@ -44,10 +41,10 @@ const ProductCardList = ({ characterName, products }: ProductCardListProps) => {
 
 const buttonStyle = css`
   display: block;
-  background: #fff;
+  background: ${colors.white};
   font-size: ${fontSizes.lg_18};
   font-weight: bold;
-  border: 1px solid #eee;
+  border: 1px solid ${colors.adminBorderGray};
   border-radius: 4px;
   width: 40rem;
   margin: 4rem auto;
