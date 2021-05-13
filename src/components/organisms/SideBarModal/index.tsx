@@ -25,9 +25,9 @@ const SideBarModal = ({ setIsShow }: SideBarModalProps) => {
         transition={{ type: 'none' }}
         exit={{ x: '-100vw', opacity: 0 }}
       >
-        <SideBar.Header type="nonLogin" />
-        <SideBar.Body />
-        <SideBar.Footer type="nonLogin" />
+        <SideBar.Header type="nonLogin" setIsShow={setIsShow} />
+        <SideBar.Body setIsShow={setIsShow} />
+        <SideBar.Footer type="nonLogin" setIsShow={setIsShow} />
       </SideBar>
     </>
   );

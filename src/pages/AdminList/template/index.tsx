@@ -1,4 +1,3 @@
-import React from 'react';
 import { css } from '@emotion/react';
 import { colors } from 'theme';
 import PostListTitle from 'components/molecules/PostListTitle';
@@ -6,7 +5,6 @@ import IconLink from 'components/molecules/IconLink';
 import Pagination from 'components/molecules/Pagination';
 import ControlBar from 'components/organisms/ControlBar';
 import PostList from 'components/organisms/PostList';
-import Header from 'components/organisms/Header';
 
 type Contents = {
   id: string;
@@ -23,29 +21,26 @@ type TemplateProps = {
 
 const Template = ({ contents }: TemplateProps) => {
   return (
-    <>
-      <Header />
-      <div css={container}>
-        <div css={headerStyle}>
-          <PostListTitle title="글 관리" count={contents.length} />
-          <IconLink
-            type="rightIcon"
-            to="/admin/newpost"
-            iconName="pencil"
-            iconSize={12}
-            bgColor={colors.white}
-            css={linkStyle}
-          >
-            글쓰기
-          </IconLink>
-        </div>
-        <div>
-          <ControlBar />
-          <PostList contents={contents} />
-        </div>
-        <Pagination contentsLength={24} />
+    <div css={container}>
+      <div css={headerStyle}>
+        <PostListTitle title="글 관리" count={contents.length} />
+        <IconLink
+          type="rightIcon"
+          to="/admin/newpost"
+          iconName="pencil"
+          iconSize={12}
+          bgColor={colors.white}
+          css={linkStyle}
+        >
+          글쓰기
+        </IconLink>
       </div>
-    </>
+      <div>
+        <ControlBar />
+        <PostList contents={contents} />
+      </div>
+      <Pagination contentsLength={24} />
+    </div>
   );
 };
 

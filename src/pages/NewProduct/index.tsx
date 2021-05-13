@@ -1,7 +1,7 @@
 import Template from './template';
 
-const NewProductTemplate = ({ ...restProps }) => {
+const NewProduct = ({ ...restProps }) => {
   return <Template {...restProps} />;
 };
 
-export default NewProductTemplate;
+export default NewProduct;

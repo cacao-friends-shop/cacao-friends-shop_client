@@ -6,6 +6,7 @@ type LinkCountProps = {
   title: string;
   count?: number;
   to: string;
+  onClick?(event: React.MouseEvent): void;
 } & React.RefAttributes<HTMLAnchorElement>;
 
 const LinkCount = ({ title, count, to, ...restProps }: LinkCountProps) => {

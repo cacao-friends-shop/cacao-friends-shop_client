@@ -1,12 +1,24 @@
+import getPublicAsset from 'utils/getPublicAsset';
 import Template from './template';
+import { characterNameList, CharacterNameLists } from 'staticData';
+import { useParams } from 'react-router-dom';
 
-type CharacterProductsProps = {
-  title: string;
-  imgURL: string;
+type Params = {
+  character: keyof CharacterNameLists;
 };
 
-const CharacterProducts = ({ title, imgURL }: CharacterProductsProps) => {
-  return <Template title={title} imgURL={imgURL} />;
+const CharacterProducts = () => {
+  const { character } = useParams<Params>();
+
+  const characterName = characterNameList[character];
+
+  return (
+    <Template
+      title={characterName}
+      imgURL={getPublicAsset(`assets/Category_${character}.jpg`)}
+      characterType={character}
+    />
+  );
 };
 
 export default CharacterProducts;
