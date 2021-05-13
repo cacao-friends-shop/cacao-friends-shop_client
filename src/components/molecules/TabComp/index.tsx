@@ -47,10 +47,11 @@ const activeTabStyle = {
   fontWeight: 700,
 };
 const tabStyle = css`
-  max-width: 640px;
+  /* position: fixed; */
+  max-width: 64rem;
   position: relative;
   width: 100%;
-  margin: 0 17.5px;
+  /* margin: 0 auto; */
   display: flex;
   margin: 20px auto 0;
 

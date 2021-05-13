@@ -15,7 +15,7 @@ const OrderDetailList = () => {
 };
 
 const container = css`
-  background-color: rgb(245, 245, 245);
+  /* background-color: rgb(245, 245, 245); */
   padding: 0.1rem 0;
 `;
 

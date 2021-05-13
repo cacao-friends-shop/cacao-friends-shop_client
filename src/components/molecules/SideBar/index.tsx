@@ -21,7 +21,7 @@ const SideBar = ({ children, ...restProps }: SideBarProps) => {
 };
 
 const sidebarStyle = css`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: ${colors.white};
