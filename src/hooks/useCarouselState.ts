@@ -17,7 +17,7 @@ const useCarouselState = (imgList: string[]) => {
     slideMove(1);
   };
 
-  return { currentIdx, direction, handlePrev, handleNext };
+  return { currentIdx, direction, handlePrev, handleNext, imgList };
 };
 
 export default useCarouselState;

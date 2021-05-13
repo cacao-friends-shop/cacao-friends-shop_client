@@ -1,4 +1,5 @@
-type Color = {
+
+type Colors = {
   black: '#232323';
   white: '#fff';
   pink: '#fb3a61';
@@ -14,7 +15,8 @@ type Color = {
   myTabGray: '#FCFCFC';
 };
 
-export const colors: Color = {
+export const colors: Colors = {
+
   black: '#232323',
   white: '#fff',
   pink: '#fb3a61',

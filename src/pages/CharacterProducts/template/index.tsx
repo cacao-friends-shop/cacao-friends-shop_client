@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/react';
-import { v4 as uuid } from 'uuid';
 import Button from 'components/atoms/Button';
 import Icon from 'components/atoms/Icon';
 import { colors, fontSizes } from 'theme';
@@ -44,7 +43,7 @@ const Template = ({ title, imgURL, characterType }: TemplateProps) => {
         </>
       )}
       <ProductTotalCount totalCount={30} />
-      <ProductCardList />
+      <ProductCardList characterName="라이언" products={[]} />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { colors } from 'theme';
 import IconButton from '../IconButton';
 
 type ProductImageCardProps = {
@@ -17,7 +18,7 @@ const ProductImageCard = ({ img }: ProductImageCardProps) => {
         name="basket"
         size={20}
         title="담기"
-        fgColor="#fff"
+        fgColor={colors.adminBorderGray}
         bgColor="rgba(0, 0, 0, 0.3)"
       />
     </li>

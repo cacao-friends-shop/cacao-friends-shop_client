@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from 'pages/Login';
 import Signup from 'pages/SignUp';
 import Agreement from 'pages/Agreement';
+
 import Home from 'pages/Home';
 import NewProduct from 'pages/NewProduct';
 import FavoriteProducts from 'pages/FavoriteProducts';
@@ -18,11 +19,13 @@ import CharacterProducts from 'pages/CharacterProducts';
 import AdminList from 'pages/AdminList';
 import AdminEdit from 'pages/AdminEdit';
 
+
 function App() {
   return (
     <>
       <Global styles={GlobalStyles} />
       <Header />
+
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/new" component={NewProduct} />

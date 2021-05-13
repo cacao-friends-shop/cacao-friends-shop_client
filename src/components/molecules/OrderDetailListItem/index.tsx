@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import TimeStemp from 'components/atoms/TimeStemp';
 import React from 'react';
+import { colors } from 'theme';
 import ProductListItem from '../ProductListItem';
 
 const OrderDetailListItem = () => {
@@ -22,7 +23,7 @@ const OrderDetailListItem = () => {
 const container = css`
   margin: 2rem auto;
   padding: 2rem 0;
-  background: #fff;
+  background: ${colors.white};
   box-shadow: 0 2px rgba(0, 0, 0, 0.05);
   span {
     font-weight: 600;
@@ -38,7 +39,7 @@ const timeStempStyle = css`
 const itemStyle = css`
   padding: 2rem 0;
   border: none;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid ${colors.adminBorderGray};
 
   a {
     pointer-events: none;
