@@ -11,18 +11,11 @@ import {
   LOAD_MORE_PRODUCTS_SUCCESS,
 } from './actions';
 import { ProductsAction, ProductState } from '../../types/Product';
+import { asyncState } from 'utils/reducerUtils';
 
 const initialState: ProductState = {
-  products: {
-    loading: false,
-    data: null,
-    error: null,
-  },
-  product: {
-    loading: false,
-    data: null,
-    error: null,
-  },
+  products: asyncState.initial(),
+  product: asyncState.initial(),
 };
 
 const productsReducer = createReducer<ProductState, ProductsAction>(
@@ -30,51 +23,27 @@ const productsReducer = createReducer<ProductState, ProductsAction>(
   {
     [GET_PRODUCTS]: state => ({
       ...state,
-      products: {
-        loading: true,
-        data: null,
-        error: null,
-      },
+      products: asyncState.load(),
     }),
     [GET_PRODUCTS_SUCCESS]: (state, action) => ({
       ...state,
-      products: {
-        loading: false,
-        data: action.payload,
-        error: null,
-      },
+      products: asyncState.success(action.payload),
     }),
     [GET_PRODUCTS_ERROR]: (state, action) => ({
       ...state,
-      products: {
-        loading: false,
-        data: null,
-        error: action.payload,
-      },
+      products: asyncState.error(action.payload),
     }),
     [GET_PRODUCT]: state => ({
       ...state,
-      product: {
-        loading: true,
-        data: null,
-        error: null,
-      },
+      product: asyncState.load(),
     }),
     [GET_PRODUCT_SUCCESS]: (state, action) => ({
       ...state,
-      product: {
-        loading: false,
-        data: action.payload,
-        error: null,
-      },
+      product: asyncState.success(action.payload),
     }),
     [GET_PRODUCT_ERROR]: (state, action) => ({
       ...state,
-      product: {
-        loading: false,
-        data: null,
-        error: action.payload,
-      },
+      product: asyncState.error(action.payload),
     }),
     [LOAD_MORE_PRODUCTS]: state => ({
       ...state,

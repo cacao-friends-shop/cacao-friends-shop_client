@@ -1,3 +1,4 @@
+import React from 'react';
 import ProductCard from 'components/molecules/ProductCard';
 import { Grid } from '@chakra-ui/layout';
 import Button from 'components/atoms/Button';
