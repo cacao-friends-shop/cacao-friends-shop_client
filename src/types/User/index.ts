@@ -35,5 +35,25 @@ export type PandingAction = Action &
 export type LoginAction = Action &
   LoginInfo & {
     type: 'user/LOG_IN';
-    userInfo: User;
+    userInfo: LoginInfo;
+  };
+
+//sign up
+export type SignupUserInfo = {
+  email: string;
+  password: string;
+  nickname: string;
+  phone: string;
+};
+
+export type SignupSuccessInfo = {
+  email: string;
+  nickname: string;
+  phone: string;
+};
+
+export type SignupAction = Action &
+  SignupUserInfo & {
+    type: 'user/SIGN_UP';
+    userInfo: SignupUserInfo;
   };

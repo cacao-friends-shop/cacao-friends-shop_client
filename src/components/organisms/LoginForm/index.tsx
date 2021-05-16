@@ -21,8 +21,6 @@ const LoginForm = () => {
   const history = useHistory();
 
   useEffect(() => {
-    console.log(userState);
-    console.log(userState.authUser);
     userState.authUser
       ? history.push('/')
       : setErrorMessage('아이디 또는 페스워드가 맞지않습니다');
@@ -90,7 +88,7 @@ const LoginForm = () => {
             </>
           )}
         </Formik>
-        <Link to="/signup">회원가입</Link>
+        <Link to="/agreement">회원가입</Link>
       </article>
     </section>
   );

@@ -4,9 +4,7 @@ import { css } from '@emotion/react';
 import Input from 'components/atoms/Input';
 import Button from 'components/atoms/Button';
 
-interface Props {}
-
-const SignUpForm = (props: Props) => {
+const SignUpForm = () => {
   return (
     <section css={container}>
       <h1>KaKao</h1>

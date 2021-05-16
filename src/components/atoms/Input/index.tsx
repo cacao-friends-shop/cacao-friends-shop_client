@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import React, { useState } from 'react';
+import React from 'react';
 import Icon from '../Icon';
 
 export type InputProps = {
@@ -19,25 +19,38 @@ export type InputProps = {
   value?: string;
   /** ref */
   ref?: string;
+  // checked
+  checked?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ type, title, label, className, ...restProps }, ref) => {
-    const [isChecked, setisChecked] = useState(false);
-    const handleClick = () => setisChecked(!isChecked);
+  (
+    {
+      type,
+      title,
+      label,
+      className,
+      checked = false,
+      value,
+      onChange,
+      ...restProps
+    },
+    ref
+  ) => {
     return (
-      <div css={subtitleStyle(isChecked)} className={className}>
+      <div css={subtitleStyle(checked)} className={className}>
         <input
           type={type}
-          id={title}
+          id={value}
           name={title}
           ref={ref}
-          onClick={handleClick}
+          onChange={onChange}
+          checked={checked}
           {...restProps}
         />
 
         {type === 'checkbox' ? (
-          isChecked ? (
+          checked ? (
             <Icon name="fontAwesomeCheckCircle" size={18} />
           ) : (
             <Icon name="fontAwesomeregCheckCircle" size={18} />
@@ -53,7 +66,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-const subtitleStyle = (isChecked: boolean) => css`
+const subtitleStyle = (checked: boolean) => css`
   box-sizing: border-box;
   position: relative;
 
@@ -80,7 +93,7 @@ const subtitleStyle = (isChecked: boolean) => css`
     color: #ccc;
   }
 
-  ${isChecked &&
+  ${checked &&
   css`
     input + svg {
       color: #fee500;
