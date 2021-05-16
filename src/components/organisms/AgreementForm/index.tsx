@@ -117,6 +117,7 @@ const AgreementForm = () => {
             <Input
               type="checkbox"
               title="agreement"
+              id="totalAgreement"
               className="all-agreed"
               onChange={handleChange}
               label="모두 동의합니다."
@@ -133,6 +134,7 @@ const AgreementForm = () => {
             <Input
               type="checkbox"
               title="agreement"
+              id="ageAgreement"
               onChange={handleChange}
               label="[필수] 만 14세 이상입니다."
               name="ageAgreement"
@@ -143,6 +145,7 @@ const AgreementForm = () => {
             <Input
               type="checkbox"
               title="agreement"
+              id="accountAgreement"
               onChange={handleChange}
               label="[필수] 카카오계정 약관"
               name="accountAgreement"
@@ -154,6 +157,7 @@ const AgreementForm = () => {
             <div className="flex-row">
               <Input
                 type="checkbox"
+                id="serviceAgreement"
                 title="agreement"
                 onChange={handleChange}
                 label="[필수] 카카오 통합서비스 약관"
@@ -172,6 +176,7 @@ const AgreementForm = () => {
             <Input
               type="checkbox"
               title="agreement"
+              id="adAgreement"
               onChange={handleChange}
               label="[선택] 카카오알림 채널 추가 및 광고메시지 수신"
               name="adAgreement"
@@ -183,6 +188,7 @@ const AgreementForm = () => {
             <Input
               type="checkbox"
               title="agreement"
+              id="personalInfoAgreement"
               onChange={handleChange}
               label="[필수] 개인정보 수집 및 이용 동의"
               checked={personalInfoAgreement}
@@ -194,6 +200,7 @@ const AgreementForm = () => {
             <Input
               type="checkbox"
               title="agreement"
+              id="locationAgreement"
               onChange={handleChange}
               label="[선택] 위치정보 수집 및 이용 동의"
               checked={locationAgreement}
@@ -205,6 +212,7 @@ const AgreementForm = () => {
             <Input
               type="checkbox"
               title="agreement"
+              id="profileAgreement"
               onChange={handleChange}
               label="[선택] 프로필 정보 추가 수집 동의"
               checked={profileAgreement}

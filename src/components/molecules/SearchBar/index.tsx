@@ -23,6 +23,8 @@ const SearchBar = ({ ...restProps }) => {
         <Icon name="search" size={32}></Icon>
         <Input
           type="search"
+          id="search"
+          name="search"
           title="search"
           className="search-input"
           onChange={formik.handleChange}

@@ -23,6 +23,8 @@ const SignUpForm = () => {
                 <Input
                   type="email"
                   title="email"
+                  id="email"
+                  name="email"
                   // noValidate="novalidate"
                   label="아이디 입력"
                   onChange={handleChange}
@@ -48,6 +50,8 @@ const SignUpForm = () => {
                 <Input
                   type="password"
                   title="password"
+                  id="password"
+                  name="password"
                   label="비밀번호 (8~32자리)"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -55,6 +59,8 @@ const SignUpForm = () => {
                 />
                 <Input
                   type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
                   title="confirmPassword"
                   label="비밀번호 재입력"
                   onChange={handleChange}
@@ -67,6 +73,8 @@ const SignUpForm = () => {
                 <Input
                   type="text"
                   title="nickname"
+                  name="nickname"
+                  id="nickname"
                   label="닉네임을 입력해주세요"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -79,6 +87,8 @@ const SignUpForm = () => {
                 <Input
                   type="tel"
                   title="phoneNumber"
+                  name="phoneNumber"
+                  id="phoneNumber"
                   label="전화번호"
                   onChange={handleChange}
                   onBlur={handleBlur}

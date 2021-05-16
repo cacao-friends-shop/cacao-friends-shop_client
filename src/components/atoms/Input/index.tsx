@@ -5,7 +5,11 @@ import Icon from '../Icon';
 export type InputProps = {
   /** Input 타입 */
   type: string;
-  /** Input id, name */
+  /** Input id */
+  id: string;
+  /** Input name */
+  name: string;
+  /** label title */
   title: string;
   /** Input 레이블 */
   label?: string;
@@ -27,8 +31,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       type,
-      title,
       label,
+      id,
+      name,
+      title,
       className,
       checked = false,
       value,
@@ -41,8 +47,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div css={subtitleStyle(checked)} className={className}>
         <input
           type={type}
-          id={value}
-          name={title}
+          id={id}
+          name={name}
           ref={ref}
           onChange={onChange}
           checked={checked}

@@ -52,6 +52,8 @@ const LoginForm = () => {
                 <Input
                   type="email"
                   title="email"
+                  id="email"
+                  name="email"
                   placeholder="카카오 아이디, 이메일, 전화번호"
                   onChange={handleChange}
                   className="first-input"
@@ -61,6 +63,8 @@ const LoginForm = () => {
                 <Input
                   type="password"
                   title="password"
+                  id="password"
+                  name="password"
                   placeholder="비밀번호"
                   onChange={handleChange}
                   onBlur={handleBlur}
