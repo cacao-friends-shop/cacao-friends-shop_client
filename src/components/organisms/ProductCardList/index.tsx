@@ -8,7 +8,7 @@ import { Product } from 'types/Product';
 
 type ProductCardListProps = {
   characterName: string;
-  products: Product[];
+  products: Product[] | undefined;
 };
 
 const ProductCardList = ({ characterName, products }: ProductCardListProps) => {
@@ -24,7 +24,7 @@ const ProductCardList = ({ characterName, products }: ProductCardListProps) => {
         rowGap={60}
         maxWidth="64rem"
       >
-        {products.map(({ id, title, price, thumbnailImageUrl }: Product) => (
+        {products?.map(({ id, title, price, thumbnailImageUrl }: Product) => (
           <ProductCard
             key={id}
             id={id}

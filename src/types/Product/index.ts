@@ -43,12 +43,16 @@ export type Products = Product[];
 
 export type ProductsAction = ActionType<typeof actions>;
 
-export type ProductState = {
-  products: {
+export type ProductsState = {
+  [key: string]: {
     loading: boolean;
     data: ProductData | null;
     error: Error | null;
   };
+};
+
+export type ProductState = {
+  products: ProductsState;
   product: {
     loading: boolean;
     data: Product | null;

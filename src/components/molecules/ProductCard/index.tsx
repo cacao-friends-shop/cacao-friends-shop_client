@@ -18,12 +18,12 @@ const ProductCard = ({ id, imgPath, title, price }: ProductCardProps) => {
     (state: RootState) => state.product.products
   );
   const dispatch = useDispatch();
-  const handleAddCart = (id: number) => {
-    const cartProduct = products?.content?.find(product => product.id === id);
-    if (cartProduct) {
-      dispatch(addCart(cartProduct, id));
-    }
-  };
+  // const handleAddCart = (id: number) => {
+  //   const cartProduct = products?.data.content?.find(product => product.id === id);
+  //   if (cartProduct) {
+  //     dispatch(addCart(cartProduct, id));
+  //   }
+  // };
 
   return (
     <li css={container}>
@@ -50,7 +50,7 @@ const ProductCard = ({ id, imgPath, title, price }: ProductCardProps) => {
           size={25}
           fgColor="#aaa"
           title="담기"
-          onClick={() => handleAddCart(id)}
+          //onClick={() => handleAddCart(id)}
         />
       </div>
     </li>
