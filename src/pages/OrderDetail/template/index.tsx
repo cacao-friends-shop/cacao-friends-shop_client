@@ -1,13 +1,19 @@
+import React from 'react';
 import { css } from '@emotion/react';
 import OrderDetailList from 'components/organisms/OrderDetailList';
-import React from 'react';
+import TabComp from 'components/molecules/TabComp';
+import MyTab from 'components/molecules/MyTab';
 
 const OrderDeatailTemplate = () => {
   return (
-    <div css={container}>
-      <strong>총 16건</strong>
-      <OrderDetailList />
-    </div>
+    <>
+      <TabComp />
+      <MyTab />
+      <div css={container}>
+        <strong>총 16건</strong>
+        <OrderDetailList />
+      </div>
+    </>
   );
 };
 
@@ -18,7 +24,7 @@ const container = css`
 
   strong {
     display: block;
-    padding: 2rem 0;
+    padding-top: 2rem;
   }
 `;
 
