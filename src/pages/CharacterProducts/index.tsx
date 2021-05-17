@@ -1,10 +1,10 @@
 import getPublicAsset from 'utils/getPublicAsset';
 import Template from './template';
-import { characterNameList } from 'staticData';
+import { characterNameList, CharacterNameLists } from 'staticData';
 import { useParams } from 'react-router-dom';
 
 type Params = {
-  character: string;
+  character: keyof CharacterNameLists;
 };
 
 const CharacterProducts = () => {

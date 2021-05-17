@@ -219,11 +219,15 @@ export const profileList = [
   },
 ];
 
-type characterNameLists = {
-  [key: string]: string;
+export type CharacterNameLists = {
+  ryan: string;
+  apeach: string;
+  muzi: string;
+  frodo: string;
+  neo: string;
 };
 
-export const characterNameList: characterNameLists = {
+export const characterNameList: CharacterNameLists = {
   ryan: '라이언',
   apeach: '어피치',
   muzi: '무지',

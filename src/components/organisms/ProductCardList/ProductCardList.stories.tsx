@@ -6,4 +6,6 @@ export default {
 };
 
 // 기본 포스트 카드
-export const DefaultProductCardList = () => <ProductCardList />;
+export const DefaultProductCardList = () => (
+  <ProductCardList characterName="라이언" products={[]} />
+);

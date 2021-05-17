@@ -2,6 +2,7 @@ import React from 'react';
 import ProductListItem from 'components/molecules/ProductListItem';
 import { css } from '@emotion/react';
 import CircleCheckbox from '../CircleCheckbox';
+import { colors } from 'theme';
 
 type CartListItemProps = {
   /** 상품 이름 */
@@ -25,7 +26,7 @@ const container = css`
   input[type='number'] {
     margin-top: 2rem;
     height: 3rem;
-    border: 1px solid #ccc;
+    border: 1px solid ${colors.adminBorderGray};
     padding: 1rem;
     border-radius: 3px;
   }
