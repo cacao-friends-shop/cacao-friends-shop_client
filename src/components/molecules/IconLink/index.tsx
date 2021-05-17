@@ -11,19 +11,19 @@ type IconLinkProps = {
   /** 경로 */
   to: string;
   /** 아이콘 방향 */
-  type?: string;
+  type: string;
   /** 링크 배경색 */
-  bgColor?: string;
+  bgColor: string;
   children?: React.ReactNode;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const IconLink = ({
   children,
-  to = '/',
+  to,
   iconName,
   iconSize,
-  type = 'leftIcon',
-  bgColor = 'transparent',
+  type,
+  bgColor,
   ...restProps
 }: IconLinkProps) => {
   const LeftIcon = (
@@ -40,11 +40,22 @@ const IconLink = ({
     </>
   );
 
+  const Normal = (
+    <>
+      <Icon name={iconName} size={iconSize} />
+    </>
+  );
+
   return (
     <Link css={linkStyle(bgColor)} to={to} {...restProps}>
-      {type === 'rightIcon' ? RightIcon : LeftIcon}
+      {type === 'normal' ? Normal : type === 'rightIcon' ? RightIcon : LeftIcon}
     </Link>
   );
+};
+
+IconLink.defaultProps = {
+  type: 'Normal',
+  bgColor: 'transparent',
 };
 
 const linkStyle = (bgColor: string) => css`
