@@ -3,7 +3,6 @@ import Carousel from 'components/organisms/Carousel';
 import Actionbar from 'components/molecules/Actionbar';
 import { css } from '@emotion/react';
 import useCarouselState from 'hooks/useCarouselState';
-import PostDetailLink from '../PostDetailLink';
 
 type PostCardProps = {
   /** 캐러셀에 들어갈 이미지 경로 배열 */

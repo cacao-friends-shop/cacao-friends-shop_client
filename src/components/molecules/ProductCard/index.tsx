@@ -1,20 +1,42 @@
 import { css } from '@emotion/react';
+import { addCart } from 'modules/cart/actions';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RootState } from 'saga';
 import IconButton from '../IconButton';
 
 type ProductCardProps = {
+  id: number;
   imgPath: string;
   title: string;
   price: string;
 };
 
-const ProductCard = ({ imgPath, title, price }: ProductCardProps) => {
+const ProductCard = ({ id, imgPath, title, price }: ProductCardProps) => {
+  const { data: products } = useSelector(
+    (state: RootState) => state.product.products
+  );
+  const dispatch = useDispatch();
+  // const handleAddCart = (id: number) => {
+  //   const cartProduct = products?.data.content?.find(product => product.id === id);
+  //   if (cartProduct) {
+  //     dispatch(addCart(cartProduct, id));
+  //   }
+  // };
+
   return (
     <li css={container}>
-      <Link to="/go">
+      <Link to={`/product/${id}`}>
         <span css={imgContainer}>
-          <img src={imgPath} alt={title} />
+          <img
+            src={
+              imgPath
+                ? imgPath
+                : 'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa'
+            }
+            alt={title}
+          />
         </span>
         <h3>{title}</h3>
         <span css={priceStyle}>
@@ -23,7 +45,13 @@ const ProductCard = ({ imgPath, title, price }: ProductCardProps) => {
         </span>
       </Link>
       <div css={buttonConainer}>
-        <IconButton name="basket" size={25} fgColor="#aaa" title="담기" />
+        <IconButton
+          name="basket"
+          size={25}
+          fgColor="#aaa"
+          title="담기"
+          //onClick={() => handleAddCart(id)}
+        />
       </div>
     </li>
   );

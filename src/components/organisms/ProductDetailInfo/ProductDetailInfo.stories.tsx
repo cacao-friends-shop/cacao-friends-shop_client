@@ -15,7 +15,7 @@ export const ProductDetailInfoBlock = () => (
   <ProductDetailInfo
     productName="내 마음을 받아죠르디"
     rating={4.8}
-    price={32000}
+    price="32000"
     imageList={imageList}
   />
 );

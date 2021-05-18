@@ -28,6 +28,8 @@ const Rating = ({ numOfReviews, children }: ratingProps) => {
         if (rating > numOfReviews) {
           return <Icon key={idx} name="star" size={16}></Icon>;
         }
+
+        return null;
       })}
       {children}
     </div>
