@@ -12,9 +12,7 @@ const AgreementForm = (props: Props) => {
       <h1>KaKao</h1>
       <Formik
         initialValues={{ allAgreed: false, moreThanFourteen: false }}
-        onSubmit={values => {
-          console.log(values);
-        }}
+        onSubmit={values => {}}
       >
         {({ values, handleChange, handleBlur, handleSubmit }) => (
           <>

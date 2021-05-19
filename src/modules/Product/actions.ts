@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 
 import { createAsyncAction } from 'typesafe-actions';
-import { Product, Products } from './types';
+import { Product, ProductData } from '../../types/Product';
 
 export const GET_PRODUCTS = 'product/GET_PRODUCTS';
 export const GET_PRODUCTS_SUCCESS = 'product/GET_PRODUCTS_SUCCESS';
@@ -15,7 +15,7 @@ export const productsAsync = createAsyncAction(
   GET_PRODUCTS,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR
-)<undefined, Products, AxiosError>();
+)<[string, string], [ProductData, string], [AxiosError, string]>();
 
 export const productAsync = createAsyncAction(
   GET_PRODUCT,

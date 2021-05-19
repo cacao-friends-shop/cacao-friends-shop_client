@@ -282,7 +282,7 @@ export const avatarImgUrl: AvatarImgUrl = {
     'https://t1.kakaocdn.net/friends/new_store/prod/main_tab/feed/npc_20210429165335.png',
 };
 
-export const imgList = [
+export const imageList = [
   'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
   'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
   'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',

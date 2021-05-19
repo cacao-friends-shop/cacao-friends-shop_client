@@ -1,9 +1,7 @@
 import OrderListItem from 'components/molecules/OrderListItem';
 import React from 'react';
 
-type OrderListProps = {};
-
-const OrderList = ({}: OrderListProps) => {
+const OrderList = () => {
   return (
     <ul>
       <OrderListItem />

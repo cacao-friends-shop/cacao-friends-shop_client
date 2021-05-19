@@ -9,6 +9,10 @@ import IconButton from 'components/molecules/IconButton';
 import { colors, fontSizes } from 'theme';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import { Select } from '@chakra-ui/react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'saga';
+import { productAsync } from 'modules/Product/actions';
 
 const productInfo = {
   productName: '리틀라이언 미니베이커',
@@ -24,14 +28,27 @@ const numberWithCommas = (value: number) => {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
-const ProductDetail = () => {
-  const [isOpen, setIsOpen] = useState(false);
+type Params = {
+  id?: string;
+};
 
+const ProductDetail = () => {
+  const { id } = useParams<Params>();
+  const { data } = useSelector((state: RootState) => state.product.product);
+  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     if (!isOpen) document.body.style.overflow = 'auto';
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!id) return;
+
+    dispatch(productAsync.request(parseInt(id, 10)));
+  }, [dispatch, id]);
+
+  if (!data) return null;
   return (
     <>
       {isOpen && (
@@ -45,10 +62,10 @@ const ProductDetail = () => {
       <main css={container}>
         <A11yHiddenHeading comp="h2">제품 상세</A11yHiddenHeading>
         <ProductDetailInfo
-          productName={productInfo.productName}
+          productName={data.title}
           rating={productInfo.rating}
-          price={productInfo.price}
-          imageList={productInfo.imageList}
+          price={data.price}
+          imageList={data.detailPageImageUrls}
         />
         <ProductDetailReview numOfReviews={5} rating={4.8} />
         {isOpen && (

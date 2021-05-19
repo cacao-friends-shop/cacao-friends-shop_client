@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ProductCard from 'components/molecules/ProductCard';
 import { Grid } from '@chakra-ui/layout';
 import Button from 'components/atoms/Button';
 import { css } from '@emotion/react';
 import { colors, fontSizes } from 'theme';
-import { Product } from 'modules/Product/types';
+import { Product } from 'types/Product';
 
 type ProductCardListProps = {
   characterName: string;
-  products: Product[];
+  products: Product[] | undefined;
 };
 
 const ProductCardList = ({ characterName, products }: ProductCardListProps) => {
@@ -24,9 +24,10 @@ const ProductCardList = ({ characterName, products }: ProductCardListProps) => {
         rowGap={60}
         maxWidth="64rem"
       >
-        {products.map(({ id, title, price, thumbnailImageUrl }: Product) => (
+        {products?.map(({ id, title, price, thumbnailImageUrl }: Product) => (
           <ProductCard
             key={id}
+            id={id}
             title={title}
             price={price}
             imgPath={thumbnailImageUrl}

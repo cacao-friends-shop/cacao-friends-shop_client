@@ -12,7 +12,7 @@ import PostTitle from 'components/atoms/PostTitle';
 import { Select } from '@chakra-ui/react';
 
 const Templates = () => {
-  const [content, setContent] = useState('');
+  const [, setContent] = useState('');
   const editorRef = useRef<Editor>();
 
   const handleSave = () => {
