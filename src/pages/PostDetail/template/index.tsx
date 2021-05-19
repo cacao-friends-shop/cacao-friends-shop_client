@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import PostCard from 'components/organisms/PostCard';
-import { imgList } from 'staticData';
 import CommentBox from 'components/atoms/CommentBox';
 import { css } from '@emotion/react';
 import PostDetailComment from 'components/organisms/PostDetailComment';
@@ -30,19 +29,6 @@ const PostDetailTemplate = () => {
   if (loading && !data) return <div>로딩중</div>;
   if (!data) return null;
   if (error) return <div>에러발생!</div>;
-  // if (data) {
-  //   const {
-  //     title,
-  //     content,
-  //     characterType,
-  //     createdDateTime,
-  //     likeCount,
-  //     imageUrls,
-  //     comments,
-  //   } = data;
-
-  //   return ();
-  // }
 
   return (
     <section css={container}>

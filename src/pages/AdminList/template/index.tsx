@@ -48,7 +48,7 @@ const Template = ({ contents }: TemplateProps) => {
         <ControlBar />
         <PostList contents={data} />
       </div>
-      <Pagination contentsLength={24} />
+      <Pagination contentsLength={contents.length} />
     </div>
   );
 };
