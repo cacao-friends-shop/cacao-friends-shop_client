@@ -24,7 +24,8 @@ type AgreementType = {
   [key: string]: boolean;
 };
 const AgreementForm = () => {
-  let isValid = useRef(false);
+  const isValid = useRef(false);
+  const isEveryValidationPassed = useRef(false);
   const history = useHistory();
   const [agreements, setAgreements] = useState<AgreementType>({
     totalAgreement: false,
@@ -68,16 +69,16 @@ const AgreementForm = () => {
         filteredAgreements.push(name);
       } else {
         //인덱스로 찾아서 없애는 로직 생각하기 (인덱스로 찾아서 splice로 없애기)
-
-        filteredAgreements = filteredAgreements.filter(e => e !== name);
+        const idx = filteredAgreements.indexOf(name);
+        if (idx !== -1) filteredAgreements.splice(idx, 1);
       }
 
       isValid.current = mandatoryOption.every(e =>
         filteredAgreements.includes(e)
       );
-
-      if (!isValid.current) {
-        console.log(!isValid.current);
+      isEveryValidationPassed.current =
+        filteredAgreements.length === 7 ? true : false;
+      if (!isEveryValidationPassed.current || !checked) {
         setAgreements({
           ...agreements,
           totalAgreement: false,
@@ -229,7 +230,6 @@ const AgreementForm = () => {
           </Button>
         </form>
       </>
-      )
     </section>
   );
 };

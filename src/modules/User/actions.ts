@@ -1,4 +1,4 @@
-import { User, LoginInfo } from 'types/User';
+import { User, LoginInfo, SignupUserInfo } from 'types/User';
 
 export const LOG_IN = 'user/LOG_IN';
 export const LOG_OUT = 'user/LOG_OUT';
@@ -27,7 +27,7 @@ export const loginFailure = (err: string) => ({
 });
 
 //signup
-export const signupAction = (signupInfo: LoginInfo) => ({
+export const signupAction = (signupInfo: SignupUserInfo) => ({
   type: SIGN_UP,
   userInfo: signupInfo,
 });

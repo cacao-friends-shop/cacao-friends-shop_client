@@ -1,4 +1,3 @@
-import { Dispatch } from 'react';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import {
   LOG_IN,
@@ -7,8 +6,6 @@ import {
   loginAction,
   SIGN_UP,
   signupAction,
-  signupSuccess,
-  signupFailure,
   SIGN_UP_FAILURE,
   SIGN_UP_SUCCESS,
 } from './actions';
@@ -33,10 +30,14 @@ export function* loginSaga(action: ReturnType<typeof loginAction>) {
 
 export function* signupSaga(action: ReturnType<typeof signupAction>) {
   const userInfo = action.userInfo;
-
+  const filteredUserInfo = Object.entries(userInfo).filter(
+    (_, idx) => idx !== 1
+  );
+  const entries = new Map(filteredUserInfo);
+  const newUserInfo = Object.fromEntries(entries);
   try {
-    // const user: SignupSuccessInfo = yield call(signupRequest, userInfo);
-    // yield put({ type: SIGN_UP_SUCCESS, authUser: user });
+    const res: SignupSuccessInfo = yield call(signupRequest, userInfo);
+    yield put({ type: SIGN_UP_SUCCESS, authUser: newUserInfo });
   } catch (err) {
     yield put({ type: SIGN_UP_FAILURE, error: err.message });
   }

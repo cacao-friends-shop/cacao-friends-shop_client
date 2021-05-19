@@ -40,10 +40,7 @@ export type LoginAction = Action &
 
 //sign up
 export type SignupUserInfo = {
-  email: string;
-  password: string;
-  nickname: string;
-  phone: string;
+  [key: string]: string;
 };
 
 export type SignupSuccessInfo = {

@@ -1,5 +1,13 @@
 import { User, UserState } from 'types/User';
-import { LOG_IN, LOG_OUT, LOG_IN_FAILURE, LOG_IN_SUCCESS } from './actions';
+import {
+  LOG_IN,
+  LOG_OUT,
+  LOG_IN_FAILURE,
+  LOG_IN_SUCCESS,
+  SIGN_UP,
+  SIGN_UP_SUCCESS,
+  SIGN_UP_FAILURE,
+} from './actions';
 
 const initialState: UserState = {
   authUser: null,
@@ -39,6 +47,24 @@ const userReducer = (
     // 로그아웃 (기본 처리)
     case LOG_OUT:
       return initialState;
+    //회원가입
+    case SIGN_UP:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    //회원가입 성공
+    case SIGN_UP_SUCCESS:
+      return {
+        ...state,
+        authUser: action.authUser || null,
+      };
+    //회원가입 실패
+    case SIGN_UP_FAILURE:
+      return {
+        ...state,
+        error: action.error || null,
+      };
     // 기본 (초기 상태)
     default:
       return state;
