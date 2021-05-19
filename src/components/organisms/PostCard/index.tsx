@@ -4,14 +4,28 @@ import Actionbar from 'components/molecules/Actionbar';
 import { css } from '@emotion/react';
 import useCarouselState from 'hooks/useCarouselState';
 import PostDetailLink from '../PostDetailLink';
+import { avatarImgUrl, characterNameList } from 'staticData';
 
 type PostCardProps = {
   /** 캐러셀에 들어갈 이미지 경로 배열 */
   imgList: string[];
+  title: string;
+  content: string;
+  characterType: string;
+  createdDateTime: string;
+  likeCount: number;
   children?: React.ReactNode;
 };
 
-const PostCard = ({ imgList, children }: PostCardProps) => {
+const PostCard = ({
+  imgList,
+  title,
+  content,
+  characterType,
+  createdDateTime,
+  likeCount,
+  children,
+}: PostCardProps) => {
   const { currentIdx, direction, handleNext, handlePrev } = useCarouselState(
     imgList
   );
@@ -20,11 +34,10 @@ const PostCard = ({ imgList, children }: PostCardProps) => {
     <article css={articleStyle}>
       <div>
         <Profile
-          imagePath="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144557.png"
-          alt="콘"
-          title="프렌즈도감"
-          time="1시간 전"
-          desc="Dailty Story"
+          imagePath={avatarImgUrl[characterType]}
+          alt={title}
+          title={characterType}
+          time={createdDateTime}
         />
       </div>
       <div>
@@ -41,17 +54,11 @@ const PostCard = ({ imgList, children }: PostCardProps) => {
       </div>
       <div>
         <span css={{ fontSize: '1.3rem' }}>
-          좋아요 <span css={likeCountStyle}>908개</span>
+          좋아요 <span css={likeCountStyle}>{likeCount}개</span>
         </span>
       </div>
-      <h3 css={titleStyle}>
-        저녁형 하마🦛
-        <br />
-        명탐정 콥
-      </h3>
-      <p css={{ fontSize: '1.4rem' }}>
-        스노우타운의 명탐정 콥은 늦잠꾸러기 일까❓
-      </p>
+      <h3 css={titleStyle}>{title}</h3>
+      <p css={{ fontSize: '1.4rem' }}>{content}</p>
       {children}
     </article>
   );

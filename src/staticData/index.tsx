@@ -265,6 +265,23 @@ export const characterNameList: CharacterNameLists = {
   neo: '네오',
 };
 
+export type AvatarImgUrl = {
+  [key: string]: string;
+};
+
+export const avatarImgUrl: AvatarImgUrl = {
+  라이언:
+    'https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144424.png',
+  어피치:
+    'https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144431.png',
+  무지:
+    'https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144437.png',
+  네오:
+    'https://t1.kakaocdn.net/friends/new_store/prod/main_tab/feed/npc_20210429165243.png',
+  프로도:
+    'https://t1.kakaocdn.net/friends/new_store/prod/main_tab/feed/npc_20210429165335.png',
+};
+
 export const imgList = [
   'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',
   'https://t1.daumcdn.net/friends/prod/product/20210426153732966_8809721508459_ZW_00.jpg?type=thumb&opt=R352x352@2xa',

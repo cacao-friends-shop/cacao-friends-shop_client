@@ -13,7 +13,7 @@ const Template = () => {
   return (
     <>
       <TabComp />
-      <PostCard imgList={imageList}>
+      {/* <PostCard imgList={imageList}>
         <PostDetailLink />
       </PostCard>
       <PostCard imgList={imageList}>
@@ -24,7 +24,7 @@ const Template = () => {
       </PostCard>
       <PostCard imgList={imageList}>
         <PostDetailLink />
-      </PostCard>
+      </PostCard> */}
     </>
   );
 };

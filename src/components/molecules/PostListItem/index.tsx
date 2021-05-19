@@ -34,7 +34,7 @@ const PostList = ({
       <div className="post_info">
         <CheckBox color={colors.adminGray} />
         <div>
-          <Link to="/" className="title">
+          <Link to={`/admin/posts/${to}`} className="title">
             <Title headingNumber={2}>{title}</Title>
           </Link>
           <PostInfo

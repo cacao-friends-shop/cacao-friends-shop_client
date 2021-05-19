@@ -37,7 +37,7 @@ function App() {
 
         <Route path="/products/:character" component={CharacterProducts} />
 
-        <Route path="/admin/posts" component={AdminList} />
+        <Route path="/admin/posts" component={AdminList} exact />
         <Route path="/admin/posts/:id" component={PostDetail} />
         <Route path="/admin/newpost" component={AdminEdit} />
 
