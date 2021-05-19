@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { all } from 'redux-saga/effects';
 import userReducer from 'modules/User/reducer';
+import { userSaga } from 'modules/User/saga';
 import productSaga from 'modules/Product/saga';
 import productsReducer from '../modules/Product/reducer';
 import cartsReducer, { cartsSaga } from 'modules/cart/actions';
@@ -8,7 +9,7 @@ import favoriteProductsSaga from 'modules/favorite/saga';
 import favoriteReducer from 'modules/favorite/reducer';
 
 export function* rootSaga() {
-  yield all([productSaga(), favoriteProductsSaga(), cartsSaga()]); // all 은 배열 안의 여러 사가를 동시에 실행시켜줍니다.
+  yield all([userSaga(), productSaga(), favoriteProductsSaga(), cartsSaga()]); // all 은 배열 안의 여러 사가를 동시에 실행시켜줍니다.
 }
 
 const rootReducers = combineReducers({

@@ -20,6 +20,13 @@ export const nicknameConfirmRequest = async (nickname: string) => {
   }
 };
 
+export const logoutRequest = async () => {
+  try {
+    await axios.delete('/members/logout');
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
 export const loginRequest = async (userInfo: LoginInfo) => {
   try {
     const { data: user } = await axios.post<LoginSuccessInfo>(
@@ -41,6 +48,6 @@ export const signupRequest = async (userInfo: SignupUserInfo) => {
 
     return user;
   } catch (error) {
-    return error.message;
+    throw new Error(error.message);
   }
 };

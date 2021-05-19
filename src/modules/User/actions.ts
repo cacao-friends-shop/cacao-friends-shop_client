@@ -26,6 +26,11 @@ export const loginFailure = (err: string) => ({
   error: err,
 });
 
+// logout
+export const logoutAction = () => ({
+  type: LOG_OUT,
+});
+
 //signup
 export const signupAction = (signupInfo: SignupUserInfo) => ({
   type: SIGN_UP,

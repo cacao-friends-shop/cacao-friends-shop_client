@@ -64,6 +64,10 @@ const validationReducer = (
     case 'allValid':
       return {
         ...state,
+        email: false,
+        password: false,
+        nickname: false,
+        phoneNum: false,
         allValid: true,
       };
     default:
@@ -84,7 +88,7 @@ const SignUpForm = () => {
     password: false,
     nickname: false,
     phoneNum: false,
-    allValid: true,
+    allValid: false,
   });
   const numOfNickname = useRef(0);
   const dispatch = useDispatch();
@@ -95,7 +99,7 @@ const SignUpForm = () => {
   };
 
   const blurHandler = async (e: React.FocusEvent<HTMLInputElement>) => {
-    if (e.target.name === 'phoneNumber' && e.target.value) {
+    if (e.target.name === 'phone' && e.target.value) {
       isValidDispatch({ type: 'phoneNum' });
       return;
     }
@@ -116,7 +120,6 @@ const SignUpForm = () => {
         ? isValidDispatch({ type: 'email' })
         : isValidDispatch({ type: 'nickname' });
     }
-    checkValidation();
   };
 
   const storePassword = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -133,21 +136,17 @@ const SignUpForm = () => {
       return;
     }
     isValidDispatch({ type: 'password' });
-    checkValidation();
   }, [passwords]);
 
-  const checkValidation = () => {
+  useEffect(() => {
     if (
       isValid.email &&
       isValid.password &&
       isValid.nickname &&
       isValid.phoneNum
-    )
+    ) {
       isValidDispatch({ type: 'allValid' });
-  };
-
-  useEffect(() => {
-    console.log(isValid);
+    }
   }, [isValid]);
 
   return (

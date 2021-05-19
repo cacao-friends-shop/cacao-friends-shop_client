@@ -8,11 +8,11 @@ export type UserState = {
 
 export type User = {
   userId: string;
-  nickName: string;
+  nickname: string;
   phoneNumber: string;
   email: string;
   password: string;
-  role: string;
+  memberLevel: string;
   avatar: string;
 };
 
@@ -37,6 +37,10 @@ export type LoginAction = Action &
     type: 'user/LOG_IN';
     userInfo: LoginInfo;
   };
+
+export type LogoutAction = Action & {
+  type: 'user/LOG_OUT';
+};
 
 //sign up
 export type SignupUserInfo = {
