@@ -7,7 +7,7 @@ import Carousel from '../Carousel';
 
 export type productDetailInfoProps = {
   productName: string;
-  price: number;
+  price: string;
   rating: number;
   imageList: string[];
 };

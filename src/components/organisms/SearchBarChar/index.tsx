@@ -1,6 +1,5 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { colors } from 'theme';
 import Avatar from 'components/atoms/Avatar';
 import { charList } from 'staticData';
 import { Link } from 'react-router-dom';

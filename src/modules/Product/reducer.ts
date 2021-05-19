@@ -7,71 +7,55 @@ import {
   GET_PRODUCT_ERROR,
   GET_PRODUCT_SUCCESS,
 } from './actions';
-import { ProductsAction, ProductState } from './types';
+import { ProductsAction, ProductState } from '../../types/Product';
+import { asyncState } from 'utils/reducerUtils';
 
 const initialState: ProductState = {
   products: {
-    loading: false,
-    data: null,
-    error: null,
+    ryan: asyncState.initial(),
+    apitch: asyncState.initial(),
+    muzi: asyncState.initial(),
+    prodo: asyncState.initial(),
+    neo: asyncState.initial(),
   },
-  product: {
-    loading: false,
-    data: null,
-    error: null,
-  },
+  product: asyncState.initial(),
 };
 
 const productsReducer = createReducer<ProductState, ProductsAction>(
   initialState,
   {
-    [GET_PRODUCTS]: state => ({
+    [GET_PRODUCTS]: (state, action) => ({
       ...state,
       products: {
-        loading: true,
-        data: null,
-        error: null,
+        ...state.products,
+        [action.meta]: asyncState.load(),
       },
     }),
     [GET_PRODUCTS_SUCCESS]: (state, action) => ({
       ...state,
       products: {
-        loading: false,
-        data: action.payload,
-        error: null,
+        ...state.products,
+        [action.meta]: asyncState.success(action.payload),
       },
     }),
     [GET_PRODUCTS_ERROR]: (state, action) => ({
       ...state,
       products: {
-        loading: false,
-        data: null,
-        error: action.payload,
+        ...state.products,
+        [action.meta]: asyncState.error(action.payload),
       },
     }),
     [GET_PRODUCT]: state => ({
       ...state,
-      product: {
-        loading: true,
-        data: null,
-        error: null,
-      },
+      product: asyncState.load(),
     }),
     [GET_PRODUCT_SUCCESS]: (state, action) => ({
       ...state,
-      product: {
-        loading: false,
-        data: action.payload,
-        error: null,
-      },
+      product: asyncState.success(action.payload),
     }),
     [GET_PRODUCT_ERROR]: (state, action) => ({
       ...state,
-      product: {
-        loading: false,
-        data: null,
-        error: action.payload,
-      },
+      product: asyncState.error(action.payload),
     }),
   }
 );

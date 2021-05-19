@@ -9,6 +9,7 @@ import { AiOutlineLock, AiOutlineCheck } from 'react-icons/ai';
 import { RiKakaoTalkFill, RiShareForwardLine } from 'react-icons/ri';
 import {
   IoBasketOutline,
+  IoBasketSharp,
   IoArrowUpCircleSharp,
   IoChatbubbleOutline,
   IoCheckmarkCircleSharp,
@@ -45,6 +46,7 @@ const icon: Icon = {
   bubble: IoChatbubbleOutline,
   home: BiHomeAlt,
   basket: IoBasketOutline,
+  fillbasket: IoBasketSharp,
   pencil: BsPencil,
   menu: BiMenu,
   arrowLeft: IoIosArrowBack,

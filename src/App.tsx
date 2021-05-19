@@ -17,6 +17,7 @@ import PageNotFound from 'pages/PageNotFound';
 import CharacterProducts from 'pages/CharacterProducts';
 import AdminList from 'pages/AdminList';
 import AdminEdit from 'pages/AdminEdit';
+import ProductDetail from 'pages/ProductDetail';
 import OrderDetail from 'pages/OrderDetail';
 import PostDetail from 'pages/PostDetail';
 import Footer from 'components/organisms/Footer';
@@ -37,6 +38,7 @@ function App() {
         <Route path="/mypage/orderlist" component={OrderDetail} />
 
         <Route path="/products/:character" component={CharacterProducts} />
+        <Route path="/product/:id" component={ProductDetail} />
 
         <Route path="/admin/posts" component={AdminList} exact />
         <Route path="/admin/posts/:id" component={PostDetail} />
