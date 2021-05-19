@@ -1,6 +1,6 @@
 import React from 'react';
 import PostCard from 'components/organisms/PostCard';
-import { imgList } from 'staticData';
+import { imageList } from 'staticData';
 import CommentBox from 'components/atoms/CommentBox';
 import { css } from '@emotion/react';
 import PostDetailComment from 'components/organisms/PostDetailComment';
@@ -10,7 +10,7 @@ const PostDetailTemplate = () => {
   return (
     <section css={container}>
       <div css={postContainer}>
-        <PostCard imgList={imgList} />
+        <PostCard imgList={imageList} />
         <CommentBox>
           <input type="text" placeholder="로그인 후 이용해주세요." />
         </CommentBox>

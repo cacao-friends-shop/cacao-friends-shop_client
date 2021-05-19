@@ -17,6 +17,7 @@ import PageNotFound from 'pages/PageNotFound';
 import CharacterProducts from 'pages/CharacterProducts';
 import AdminList from 'pages/AdminList';
 import AdminEdit from 'pages/AdminEdit';
+import ProductDetail from 'pages/ProductDetail';
 import OrderDetail from 'pages/OrderDetail';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/mypage/seen" component={RecentlySee} />
         <Route path="/mypage/orderlist" component={OrderDetail} />
         <Route path="/products/:character" component={CharacterProducts} />
+        <Route path="/product/:id" component={ProductDetail} />
         <Route path="/admin/posts" component={AdminList} />
         <Route path="/admin/newpost" component={AdminEdit} />
         <Route path="/login" component={Login} />

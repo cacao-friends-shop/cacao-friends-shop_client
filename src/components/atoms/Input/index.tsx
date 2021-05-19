@@ -107,7 +107,4 @@ const subtitleStyle = (checked: boolean) => css`
   `}
 `;
 
-const checkedIconStyle = css`
-  color: #fee500;
-`;
 export default Input;

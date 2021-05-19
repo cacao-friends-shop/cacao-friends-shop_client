@@ -1,8 +1,11 @@
 import axios from 'axios';
-import { Product, Products } from 'modules/Product/types';
+import { Product, ProductData } from 'types/Product';
 
-export const getProducts = async () => {
-  const { data: products } = await axios.get<Products>(`/products`);
+export const getProducts = async (characterName: string) => {
+  console.log(characterName);
+  const { data: products } = await axios.get<ProductData>(
+    `/products?page=0&characterType=${characterName}`
+  );
   return products;
 };
 
@@ -10,4 +13,11 @@ export const getProductById = async (id: number) => {
   const { data: product } = await axios.get<Product>(`/products/${id}`);
 
   return product;
+};
+
+export const getFavoriteProducts = async (page: number) => {
+  const { data: products } = await axios.get<ProductData>(
+    `/products?page=${page}`
+  );
+  return products;
 };

@@ -5,17 +5,7 @@ import { RootState } from 'saga';
 import Template from './template';
 
 const NewProduct = () => {
-  const { data: products } = useSelector(
-    (state: RootState) => state.product.products
-  );
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(productsAsync.request());
-  }, [dispatch]);
-
-  if (!products) return null;
-  return <Template products={products.slice(0, 8)} />;
+  return <Template />;
 };
 
 export default NewProduct;
