@@ -7,15 +7,15 @@ const Footer = () => {
   return (
     <footer css={container}>
       <h2>Made by</h2>
-      <a href="/">
+      <a href="https://github.com/yg-0103">
         <Icon name="github" size={30} />
         <span>Yeongoo</span>
       </a>
-      <a href="/">
+      <a href="https://github.com/iamkjw77">
         <Icon name="github" size={30} />
         <span>Jiwon</span>
       </a>
-      <a href="/">
+      <a href="https://github.com/dannyjaehoon">
         <Icon name="github" size={30} />
         <span>Jaehoon</span>
       </a>

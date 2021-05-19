@@ -19,7 +19,7 @@ const Template = () => {
     dispatch(getPosts());
   }, [dispatch]);
 
-  if (!data) return null;
+  if (!data) return <Error />;
   if (error) return <Error />;
 
   return (

@@ -28,7 +28,7 @@ const PostDetailTemplate = () => {
     dispatch(getPost(postId));
   }, [dispatch, postId]);
 
-  if (!data) return null;
+  if (!data) return <Error />;
   if (error) return <Error />;
 
   return (

@@ -27,7 +27,7 @@ const Template = ({ contents }: TemplateProps) => {
   }, [dispatch]);
 
   if (error) return <Error />;
-  if (!data) return null;
+  if (!data) return <Error />;
 
   return (
     <div css={container}>
