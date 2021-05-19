@@ -22,7 +22,6 @@ const titleStyle = css`
   width: 100%;
   input {
     font-size: ${fontSizes.xxxl_24};
-    padding: 1rem;
     border: none;
     width: 100%;
     outline: none;

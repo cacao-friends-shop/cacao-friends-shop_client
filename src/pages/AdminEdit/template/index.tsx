@@ -9,6 +9,7 @@ import { colors, fontSizes } from 'theme';
 import { Link } from 'react-router-dom';
 import Button from 'components/atoms/Button';
 import PostTitle from 'components/atoms/PostTitle';
+import { Select } from '@chakra-ui/react';
 
 const Templates = () => {
   const [content, setContent] = useState('');
@@ -23,6 +24,13 @@ const Templates = () => {
   return (
     <div css={container}>
       <PostTitle />
+      <Select variant="filled" size="lg" placeholder="캐릭터 타입">
+        <option value="라이언">라이언</option>
+        <option value="어피치">어피치</option>
+        <option value="무지">무지</option>
+        <option value="네오">네오</option>
+        <option value="프로도">프로도</option>
+      </Select>
       <Editor
         previewStyle="vertical"
         height="700px"
@@ -62,6 +70,10 @@ const container = css`
     display: block;
     width: 100%;
     border-bottom: 1px solid ${colors.lightGray};
+  }
+
+  .chakra-select__wrapper {
+    margin-bottom: 1rem;
   }
 `;
 

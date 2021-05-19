@@ -67,6 +67,7 @@ const articleStyle = css`
   max-width: 64rem;
   margin: 0 auto;
   padding: 1rem;
+  margin-top: 1rem;
 
   & > div + div {
     margin-top: 1rem;

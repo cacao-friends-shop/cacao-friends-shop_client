@@ -19,6 +19,7 @@ import AdminList from 'pages/AdminList';
 import AdminEdit from 'pages/AdminEdit';
 import OrderDetail from 'pages/OrderDetail';
 import PostDetail from 'pages/PostDetail';
+import Footer from 'components/organisms/Footer';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path="/agreement" component={Agreement} />
         <Route component={PageNotFound} />
       </Switch>
+      <Footer />
     </>
   );
 }

@@ -8,6 +8,8 @@ import { useParams } from 'react-router-dom';
 import { getPost } from 'modules/posts/postsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'saga';
+import Error from 'pages/Error';
+import { Skeleton } from '@chakra-ui/react';
 
 type ParamType = {
   id: string;
@@ -26,21 +28,22 @@ const PostDetailTemplate = () => {
     dispatch(getPost(postId));
   }, [dispatch, postId]);
 
-  if (loading && !data) return <div>로딩중</div>;
   if (!data) return null;
-  if (error) return <div>에러발생!</div>;
+  if (error) return <Error />;
 
   return (
     <section css={container}>
       <div css={postContainer}>
-        <PostCard
-          title={data.title}
-          content={data.content}
-          characterType={data.characterType}
-          imgList={data.imageUrls}
-          createdDateTime={data.createdDateTime}
-          likeCount={data.likeCount}
-        />
+        <Skeleton isLoaded={!loading}>
+          <PostCard
+            title={data.title}
+            content={data.content}
+            characterType={data.characterType}
+            imgList={data.imageUrls}
+            createdDateTime={data.createdDateTime}
+            likeCount={data.likeCount}
+          />
+        </Skeleton>
         <CommentBox>
           <input type="text" placeholder="로그인 후 이용해주세요." />
         </CommentBox>

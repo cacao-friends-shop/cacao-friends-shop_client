@@ -10,6 +10,7 @@ import { RootState } from 'saga';
 import { useEffect } from 'react';
 import { getPosts } from 'modules/posts/postsSlice';
 import { PostsType } from 'modules/posts/types';
+import Error from 'pages/Error';
 
 type TemplateProps = {
   contents: Array<PostsType>;
@@ -25,8 +26,7 @@ const Template = ({ contents }: TemplateProps) => {
     dispatch(getPosts());
   }, [dispatch]);
 
-  if (loading && !data) return <div>로딩중</div>;
-  if (error) return <div>에러발생!</div>;
+  if (error) return <Error />;
   if (!data) return null;
 
   return (
@@ -46,7 +46,7 @@ const Template = ({ contents }: TemplateProps) => {
       </div>
       <div>
         <ControlBar />
-        <PostList contents={data} />
+        <PostList contents={data} loading={loading} />
       </div>
       <Pagination contentsLength={contents.length} />
     </div>

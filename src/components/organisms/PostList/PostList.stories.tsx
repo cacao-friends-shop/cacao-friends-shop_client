@@ -6,4 +6,6 @@ export default {
   title: 'organisms/PostList',
 };
 
-export const postList = () => <PostList contents={PostListItems} />;
+export const postList = () => (
+  <PostList contents={PostListItems} loading={false} />
+);

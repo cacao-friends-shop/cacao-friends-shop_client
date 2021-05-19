@@ -60,6 +60,7 @@ const style = css`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid ${colors.adminLightGray};
+  margin-bottom: 0.1rem;
 
   .post_info {
     display: flex;
