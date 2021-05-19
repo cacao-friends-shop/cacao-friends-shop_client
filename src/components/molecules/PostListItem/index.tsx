@@ -16,6 +16,8 @@ type PostListProps = {
   date: string;
   /** 리스트 댓글수 */
   commentsCount: number;
+  /** 이동할 경로 아이디 */
+  to: number;
 } & React.LiHTMLAttributes<HTMLLIElement>;
 
 const PostList = ({
@@ -24,6 +26,7 @@ const PostList = ({
   writer,
   date,
   commentsCount,
+  to,
   ...restProps
 }: PostListProps) => {
   return (

@@ -5,21 +5,30 @@ import IconLink from 'components/molecules/IconLink';
 import Pagination from 'components/molecules/Pagination';
 import ControlBar from 'components/organisms/ControlBar';
 import PostList from 'components/organisms/PostList';
-
-type Contents = {
-  id: string;
-  title: string;
-  likeCount: number;
-  writer: string;
-  date: string;
-  commentsCount: number;
-};
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'saga';
+import { useEffect } from 'react';
+import { getPosts } from 'modules/posts/postsSlice';
+import { PostsType } from 'modules/posts/types';
 
 type TemplateProps = {
-  contents: Array<Contents>;
+  contents: Array<PostsType>;
 };
 
 const Template = ({ contents }: TemplateProps) => {
+  const { loading, data, error } = useSelector(
+    (state: RootState) => state.posts.posts
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
+  if (loading && !data) return <div>로딩중</div>;
+  if (error) return <div>에러발생!</div>;
+  if (!data) return null;
+
   return (
     <div css={container}>
       <div css={headerStyle}>
@@ -37,7 +46,7 @@ const Template = ({ contents }: TemplateProps) => {
       </div>
       <div>
         <ControlBar />
-        <PostList contents={contents} />
+        <PostList contents={data} />
       </div>
       <Pagination contentsLength={24} />
     </div>

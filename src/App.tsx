@@ -18,7 +18,7 @@ import CharacterProducts from 'pages/CharacterProducts';
 import AdminList from 'pages/AdminList';
 import AdminEdit from 'pages/AdminEdit';
 import OrderDetail from 'pages/OrderDetail';
-
+import PostDetail from 'pages/PostDetail';
 
 function App() {
   return (
@@ -38,6 +38,7 @@ function App() {
         <Route path="/products/:character" component={CharacterProducts} />
 
         <Route path="/admin/posts" component={AdminList} />
+        <Route path="/admin/posts/:id" component={PostDetail} />
         <Route path="/admin/newpost" component={AdminEdit} />
 
         <Route path="/login" component={Login} />
