@@ -19,7 +19,8 @@ import AdminList from 'pages/AdminList';
 import AdminEdit from 'pages/AdminEdit';
 import ProductDetail from 'pages/ProductDetail';
 import OrderDetail from 'pages/OrderDetail';
-
+import PostDetail from 'pages/PostDetail';
+import Footer from 'components/organisms/Footer';
 
 function App() {
   return (
@@ -39,7 +40,8 @@ function App() {
         <Route path="/products/:character" component={CharacterProducts} />
         <Route path="/product/:id" component={ProductDetail} />
 
-        <Route path="/admin/posts" component={AdminList} />
+        <Route path="/admin/posts" component={AdminList} exact />
+        <Route path="/admin/posts/:id" component={PostDetail} />
         <Route path="/admin/newpost" component={AdminEdit} />
 
         <Route path="/login" component={Login} />
@@ -47,6 +49,7 @@ function App() {
         <Route path="/agreement" component={Agreement} />
         <Route component={PageNotFound} />
       </Switch>
+      <Footer />
     </>
   );
 }

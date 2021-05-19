@@ -11,12 +11,11 @@ import ProductTotalCount from 'components/atoms/ProductTotalCount';
 import { options } from 'staticData/index';
 
 type TemplateProps = {
-  title?: string;
+  title: string;
   imgURL: string;
-  characterType?: string;
 };
 
-const Template = ({ title, imgURL, characterType }: TemplateProps) => {
+const Template = ({ title, imgURL }: TemplateProps) => {
   const [isShow, setIsShow] = useState(false);
   const [selectedIdx, setSelectedIdx] = useState(0);
 

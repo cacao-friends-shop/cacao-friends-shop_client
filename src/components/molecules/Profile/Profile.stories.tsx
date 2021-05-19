@@ -11,7 +11,6 @@ export const ConProfile = () => (
     imagePath="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144557.png"
     alt="콘"
     title="프렌즈 도감"
-    desc="Daily Story"
     time="1분 전"
   />
 );
@@ -70,7 +69,6 @@ export const ProfileList = () => {
             alt={profile.alt}
             title={profile.title}
             time={profile.time}
-            desc={profile?.desc}
           />
         </li>
       ))}

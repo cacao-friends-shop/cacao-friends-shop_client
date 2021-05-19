@@ -26,6 +26,7 @@ const Footer = () => {
 const container = css`
   max-width: 64rem;
   margin: 0 auto;
+  margin-top: 5rem;
   background: rgb(250, 250, 250);
   height: 20rem;
   display: flex;

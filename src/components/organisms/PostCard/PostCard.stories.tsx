@@ -14,7 +14,14 @@ const imageList = [
 
 // 기본 포스트 카드
 export const DefaultPostCard = () => (
-  <PostCard imgList={imageList}>
+  <PostCard
+    title="시들지 않고 오래오래 옆에 있어 줄게"
+    content="하이요"
+    characterType="라이언"
+    imgList={imageList}
+    createdDateTime="2021-05-19"
+    likeCount={5}
+  >
     <PostDetailLink />
   </PostCard>
 );

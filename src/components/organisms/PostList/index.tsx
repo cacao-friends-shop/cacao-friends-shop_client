@@ -1,33 +1,39 @@
+import { Skeleton } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import PostListItem from 'components/molecules/PostListItem';
+import { PostsType } from 'modules/posts/types';
 import { colors } from 'theme';
 
-type Contents = {
-  id: string;
-  title: string;
-  likeCount: number;
-  writer: string;
-  date: string;
-  commentsCount: number;
-};
-
 type PostListProps = {
-  contents: Array<Contents>;
+  contents: Array<PostsType>;
+  loading: boolean;
 } & React.HTMLAttributes<HTMLUListElement>;
 
-const PostList = ({ contents, ...restProps }: PostListProps) => {
+const PostList = ({ contents, loading, ...restProps }: PostListProps) => {
   return (
     <ul css={postListStyle} {...restProps}>
-      {contents.map(content => (
-        <PostListItem
-          key={content.id}
-          title={content.title}
-          likeCount={content.likeCount}
-          writer={content.writer}
-          date={content.date}
-          commentsCount={content.commentsCount}
-        />
-      ))}
+      {contents.map(item => {
+        const {
+          id,
+          title,
+          likeCount,
+          characterType,
+          createdDateTime,
+          numberOfComments,
+        } = item;
+        return (
+          <Skeleton isLoaded={!loading}>
+            <PostListItem
+              to={id}
+              title={title}
+              likeCount={likeCount}
+              writer={characterType}
+              date={createdDateTime}
+              commentsCount={numberOfComments}
+            />
+          </Skeleton>
+        );
+      })}
     </ul>
   );
 };
@@ -36,8 +42,9 @@ const postListStyle = css`
   max-height: 710px;
   border: 1px solid ${colors.adminBorderGray};
 
-  li:last-child {
+  div:last-child li {
     border-bottom: none;
+    margin-bottom: 0;
   }
 `;
 

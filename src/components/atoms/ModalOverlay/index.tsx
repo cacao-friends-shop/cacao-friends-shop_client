@@ -4,14 +4,14 @@ import { colors } from 'theme';
 
 type ModalOverlayProps = {
   /** 오버레이 배경색 */
-  bgColor?: string;
+  bgColor: string;
   /** 오버레이 투명도 */
-  opacity?: number;
+  opacity: number;
 } & HTMLMotionProps<'div'>;
 
 const ModalOverlay = ({
-  bgColor = colors.black,
-  opacity = 0.7,
+  bgColor,
+  opacity,
   ...restProps
 }: ModalOverlayProps) => {
   return (
@@ -20,6 +20,11 @@ const ModalOverlay = ({
       {...restProps}
     ></motion.div>
   );
+};
+
+ModalOverlay.defaultProps = {
+  bgColor: colors.black,
+  opacity: 0.7,
 };
 
 const overlayStyle = (bgColor: string, opacity: number) => css`
