@@ -4,7 +4,6 @@ import ProductCardList from 'components/organisms/ProductCardList';
 import useCarouselState from 'hooks/useCarouselState';
 import React, { useEffect } from 'react';
 import TabComp from 'components/molecules/TabComp';
-import { Product, ProductData, ProductsState } from 'types/Product';
 import { colors } from 'theme';
 import { productsAsync } from 'modules/Product/actions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -95,7 +94,6 @@ const productContainer = css`
 const textContainer = css`
   position: absolute;
   line-height: 1.5;
-
   bottom: 2rem;
   left: 2rem;
 `;

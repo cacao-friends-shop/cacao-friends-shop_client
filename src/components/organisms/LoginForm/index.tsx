@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 import Input from 'components/atoms/Input';
 import { css } from '@emotion/react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { LOG_IN } from 'saga/User/actions';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { colors, fontSizes } from 'theme';
-
+import { loginAction } from 'modules/User/actions';
+import { RootState } from 'saga';
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
     .email('이메일 포맷에 맞게 넣어주세요')
@@ -15,16 +15,27 @@ const LoginSchema = Yup.object().shape({
 });
 
 const LoginForm = () => {
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
+  let userState = useSelector((state: RootState) => state.user);
+  const history = useHistory();
 
+  useEffect(() => {
+    userState.authUser
+      ? history.push('/')
+      : setErrorMessage('아이디 또는 페스워드가 맞지않습니다');
+    setTimeout(() => {
+      setErrorMessage('');
+    }, 1000);
+  }, [userState]);
   return (
     <section css={container}>
       <article css={loginFormContainer}>
         <h1>KaKao</h1>
         <Formik
           initialValues={{ email: '', password: '' }}
-          onSubmit={values => {
-            dispatch({ type: LOG_IN, authUser: values });
+          onSubmit={userInfo => {
+            dispatch(loginAction(userInfo));
           }}
           validationSchema={LoginSchema}
         >
@@ -41,6 +52,8 @@ const LoginForm = () => {
                 <Input
                   type="email"
                   title="email"
+                  id="email"
+                  name="email"
                   placeholder="카카오 아이디, 이메일, 전화번호"
                   onChange={handleChange}
                   className="first-input"
@@ -50,6 +63,8 @@ const LoginForm = () => {
                 <Input
                   type="password"
                   title="password"
+                  id="password"
+                  name="password"
                   placeholder="비밀번호"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -69,13 +84,15 @@ const LoginForm = () => {
                 {errors.email && touched.email ? (
                   <div css={errorMessageStyle}>{errors.email}</div>
                 ) : null}
-
+                {errorMessage && userState.error ? (
+                  <div css={errorMessageStyle}>{errorMessage}</div>
+                ) : null}
                 <button type="submit">로그인</button>
               </form>
             </>
           )}
         </Formik>
-        <Link to="/signup">회원가입</Link>
+        <Link to="/agreement">회원가입</Link>
       </article>
     </section>
   );

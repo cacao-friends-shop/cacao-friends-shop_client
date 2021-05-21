@@ -6,6 +6,10 @@ export default {
 };
 
 //Text Input
-export const TextInput = () => <Input type="text" title="fname" />;
+export const TextInput = () => (
+  <Input type="text" title="fname" id="fname" name="fname" />
+);
 
-export const CheckBoxInput = () => <Input type="checkbox" title="fname" />;
+export const CheckBoxInput = () => (
+  <Input type="checkbox" title="fname" id="fname" name="fname" />
+);
