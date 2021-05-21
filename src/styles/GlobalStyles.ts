@@ -132,12 +132,13 @@ const GlobalStyles = css`
     margin: -1px;
   }
 
-  // TODO: 수정하기
-  /* &:focus-visible {
-    outline: none;
-    border-radius: 2px;
-    box-shadow: 0 0 0 4px #4ec5f1;
-  } */
+  :focus-visible {
+    outline: 3px solid #aaa;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: 0;
+  }
 
   button {
     cursor: pointer;

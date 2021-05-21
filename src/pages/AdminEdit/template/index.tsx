@@ -11,20 +11,59 @@ import Button from 'components/atoms/Button';
 import PostTitle from 'components/atoms/PostTitle';
 import { Select } from '@chakra-ui/react';
 
+export type ContentType = {
+  title: string;
+  content: string;
+  characterType: string;
+  createdDateTime: string;
+  imageUrls: string[];
+};
+
 const Templates = () => {
-  const [, setContent] = useState('');
+  const [value, setValue] = useState('');
+  const [desc, setDesc] = useState('');
+  const [content, setContent] = useState<ContentType>({
+    title: '',
+    content: '',
+    characterType: '',
+    createdDateTime: '',
+    imageUrls: [],
+  });
   const editorRef = useRef<Editor>();
 
+  const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setContent((prevState: ContentType) => ({
+      ...prevState,
+      characterType: e.target.value,
+    }));
+  };
+
   const handleSave = () => {
+    // setContent((prevState: ContentType) => {
+    //   if (editorRef.current)
+    //     return {
+    //       ...prevState,
+    //       content: editorRef.current.getInstance().getHtml(),
+    //     };
+    //   return prevState;
+    // });
     if (editorRef.current) {
-      setContent(editorRef.current.getInstance().getHtml());
+      setDesc(editorRef.current.getInstance().getHtml());
     }
+    console.log(desc);
+    setValue('');
+    console.log(content);
   };
 
   return (
     <div css={container}>
-      <PostTitle />
-      <Select variant="filled" size="lg" placeholder="캐릭터 타입">
+      <PostTitle value={value} setValue={setValue} setContent={setContent} />
+      <Select
+        variant="filled"
+        size="lg"
+        placeholder="캐릭터 타입"
+        onChange={handleOnChange}
+      >
         <option value="라이언">라이언</option>
         <option value="어피치">어피치</option>
         <option value="무지">무지</option>

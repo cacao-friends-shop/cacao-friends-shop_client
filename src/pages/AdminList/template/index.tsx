@@ -6,7 +6,7 @@ import Pagination from 'components/molecules/Pagination';
 import ControlBar from 'components/organisms/ControlBar';
 import PostList from 'components/organisms/PostList';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 import { useEffect } from 'react';
 import { getPosts } from 'modules/posts/postsSlice';
 import { PostsType } from 'modules/posts/types';
@@ -27,7 +27,7 @@ const Template = ({ contents }: TemplateProps) => {
   }, [dispatch]);
 
   if (error) return <Error />;
-  if (!data) return null;
+  if (!data) return <Error />;
 
   return (
     <div css={container}>

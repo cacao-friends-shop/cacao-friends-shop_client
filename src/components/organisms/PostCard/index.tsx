@@ -8,10 +8,15 @@ import { avatarImgUrl } from 'staticData';
 type PostCardProps = {
   /** 캐러셀에 들어갈 이미지 경로 배열 */
   imgList: string[];
+  /** 포스트 제목 */
   title: string;
+  /** 포스트 내용 */
   content: string;
+  /** 포스트 캐릭터 타입 */
   characterType: string;
+  /** 포스트 날짜 */
   createdDateTime: string;
+  /** 포스트 좋아요 갯수 */
   likeCount: number;
   children?: React.ReactNode;
 };

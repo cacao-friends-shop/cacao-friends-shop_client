@@ -22,7 +22,7 @@ const PostList = ({ contents, loading, ...restProps }: PostListProps) => {
           numberOfComments,
         } = item;
         return (
-          <Skeleton isLoaded={!loading}>
+          <Skeleton isLoaded={!loading} key={id}>
             <PostListItem
               to={id}
               title={title}

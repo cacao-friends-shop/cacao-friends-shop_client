@@ -12,7 +12,7 @@ import { colors } from 'theme';
 import SideBarModal from '../SideBarModal';
 import getPublicAsset from 'utils/getPublicAsset';
 import IconLink from 'components/molecules/IconLink';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 
 const Header = () => {
   const [isShow, setIsShow] = useState(false);
