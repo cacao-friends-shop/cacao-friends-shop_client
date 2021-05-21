@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
 import { Link } from 'react-router-dom';
@@ -11,15 +12,15 @@ import { colors } from 'theme';
 import SideBarModal from '../SideBarModal';
 import getPublicAsset from 'utils/getPublicAsset';
 import IconLink from 'components/molecules/IconLink';
+import { RootState } from 'saga';
 
-export type HeaderProps = {
-  TabComp?: any;
-  MyTab?: any;
-};
-
-const Header = ({ TabComp, MyTab }: HeaderProps) => {
+const Header = () => {
   const [isShow, setIsShow] = useState(false);
   const [isSearchShown, setIsSearchShown] = useState(false);
+  const [userInfo, setUserInfo] = useState(() =>
+    JSON.parse(localStorage.getItem('userInfo') || '{}')
+  );
+  const user = useSelector((state: RootState) => state.user);
 
   return !isSearchShown ? (
     <>
@@ -39,17 +40,18 @@ const Header = ({ TabComp, MyTab }: HeaderProps) => {
           </div>
           <div css={IconButtonContainerStyle}>
             {/* 추후 어드민 아이콘 처리  */}
-            <IconLink
-              iconName="edit"
-              iconSize={20}
-              to="/admin/posts"
-              css={linkStyle}
-            />
+            {user.authUser && userInfo.memberLevel !== 'DEFAULT' && (
+              <IconLink
+                iconName="edit"
+                iconSize={20}
+                to="/admin/posts"
+                css={linkStyle}
+              />
+            )}
+
             <IconButton name="search" size={25} />
           </div>
         </section>
-        {TabComp ? <TabComp /> : null}
-        {MyTab ? <MyTab /> : null}
       </header>
       <AnimatePresence>
         {isShow && (

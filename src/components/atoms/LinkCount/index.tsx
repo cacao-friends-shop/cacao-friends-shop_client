@@ -4,18 +4,22 @@ import { colors, fontSizes } from 'theme';
 
 type LinkCountProps = {
   title: string;
-  count?: number;
+  count: number;
   to: string;
-  onClick?(event: React.MouseEvent): void;
+  onClick?(): void;
 } & React.RefAttributes<HTMLAnchorElement>;
 
 const LinkCount = ({ title, count, to, ...restProps }: LinkCountProps) => {
   return (
     <Link to={to} css={linkStyle} {...restProps}>
       {title}
-      {count && <span css={countStyle}>{count}</span>}
+      {!!count && <span css={countStyle}>{count}</span>}
     </Link>
   );
+};
+
+LinkCount.defaultProps = {
+  count: 0,
 };
 
 const linkStyle = css`

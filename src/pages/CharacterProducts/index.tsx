@@ -16,7 +16,6 @@ const CharacterProducts = () => {
     <Template
       title={characterName}
       imgURL={getPublicAsset(`assets/Category_${character}.jpg`)}
-      characterType={character}
     />
   );
 };

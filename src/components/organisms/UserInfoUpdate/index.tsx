@@ -16,6 +16,8 @@ const UserInfoUpdate = () => {
           css={updateInputStyle}
           type="text"
           title="nickname"
+          id="nickname"
+          name="nickname"
           label="닉네임"
           value="이재훈"
         />

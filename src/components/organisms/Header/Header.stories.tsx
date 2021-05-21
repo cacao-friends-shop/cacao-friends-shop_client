@@ -8,4 +8,4 @@ export default {
 
 export const HeaderBlock = () => <Header />;
 
-export const HeaderWithTabBlock = () => <Header TabComp={TabComp} />;
+export const HeaderWithTabBlock = () => <Header />;

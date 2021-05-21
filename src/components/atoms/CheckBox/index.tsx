@@ -5,16 +5,12 @@ import { colors } from 'theme';
 
 type CheckBoxProps = {
   /** 체크박스 색 */
-  color?: string;
+  color: string;
   /** 체크박스 사이즈 */
-  size?: number;
+  size: number;
 } & React.LabelHTMLAttributes<HTMLLabelElement>;
 
-const CheckBox = ({
-  color = colors.black,
-  size = 20,
-  ...restProps
-}: CheckBoxProps) => {
+const CheckBox = ({ color, size, ...restProps }: CheckBoxProps) => {
   const [isChecked, setisChecked] = useState(false);
   const handleClick = () => setisChecked(!isChecked);
 
@@ -29,6 +25,11 @@ const CheckBox = ({
       )}
     </label>
   );
+};
+
+CheckBox.defaultProps = {
+  color: colors.black,
+  size: 20,
 };
 
 const labelStyle = (color: string) => css`

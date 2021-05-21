@@ -12,5 +12,6 @@ export const list = () => (
     writer="jiwon"
     date="2020-05-19 17:27"
     commentsCount={360}
+    to={1}
   />
 );

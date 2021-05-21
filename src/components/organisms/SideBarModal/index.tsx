@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ModalOverlay from 'components/atoms/ModalOverlay';
 import SideBar from 'components/molecules/SideBar';
 import { colors } from 'theme';
@@ -9,6 +9,10 @@ type SideBarModalProps = {
 };
 
 const SideBarModal = ({ setIsShow }: SideBarModalProps) => {
+  const [userInfo, _] = useState(() =>
+    JSON.parse(localStorage.getItem('userInfo') || '{}')
+  );
+
   return (
     <>
       <ModalOverlay
@@ -25,9 +29,16 @@ const SideBarModal = ({ setIsShow }: SideBarModalProps) => {
         transition={{ type: 'none' }}
         exit={{ x: '-100vw', opacity: 0 }}
       >
-        <SideBar.Header type="nonLogin" setIsShow={setIsShow} />
+        <SideBar.Header
+          type={userInfo.nickname ? 'login' : 'non-login'}
+          setIsShow={setIsShow}
+          nickName={userInfo?.nickname}
+        />
         <SideBar.Body setIsShow={setIsShow} />
-        <SideBar.Footer type="nonLogin" setIsShow={setIsShow} />
+        <SideBar.Footer
+          type={userInfo.nickname ? 'login' : 'non-login'}
+          setIsShow={setIsShow}
+        />
       </SideBar>
     </>
   );

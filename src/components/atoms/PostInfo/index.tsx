@@ -26,19 +26,19 @@ const PostInfo = ({
       <li className="like">
         <A11yHiddenHeading comp="h3">좋아요</A11yHiddenHeading>
         <Icon name="fillHeart" size={18} />
-        <span>36</span>
+        <span>{likeCount}</span>
       </li>
-      <li>
+      <li className="writer">
         <A11yHiddenHeading comp="h3">작성자</A11yHiddenHeading>
-        <span>iamkjw</span>
+        <span>{writer}</span>
       </li>
-      <li>
+      <li className="date">
         <A11yHiddenHeading comp="h3">날짜</A11yHiddenHeading>
-        <span>2021-04-29</span>
+        <span>{date}</span>
       </li>
       <li className="comments">
         <h3>댓글</h3>
-        <span>3</span>
+        <span>{commentsCount}</span>
       </li>
     </ul>
   );
@@ -47,7 +47,7 @@ const PostInfo = ({
 const postInfostyle = css`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   color: ${colors.gray};
   font-size: ${fontSizes.xs_14};
 
@@ -58,10 +58,15 @@ const postInfostyle = css`
   .like {
     display: flex;
     align-items: center;
+    width: 4.7rem;
 
     span {
       margin-left: 0.5rem;
     }
+  }
+
+  .writer {
+    width: 5rem;
   }
 
   .comments {
@@ -71,6 +76,7 @@ const postInfostyle = css`
 
     h3 {
       font-weight: 400;
+      margin-right: 0.3rem;
     }
   }
 `;

@@ -12,13 +12,15 @@ import FavoriteProducts from 'pages/FavoriteProducts';
 import Cart from 'pages/Cart';
 import RecentlySee from 'pages/RecentlySee';
 import Activity from 'pages/Activity';
-import Order from 'pages/Order';
 import Header from 'components/organisms/Header';
 import PageNotFound from 'pages/PageNotFound';
 import CharacterProducts from 'pages/CharacterProducts';
 import AdminList from 'pages/AdminList';
 import AdminEdit from 'pages/AdminEdit';
 import ProductDetail from 'pages/ProductDetail';
+import OrderDetail from 'pages/OrderDetail';
+import PostDetail from 'pages/PostDetail';
+import Footer from 'components/organisms/Footer';
 
 function App() {
   return (
@@ -33,19 +35,20 @@ function App() {
         <Route path={['/mypage/cart', '/mypage']} component={Cart} exact />
         <Route path="/mypage/act" component={Activity} />
         <Route path="/mypage/seen" component={RecentlySee} />
-        <Route path="/mypage/orderlist" component={Order} />
-
+        <Route path="/mypage/orderlist" component={OrderDetail} />
         <Route path="/products/:character" component={CharacterProducts} />
         <Route path="/product/:id" component={ProductDetail} />
 
-        <Route path="/admin/posts" component={AdminList} />
+        <Route path="/admin/posts" component={AdminList} exact />
+        <Route path="/admin/posts/:id" component={PostDetail} />
         <Route path="/admin/newpost" component={AdminEdit} />
-
+        
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/agreement" component={Agreement} />
         <Route component={PageNotFound} />
       </Switch>
+      <Footer />
     </>
   );
 }

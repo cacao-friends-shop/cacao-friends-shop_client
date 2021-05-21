@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logoutAction } from 'modules/User/actions';
 import { css } from '@emotion/react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { colors } from 'theme';
 import { HTMLMotionProps, motion } from 'framer-motion';
 import IconLink from 'components/molecules/IconLink';
@@ -21,7 +23,7 @@ const SideBar = ({ children, ...restProps }: SideBarProps) => {
 };
 
 const sidebarStyle = css`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: ${colors.white};
@@ -48,11 +50,17 @@ type SideBarHeaderProps = {
 };
 
 const SideBarHeader = ({ setIsShow, type, nickName }: SideBarHeaderProps) => {
-  const handleClick = () => setIsShow(false);
+  const history = useHistory();
+  const handleClick = () => {
+    setIsShow(false);
+    history.push('/user');
+  };
 
   const login = (
     <>
-      <span className="text">{nickName}</span>
+      <span className="text" onClick={() => handleClick()}>
+        {nickName}
+      </span>
       님! 반가워요!
     </>
   );
@@ -163,7 +171,13 @@ type SideBarFooterProps = {
 };
 
 const SideBarFooter = ({ setIsShow, type }: SideBarFooterProps) => {
-  const handleClick = () => setIsShow(false);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const handleClick = (type: string) => {
+    if (type === 'login') dispatch(logoutAction());
+    setIsShow(false);
+    history.push('/user');
+  };
 
   return (
     <IconLink
@@ -173,7 +187,7 @@ const SideBarFooter = ({ setIsShow, type }: SideBarFooterProps) => {
       iconSize={20}
       bgColor="transparent"
       css={footerStyle}
-      onClick={handleClick}
+      onClick={() => handleClick(type)}
     >
       {type === 'login' ? '로그아웃' : '로그인'}
     </IconLink>

@@ -1,4 +1,4 @@
-import { Link } from '@chakra-ui/layout';
+import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 import { colors } from 'theme';
 import IconLink from 'components/molecules/IconLink';
