@@ -35,9 +35,6 @@ const NewProductTemplate = () => {
     imgList,
   } = useCarouselState(imageList);
 
-  useEffect(() => {
-    console.log(ryan, neo, muzi, prodo, apitch);
-  }, [ryan, neo, muzi, prodo, apitch]);
   return (
     <>
       <TabComp />
