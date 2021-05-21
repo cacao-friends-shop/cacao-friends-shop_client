@@ -11,7 +11,7 @@ import ModalOverlay from 'components/atoms/ModalOverlay';
 import { Select } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 import { productAsync } from 'modules/Product/actions';
 
 const productInfo = {

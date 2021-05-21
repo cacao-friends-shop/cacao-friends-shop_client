@@ -9,7 +9,7 @@ type SideBarModalProps = {
 };
 
 const SideBarModal = ({ setIsShow }: SideBarModalProps) => {
-  const [userInfo, _] = useState(() =>
+  const [userInfo] = useState(() =>
     JSON.parse(localStorage.getItem('userInfo') || '{}')
   );
 

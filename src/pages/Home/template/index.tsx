@@ -3,7 +3,7 @@ import PostCard from 'components/organisms/PostCard';
 import TabComp from 'components/molecules/TabComp';
 import PostDetailLink from 'components/organisms/PostDetailLink';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 import { getPosts } from 'modules/posts/postsSlice';
 import { Skeleton } from '@chakra-ui/react';
 import { css } from '@emotion/react';

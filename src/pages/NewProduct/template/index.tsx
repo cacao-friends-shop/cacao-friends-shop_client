@@ -7,7 +7,7 @@ import TabComp from 'components/molecules/TabComp';
 import { colors } from 'theme';
 import { productsAsync } from 'modules/Product/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 import { imageList } from 'staticData';
 
 type NewProductTemplateProps = {

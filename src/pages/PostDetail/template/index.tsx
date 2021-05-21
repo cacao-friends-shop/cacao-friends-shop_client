@@ -7,7 +7,7 @@ import { fontSizes } from 'theme';
 import { useParams } from 'react-router-dom';
 import { getPost } from 'modules/posts/postsSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 import Error from 'pages/Error';
 import { Skeleton } from '@chakra-ui/react';
 
