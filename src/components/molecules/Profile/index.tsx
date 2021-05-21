@@ -12,20 +12,15 @@ type ProfileProps = {
   title: string;
   /** 등록 시간 */
   time: string;
-  /** 설명 */
-  desc?: string;
 };
 
-const Profile = ({ imagePath, alt, title, time, desc }: ProfileProps) => {
+const Profile = ({ imagePath, alt, title, time }: ProfileProps) => {
   return (
     <div css={container}>
       <Avatar imagePath={imagePath} alt={alt} />
       <div>
         <h2 css={titleStyle}>{title}</h2>
-        <div css={textContainer}>
-          {desc && <p>{desc}</p>}
-          <TimeStemp time={time} />
-        </div>
+        <TimeStemp css={textContainer} time={time} />
       </div>
     </div>
   );
@@ -42,15 +37,6 @@ const titleStyle = css`
 `;
 
 const textContainer = css`
-  display: flex;
-  align-items: center;
   margin-top: 0.4rem;
-
-  p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: rgb(47, 126, 230);
-    margin-right: 0.5rem;
-  }
 `;
 export default Profile;

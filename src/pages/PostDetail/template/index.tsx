@@ -1,16 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PostCard from 'components/organisms/PostCard';
-import { imageList } from 'staticData';
 import CommentBox from 'components/atoms/CommentBox';
 import { css } from '@emotion/react';
 import PostDetailComment from 'components/organisms/PostDetailComment';
 import { fontSizes } from 'theme';
+import { useParams } from 'react-router-dom';
+import { getPost } from 'modules/posts/postsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'saga';
+import Error from 'pages/Error';
+import { Skeleton } from '@chakra-ui/react';
+
+type ParamType = {
+  id: string;
+};
 
 const PostDetailTemplate = () => {
+  const { id } = useParams<ParamType>();
+  const postId = parseInt(id, 10);
+  const { loading, data, error } = useSelector(
+    (state: RootState) =>
+      state.posts.post[postId] || { loading: false, data: null, error: null }
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPost(postId));
+  }, [dispatch, postId]);
+
+  if (!data) return null;
+  if (error) return <Error />;
+
   return (
     <section css={container}>
       <div css={postContainer}>
-        <PostCard imgList={imageList} />
+        <Skeleton isLoaded={!loading}>
+          <PostCard
+            title={data.title}
+            content={data.content}
+            characterType={data.characterType}
+            imgList={data.imageUrls}
+            createdDateTime={data.createdDateTime}
+            likeCount={data.likeCount}
+          />
+        </Skeleton>
         <CommentBox>
           <input type="text" placeholder="로그인 후 이용해주세요." />
         </CommentBox>

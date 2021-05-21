@@ -7,14 +7,6 @@ export default {
   title: 'atoms/Avatar',
 };
 
-// 콘 아바타
-export const ConAvatar = () => (
-  <Avatar
-    imagePath="https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144557.png"
-    alt="콘"
-  />
-);
-
 // 라이언 아바타
 export const RyanAvatar = () => (
   <Avatar
@@ -31,6 +23,14 @@ export const ApeachAvatar = () => (
   />
 );
 
+// 네오 아바타
+export const NeoAvatar = () => (
+  <Avatar
+    imagePath="https://t1.kakaocdn.net/friends/new_store/prod/main_tab/feed/npc_20210429165243.png"
+    alt="네오"
+  />
+);
+
 // 무지 아바타
 export const MujiAvatar = () => (
   <Avatar
@@ -39,12 +39,15 @@ export const MujiAvatar = () => (
   />
 );
 
+// 프로도 아바타
+export const ProdAvatar = () => (
+  <Avatar
+    imagePath="https://t1.kakaocdn.net/friends/new_store/prod/main_tab/feed/npc_20210429165335.png"
+    alt="프로도"
+  />
+);
+
 const avatarList = [
-  {
-    imagePath:
-      'https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144557.png',
-    alt: '콘',
-  },
   {
     imagePath:
       'https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144424.png',
@@ -59,6 +62,16 @@ const avatarList = [
     imagePath:
       'https://t1.kakaocdn.net/friends/prod/main_tab/feed/npc_20210303144437.png',
     alt: '무지',
+  },
+  {
+    imagePath:
+      'https://t1.kakaocdn.net/friends/new_store/prod/main_tab/feed/npc_20210429165243.png',
+    alt: '네오',
+  },
+  {
+    imagePath:
+      'https://t1.kakaocdn.net/friends/new_store/prod/main_tab/feed/npc_20210429165335.png',
+    alt: '프로도',
   },
 ];
 

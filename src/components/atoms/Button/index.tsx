@@ -6,18 +6,18 @@ export type ButtonProps = {
   /** 버튼 내용 */
   children: React.ReactNode;
   /** 버튼 border-radius */
-  borderRadius?: string;
+  borderRadius: string;
   /** 버튼 배경색 */
-  bgColor?: string;
+  bgColor: string;
   /** 버튼 글자색 */
-  color?: string;
+  color: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({
   children,
-  borderRadius = 'none',
-  bgColor = colors.pink,
-  color = colors.black,
+  borderRadius,
+  bgColor,
+  color,
   ...restProps
 }: ButtonProps) => {
   return (
@@ -25,6 +25,12 @@ const Button = ({
       {children}
     </button>
   );
+};
+
+Button.defaultProps = {
+  borderRadius: 'none',
+  bgColor: colors.pink,
+  color: colors.black,
 };
 
 const buttonStyle = (

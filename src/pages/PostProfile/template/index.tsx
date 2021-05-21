@@ -21,10 +21,10 @@ const Template = ({ title, imgURL, desc }: TemplateProps) => {
       <Navbar title="프로필" />
       <PostProfileBox title={title} imgURL={imgURL} desc={desc} />
       <div css={postCardContainerStyle}>
+        {/* <PostCard imgList={imageList} />
         <PostCard imgList={imageList} />
         <PostCard imgList={imageList} />
-        <PostCard imgList={imageList} />
-        <PostCard imgList={imageList} />
+        <PostCard imgList={imageList} /> */}
       </div>
     </div>
   );

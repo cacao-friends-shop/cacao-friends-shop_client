@@ -16,6 +16,8 @@ type PostListProps = {
   date: string;
   /** 리스트 댓글수 */
   commentsCount: number;
+  /** 이동할 경로 아이디 */
+  to: number;
 } & React.LiHTMLAttributes<HTMLLIElement>;
 
 const PostList = ({
@@ -24,6 +26,7 @@ const PostList = ({
   writer,
   date,
   commentsCount,
+  to,
   ...restProps
 }: PostListProps) => {
   return (
@@ -31,7 +34,7 @@ const PostList = ({
       <div className="post_info">
         <CheckBox color={colors.adminGray} />
         <div>
-          <Link to="/" className="title">
+          <Link to={`/admin/posts/${to}`} className="title">
             <Title headingNumber={2}>{title}</Title>
           </Link>
           <PostInfo
@@ -57,6 +60,7 @@ const style = css`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid ${colors.adminLightGray};
+  margin-bottom: 0.1rem;
 
   .post_info {
     display: flex;
