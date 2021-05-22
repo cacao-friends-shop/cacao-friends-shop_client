@@ -244,6 +244,7 @@ const container = css`
     font-size: 3.2rem;
   }
 `;
+
 const formStyle = css`
   margin-top: 4rem;
   width: 100%;
@@ -263,7 +264,9 @@ const formStyle = css`
 
   h2 ~ div {
     margin-top: 2rem;
+    padding-left: 10px;
   }
+
   svg {
     position: absolute;
     top: 0;
@@ -271,6 +274,7 @@ const formStyle = css`
     color: #ccc;
     transform: translateY(3px);
   }
+
   input {
     opacity: 0;
     z-index: 1000;
@@ -281,14 +285,15 @@ const formStyle = css`
     display: flex;
     justify-content: space-between;
   }
+
   .all-agreed label {
     color: #333;
     font-size: 1.7rem;
     line-height: 2.2rem;
     font-weight: 700;
     display: inline-block;
-    margin-left: 0.8rem;
   }
+
   .sub-desc {
     padding: 1rem 4rem 2rem 2.8rem;
     border-bottom: 0.1rem solid #e5e5e5;
@@ -297,6 +302,7 @@ const formStyle = css`
     word-break: keep-all;
     line-height: 150%;
   }
+
   input + label {
     margin-left: 0.8rem;
     font-size: 1.4rem;
