@@ -4,6 +4,8 @@ import { colors } from 'theme';
 import CheckBox from 'components/atoms/CheckBox';
 import Title from 'components/atoms/Title';
 import PostInfo from 'components/atoms/PostInfo';
+import DeleteModal from 'components/organisms/DeleteModal';
+import { useDisclosure } from '@chakra-ui/react';
 
 type PostListProps = {
   /** 리스트 제목 */
@@ -29,6 +31,7 @@ const PostList = ({
   to,
   ...restProps
 }: PostListProps) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <li css={style} {...restProps}>
       <div className="post_info">
@@ -48,7 +51,8 @@ const PostList = ({
       </div>
       <div className="post_btn">
         <Link to="/">수정</Link>
-        <Link to="/">삭제</Link>
+        <button onClick={onOpen}>삭제</button>
+        {isOpen && <DeleteModal isOpen={isOpen} onClose={onClose} id={to} />}
       </div>
     </li>
   );
@@ -93,17 +97,23 @@ const style = css`
   }
 
   .post_btn {
-    a {
+    a,
+    button {
       font-size: 1.3rem;
       padding: 0.5rem 1rem;
       border: 1px solid ${colors.adminGray};
     }
 
-    a + a {
+    button {
+      padding: 0.7rem 1rem;
+    }
+
+    a + button {
       margin-left: 0.5rem;
     }
 
-    a:hover {
+    a:hover,
+    button:hover {
       box-shadow: 0 0 5px 1px ${colors.adminGray};
       background-color: ${colors.white};
     }
