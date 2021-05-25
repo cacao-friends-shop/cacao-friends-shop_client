@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from 'react';
 import Profile from 'components/molecules/Profile';
 import Carousel from 'components/organisms/Carousel';
 import Actionbar from 'components/molecules/Actionbar';
@@ -34,6 +35,8 @@ const PostCard = ({
     imgList
   );
 
+  const contentRef = useRef(null);
+
   return (
     <article css={articleStyle}>
       <div>
@@ -62,7 +65,9 @@ const PostCard = ({
         </span>
       </div>
       <h3 css={titleStyle}>{title}</h3>
-      <p css={{ fontSize: '1.4rem' }}>{content}</p>
+      <p css={{ fontSize: '1.4rem' }} ref={contentRef}>
+        {content}
+      </p>
       {children}
     </article>
   );

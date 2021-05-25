@@ -6,63 +6,43 @@ import { css } from '@emotion/react';
 import 'tui-color-picker/dist/tui-color-picker.css';
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import { colors, fontSizes } from 'theme';
-import { Link } from 'react-router-dom';
 import Button from 'components/atoms/Button';
 import PostTitle from 'components/atoms/PostTitle';
-import { Select } from '@chakra-ui/react';
+import { Select, useDisclosure } from '@chakra-ui/react';
+import ConfirmModal from 'components/organisms/ConfirmModal';
 
 export type ContentType = {
   title: string;
   content: string;
   characterType: string;
   createdDateTime: string;
-  imageUrls: string[];
+  imageUrls: string[] | null;
 };
 
 const Templates = () => {
-  const [value, setValue] = useState('');
-  const [desc, setDesc] = useState('');
-  const [content, setContent] = useState<ContentType>({
+  const [data, setData] = useState<ContentType>({
     title: '',
     content: '',
     characterType: '',
-    createdDateTime: '',
-    imageUrls: [],
+    createdDateTime: new Date().toISOString(),
+    imageUrls: null,
   });
-  const editorRef = useRef<Editor>();
-
-  const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setContent((prevState: ContentType) => ({
-      ...prevState,
-      characterType: e.target.value,
-    }));
-  };
-
-  const handleSave = () => {
-    // setContent((prevState: ContentType) => {
-    //   if (editorRef.current)
-    //     return {
-    //       ...prevState,
-    //       content: editorRef.current.getInstance().getHtml(),
-    //     };
-    //   return prevState;
-    // });
-    if (editorRef.current) {
-      setDesc(editorRef.current.getInstance().getHtml());
-    }
-    console.log(desc);
-    setValue('');
-    console.log(content);
-  };
+  const editorRef = useRef<Editor>(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <div css={container}>
-      <PostTitle value={value} setValue={setValue} setContent={setContent} />
+      <PostTitle value={data.title} setData={setData} />
       <Select
         variant="filled"
         size="lg"
         placeholder="캐릭터 타입"
-        onChange={handleOnChange}
+        onChange={e =>
+          setData(prevState => ({
+            ...prevState,
+            characterType: e.target.value,
+          }))
+        }
       >
         <option value="라이언">라이언</option>
         <option value="어피치">어피치</option>
@@ -75,20 +55,47 @@ const Templates = () => {
         height="700px"
         initialEditType="wysiwyg"
         plugins={[colorSyntax]}
-        ref={ref => ref && (editorRef.current = ref)}
+        ref={editorRef}
+        onChange={() => {
+          setData((prevState: ContentType) => {
+            if (editorRef.current) {
+              return {
+                ...prevState,
+                content: editorRef.current.getInstance().getHtml(),
+              };
+            }
+            return prevState;
+          });
+        }}
       />
       <div css={btnContainer}>
         <Button
           borderRadius="20px"
           bgColor={colors.lightGray}
           color={colors.darkGray}
-          css={buttonStyle}
+          css={buttonStyle('cancle')}
         >
           취소
         </Button>
-        <Link to="/" onClick={handleSave} css={linkStyle}>
+        <Button
+          borderRadius="20px"
+          bgColor={colors.black}
+          color={colors.white}
+          onClick={onOpen}
+          css={buttonStyle('confirm')}
+        >
           완료
-        </Link>
+        </Button>
+        {isOpen && (
+          <ConfirmModal
+            title="포스트 등록"
+            content="글을 등록하시겠습니까?"
+            buttonType="등록"
+            isOpen={isOpen}
+            onClose={onClose}
+            data={data}
+          />
+        )}
       </div>
     </div>
   );
@@ -127,28 +134,15 @@ const btnContainer = css`
   }
 `;
 
-const buttonStyle = css`
+const buttonStyle = (type: string) => css`
   padding: 1.7rem 6rem;
   font-size: ${fontSizes.base_16};
   transition: background-color 0.2s ease-in;
+  margin-right: 1.5rem;
 
   &:hover {
-    background-color: ${colors.yellow};
-    color: ${colors.darkGray};
-  }
-`;
-
-const linkStyle = css`
-  display: block;
-  background-color: ${colors.black};
-  color: ${colors.white};
-  padding: 2rem 6rem;
-  border-radius: 20px;
-  text-align: center;
-  transition: background-color 0.2s ease-in;
-
-  &:hover {
-    background-color: ${colors.pink};
+    background-color: ${type === 'cancle' ? colors.yellow : colors.pink};
+    color: ${type === 'cancle' ? colors.darkGray : colors.white};
   }
 `;
 

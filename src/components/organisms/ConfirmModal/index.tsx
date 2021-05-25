@@ -9,21 +9,40 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { css } from '@emotion/react';
-import { deletePost } from 'modules/posts/postsSlice';
+import { addPost, deletePost } from 'modules/posts/postsSlice';
+import { ContentType } from 'pages/AdminEdit/template';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { fontSizes } from 'theme';
 
-type DeleteModalProps = {
+type ConfirmModalProps = {
+  title: string;
+  content: string;
+  buttonType: string;
   id: number;
+  data: ContentType;
   isOpen: boolean;
   onClose: () => void;
 };
 
-const DeleteModal = ({ id, isOpen, onClose }: DeleteModalProps) => {
+const ConfirmModal = ({
+  title,
+  content,
+  buttonType,
+  id,
+  data,
+  isOpen,
+  onClose,
+}: ConfirmModalProps) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleClick = () => {
-    dispatch(deletePost(id));
+    if (buttonType === '삭제') dispatch(deletePost(id));
+    if (buttonType === '등록') {
+      dispatch(addPost(data));
+      setTimeout(() => history.push('/admin/posts'), 300);
+    }
   };
 
   return (
@@ -31,23 +50,28 @@ const DeleteModal = ({ id, isOpen, onClose }: DeleteModalProps) => {
       <ModalOverlay />
       <ModalContent>
         <ModalHeader css={modalTitleStyle}>
-          <h1>포스트 삭제</h1>
+          <h1>{title}</h1>
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody css={modalContentStyle}>
-          <p>해당 포스트를 정말 삭제하시겠습니까?</p>
+          <p>{content}</p>
         </ModalBody>
         <ModalFooter css={modalFooterStyle}>
           <Button colorScheme="blackAlpha" size="lg" mr={5} onClick={onClose}>
             취소
           </Button>
           <Button colorScheme="blue" size="lg" onClick={handleClick}>
-            삭제
+            {buttonType}
           </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
   );
+};
+
+ConfirmModal.defaultProps = {
+  id: 0,
+  data: null,
 };
 
 const modalTitleStyle = css`
@@ -71,4 +95,4 @@ const modalFooterStyle = css`
   }
 `;
 
-export default DeleteModal;
+export default ConfirmModal;

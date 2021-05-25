@@ -4,7 +4,7 @@ import { colors } from 'theme';
 import CheckBox from 'components/atoms/CheckBox';
 import Title from 'components/atoms/Title';
 import PostInfo from 'components/atoms/PostInfo';
-import DeleteModal from 'components/organisms/DeleteModal';
+import ConfirmModal from 'components/organisms/ConfirmModal';
 import { useDisclosure } from '@chakra-ui/react';
 
 type PostListProps = {
@@ -52,7 +52,16 @@ const PostList = ({
       <div className="post_btn">
         <Link to="/">수정</Link>
         <button onClick={onOpen}>삭제</button>
-        {isOpen && <DeleteModal isOpen={isOpen} onClose={onClose} id={to} />}
+        {isOpen && (
+          <ConfirmModal
+            title="포스트 삭제"
+            content="해당 포스트를 정말 삭제하시겠습니까?"
+            buttonType="삭제"
+            isOpen={isOpen}
+            onClose={onClose}
+            id={to}
+          />
+        )}
       </div>
     </li>
   );
