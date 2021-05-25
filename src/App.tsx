@@ -21,6 +21,7 @@ import ProductDetail from 'pages/ProductDetail';
 import OrderDetail from 'pages/OrderDetail';
 import PostDetail from 'pages/PostDetail';
 import Footer from 'components/organisms/Footer';
+import AdminEdit from 'pages/AdminEdit';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/admin/posts" component={AdminList} exact />
         <Route path="/admin/posts/:id" component={PostDetail} />
         <Route path="/admin/newpost" component={AdminWrite} />
+        <Route path="/admin/edit/:id" component={AdminEdit} />
 
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />

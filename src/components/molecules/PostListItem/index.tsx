@@ -41,7 +41,7 @@ const PostList = ({
             <Title headingNumber={2}>{title}</Title>
           </Link>
           <PostInfo
-            likeCount={likeCount}
+            likeCount={likeCount ? likeCount : 0}
             writer={writer}
             date={date}
             commentsCount={commentsCount}
@@ -50,7 +50,7 @@ const PostList = ({
         </div>
       </div>
       <div className="post_btn">
-        <Link to="/">수정</Link>
+        <Link to={`/admin/edit/${to}`}>수정</Link>
         <button onClick={onOpen}>삭제</button>
         {isOpen && (
           <ConfirmModal

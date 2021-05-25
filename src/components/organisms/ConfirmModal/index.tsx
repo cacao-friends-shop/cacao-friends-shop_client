@@ -9,8 +9,9 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { css } from '@emotion/react';
-import { addPost, deletePost } from 'modules/posts/postsSlice';
-import { ContentType } from 'pages/AdminEdit/template';
+import { addPost, deletePost, editPost } from 'modules/posts/postsSlice';
+import { EditPostType } from 'modules/posts/types';
+import { ContentType } from 'pages/AdminWrite/template';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { fontSizes } from 'theme';
@@ -20,7 +21,7 @@ type ConfirmModalProps = {
   content: string;
   buttonType: string;
   id: number;
-  data: ContentType;
+  data: ContentType | EditPostType;
   isOpen: boolean;
   onClose: () => void;
 };
@@ -38,11 +39,16 @@ const ConfirmModal = ({
   const history = useHistory();
 
   const handleClick = () => {
-    if (buttonType === '삭제') dispatch(deletePost(id));
+    if (buttonType === '삭제') return dispatch(deletePost(id));
     if (buttonType === '등록') {
       dispatch(addPost(data));
       setTimeout(() => history.push('/admin/posts'), 300);
     }
+    if ('id' in data && buttonType === '수정') {
+      dispatch(editPost(data));
+      setTimeout(() => history.push('/admin/posts'), 300);
+    }
+    if (buttonType === '나가기') history.push('/admin/posts');
   };
 
   return (

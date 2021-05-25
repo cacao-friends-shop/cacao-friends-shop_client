@@ -1,4 +1,4 @@
-import { ContentType } from 'pages/AdminEdit/template';
+import { ContentType } from 'pages/AdminWrite/template';
 import { useState } from 'react';
 import PostTitle from '.';
 

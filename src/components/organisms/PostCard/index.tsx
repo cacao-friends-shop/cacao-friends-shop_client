@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from 'react';
 import Profile from 'components/molecules/Profile';
 import Carousel from 'components/organisms/Carousel';
 import Actionbar from 'components/molecules/Actionbar';
@@ -35,7 +34,9 @@ const PostCard = ({
     imgList
   );
 
-  const contentRef = useRef(null);
+  const createMarkup = () => {
+    return { __html: content };
+  };
 
   return (
     <article css={articleStyle}>
@@ -61,13 +62,14 @@ const PostCard = ({
       </div>
       <div>
         <span css={{ fontSize: '1.3rem' }}>
-          좋아요 <span css={likeCountStyle}>{likeCount}개</span>
+          좋아요 <span css={likeCountStyle}>{likeCount ? likeCount : 0}개</span>
         </span>
       </div>
       <h3 css={titleStyle}>{title}</h3>
-      <p css={{ fontSize: '1.4rem' }} ref={contentRef}>
-        {content}
-      </p>
+      <p
+        css={{ fontSize: '1.4rem' }}
+        dangerouslySetInnerHTML={createMarkup()}
+      ></p>
       {children}
     </article>
   );
