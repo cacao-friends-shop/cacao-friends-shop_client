@@ -9,7 +9,7 @@ import { getPost } from 'modules/posts/postsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'modules';
 import Error from 'pages/Error';
-import { Skeleton } from '@chakra-ui/react';
+import { Skeleton, Spinner } from '@chakra-ui/react';
 
 type ParamType = {
   id: string;
@@ -28,7 +28,18 @@ const PostDetailTemplate = () => {
     dispatch(getPost(postId));
   }, [dispatch, postId]);
 
-  if (!data) return <Error />;
+  if (!data)
+    return (
+      <div css={spinnerStyle}>
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </div>
+    );
   if (error) return <Error />;
 
   return (
@@ -64,6 +75,17 @@ const PostDetailTemplate = () => {
     </section>
   );
 };
+
+const spinnerStyle = css`
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30rem 0;
+
+  div {
+    padding: 5rem;
+  }
+`;
 
 const container = css`
   max-width: 64rem;

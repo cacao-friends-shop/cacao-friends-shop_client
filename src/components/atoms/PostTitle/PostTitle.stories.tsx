@@ -1,4 +1,4 @@
-import { ContentType } from 'pages/AdminEdit/template';
+import { ContentType } from 'pages/AdminWrite/template';
 import { useState } from 'react';
 import PostTitle from '.';
 
@@ -9,15 +9,12 @@ export default {
 
 // 기본 포스트 타이틀
 export const PostTitleBlock = () => {
-  const [value, setValue] = useState('');
-  const [, setContent] = useState<ContentType>({
+  const [data, setData] = useState<ContentType>({
     title: '',
     content: '',
     characterType: '',
-    createdDateTime: '',
-    imageUrls: [],
+    createdDateTime: new Date().toISOString(),
+    imageUrls: null,
   });
-  return (
-    <PostTitle value={value} setValue={setValue} setContent={setContent} />
-  );
+  return <PostTitle value={data.title} setData={setData} />;
 };

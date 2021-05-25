@@ -34,6 +34,10 @@ const PostCard = ({
     imgList
   );
 
+  const createMarkup = () => {
+    return { __html: content };
+  };
+
   return (
     <article css={articleStyle}>
       <div>
@@ -58,11 +62,14 @@ const PostCard = ({
       </div>
       <div>
         <span css={{ fontSize: '1.3rem' }}>
-          좋아요 <span css={likeCountStyle}>{likeCount}개</span>
+          좋아요 <span css={likeCountStyle}>{likeCount ? likeCount : 0}개</span>
         </span>
       </div>
       <h3 css={titleStyle}>{title}</h3>
-      <p css={{ fontSize: '1.4rem' }}>{content}</p>
+      <p
+        css={{ fontSize: '1.4rem' }}
+        dangerouslySetInnerHTML={createMarkup()}
+      ></p>
       {children}
     </article>
   );

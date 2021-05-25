@@ -1,37 +1,34 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import 'codemirror/lib/codemirror.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
-import PostTitle from 'components/atoms/PostTitle';
-import { ContentType } from 'pages/AdminWrite/template';
-import { useEffect, useRef, useState } from 'react';
-import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
-import Button from 'components/atoms/Button';
-import { colors, fontSizes } from 'theme';
-import ConfirmModal from 'components/organisms/ConfirmModal';
-import { useDisclosure, Select } from '@chakra-ui/react';
 import { css } from '@emotion/react';
-import { EditPostType } from 'modules/posts/types';
+import 'tui-color-picker/dist/tui-color-picker.css';
+import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
+import { colors, fontSizes } from 'theme';
+import Button from 'components/atoms/Button';
+import PostTitle from 'components/atoms/PostTitle';
+import { Select, useDisclosure } from '@chakra-ui/react';
+import ConfirmModal from 'components/organisms/ConfirmModal';
 
-type TemplateType = {
-  id: number;
-  content: EditPostType;
+export type ContentType = {
+  title: string;
+  content: string;
+  characterType: string;
+  createdDateTime: string;
+  imageUrls: string[] | null;
 };
 
-const Template = ({ id, content }: TemplateType) => {
-  const [data, setData] = useState<EditPostType | ContentType>({
-    id,
+const Templates = () => {
+  const [data, setData] = useState<ContentType>({
     title: '',
     content: '',
     characterType: '',
-    createdDateTime: new Date().toISOString().slice(0, 15),
+    createdDateTime: new Date().toISOString().slice(0, 10),
     imageUrls: null,
   });
-  const [btnType, setBtnType] = useState('');
   const editorRef = useRef<Editor>(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  useEffect(() => {
-    setData(content);
-  }, [content]);
 
   return (
     <div css={container}>
@@ -46,7 +43,6 @@ const Template = ({ id, content }: TemplateType) => {
             characterType: e.target.value,
           }))
         }
-        value={data.characterType}
       >
         <option value="라이언">라이언</option>
         <option value="어피치">어피치</option>
@@ -60,9 +56,8 @@ const Template = ({ id, content }: TemplateType) => {
         initialEditType="wysiwyg"
         plugins={[colorSyntax]}
         ref={editorRef}
-        initialValue={content.content}
         onChange={() => {
-          setData((prevState: EditPostType | ContentType) => {
+          setData((prevState: ContentType) => {
             if (editorRef.current) {
               return {
                 ...prevState,
@@ -72,6 +67,14 @@ const Template = ({ id, content }: TemplateType) => {
             return prevState;
           });
         }}
+
+        // hooks={{
+        //   addImageBlobHook: async (blob, callback) => {
+        //     try {
+        //       const { src, alt } = await uploadImage(blob);
+        //     } catch (e) {}
+        //   },
+        // }}
       />
       <div css={btnContainer}>
         <Button
@@ -79,10 +82,6 @@ const Template = ({ id, content }: TemplateType) => {
           bgColor={colors.lightGray}
           color={colors.darkGray}
           css={buttonStyle('cancle')}
-          onClick={() => {
-            setBtnType('cancle');
-            onOpen();
-          }}
         >
           취소
         </Button>
@@ -90,27 +89,16 @@ const Template = ({ id, content }: TemplateType) => {
           borderRadius="20px"
           bgColor={colors.black}
           color={colors.white}
-          onClick={() => {
-            setBtnType('confirm');
-            onOpen();
-          }}
+          onClick={onOpen}
           css={buttonStyle('confirm')}
         >
-          수정
+          완료
         </Button>
         {isOpen && (
           <ConfirmModal
-            title={
-              btnType === 'confirm'
-                ? '포스트 수정'
-                : '사이트에서 나가시겠습니까?'
-            }
-            content={
-              btnType === 'confirm'
-                ? '글을 수정하시겠습니까?'
-                : '변경사항이 저장되지 않을 수 있습니다.'
-            }
-            buttonType={btnType === 'confirm' ? '수정' : '나가기'}
+            title="포스트 등록"
+            content="글을 등록하시겠습니까?"
+            buttonType="등록"
             isOpen={isOpen}
             onClose={onClose}
             data={data}
@@ -166,4 +154,4 @@ const buttonStyle = (type: string) => css`
   }
 `;
 
-export default Template;
+export default Templates;
