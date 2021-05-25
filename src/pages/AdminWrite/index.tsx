@@ -1,7 +1,7 @@
 import Template from './template';
 
-const AdminEdit = () => {
+const AdminWrite = () => {
   return <Template />;
 };
 
-export default AdminEdit;
+export default AdminWrite;

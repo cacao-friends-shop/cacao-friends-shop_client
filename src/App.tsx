@@ -16,7 +16,7 @@ import Header from 'components/organisms/Header';
 import PageNotFound from 'pages/PageNotFound';
 import CharacterProducts from 'pages/CharacterProducts';
 import AdminList from 'pages/AdminList';
-import AdminEdit from 'pages/AdminEdit';
+import AdminWrite from 'pages/AdminWrite';
 import ProductDetail from 'pages/ProductDetail';
 import OrderDetail from 'pages/OrderDetail';
 import PostDetail from 'pages/PostDetail';
@@ -41,8 +41,8 @@ function App() {
 
         <Route path="/admin/posts" component={AdminList} exact />
         <Route path="/admin/posts/:id" component={PostDetail} />
-        <Route path="/admin/newpost" component={AdminEdit} />
-        
+        <Route path="/admin/newpost" component={AdminWrite} />
+
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/agreement" component={Agreement} />
