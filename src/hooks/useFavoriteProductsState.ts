@@ -1,6 +1,8 @@
 import { Products } from 'types/Product';
 
 const useFavoriteProductsState = (products: Products) => {
+  const copy = JSON.parse(JSON.stringify(products));
+
   const favoriteProductsDivider = (products: Products): Products[] => {
     let answer: Products[] = [];
     let count = 0;
@@ -13,7 +15,7 @@ const useFavoriteProductsState = (products: Products) => {
     return answer;
   };
 
-  return favoriteProductsDivider(products);
+  return favoriteProductsDivider(copy);
 };
 
 export default useFavoriteProductsState;

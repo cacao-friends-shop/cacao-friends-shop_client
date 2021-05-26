@@ -15,10 +15,10 @@ import React from 'react';
 import { debounce } from 'utils/debounce';
 
 const ProductImageCardListGroup = (products: Products, i: number) => [
-  <ProductImageCardList key={products[i].id} products={products} />,
-  <ProductImageCardListType3 key={products[i].id} products={products} />,
-  <ProductImageCardListType2 key={products[i].id} products={products} />,
-  <ProductImageCardListType3 key={products[i].id} products={products} />,
+  <ProductImageCardList key={products[0].id} products={products} />,
+  <ProductImageCardListType3 key={products[0].id} products={products} />,
+  <ProductImageCardListType2 key={products[0].id} products={products} />,
+  <ProductImageCardListType3 key={products[0].id} products={products} />,
 ];
 
 const FavoriteProductsTemplate = () => {
@@ -29,6 +29,7 @@ const FavoriteProductsTemplate = () => {
   const favoriteProductsState = useFavoriteProductsState(
     favoriteData ? favoriteData.content : []
   );
+
   const pageRef = useRef(2);
   const dispatch = useDispatch();
 
@@ -61,14 +62,11 @@ const FavoriteProductsTemplate = () => {
   });
 
   if (!favoriteData?.content) return null;
-  console.log(favoriteProductsState);
   return (
     <>
       <TabComp />
       <div css={{ maxWidth: '64rem', margin: '0 auto' }}>
         {favoriteProductsState.map((products: Products, i: number) => {
-          console.log(ProductImageCardListGroup(products, i)[0]);
-          console.log(<TabComp />);
           return ProductImageCardListGroup(products, i)[i % 4];
         })}
       </div>

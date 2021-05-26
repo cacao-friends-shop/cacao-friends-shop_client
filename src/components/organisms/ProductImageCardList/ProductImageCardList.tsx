@@ -9,7 +9,6 @@ type ProductImageCardListProps = {
 };
 
 const ProductImageCardList = ({ products }: ProductImageCardListProps) => {
-  console.log(products);
   return (
     <Grid
       marginBottom={2}
