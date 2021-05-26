@@ -1,8 +1,8 @@
-import AdminEdit from './index';
+import AdminEdit from '.';
 
 export default {
-  component: AdminEdit,
   title: 'pages/AdminEdit',
+  component: AdminEdit,
 };
 
 export const adminEdit = () => <AdminEdit />;

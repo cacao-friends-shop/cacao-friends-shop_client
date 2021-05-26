@@ -8,10 +8,15 @@ import { avatarImgUrl } from 'staticData';
 type PostCardProps = {
   /** 캐러셀에 들어갈 이미지 경로 배열 */
   imgList: string[];
+  /** 포스트 제목 */
   title: string;
+  /** 포스트 내용 */
   content: string;
+  /** 포스트 캐릭터 타입 */
   characterType: string;
+  /** 포스트 날짜 */
   createdDateTime: string;
+  /** 포스트 좋아요 갯수 */
   likeCount: number;
   children?: React.ReactNode;
 };
@@ -28,6 +33,10 @@ const PostCard = ({
   const { currentIdx, direction, handleNext, handlePrev } = useCarouselState(
     imgList
   );
+
+  const createMarkup = () => {
+    return { __html: content };
+  };
 
   return (
     <article css={articleStyle}>
@@ -53,11 +62,14 @@ const PostCard = ({
       </div>
       <div>
         <span css={{ fontSize: '1.3rem' }}>
-          좋아요 <span css={likeCountStyle}>{likeCount}개</span>
+          좋아요 <span css={likeCountStyle}>{likeCount ? likeCount : 0}개</span>
         </span>
       </div>
       <h3 css={titleStyle}>{title}</h3>
-      <p css={{ fontSize: '1.4rem' }}>{content}</p>
+      <p
+        css={{ fontSize: '1.4rem' }}
+        dangerouslySetInnerHTML={createMarkup()}
+      ></p>
       {children}
     </article>
   );

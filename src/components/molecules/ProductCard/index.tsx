@@ -3,7 +3,7 @@ import { addCart } from 'modules/cart/actions';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 import IconButton from '../IconButton';
 
 type ProductCardProps = {

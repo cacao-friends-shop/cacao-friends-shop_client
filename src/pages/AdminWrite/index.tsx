@@ -1,7 +1,7 @@
 import Template from './template';
 
-const NewProduct = () => {
+const AdminWrite = () => {
   return <Template />;
 };
 
-export default NewProduct;
+export default AdminWrite;

@@ -7,10 +7,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 //redux
 import { Provider } from 'react-redux';
-import { rootSaga } from 'saga';
+import { rootSaga } from 'modules';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-import rootReducers from 'saga';
+import rootReducers from 'modules';
 import { configureStore } from '@reduxjs/toolkit';
 
 const sagaMiddleware = createSagaMiddleware();

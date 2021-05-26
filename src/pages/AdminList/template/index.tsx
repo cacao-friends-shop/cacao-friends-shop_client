@@ -6,11 +6,12 @@ import Pagination from 'components/molecules/Pagination';
 import ControlBar from 'components/organisms/ControlBar';
 import PostList from 'components/organisms/PostList';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 import { useEffect } from 'react';
 import { getPosts } from 'modules/posts/postsSlice';
 import { PostsType } from 'modules/posts/types';
 import Error from 'pages/Error';
+import { Skeleton } from '@chakra-ui/react';
 
 type TemplateProps = {
   contents: Array<PostsType>;
@@ -31,24 +32,26 @@ const Template = ({ contents }: TemplateProps) => {
 
   return (
     <div css={container}>
-      <div css={headerStyle}>
-        <PostListTitle title="글 관리" count={contents.length} />
-        <IconLink
-          type="rightIcon"
-          to="/admin/newpost"
-          iconName="pencil"
-          iconSize={12}
-          bgColor={colors.white}
-          css={linkStyle}
-        >
-          글쓰기
-        </IconLink>
-      </div>
-      <div>
-        <ControlBar />
-        <PostList contents={data} loading={loading} />
-      </div>
-      <Pagination contentsLength={contents.length} />
+      <Skeleton isLoaded={!loading}>
+        <div css={headerStyle}>
+          <PostListTitle title="글 관리" count={contents.length} />
+          <IconLink
+            type="rightIcon"
+            to="/admin/newpost"
+            iconName="pencil"
+            iconSize={12}
+            bgColor={colors.white}
+            css={linkStyle}
+          >
+            글쓰기
+          </IconLink>
+        </div>
+        <div>
+          <ControlBar />
+          <PostList contents={data} loading={loading} />
+        </div>
+        <Pagination contentsLength={contents.length} />
+      </Skeleton>
     </div>
   );
 };
