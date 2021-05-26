@@ -12,9 +12,9 @@ import favoriteReducer from 'modules/favorite/reducer';
 
 export function* rootSaga() {
   yield all([
+    favoriteProductsSaga(),
     userSaga(),
     productSaga(),
-    favoriteProductsSaga(),
     cartsSaga(),
     postsSaga(),
   ]);

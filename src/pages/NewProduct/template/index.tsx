@@ -10,10 +10,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'modules';
 import { imageList } from 'staticData';
 
-type NewProductTemplateProps = {
-  // products: ProductsState;
-};
-
 const NewProductTemplate = () => {
   const { ryan, neo, muzi, prodo, apitch } = useSelector(
     (state: RootState) => state.product.products

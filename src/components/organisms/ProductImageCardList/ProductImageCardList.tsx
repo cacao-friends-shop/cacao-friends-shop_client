@@ -1,13 +1,15 @@
 import { Grid, GridItem } from '@chakra-ui/layout';
 import ProductImageCard from 'components/molecules/ProductImageCard';
 import React from 'react';
+import { Products } from 'types/Product';
 
 type ProductImageCardListProps = {
   /** 이미지 리스트 */
-  imgList: string[];
+  products: Products;
 };
 
-const ProductImageCardList = ({ imgList }: ProductImageCardListProps) => {
+const ProductImageCardList = ({ products }: ProductImageCardListProps) => {
+  console.log(products);
   return (
     <Grid
       marginBottom={2}
@@ -16,9 +18,13 @@ const ProductImageCardList = ({ imgList }: ProductImageCardListProps) => {
       maxWidth="64rem"
       gap={2}
     >
-      {imgList.map((img, i) => (
-        <GridItem key={i} rowSpan={i === 0 ? 2 : 1} colSpan={i === 0 ? 2 : 1}>
-          <ProductImageCard img={img} />
+      {products.map((product, i) => (
+        <GridItem
+          key={product.id}
+          rowSpan={i === 0 ? 2 : 1}
+          colSpan={i === 0 ? 2 : 1}
+        >
+          <ProductImageCard img={product.thumbnailImageUrl} to={product.id} />
         </GridItem>
       ))}
     </Grid>
