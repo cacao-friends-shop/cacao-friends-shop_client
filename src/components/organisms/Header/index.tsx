@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
@@ -17,7 +17,7 @@ import { RootState } from 'modules';
 const Header = () => {
   const [isShow, setIsShow] = useState(false);
   const [isSearchShown, setIsSearchShown] = useState(false);
-  const [userInfo, setUserInfo] = useState(() =>
+  const [userInfo] = useState(() =>
     JSON.parse(localStorage.getItem('userInfo') || '{}')
   );
   const user = useSelector((state: RootState) => state.user);

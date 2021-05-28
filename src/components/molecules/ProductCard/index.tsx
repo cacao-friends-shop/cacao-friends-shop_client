@@ -1,9 +1,6 @@
 import { css } from '@emotion/react';
-import { addCart } from 'modules/cart/actions';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from 'modules';
 import IconButton from '../IconButton';
 
 type ProductCardProps = {
@@ -14,17 +11,6 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({ id, imgPath, title, price }: ProductCardProps) => {
-  const { data: products } = useSelector(
-    (state: RootState) => state.product.products
-  );
-  const dispatch = useDispatch();
-  // const handleAddCart = (id: number) => {
-  //   const cartProduct = products?.data.content?.find(product => product.id === id);
-  //   if (cartProduct) {
-  //     dispatch(addCart(cartProduct, id));
-  //   }
-  // };
-
   return (
     <li css={container}>
       <Link to={`/product/${id}`}>
@@ -45,13 +31,7 @@ const ProductCard = ({ id, imgPath, title, price }: ProductCardProps) => {
         </span>
       </Link>
       <div css={buttonConainer}>
-        <IconButton
-          name="basket"
-          size={25}
-          fgColor="#aaa"
-          title="담기"
-          //onClick={() => handleAddCart(id)}
-        />
+        <IconButton name="basket" size={25} fgColor="#aaa" title="담기" />
       </div>
     </li>
   );

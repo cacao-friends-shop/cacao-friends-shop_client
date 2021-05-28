@@ -1,6 +1,6 @@
 import * as productsApi from 'apis/products';
-import { Product, ProductData, Products } from '../../types/Product';
-import { put, call, takeEvery, takeLatest } from 'redux-saga/effects';
+import { Product, ProductData } from '../../types/Product';
+import { put, call, takeEvery } from 'redux-saga/effects';
 import {
   GET_PRODUCT,
   GET_PRODUCTS,
@@ -30,21 +30,7 @@ function* getProductSaga(action: ReturnType<typeof productAsync.request>) {
   }
 }
 
-// function* getNextPageSaga(
-//   action: ReturnType<typeof loadMoreProductAsync.request>
-// ) {
-//   const page = action.payload;
-//   try {
-//     const contents: Products = yield call(productsApi.getNextPage, page);
-
-//     yield put(loadMoreProductAsync.success(contents));
-//   } catch (e) {
-//     yield put(loadMoreProductAsync.failure(e));
-//   }
-// }
-
 export default function* productSaga() {
   yield takeEvery(GET_PRODUCTS, getProductsSaga);
   yield takeEvery(GET_PRODUCT, getProductSaga);
-  //yield takeLatest(LOAD_MORE_PRODUCTS, getNextPageSaga);
 }

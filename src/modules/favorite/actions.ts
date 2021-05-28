@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { ProductData } from 'types/Product';
+import { ProductData, Products } from 'types/Product';
 import { createAsyncAction } from 'typesafe-actions';
 
 export const FAVORITE_PRODUCTS = 'favorite/FAVORITE_PRODUCTS';
@@ -20,4 +20,4 @@ export const loadMoreProductAsync = createAsyncAction(
   LOAD_MORE_PRODUCTS,
   LOAD_MORE_PRODUCTS_SUCCESS,
   LOAD_MORE_PRODUCTS_ERROR
-)<number, ProductData, AxiosError>();
+)<number, Products, AxiosError>();

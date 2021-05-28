@@ -16,5 +16,5 @@ const imageList = [
 
 // 기본 포스트 카드
 export const DefaultProductImageCardListType3 = () => (
-  <ProductImageCardListType3 imgList={imageList} />
+  <ProductImageCardListType3 products={[]} />
 );
