@@ -4,7 +4,12 @@ import ProductListItem from '../ProductListItem';
 
 const OrderListItem = () => {
   return (
-    <ProductListItem css={container} title="내마음을 받아라이언" price={30000}>
+    <ProductListItem
+      imgPath=""
+      css={container}
+      title="내마음을 받아라이언"
+      price={30000}
+    >
       <input type="number" />
     </ProductListItem>
   );

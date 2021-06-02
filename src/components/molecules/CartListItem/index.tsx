@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductListItem from 'components/molecules/ProductListItem';
 import { css } from '@emotion/react';
 import CircleCheckbox from '../CircleCheckbox';
@@ -9,12 +9,23 @@ type CartListItemProps = {
   title: string;
   /** 상품 가격 */
   price: number;
+  imgPath: string;
+  amount: number;
 };
 
-const CartListItem = ({ title, price }: CartListItemProps) => {
+const CartListItem = ({ title, price, imgPath, amount }: CartListItemProps) => {
+  const [value, setValue] = useState(amount);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setValue(+e.target.value);
   return (
-    <ProductListItem css={container} title={title} price={price}>
-      <input type="number" />
+    <ProductListItem
+      imgPath={imgPath}
+      css={container}
+      title={title}
+      price={price}
+    >
+      <input type="number" value={value} onChange={handleChange} />
       <CircleCheckbox />
     </ProductListItem>
   );

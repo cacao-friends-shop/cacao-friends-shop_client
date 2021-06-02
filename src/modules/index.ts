@@ -6,16 +6,17 @@ import productSaga from 'modules/Product/saga';
 import productsReducer from './Product/reducer';
 import postsReducer from 'modules/posts/postsSlice';
 import { postsSaga } from 'modules/posts/sagas';
-import cartsReducer, { cartsSaga } from 'modules/cart/actions';
 import favoriteProductsSaga from 'modules/favorite/saga';
 import favoriteReducer from 'modules/favorite/reducer';
+import cartsReducer from 'modules/carts/cartsSlice';
+import cartsSaga from './carts/saga';
 
 export function* rootSaga() {
   yield all([
     favoriteProductsSaga(),
+    cartsSaga(),
     userSaga(),
     productSaga(),
-    cartsSaga(),
     postsSaga(),
   ]);
 }

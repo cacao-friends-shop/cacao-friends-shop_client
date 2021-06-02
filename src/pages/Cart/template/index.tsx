@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { css } from '@emotion/react';
 import Button from 'components/atoms/Button';
 import CartListDeletebar from 'components/molecules/CartListDeletebar';
@@ -7,18 +7,38 @@ import CartList from 'components/organisms/CartList';
 import { fontSizes } from 'theme';
 import TabComp from 'components/molecules/TabComp';
 import MyTab from 'components/molecules/MyTab';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'modules';
+import { getCarts } from 'modules/carts/cartsSlice';
 
 const CartTemplate = () => {
+  const { data: cartProducts } = useSelector((state: RootState) => state.carts);
+  const dispatch = useDispatch();
+
+  const totalPrice = useMemo(
+    () =>
+      cartProducts?.reduce(
+        (acc, cur) => acc + +cur.product.price.replace(/,/, ''),
+        0
+      ),
+    [cartProducts]
+  );
+
+  useEffect(() => {
+    dispatch(getCarts());
+  }, [dispatch]);
+
+  if (!cartProducts) return null;
   return (
     <>
       <TabComp />
       <MyTab />
       <div css={container}>
-        <CartListDeletebar />
-        <CartList />
-        <PriceInfo totalPrice={66000} />
+        <CartListDeletebar cartProductsCount={cartProducts.length} />
+        <CartList cartProducts={cartProducts} />
+        <PriceInfo totalPrice={totalPrice as number} />
       </div>
-      <Button css={buttonStyle}>66000원 주문 하기</Button>
+      <Button css={buttonStyle}>{totalPrice}원 주문 하기</Button>
     </>
   );
 };

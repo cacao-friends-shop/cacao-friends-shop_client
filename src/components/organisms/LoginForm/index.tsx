@@ -27,7 +27,7 @@ const LoginForm = () => {
     setTimeout(() => {
       setErrorMessage('');
     }, 1000);
-  }, [userState]);
+  }, [userState, history]);
   return (
     <section css={container}>
       <article css={loginFormContainer}>

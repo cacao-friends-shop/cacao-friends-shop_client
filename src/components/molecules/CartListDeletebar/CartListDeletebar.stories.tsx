@@ -6,4 +6,6 @@ export default {
 };
 
 // 기본 타임스템프
-export const DefaultCartListDeletebar = () => <CartListDeletebar />;
+export const DefaultCartListDeletebar = () => (
+  <CartListDeletebar cartProductsCount={2} />
+);

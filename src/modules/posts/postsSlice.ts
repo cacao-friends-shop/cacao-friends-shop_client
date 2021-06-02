@@ -58,27 +58,39 @@ const postsSlice = createSlice({
 
     // id별 조회
     getPost(state: PostsState, action: PayloadAction<number>) {
-      state.post = {
-        ...state.post,
-        [action.payload]: {
-          loading: true,
-          data: state.post[action.payload]
-            ? state.post[action.payload].data
-            : null,
-          error: null,
-        },
+      state.post[action.payload] = {
+        loading: true,
+        data: state.post[action.payload]
+          ? state.post[action.payload].data
+          : null,
+        error: null,
       };
+      //{
+      //   ...state.post,
+      //   [action.payload]: {
+      //     loading: true,
+      //     data: state.post[action.payload]
+      //       ? state.post[action.payload].data
+      //       : null,
+      //     error: null,
+      //   },
+      // };
     },
     getPostSuccess(state: PostsState, action: PayloadAction<PostType>) {
-      state.post = {
-        ...state.post,
-        [action.payload.id]: {
-          loading: false,
-          data: action.payload,
-          error: null,
-        },
+      state.post[action.payload.id] = {
+        loading: false,
+        data: action.payload,
+        error: null,
       };
     },
+    // {
+    //   ...state.post,
+    //   [action.payload.id]: {
+    //     loading: false,
+    //     data: action.payload,
+    //     error: null,
+    //   },
+    // };
     getPostError(
       state: PostsState,
       action: PayloadAction<{ error: AxiosError; meta: number }>

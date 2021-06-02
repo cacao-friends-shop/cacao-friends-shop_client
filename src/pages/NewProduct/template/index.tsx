@@ -14,6 +14,7 @@ const NewProductTemplate = () => {
   const { ryan, neo, muzi, prodo, apitch } = useSelector(
     (state: RootState) => state.product.products
   );
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(productsAsync.request('네오', 'neo'));
