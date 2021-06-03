@@ -9,6 +9,7 @@ const OrderDetailListItem = () => {
     <li css={container}>
       <TimeStemp css={timeStempStyle} time="2021-05-07 16:07" />
       <ProductListItem
+        imgPath=""
         tag="div"
         css={itemStyle}
         title="내 마음을 받아라이언"

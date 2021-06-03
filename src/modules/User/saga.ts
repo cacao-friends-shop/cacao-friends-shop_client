@@ -15,7 +15,6 @@ import {
   LoginSuccessInfo,
   LoginAction,
   SignupAction,
-  SignupSuccessInfo,
   LogoutAction,
 } from 'types/User';
 

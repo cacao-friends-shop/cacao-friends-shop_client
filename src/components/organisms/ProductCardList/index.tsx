@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProductCard from 'components/molecules/ProductCard';
 import { Grid } from '@chakra-ui/layout';
 import Button from 'components/atoms/Button';
 import { css } from '@emotion/react';
 import { colors, fontSizes } from 'theme';
 import { Product } from 'types/Product';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'modules';
+import { getCarts } from 'modules/carts/cartsSlice';
 
 type ProductCardListProps = {
   characterName: string;
@@ -12,20 +15,22 @@ type ProductCardListProps = {
 };
 
 const ProductCardList = ({ characterName, products }: ProductCardListProps) => {
+  const { data: cartProducts } = useSelector((state: RootState) => state.carts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCarts());
+  }, [dispatch]);
+
   return (
     <>
       <h2 css={{ marginBottom: '2rem', fontSize: '2.5rem' }}>
         {characterName}
       </h2>
-      <Grid
-        as="ul"
-        templateColumns="repeat(2, 1fr)"
-        gap={20}
-        rowGap={60}
-        maxWidth="64rem"
-      >
+      <Grid as="ul" templateColumns="repeat(2, 1fr)" gap={20} maxWidth="64rem">
         {products?.map(({ id, title, price, thumbnailImageUrl }: Product) => (
           <ProductCard
+            cartProducts={cartProducts}
             key={id}
             id={id}
             title={title}

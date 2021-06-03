@@ -4,11 +4,15 @@ import CircleCheckbox from '../CircleCheckbox/index';
 import { css } from '@emotion/react';
 import { fontSizes } from 'theme';
 
-const CartListDeletebar = () => {
+type CartListDeletebarProps = {
+  cartProductsCount: number;
+};
+
+const CartListDeletebar = ({ cartProductsCount }: CartListDeletebarProps) => {
   return (
-    <DeletebarBase deleteMsg="2개 선택">
+    <DeletebarBase deleteMsg={`${cartProductsCount}개 선택`}>
       <CircleCheckbox css={circleCheckboxStyle}>
-        <span>전체 2</span>
+        <span>전체 {cartProductsCount}</span>
       </CircleCheckbox>
     </DeletebarBase>
   );

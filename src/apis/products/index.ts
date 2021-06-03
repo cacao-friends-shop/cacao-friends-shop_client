@@ -2,7 +2,6 @@ import axios from 'axios';
 import { Product, ProductData } from 'types/Product';
 
 export const getProducts = async (characterName: string) => {
-  console.log(characterName);
   const { data: products } = await axios.get<ProductData>(
     `/products?page=0&characterType=${characterName}`
   );

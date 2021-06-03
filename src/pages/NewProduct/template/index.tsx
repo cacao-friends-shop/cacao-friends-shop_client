@@ -14,14 +14,9 @@ const NewProductTemplate = () => {
   const { ryan, neo, muzi, prodo, apitch } = useSelector(
     (state: RootState) => state.product.products
   );
+
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(productsAsync.request('네오', 'neo'));
-    dispatch(productsAsync.request('라이언', 'ryan'));
-    dispatch(productsAsync.request('무지', 'muzi'));
-    dispatch(productsAsync.request('어피치', 'apitch'));
-    dispatch(productsAsync.request('프로도', 'prodo'));
-  }, [dispatch]);
+
   const {
     currentIdx,
     direction,
@@ -30,6 +25,13 @@ const NewProductTemplate = () => {
     imgList,
   } = useCarouselState(imageList);
 
+  useEffect(() => {
+    dispatch(productsAsync.request('네오', 'neo'));
+    dispatch(productsAsync.request('라이언', 'ryan'));
+    dispatch(productsAsync.request('무지', 'muzi'));
+    dispatch(productsAsync.request('어피치', 'apitch'));
+    dispatch(productsAsync.request('프로도', 'prodo'));
+  }, [dispatch]);
   return (
     <>
       <TabComp />

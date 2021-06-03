@@ -1,6 +1,9 @@
 import { css } from '@emotion/react';
-import React from 'react';
+import { addCarts } from 'modules/carts/cartsSlice';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Carts } from 'types/Carts';
 import IconButton from '../IconButton';
 
 type ProductCardProps = {
@@ -8,9 +11,26 @@ type ProductCardProps = {
   imgPath: string;
   title: string;
   price: string;
+  cartProducts: Carts[] | null;
 };
 
-const ProductCard = ({ id, imgPath, title, price }: ProductCardProps) => {
+const ProductCard = ({
+  id,
+  imgPath,
+  title,
+  price,
+  cartProducts,
+}: ProductCardProps) => {
+  const isInTheCart =
+    cartProducts &&
+    cartProducts.find(cartProducts => cartProducts.product.id === id);
+
+  const dispatch = useDispatch();
+
+  const handleAddCarts = useCallback(() => {
+    dispatch(addCarts({ id }));
+  }, [dispatch, id]);
+
   return (
     <li css={container}>
       <Link to={`/product/${id}`}>
@@ -31,7 +51,14 @@ const ProductCard = ({ id, imgPath, title, price }: ProductCardProps) => {
         </span>
       </Link>
       <div css={buttonConainer}>
-        <IconButton name="basket" size={25} fgColor="#aaa" title="담기" />
+        <IconButton
+          disabled={!!isInTheCart}
+          name={isInTheCart ? 'fillbasket' : 'basket'}
+          size={25}
+          fgColor={isInTheCart ? 'red' : '#aaa'}
+          title="담기"
+          onClick={handleAddCarts}
+        />
       </div>
     </li>
   );

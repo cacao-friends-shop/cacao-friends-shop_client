@@ -7,5 +7,5 @@ export default {
 
 // 기본 타임스템프
 export const DefaultProductCard = () => (
-  <ProductCard title="1" price="1" imgPath="1" id={1} />
+  <ProductCard title="1" price="1" imgPath="1" id={1} cartProducts={[]} />
 );

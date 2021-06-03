@@ -50,6 +50,7 @@ const FavoriteProductsTemplate = () => {
       );
     }
   };
+
   useEffect(() => {
     dispatch(favoriteProductAsync.request(1));
   }, [dispatch]);
