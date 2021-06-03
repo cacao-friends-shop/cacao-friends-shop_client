@@ -12,6 +12,7 @@ const CartList = ({ cartProducts }: CartListProps) => {
       {cartProducts.map(cartProduct => (
         <CartListItem
           key={cartProduct.id}
+          id={cartProduct.id}
           amount={cartProduct.amount}
           imgPath={cartProduct.product.thumbnailImageUrl}
           title={cartProduct.product.title}

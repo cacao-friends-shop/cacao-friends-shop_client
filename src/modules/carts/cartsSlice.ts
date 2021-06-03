@@ -23,11 +23,44 @@ const cartsSlice = createSlice({
       state.data = null;
       state.error = action.payload;
     },
+    addCarts(
+      state: CartsState,
+      action: PayloadAction<{ id: number; amount?: number }>
+    ) {
+      state.loading = true;
+    },
+    addCartsSuccess(state: CartsState) {
+      state.loading = false;
+    },
+    addCartsError(state: CartsState, action: PayloadAction<Error>) {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    deleteCarts(state: CartsState, action: PayloadAction<number>) {
+      state.loading = true;
+    },
+    deleteCartsSuccess(state: CartsState) {
+      state.loading = false;
+    },
+    deleteCartsError(state: CartsState, action: PayloadAction<Error>) {
+      state.loading = false;
+      state.error = action.payload;
+    },
   },
 });
 
 const { reducer, actions } = cartsSlice;
 
-export const { getCarts, getCartsSuccess, getCartsError } = actions;
+export const {
+  getCarts,
+  getCartsSuccess,
+  getCartsError,
+  addCarts,
+  addCartsSuccess,
+  addCartsError,
+  deleteCarts,
+  deleteCartsError,
+  deleteCartsSuccess,
+} = actions;
 
 export default reducer;

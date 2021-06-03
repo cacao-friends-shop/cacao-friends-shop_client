@@ -12,6 +12,7 @@ type ProductListItemProps = {
   imgPath: string;
   tag?: keyof JSX.IntrinsicElements;
   children?: React.ReactNode;
+  handleDeleteCartItem?: () => void;
 };
 
 const ProductListItem: React.FunctionComponent<
@@ -22,6 +23,7 @@ const ProductListItem: React.FunctionComponent<
   tag = 'li',
   children,
   imgPath,
+  handleDeleteCartItem,
   ...restProps
 }: ProductListItemProps) => {
   const Tag = tag;
@@ -36,7 +38,13 @@ const ProductListItem: React.FunctionComponent<
         <span>{price}원</span>
         {children}
       </div>
-      <IconButton css={buttonStyle} name="close" size={20} />
+      <IconButton
+        onClick={handleDeleteCartItem}
+        title="제거"
+        css={buttonStyle}
+        name="close"
+        size={20}
+      />
     </Tag>
   );
 };

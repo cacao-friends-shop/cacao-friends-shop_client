@@ -3,6 +3,8 @@ import ProductListItem from 'components/molecules/ProductListItem';
 import { css } from '@emotion/react';
 import CircleCheckbox from '../CircleCheckbox';
 import { colors } from 'theme';
+import { useDispatch } from 'react-redux';
+import { deleteCarts } from 'modules/carts/cartsSlice';
 
 type CartListItemProps = {
   /** 상품 이름 */
@@ -11,19 +13,32 @@ type CartListItemProps = {
   price: number;
   imgPath: string;
   amount: number;
+  id: number;
 };
 
-const CartListItem = ({ title, price, imgPath, amount }: CartListItemProps) => {
+const CartListItem = ({
+  title,
+  price,
+  imgPath,
+  amount,
+  id,
+}: CartListItemProps) => {
   const [value, setValue] = useState(amount);
-
+  const dispatch = useDispatch();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setValue(+e.target.value);
+
+  const handleDeleteCartItem = () => {
+    dispatch(deleteCarts(id));
+  };
+
   return (
     <ProductListItem
       imgPath={imgPath}
       css={container}
       title={title}
       price={price}
+      handleDeleteCartItem={handleDeleteCartItem}
     >
       <input type="number" value={value} onChange={handleChange} />
       <CircleCheckbox />
@@ -33,6 +48,10 @@ const CartListItem = ({ title, price, imgPath, amount }: CartListItemProps) => {
 
 const container = css`
   padding-left: 4.5rem;
+
+  a {
+    pointer-events: none;
+  }
 
   input[type='number'] {
     margin-top: 2rem;

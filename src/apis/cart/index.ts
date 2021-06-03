@@ -6,6 +6,12 @@ export const getCarts = async () => {
   return carts;
 };
 
-export const addCarts = async (id: number, amount: number) => {
-  await axios.post(`/carts/${id}`, { amount });
+export const addCartItem = async (id: number, amount: number = 1) => {
+  const res = await axios.post(`/carts/${id}`, { amount });
+  return res;
+};
+
+export const deleteCartItem = async (id: number) => {
+  const res = await axios.delete(`/carts/${id}`);
+  return res;
 };
