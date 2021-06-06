@@ -50,18 +50,18 @@ type SideBarHeaderProps = {
 };
 
 const SideBarHeader = ({ setIsShow, type, nickName }: SideBarHeaderProps) => {
-  const history = useHistory();
   const handleClick = () => {
     setIsShow(false);
-    history.push('/user');
   };
 
   const login = (
     <>
-      <span className="text" onClick={() => handleClick()}>
-        {nickName}
-      </span>
-      님! 반가워요!
+      <Link to="userupdate">
+        <span className="text" onClick={() => handleClick()}>
+          {nickName}
+        </span>
+        님! 반가워요!
+      </Link>
     </>
   );
   const nonLogin = (

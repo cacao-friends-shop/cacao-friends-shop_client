@@ -240,7 +240,7 @@ const SignUpForm = () => {
                     handleBlur(e);
                     storePassword(e);
                   }}
-                  value={values.password}
+                  value={values.confirmPassword}
                 />
               </div>
               {errors.password && touched.password ? (
@@ -265,7 +265,7 @@ const SignUpForm = () => {
                     handleBlur(e);
                     blurHandler(e);
                   }}
-                  value={values.password}
+                  value={values.nickname}
                   maxLength={20}
                 />
                 <span className="nickname-limit">

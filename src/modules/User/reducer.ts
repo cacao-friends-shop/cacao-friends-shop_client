@@ -7,10 +7,12 @@ import {
   SIGN_UP,
   SIGN_UP_SUCCESS,
   SIGN_UP_FAILURE,
+  NICKNAME_UPDATE,
+  USER_DELETE,
 } from './actions';
 
 const initialState: UserState = {
-  authUser: null,
+  authUser: JSON.parse(localStorage.getItem('userInfo') || 'null') || null,
   isLoading: false,
   error: '',
 };
@@ -21,6 +23,7 @@ const userReducer = (
     type: string;
     authUser?: User;
     error?: string;
+    nickname?: string;
   }
 ): UserState => {
   switch (action.type) {
@@ -34,7 +37,10 @@ const userReducer = (
     case LOG_IN_SUCCESS:
       return {
         ...state,
-        authUser: action.authUser || null,
+        authUser:
+          action.authUser ||
+          JSON.parse(localStorage.getItem('userInfo') || '{}'),
+        error: '',
         isLoading: false,
       };
     // LOG_IN_FAILURE
@@ -57,7 +63,9 @@ const userReducer = (
     case SIGN_UP_SUCCESS:
       return {
         ...state,
-        authUser: action.authUser || null,
+        authUser:
+          action.authUser ||
+          JSON.parse(localStorage.getItem('userInfo') || '{}'),
       };
     //회원가입 실패
     case SIGN_UP_FAILURE:
@@ -65,6 +73,21 @@ const userReducer = (
         ...state,
         error: action.error || null,
       };
+    // 로그아웃 (기본 처리)
+    case LOG_OUT:
+      return initialState;
+    case NICKNAME_UPDATE:
+      return {
+        ...state,
+        authUser:
+          action.authUser ||
+          JSON.parse(localStorage.getItem('userInfo') || '{}'),
+        isLoading: false,
+      };
+
+    // Delete User
+    case USER_DELETE:
+      return initialState;
     // 기본 (초기 상태)
     default:
       return state;

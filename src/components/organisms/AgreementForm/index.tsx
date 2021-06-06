@@ -307,6 +307,9 @@ const formStyle = css`
     margin-left: 0.8rem;
     font-size: 1.4rem;
   }
+  label {
+    margin-left: 1rem;
+  }
 `;
 const agreeButtonStyle = css`
   width: 100%;

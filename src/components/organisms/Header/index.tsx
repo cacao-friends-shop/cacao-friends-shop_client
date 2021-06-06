@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
 import { Link } from 'react-router-dom';
@@ -13,13 +13,11 @@ import SideBarModal from '../SideBarModal';
 import getPublicAsset from 'utils/getPublicAsset';
 import IconLink from 'components/molecules/IconLink';
 import { RootState } from 'saga';
+import { updateUserInfoAction } from 'modules/User/actions';
 
 const Header = () => {
   const [isShow, setIsShow] = useState(false);
   const [isSearchShown, setIsSearchShown] = useState(false);
-  const [userInfo, setUserInfo] = useState(() =>
-    JSON.parse(localStorage.getItem('userInfo') || '{}')
-  );
   const user = useSelector((state: RootState) => state.user);
 
   return !isSearchShown ? (
@@ -40,7 +38,7 @@ const Header = () => {
           </div>
           <div css={IconButtonContainerStyle}>
             {/* 추후 어드민 아이콘 처리  */}
-            {user.authUser && userInfo.memberLevel !== 'DEFAULT' && (
+            {user.authUser && user.authUser?.memberLevel === 'ADMIN' && (
               <IconLink
                 iconName="edit"
                 iconSize={20}

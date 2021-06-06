@@ -15,6 +15,16 @@ export type User = {
   memberLevel: string;
   avatar: string;
 };
+export type UserUpdate = {
+  nickname: string;
+  memberLevel: string;
+  email: string;
+};
+
+export type NicknameUpdate = {
+  type: 'user/NICKNAME_UPDATE';
+  nickname: string;
+};
 
 export type LoginInfo = {
   email: string;
@@ -32,11 +42,16 @@ export type PandingAction = Action &
     type: 'user/PENDING';
   };
 
-export type LoginAction = Action &
-  LoginInfo & {
-    type: 'user/LOG_IN';
-    userInfo: LoginInfo;
-  };
+// export type LoginAction = Action &
+//   LoginInfo & {
+//     type: 'user/LOG_IN';
+//     userInfo: LoginInfo;
+//   };
+
+export type LoginAction = Action & {
+  type: 'user/LOG_IN';
+  userInfo: LoginInfo;
+};
 
 export type LogoutAction = Action & {
   type: 'user/LOG_OUT';
@@ -58,3 +73,8 @@ export type SignupAction = Action &
     type: 'user/SIGN_UP';
     userInfo: SignupUserInfo;
   };
+
+export type DeleteUser = {
+  type: 'user/DELETE_USER';
+  password: string;
+};
