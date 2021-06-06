@@ -6,12 +6,13 @@ import IconButton from '../IconButton';
 
 type ProductImageCardProps = {
   img: string;
+  to: number;
 };
 
-const ProductImageCard = ({ img }: ProductImageCardProps) => {
+const ProductImageCard = ({ img, to }: ProductImageCardProps) => {
   return (
     <li css={container}>
-      <Link to="/">
+      <Link to={`/product/${to}`}>
         <img
           src={
             img

@@ -9,8 +9,10 @@ type ProductListItemProps = {
   /** 상품 가격 */
   price: number;
   /** 태그 이름 */
+  imgPath: string;
   tag?: keyof JSX.IntrinsicElements;
   children?: React.ReactNode;
+  handleDeleteCartItem?: () => void;
 };
 
 const ProductListItem: React.FunctionComponent<
@@ -20,6 +22,8 @@ const ProductListItem: React.FunctionComponent<
   price,
   tag = 'li',
   children,
+  imgPath,
+  handleDeleteCartItem,
   ...restProps
 }: ProductListItemProps) => {
   const Tag = tag;
@@ -27,17 +31,20 @@ const ProductListItem: React.FunctionComponent<
   return (
     <Tag css={container} {...restProps}>
       <Link to="/" css={imgContainer}>
-        <img
-          src="https://t1.daumcdn.net/friends/prod/product/20210421145731862_8809721508497_AW_00.jpg?type=thumb&opt=R255x255@2xa"
-          alt="img"
-        />
+        <img src={imgPath} alt={title} />
       </Link>
       <div css={textContainer}>
         <h3>{title}</h3>
         <span>{price}원</span>
         {children}
       </div>
-      <IconButton css={buttonStyle} name="close" size={20} />
+      <IconButton
+        onClick={handleDeleteCartItem}
+        title="제거"
+        css={buttonStyle}
+        name="close"
+        size={20}
+      />
     </Tag>
   );
 };

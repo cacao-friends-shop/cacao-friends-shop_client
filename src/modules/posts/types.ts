@@ -1,4 +1,4 @@
-// Posts 전체 조회시 응답 데이터 타입
+// Posts 전체 조회시 응답 데이터 요소 타입
 export type PostsType = {
   id: number;
   title: string;
@@ -18,7 +18,7 @@ export type PostsType = {
 //   content: string;
 // };
 
-// Post id 조회시 응답 데이터 타입
+// Post id 조회시 응답 데이터 요소 타입
 export type PostType = {
   id: number;
   title: string;
@@ -61,4 +61,23 @@ export type PostsState = {
   post: {
     [key: number]: PostInitial;
   };
+};
+
+// 포스트 추가시 요청 타입
+export type AddPostType = {
+  title: string;
+  content: string;
+  characterType: string;
+  createdDateTime: string;
+  imageUrls: string[] | null;
+};
+
+// 포스트 수정시 요청 타입
+export type EditPostType = {
+  id: number;
+  title: string;
+  content: string;
+  characterType: string;
+  createdDateTime: string;
+  imageUrls: string[] | null;
 };

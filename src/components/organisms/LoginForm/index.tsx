@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { colors, fontSizes } from 'theme';
 import { loginAction } from 'modules/User/actions';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
     .email('이메일 포맷에 맞게 넣어주세요')
@@ -27,7 +27,6 @@ const LoginForm = () => {
     const timeOutId = setTimeout(() => {
       setErrorMessage('');
     }, 1000);
-
     return () => {
       clearTimeout(timeOutId);
     };

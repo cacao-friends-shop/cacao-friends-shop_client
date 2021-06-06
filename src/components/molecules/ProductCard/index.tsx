@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
-import { addCart } from 'modules/cart/actions';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { addCarts } from 'modules/carts/cartsSlice';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from 'saga';
+import { Carts } from 'types/Carts';
 import IconButton from '../IconButton';
 
 type ProductCardProps = {
@@ -11,19 +11,25 @@ type ProductCardProps = {
   imgPath: string;
   title: string;
   price: string;
+  cartProducts: Carts[] | null;
 };
 
-const ProductCard = ({ id, imgPath, title, price }: ProductCardProps) => {
-  const { data: products } = useSelector(
-    (state: RootState) => state.product.products
-  );
+const ProductCard = ({
+  id,
+  imgPath,
+  title,
+  price,
+  cartProducts,
+}: ProductCardProps) => {
+  const isInTheCart =
+    cartProducts &&
+    cartProducts.find(cartProducts => cartProducts.product.id === id);
+
   const dispatch = useDispatch();
-  // const handleAddCart = (id: number) => {
-  //   const cartProduct = products?.data.content?.find(product => product.id === id);
-  //   if (cartProduct) {
-  //     dispatch(addCart(cartProduct, id));
-  //   }
-  // };
+
+  const handleAddCarts = useCallback(() => {
+    dispatch(addCarts({ id }));
+  }, [dispatch, id]);
 
   return (
     <li css={container}>
@@ -46,11 +52,12 @@ const ProductCard = ({ id, imgPath, title, price }: ProductCardProps) => {
       </Link>
       <div css={buttonConainer}>
         <IconButton
-          name="basket"
+          disabled={!!isInTheCart}
+          name={isInTheCart ? 'fillbasket' : 'basket'}
           size={25}
-          fgColor="#aaa"
+          fgColor={isInTheCart ? 'red' : '#aaa'}
           title="담기"
-          //onClick={() => handleAddCart(id)}
+          onClick={handleAddCarts}
         />
       </div>
     </li>

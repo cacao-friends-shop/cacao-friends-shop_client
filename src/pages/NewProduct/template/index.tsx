@@ -7,25 +7,16 @@ import TabComp from 'components/molecules/TabComp';
 import { colors } from 'theme';
 import { productsAsync } from 'modules/Product/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'saga';
+import { RootState } from 'modules';
 import { imageList } from 'staticData';
-
-type NewProductTemplateProps = {
-  // products: ProductsState;
-};
 
 const NewProductTemplate = () => {
   const { ryan, neo, muzi, prodo, apitch } = useSelector(
     (state: RootState) => state.product.products
   );
+
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(productsAsync.request('네오', 'neo'));
-    dispatch(productsAsync.request('라이언', 'ryan'));
-    dispatch(productsAsync.request('무지', 'muzi'));
-    dispatch(productsAsync.request('어피치', 'apitch'));
-    dispatch(productsAsync.request('프로도', 'prodo'));
-  }, [dispatch]);
+
   const {
     currentIdx,
     direction,
@@ -35,8 +26,12 @@ const NewProductTemplate = () => {
   } = useCarouselState(imageList);
 
   useEffect(() => {
-    console.log(ryan, neo, muzi, prodo, apitch);
-  }, [ryan, neo, muzi, prodo, apitch]);
+    dispatch(productsAsync.request('네오', 'neo'));
+    dispatch(productsAsync.request('라이언', 'ryan'));
+    dispatch(productsAsync.request('무지', 'muzi'));
+    dispatch(productsAsync.request('어피치', 'apitch'));
+    dispatch(productsAsync.request('프로도', 'prodo'));
+  }, [dispatch]);
   return (
     <>
       <TabComp />

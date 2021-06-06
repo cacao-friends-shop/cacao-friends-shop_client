@@ -5,4 +5,4 @@ export default {
   component: CartList,
 };
 
-export const DefaultCartList = () => <CartList />;
+export const DefaultCartList = () => <CartList cartProducts={[]} />;

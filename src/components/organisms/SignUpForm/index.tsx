@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect, useReducer } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import { css } from '@emotion/react';
 import Input from 'components/atoms/Input';
 import Button from 'components/atoms/Button';
 import { emailConfirmRequest, nicknameConfirmRequest } from 'apis/User';
 import { signupAction } from 'modules/User/actions';
-import { RootState } from 'saga';
 import { SignupUserInfo } from 'types/User';
 import * as Yup from 'yup';
 import { colors, fontSizes } from 'theme';

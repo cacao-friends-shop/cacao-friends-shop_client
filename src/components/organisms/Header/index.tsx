@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { css } from '@emotion/react';
 import A11yHiddenHeading from 'components/atoms/A11yHiddenHeading';
 import { Link } from 'react-router-dom';
@@ -12,8 +12,7 @@ import { colors } from 'theme';
 import SideBarModal from '../SideBarModal';
 import getPublicAsset from 'utils/getPublicAsset';
 import IconLink from 'components/molecules/IconLink';
-import { RootState } from 'saga';
-import { updateUserInfoAction } from 'modules/User/actions';
+import { RootState } from 'modules';
 
 const Header = () => {
   const [isShow, setIsShow] = useState(false);
