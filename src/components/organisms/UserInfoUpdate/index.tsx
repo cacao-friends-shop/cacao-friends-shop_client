@@ -5,7 +5,6 @@ import Button from 'components/atoms/Button';
 import Input from 'components/atoms/Input';
 import { colors, fontSizes } from 'theme';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from 'saga';
 import {
   loginSuccess,
   nicknameUpdateAction,
@@ -24,6 +23,7 @@ import {
   ModalOverlay,
   useDisclosure,
 } from '@chakra-ui/react';
+import { RootState } from 'modules';
 
 const UserInfoUpdate = () => {
   const { authUser: user } = useSelector((state: RootState) => state.user);
