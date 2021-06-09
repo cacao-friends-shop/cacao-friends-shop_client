@@ -9,9 +9,7 @@ const cartsSlice = createSlice({
   initialState,
   reducers: {
     getCarts(state: CartsState) {
-      state.loading = true;
-      state.data = null;
-      state.error = null;
+      return { ...state, ...asyncState.load() };
     },
     getCartsSuccess(state: CartsState, action: PayloadAction<Carts[]>) {
       state.loading = false;
