@@ -9,15 +9,52 @@ import {
   SIGN_UP_FAILURE,
   SIGN_UP_SUCCESS,
   LOG_OUT,
+  NICKNAME_UPDATE,
+  UPDATE_USERINFO,
+  USER_DELETE,
 } from './actions';
-import { loginRequest, signupRequest, logoutRequest } from 'apis/User';
+import {
+  loginRequest,
+  signupRequest,
+  logoutRequest,
+  nicknameUpdateRequest,
+  userDeleteRequest,
+} from 'apis/User';
 import {
   LoginSuccessInfo,
   LoginAction,
   SignupAction,
   LogoutAction,
+  NicknameUpdate,
+  DeleteUser,
 } from 'types/User';
 
+function* userDeleteSaga({ type, password }: DeleteUser) {
+  try {
+    const res: string = yield call(userDeleteRequest, password);
+    yield put({ type: USER_DELETE, password });
+    localStorage.removeItem('userInfo');
+    return res;
+  } catch (error) {
+    alert('패스워드가 맞지 않습니다');
+  }
+}
+function* updateUserInfoSaga(action: ReturnType<typeof loginAction>) {
+  const user = action.userInfo;
+  yield put({ type: UPDATE_USERINFO, authUser: user });
+}
+
+function* nicknameUpdateSaga({ type, nickname }: NicknameUpdate) {
+  try {
+    yield call(nicknameUpdateRequest, nickname);
+    const userData = JSON.parse(localStorage.getItem('userInfo') || '{}');
+    userData.nickname = nickname;
+    localStorage.setItem('userInfo', JSON.stringify(userData));
+    yield put({ type: NICKNAME_UPDATE, userData });
+  } catch (error) {
+    console.log(error);
+  }
+}
 function* logoutSaga() {
   localStorage.removeItem('userInfo');
   yield call(logoutRequest);
@@ -26,11 +63,15 @@ function* logoutSaga() {
 
 function* loginSaga(action: ReturnType<typeof loginAction>) {
   const userInfo = action.userInfo;
-  console.log(userInfo);
   try {
     const user: LoginSuccessInfo = yield call(loginRequest, userInfo);
-    yield put({ type: LOG_IN_SUCCESS, authUser: user });
-    localStorage.setItem('userInfo', JSON.stringify(user));
+    console.log(user);
+    if (typeof user !== 'string') {
+      yield put({ type: LOG_IN_SUCCESS, authUser: user });
+      localStorage.setItem('userInfo', JSON.stringify(user));
+    } else {
+      throw new Error(user);
+    }
   } catch (err) {
     yield put({ type: LOG_IN_FAILURE, error: err.message });
   }
@@ -56,4 +97,7 @@ export function* userSaga() {
   yield takeLatest<LoginAction>(LOG_IN, loginSaga);
   yield takeLatest<SignupAction>(SIGN_UP, signupSaga);
   yield takeLatest<LogoutAction>(LOG_OUT, logoutSaga);
+  yield takeLatest<LoginAction>(UPDATE_USERINFO, updateUserInfoSaga);
+  yield takeLatest(NICKNAME_UPDATE, nicknameUpdateSaga);
+  yield takeLatest(USER_DELETE, userDeleteSaga);
 }

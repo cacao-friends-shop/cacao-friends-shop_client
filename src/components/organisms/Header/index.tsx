@@ -17,9 +17,6 @@ import { RootState } from 'modules';
 const Header = () => {
   const [isShow, setIsShow] = useState(false);
   const [isSearchShown, setIsSearchShown] = useState(false);
-  const [userInfo] = useState(() =>
-    JSON.parse(localStorage.getItem('userInfo') || '{}')
-  );
   const user = useSelector((state: RootState) => state.user);
 
   return !isSearchShown ? (
@@ -40,7 +37,7 @@ const Header = () => {
           </div>
           <div css={IconButtonContainerStyle}>
             {/* 추후 어드민 아이콘 처리  */}
-            {user.authUser && userInfo.memberLevel !== 'DEFAULT' && (
+            {user.authUser && user.authUser?.memberLevel === 'ADMIN' && (
               <IconLink
                 iconName="edit"
                 iconSize={20}

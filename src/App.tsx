@@ -5,7 +5,6 @@ import { Switch, Route } from 'react-router-dom';
 import Login from 'pages/Login';
 import Signup from 'pages/SignUp';
 import Agreement from 'pages/Agreement';
-
 import Home from 'pages/Home';
 import NewProduct from 'pages/NewProduct';
 import FavoriteProducts from 'pages/FavoriteProducts';
@@ -20,6 +19,7 @@ import AdminWrite from 'pages/AdminWrite';
 import ProductDetail from 'pages/ProductDetail';
 import OrderDetail from 'pages/OrderDetail';
 import PostDetail from 'pages/PostDetail';
+import UserUpdate from 'pages/UserUpdate';
 import Footer from 'components/organisms/Footer';
 import AdminEdit from 'pages/AdminEdit';
 
@@ -28,7 +28,6 @@ function App() {
     <>
       <Global styles={GlobalStyles} />
       <Header />
-
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/new" component={NewProduct} />
@@ -42,12 +41,14 @@ function App() {
 
         <Route path="/admin/posts" component={AdminList} exact />
         <Route path="/admin/posts/:id" component={PostDetail} />
+
         <Route path="/admin/newpost" component={AdminWrite} />
         <Route path="/admin/edit/:id" component={AdminEdit} />
 
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/agreement" component={Agreement} />
+        <Route path="/userupdate" component={UserUpdate} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />

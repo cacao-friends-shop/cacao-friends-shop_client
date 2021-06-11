@@ -52,6 +52,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           onChange={onChange}
           checked={checked}
+          value={value}
           {...restProps}
         />
 

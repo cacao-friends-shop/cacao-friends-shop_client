@@ -24,10 +24,14 @@ const LoginForm = () => {
     userState.authUser
       ? history.push('/')
       : setErrorMessage('아이디 또는 페스워드가 맞지않습니다');
-    setTimeout(() => {
+    const timeOutId = setTimeout(() => {
       setErrorMessage('');
     }, 1000);
-  }, [userState, history]);
+    return () => {
+      clearTimeout(timeOutId);
+    };
+  }, [userState]);
+
   return (
     <section css={container}>
       <article css={loginFormContainer}>
